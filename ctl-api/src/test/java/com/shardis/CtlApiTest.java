@@ -34,7 +34,7 @@ import com.shardis.api.domain.blog.BlogPost;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @WebAppConfiguration
-public class ShardisApiTest {
+public class CtlApiTest {
 
 	@Rule
 	public JUnitRestDocumentation  restDocumentation = new JUnitRestDocumentation("target/generated-snippets");
