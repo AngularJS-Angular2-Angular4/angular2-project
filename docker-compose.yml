@@ -1,14 +1,14 @@
 version: '2'
 services:
   config-service:
-    image: spring-ng2-starter/shardis-config
+    image: ctl-platform/ctl-config
     ports:
      - 8888:8888
     environment:
      - CONFIGURATION_REPOSITORY=https://github.com/shardis/spring-angular2-starter-configuration.git
      - CONFIGURATION_BRANCH=dev
   discovery-service:
-    image: spring-ng2-starter/shardis-discovery
+    image: ctl-platform/ctl-discovery
     ports:
      - 8081:8081
     depends_on:
@@ -17,7 +17,7 @@ services:
      - config-service
     entrypoint: ./wait-for-service.sh http://config-service:8888/health
   api-service:
-    image: spring-ng2-starter/shardis-api
+    image: ctl-platform/ctl-api
     ports:
      - 8082:8082
     depends_on:
@@ -29,7 +29,7 @@ services:
      - config-service
     entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
   auth-service:
-    image: spring-ng2-starter/shardis-auth
+    image: ctl-platform/ctl-auth
     ports:
      - 8083:8083
     depends_on:
@@ -39,7 +39,7 @@ services:
      - config-service
     entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
   ui-service:
-    image: spring-ng2-starter/shardis-ui
+    image: ctl-platform/ctl-ui
     ports:
      - 8080:8080
     depends_on:
@@ -55,7 +55,7 @@ services:
      - config-service
     entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
   gateway-service:
-    image: spring-ng2-starter/shardis-gateway
+    image: ctl-platform/ctl-gateway
     ports:
       - 8090:8090
     depends_on:
@@ -67,7 +67,7 @@ services:
       - config-service
     entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
   admin-service:
-    image: spring-ng2-starter/shardis-admin
+    image: ctl-platform/ctl-admin
     ports:
       - 8084:8084
     depends_on:
