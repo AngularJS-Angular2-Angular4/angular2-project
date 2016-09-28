@@ -1,0 +1,28 @@
+### idea
+.idea/
+*.iml
+
+### sts
+.settings
+.classpath
+.project
+
+### maven
+shardis-common/target/
+shardis-discovery/target/
+shardis-auth/target/
+shardis-api/target/
+shardis-ui/target/
+shardis-admin/target/
+shardis-gateway/target/
+shardis-config/target/
+
+### node
+npm-debug.log
+shardis-ui/etc/
+shardis-ui/node/
+shardis-ui/node_modules/
+### coverage
+shardis-ui/coverage/
+### dist
+shardis-ui/src/main/resources/static/

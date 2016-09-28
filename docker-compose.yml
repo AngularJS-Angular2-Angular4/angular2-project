@@ -1,0 +1,81 @@
+version: '2'
+services:
+  config-service:
+    image: spring-ng2-starter/shardis-config
+    ports:
+     - 8888:8888
+    environment:
+     - CONFIGURATION_REPOSITORY=https://github.com/shardis/spring-angular2-starter-configuration.git
+     - CONFIGURATION_BRANCH=dev
+  discovery-service:
+    image: spring-ng2-starter/shardis-discovery
+    ports:
+     - 8081:8081
+    depends_on:
+     - config-service
+    links:
+     - config-service
+    entrypoint: ./wait-for-service.sh http://config-service:8888/health
+  api-service:
+    image: spring-ng2-starter/shardis-api
+    ports:
+     - 8082:8082
+    depends_on:
+     - discovery-service
+     - auth-service
+    links:
+     - discovery-service
+     - auth-service
+     - config-service
+    entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
+  auth-service:
+    image: spring-ng2-starter/shardis-auth
+    ports:
+     - 8083:8083
+    depends_on:
+     - discovery-service
+    links:
+     - discovery-service
+     - config-service
+    entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
+  ui-service:
+    image: spring-ng2-starter/shardis-ui
+    ports:
+     - 8080:8080
+    depends_on:
+     - discovery-service
+     - auth-service
+     - api-service
+     - gateway-service
+    links:
+     - discovery-service
+     - gateway-service
+     - auth-service
+     - api-service
+     - config-service
+    entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
+  gateway-service:
+    image: spring-ng2-starter/shardis-gateway
+    ports:
+      - 8090:8090
+    depends_on:
+      - discovery-service
+    links:
+      - discovery-service
+      - auth-service
+      - api-service
+      - config-service
+    entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
+  admin-service:
+    image: spring-ng2-starter/shardis-admin
+    ports:
+      - 8084:8084
+    depends_on:
+      - discovery-service
+    links:
+      - discovery-service
+      - auth-service
+      - api-service
+      - ui-service
+      - config-service
+    entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
