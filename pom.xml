@@ -4,23 +4,22 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.shardis</groupId>
-	<artifactId>ctl</artifactId>
-	<version>2.2.0</version>
+	<groupId>com.centurylink.pctl</groupId>
+	<version>1.0.0</version>
 	<packaging>pom</packaging>
-
-	<name>ctl</name>
-	<description>ctl</description>
+	<name>pctl</name>
+	<description>pctl</description>
 
 	<modules>
-		<module>ctl-common</module>
-		<module>ctl-discovery</module>
-		<module>ctl-auth</module>
-		<module>ctl-gateway</module>
-		<module>ctl-ui</module>
-		<module>ctl-api</module>
-		<module>ctl-config</module>
-		<module>ctl-admin</module>
+		<module>pctl.mod.common</module>
+		<module>pctl.mod.discovery</module>
+		<module>pctl.mod.auth</module>
+		<module>pctl.mod.gateway</module>
+		<module>pctl.mod.ui</module>
+		<module>pctl.mod.api</module>
+		<module>pctl.mod.config</module>
+		<module>pctl.mod.admin</module>
+		
 	</modules>
 
     <properties>
@@ -142,8 +141,8 @@
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>com.shardis</groupId>
-				<artifactId>ctl-common</artifactId>
+				<groupId>com.centurylink.pctl</groupId>
+				<artifactId>pctl.mod.common</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 		</dependencies>
@@ -347,4 +346,5 @@
 		</repository>
 	</repositories>
 
+	<artifactId>pctl</artifactId>
 </project>
