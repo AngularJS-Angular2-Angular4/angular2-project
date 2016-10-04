@@ -1,6 +1,6 @@
-package com.centurylink.pctl.repository;
+package com.centurylink.pctl.mod.common.repository;
 
-import com.centurylink.pctl.model.entity.Product;
+import com.centurylink.pctl.mod.common.model.entity.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
