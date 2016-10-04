@@ -19,7 +19,7 @@
 		<module>pctl.mod.api</module>
 		<module>pctl.mod.config</module>
 		<module>pctl.mod.admin</module>
-		
+
 	</modules>
 
     <properties>
@@ -39,6 +39,7 @@
         <docker.plugin.version>0.3.258</docker.plugin.version>
         <maven-resources-plugin.version>3.0.1</maven-resources-plugin.version>
 		<asciidoctor-maven-plugin.version>1.5.3</asciidoctor-maven-plugin.version>
+        <commons-core.version>1.3.2.RELEASE</commons-core.version>
     </properties>
 
 

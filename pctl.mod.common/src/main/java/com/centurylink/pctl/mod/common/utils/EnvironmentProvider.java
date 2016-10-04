@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 /**
  * Created by Tomasz Kucharzyk
  */
-@Component
+@Component("environmentProvider")
 public class EnvironmentProvider implements EnvironmentAware {
 
     private static Environment environment;
