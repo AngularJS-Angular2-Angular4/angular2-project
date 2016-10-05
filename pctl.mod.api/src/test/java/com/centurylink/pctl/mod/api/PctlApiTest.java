@@ -13,6 +13,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.centurylink.pctl.mod.api.domain.product.Product;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -29,7 +30,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.centurylink.pctl.mod.api.domain.blog.BlogPost;
+
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -60,35 +62,29 @@ public class PctlApiTest {
 	@WithMockUser(username="admin",roles={"USER"})
 	public void postsWithUser() throws Exception {
 
-		this.mockMvc.perform(get("/orders/"))
+		this.mockMvc.perform(get("/products/"))
 			.andExpect(status().isOk())
-			.andDo(document("list-orders",
+			.andDo(document("list-products",
 					preprocessRequest(
 							prettyPrint()),
 							preprocessResponse(prettyPrint()),
 					responseFields(
-                    fieldWithPath("[].id").description("The orders' ID"),
-                    fieldWithPath("[].title").description("The orders' title"),
-                    fieldWithPath("[].content").description("The orders' content"),
-                    fieldWithPath("[].uuid").description("The orders' content"),
-                    fieldWithPath("[].createdDate").description("The orders' creation date"),
-                    fieldWithPath("[].createdBy").description("The orders' created by"),
-                    fieldWithPath("[].updatedDate").description("The orders' update data"),
-                    fieldWithPath("[].updatedBy").description("The orders' updated by"),
-                    fieldWithPath("[].version").description("The orders' version")
+                    fieldWithPath("[]._id").description("The Product Unique ' ID"),
+                    fieldWithPath("[].productId").description("The Product Id"),
+                    fieldWithPath("[].name").description("The Product name")
 
             )));
 	}
 
 	@Test
 	@WithMockUser(username="admin",roles={"USER"})
-    public void createPost() throws Exception {
+    public void createProduct() throws Exception {
 
-		BlogPost newPost = new BlogPost("Sample Order with product  title for testing", "Sample Order content");
+		Product product = new Product("124","SDWAN300");
 
 		this.mockMvc.perform(
-                post("/orders/").contentType(MediaType.APPLICATION_JSON).content(
-                        this.objectMapper.writeValueAsString(newPost)
+                post("/products/").contentType(MediaType.APPLICATION_JSON).content(
+                        this.objectMapper.writeValueAsString(product)
                 )
         ).andExpect(status().isOk())
 		.andDo(document("add-order",
@@ -96,15 +92,9 @@ public class PctlApiTest {
 							prettyPrint()),
 							preprocessResponse(prettyPrint()),
 					requestFields(
-							fieldWithPath("title").description("The orders' title"),
-							fieldWithPath("content").description("The orders' content"),
-							fieldWithPath("id").description("The orders' ID"),
-		                    fieldWithPath("uuid").description("The orders' content"),
-		                    fieldWithPath("createdDate").description("The orders' creation date"),
-		                    fieldWithPath("createdBy").description("The orders' created by"),
-		                    fieldWithPath("updatedDate").description("The orders' update data"),
-		                    fieldWithPath("updatedBy").description("The orders' updated by"),
-		                    fieldWithPath("version").description("The orders' version")
+							fieldWithPath("productId").description("The product' id"),
+							fieldWithPath("name").description("The product' name"),
+							fieldWithPath("_id").description("The Product' Unique ID")
 
 						)
 					));
@@ -112,11 +102,11 @@ public class PctlApiTest {
 
 	@Test
 	@WithMockUser(username="admin",roles={"USER"})
-    public void deletePost() throws Exception {
+    public void deleteProducts() throws Exception {
 		this.mockMvc.perform(
-                delete("/orders/1")
+                delete("/products/1")
         ).andExpect(status().isOk())
-		.andDo(document("delete-order"));
+		.andDo(document("delete-products"));
 	}
 
 }

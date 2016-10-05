@@ -27,7 +27,7 @@ public class SecurityConfig implements ResourceServerConfigurer {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-    	
+
     	http
         .httpBasic().disable()
         .sessionManagement()
@@ -36,8 +36,8 @@ public class SecurityConfig implements ResourceServerConfigurer {
         	.anonymous()
         .and()
         	.authorizeRequests()
-        		.antMatchers("/orders/**").permitAll();
-        
+        		.antMatchers("/products/**").permitAll();
+
     	/*
         http
             .httpBasic().disable()

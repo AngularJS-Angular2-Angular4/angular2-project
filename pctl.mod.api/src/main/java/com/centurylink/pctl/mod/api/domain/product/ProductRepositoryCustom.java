@@ -1,6 +1,5 @@
-package com.centurylink.pctl.mod.common.repository;
+package com.centurylink.pctl.mod.api.domain.product;
 
-import com.centurylink.pctl.mod.common.model.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

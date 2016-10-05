@@ -1,6 +1,5 @@
-package com.centurylink.pctl.mod.common.repository;
+package com.centurylink.pctl.mod.api.domain.product;
 
-import com.centurylink.pctl.mod.common.model.entity.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import java.util.List;
 
 
-public class ProductRepositoryImpl implements ProductRepositoryCustom  {
+public class ProductRepositoryImpl implements ProductRepositoryCustom {
     private final Logger log = LoggerFactory.getLogger(ProductRepositoryImpl.class);
     public static final String COLLECTION = "products";
     @Autowired

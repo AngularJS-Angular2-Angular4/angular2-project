@@ -22,6 +22,13 @@ eureka:
   client:
     registerWithEureka: true
     fetchRegistry: true
+
+  data:
+    mongodb.host: localhost
+    mongodb.port: 27017
+    mongodb.uri: mongodb://localhost/my_database
+
+
 # Disable spring basic authentication security
 #security:
 #  basic:
@@ -42,6 +49,10 @@ eureka:
 
 spring:
   profiles: docker
+  data:
+    mongodb.host: localhost
+    mongodb.port: 27017
+    mongodb.uri: mongodb://localhost/my_database
 
 # EUREKA
 eureka:
@@ -49,10 +60,15 @@ eureka:
     serviceUrl:
       defaultZone: http://discovery-service:8081/eureka/
 
+
 ---
 
 spring:
   profiles: standalone
+  data:
+    mongodb.host: localhost
+    mongodb.port: 27017
+    mongodb.uri: mongodb://localhost/my_database
 
 # EUREKA
 eureka:
@@ -62,3 +78,4 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+

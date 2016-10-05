@@ -1,4 +1,4 @@
-package com.centurylink.pctl.mod.common.model.entity;
+package com.centurylink.pctl.mod.api.domain.product;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -9,7 +9,8 @@ import java.io.Serializable;
  * Created by begin.samuel on 10/4/2016.
  */
 
-@Document(collection = "products")
+
+@Document(collection="products")
 public class Product implements Serializable {
 
 
@@ -44,6 +45,18 @@ public class Product implements Serializable {
 
     public Product(){
 
+    }
+    public Product(String productId, String name){
+
+        this.productId = productId;
+        this.name = name;
+    }
+
+    public Product(String id,String productId, String name){
+
+        this.productId = productId;
+        this.name = name;
+        this._id = id;
     }
 
 }
