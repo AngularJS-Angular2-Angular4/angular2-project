@@ -28,13 +28,6 @@ public class ProductRestController {
     @Autowired
     private ProductRepository productRepository;
 
-    @PostConstruct
-    public void fillData() {
-        log.info("PRE-Getting Products");
-        Product product = new Product("SDWAN123", "SD WAN BASIC");
-        productRepository.save(product);
-        log.info(" Products count {} ",productRepository.findAll().size());
-    }
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)

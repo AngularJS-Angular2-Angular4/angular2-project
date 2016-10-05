@@ -1,12 +1,10 @@
 package com.centurylink.pctl.mod.api.domain.product;
 
 import com.centurylink.pctl.mod.api.controllers.rest.BlogPostRestController;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.*;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.NotNull;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
