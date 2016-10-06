@@ -1,11 +1,27 @@
 package com.centurylink.pctl.mod.api.domain.user;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import java.time.ZonedDateTime;
+import java.util.List;
+import java.util.Optional;
 
 /**
- * Created by Tomasz Kucharzyk
+ * Spring Data MongoDB repository for the User entity.
  */
-@Repository
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends MongoRepository<User, String> {
+
+    Optional<User> findOneByActivationKey(String activationKey);
+
+    List<User> findAllByActivatedIsFalseAndCreatedDateBefore(ZonedDateTime dateTime);
+
+    Optional<User> findOneByResetKey(String resetKey);
+
+    Optional<User> findOneByEmail(String email);
+
+    Optional<User> findOneByLogin(String login);
+
+    @Override
+    void delete(User t);
+
 }

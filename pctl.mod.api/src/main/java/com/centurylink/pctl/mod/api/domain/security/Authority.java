@@ -1,4 +1,4 @@
-package com.centurylink.pctl.mod.api.domain.user;
+package com.centurylink.pctl.mod.api.domain.security;
 
 
 import org.springframework.data.annotation.Id;

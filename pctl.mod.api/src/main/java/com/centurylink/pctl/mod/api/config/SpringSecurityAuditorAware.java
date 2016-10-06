@@ -2,7 +2,7 @@ package com.centurylink.pctl.mod.api.config;
 
 
 
-import com.centurylink.pctl.mod.api.domain.utils.SecurityUtils;
+import com.centurylink.pctl.mod.api.domain.utils.JwtTokenUtil;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +14,7 @@ public class SpringSecurityAuditorAware implements AuditorAware<String> {
 
     @Override
     public String getCurrentAuditor() {
-        String userName = SecurityUtils.getCurrentUserLogin();
+        String userName = JwtTokenUtil.getCurrentUserLogin();
         return (userName != null ? userName : "");
     }
 }

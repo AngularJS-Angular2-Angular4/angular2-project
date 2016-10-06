@@ -1,13 +1,11 @@
 package com.centurylink.pctl.mod.api.domain.product;
 
-import com.centurylink.pctl.mod.api.controllers.rest.BlogPostRestController;
 import com.centurylink.pctl.mod.api.controllers.rest.ProductRestController;
 import org.springframework.data.rest.webmvc.RepositoryLinksResource;
 import org.springframework.hateoas.*;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.stereotype.Component;
 
-import static org.json.XMLTokener.entity;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 /**
@@ -28,8 +26,8 @@ public class ProductRepositoryResource implements ResourceProcessor<RepositoryLi
 
 
     private void addActionLinks(final RepositoryLinksResource resource, final Product entity) {
-        final Link priceLink = ControllerLinkBuilder.linkTo(methodOn(BlogPostRestController.class).getPosts()).withRel("add-posts");
-        resource.add(priceLink);
+        //final Link priceLink = ControllerLinkBuilder.linkTo(methodOn(BlogPostRestController.class).getPosts()).withRel("add-posts");
+       // resource.add(priceLink);
     }
 
 

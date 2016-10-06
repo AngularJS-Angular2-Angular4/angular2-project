@@ -54,6 +54,14 @@ spring:
     mongodb.port: 27017
     mongodb.uri: mongodb://localhost/my_database
 
+  jwt:
+    header: Authorization
+    secret: qwertyuiopasdfghjklzxcvbnm123456
+    expiration: 604800
+    route:
+      authentication:
+        path: auth
+
 # EUREKA
 eureka:
   client:
@@ -69,6 +77,14 @@ spring:
     mongodb.host: localhost
     mongodb.port: 27017
     mongodb.uri: mongodb://localhost/my_database
+
+  jwt:
+    header: Authorization
+    secret: qwertyuiopasdfghjklzxcvbnm123456
+    expiration: 604800
+    route:
+      authentication:
+        path: auth
 
 # EUREKA
 eureka:

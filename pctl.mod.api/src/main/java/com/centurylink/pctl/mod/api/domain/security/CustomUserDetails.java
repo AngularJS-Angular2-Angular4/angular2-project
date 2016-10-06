@@ -1,4 +1,4 @@
-package com.centurylink.pctl.mod.api.config;
+package com.centurylink.pctl.mod.api.domain.security;
 
 import java.util.Collection;
 import java.util.Set;

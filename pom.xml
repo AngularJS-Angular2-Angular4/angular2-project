@@ -40,6 +40,7 @@
         <maven-resources-plugin.version>3.0.1</maven-resources-plugin.version>
 		<asciidoctor-maven-plugin.version>1.5.3</asciidoctor-maven-plugin.version>
         <commons-core.version>1.3.2.RELEASE</commons-core.version>
+        <jjwt.version>0.7.0</jjwt.version>
     </properties>
 
 

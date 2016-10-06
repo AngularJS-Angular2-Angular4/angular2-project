@@ -1,6 +1,5 @@
 package com.centurylink.pctl.mod.api.domain.product;
 
-import com.centurylink.pctl.mod.api.controllers.rest.BlogPostRestController;
 import org.springframework.hateoas.*;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.stereotype.Component;
@@ -18,8 +17,8 @@ public class ProductPagedResource implements ResourceProcessor<PagedResources<Re
    @Override
     public PagedResources<Resource<Product>> process(PagedResources<Resource<Product>> productResources) {
 
-       final Link priceLink = ControllerLinkBuilder.linkTo(methodOn(BlogPostRestController.class).deletePost(1L)).withRel("product-review");
-       productResources.add(priceLink);
+       /*final Link priceLink = ControllerLinkBuilder.linkTo(methodOn(BlogPostRestController.class).deletePost(1L)).withRel("product-review");
+       productResources.add(priceLink);*/
        return productResources;
     }
 
