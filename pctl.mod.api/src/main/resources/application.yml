@@ -17,16 +17,25 @@ server:
 spring:
     jackson.serialization:
         write_dates_as_timestamps: false
+    data:
+      mongodb.host: localhost
+      mongodb.port: 27017
+      mongodb.uri: mongodb://localhost/my_database
+
+    jwt:
+      header: Authorization
+      secret: qwertyuiopasdfghjklzxcvbnm123456
+      expiration: 604800
+      route:
+        authentication:
+          path: auth
+
 # EUREKA
 eureka:
   client:
     registerWithEureka: true
     fetchRegistry: true
 
-  data:
-    mongodb.host: localhost
-    mongodb.port: 27017
-    mongodb.uri: mongodb://localhost/my_database
 
 
 # Disable spring basic authentication security

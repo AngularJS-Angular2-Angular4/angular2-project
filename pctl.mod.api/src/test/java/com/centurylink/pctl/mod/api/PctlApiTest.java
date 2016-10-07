@@ -71,42 +71,17 @@ public class PctlApiTest {
 					responseFields(
                     fieldWithPath("[]._id").description("The Product Unique ' ID"),
                     fieldWithPath("[].productId").description("The Product Id"),
-                    fieldWithPath("[].name").description("The Product name")
+                    fieldWithPath("[].name").description("The Product name"),
+                        fieldWithPath("[].updatedAt").description("The Product name"),
+                        fieldWithPath("[].discriptionHtml").description("The Product name"),
+                        fieldWithPath("[].createdAt").description("The Product name"),
+                        fieldWithPath("[].terms").description("The Product name"),
+                        fieldWithPath("[].displayScope").description("The Product name"),
+                        fieldWithPath("[].productVariants").description("The Product name"),
+                        fieldWithPath("[].urnId").description("The Product name"),
+                        fieldWithPath("[].productType").description("The Product name")
 
             )));
-	}
-
-	@Test
-	@WithMockUser(username="admin",roles={"USER"})
-    public void createProduct() throws Exception {
-
-		Product product = new Product("124","SDWAN300");
-
-		this.mockMvc.perform(
-                post("/products/").contentType(MediaType.APPLICATION_JSON).content(
-                        this.objectMapper.writeValueAsString(product)
-                )
-        ).andExpect(status().isOk())
-		.andDo(document("add-order",
-					preprocessRequest(
-							prettyPrint()),
-							preprocessResponse(prettyPrint()),
-					requestFields(
-							fieldWithPath("productId").description("The product' id"),
-							fieldWithPath("name").description("The product' name"),
-							fieldWithPath("_id").description("The Product' Unique ID")
-
-						)
-					));
-    }
-
-	@Test
-	@WithMockUser(username="admin",roles={"USER"})
-    public void deleteProducts() throws Exception {
-		this.mockMvc.perform(
-                delete("/products/1")
-        ).andExpect(status().isOk())
-		.andDo(document("delete-products"));
 	}
 
 }
