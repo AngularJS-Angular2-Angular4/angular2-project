@@ -21,19 +21,9 @@ public class ProductRepositoryImpl implements ProductRepositoryCustom {
     private MongoTemplate mongoTemplate;
 
     @Override
-    public Product findProductByFields(String productId, String... fields) {
-        Query query = Query.query(Criteria.where("productId").is(productId));
-        for(String field : fields) {
-            query.fields().include(field);
-        }
-
-        Product resultProduct = mongoTemplate.findOne(query, Product.class, COLLECTION);
-        return resultProduct;
-    }
-
-    public Page<Product> findProductsByProductType(String productType, Pageable pageable, String... fields) {
+    public Page<Product> findProductByFields(String productId,Pageable pageable, String... fields) {
         Query query = new Query().with(pageable);
-        query.addCriteria(Criteria.where("productType").is(productType));
+        query.addCriteria(Criteria.where("productId").is(productId));
 
         if(null != fields) {
             for (String field : fields) {
@@ -54,13 +44,36 @@ public class ProductRepositoryImpl implements ProductRepositoryCustom {
 
     }
 
-    @Override
-    public List<Product> findByVariantId(String id) {
-        Query query = Query.query(Criteria.where("variants.variantId").is(id));
-        query.fields().include("variants");
+  /*  public Page<Product> findProductsByProductType(String productType, Pageable pageable, String... fields) {
+        Query query = new Query().with(pageable);
+        query.addCriteria(Criteria.where("productType").is(productType));
+
+        if(null != fields) {
+            for (String field : fields) {
+                query.fields().include(field);
+            }
+        }
+
+
+        if(null == pageable.getSort()) {
+            query.with(new Sort(Sort.Direction.DESC, "updatedAt"));
+        }
+
+        List<Product> products = mongoTemplate.find(query, Product.class);
+        long count = mongoTemplate.count(query, Product.class);
+        Page<Product> page = new PageImpl<>(products, pageable, count);
+
+        return page;
+
+    }*/
+
+
+    /*public List<Product> findByProductsByVariantsVariantId(String id) {
+        Query query = Query.query(Criteria.where("productVariants[].variantId").is(id));
+        query.fields().include("productVariants");
 
         List<Product> resultProduct = mongoTemplate.find(query,Product.class, COLLECTION);
         return resultProduct;
-    }
+    }*/
 
 }

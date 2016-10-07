@@ -1,4 +1,4 @@
-package com.centurylink.pctl.mod.api.domain.security;
+package com.centurylink.pctl.mod.api.domain.security.endpoint;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

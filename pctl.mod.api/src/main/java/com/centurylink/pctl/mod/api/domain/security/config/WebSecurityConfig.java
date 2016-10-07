@@ -1,13 +1,11 @@
-package com.centurylink.pctl.mod.api.config;
+package com.centurylink.pctl.mod.api.domain.security.config;
 
 import com.centurylink.pctl.mod.api.domain.security.Filter.JwtAuthenticationTokenFilter;
-import com.centurylink.pctl.mod.api.domain.security.JwtAuthenticationEntryPoint;
+import com.centurylink.pctl.mod.api.domain.security.endpoint.JwtAuthenticationEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -15,20 +13,20 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
-import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
- * Created by Tomasz Kucharzyk
+ * Created by begin.samuel on 10/7/2016.
  */
+//@EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true)
 @Configuration
-@EnableResourceServer
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true)
-public class SecurityConfig extends WebSecurityConfigurerAdapter implements ResourceServerConfigurer   {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements ResourceServerConfigurer {
+    public static final String JWT_TOKEN_ENTRY_POINT = "/auth/token/**";
+    public static final String JWT_TOKEN_ALLOW_ENTRY_POINT = "/product/**";
+    public static final String JWT_TOKEN_USER_ENTRY_POINT = "/auth/user/**";
 
     @Autowired
     private JwtAuthenticationEntryPoint unauthorizedHandler;
@@ -61,31 +59,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Reso
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-
+        //.authorizeRequests()
 
         http
-            .csrf().disable()
-            .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-            .httpBasic().disable()
+            .csrf().disable() // We don't need CSRF for JWT based authentication
+            .exceptionHandling()
+            .authenticationEntryPoint(unauthorizedHandler)
+            .and()
             .sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
             .anonymous()
             .and()
             .authorizeRequests()
-            .antMatchers("/auth/**").permitAll()
-            .antMatchers("/products/**").permitAll()
-            .anyRequest().authenticated()
+            .antMatchers(JWT_TOKEN_ALLOW_ENTRY_POINT).permitAll()
+            .antMatchers(JWT_TOKEN_ENTRY_POINT).permitAll()
             .and()
-            .logout().logoutUrl("/logout").logoutSuccessUrl("/");
-
-        http
-            .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
-
-        http.headers().cacheControl();
+            .authorizeRequests()
+            .antMatchers(JWT_TOKEN_USER_ENTRY_POINT).authenticated()
+            .and()
+            .addFilterBefore(
+                authenticationTokenFilterBean(),
+                UsernamePasswordAuthenticationFilter.class);
     }
-
-
-
 }
-

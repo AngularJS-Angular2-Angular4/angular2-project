@@ -1,17 +1,18 @@
 package com.centurylink.pctl.mod.api.controllers.rest;
 
 
+import com.centurylink.pctl.mod.api.domain.product.PctlApiProductService;
 import com.centurylink.pctl.mod.api.domain.product.Product;
-import com.centurylink.pctl.mod.api.domain.product.ProductRepository;
-import com.centurylink.pctl.mod.api.domain.utils.JwtTokenUtil;
+import com.centurylink.pctl.mod.api.domain.security.utils.JwtTokenUtil;
 import com.google.common.collect.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -22,12 +23,12 @@ import java.util.List;
 @Transactional
 @RestController
 @RequestMapping("/products")
-public class ProductRestController {
+public class PctlApiProductRestController {
 
-    private static final Logger log = LoggerFactory.getLogger(ProductRestController.class);
+    private static final Logger log = LoggerFactory.getLogger(PctlApiProductRestController.class);
 
     @Autowired
-    private ProductRepository productRepository;
+    private PctlApiProductService pctlApiProductService;
 
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
@@ -35,11 +36,11 @@ public class ProductRestController {
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-//    @PreAuthorize("hasRole('ADMIN')")
+   // @PreAuthorize("hasRole('ADMIN')")
     public List<Product> getProducts() {
         log.info("Getting Products");
-        log.info(" Products count {} ",productRepository.findProductByProductId("sdwan1000").size());
-        return Lists.newArrayList(productRepository.findAll());
+        log.info(" Products count {} ",pctlApiProductService.findProductByProductId("sdwan1000").size());
+        return Lists.newArrayList(pctlApiProductService.findAll());
     }
 
 

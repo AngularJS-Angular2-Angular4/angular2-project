@@ -1,12 +1,10 @@
 package com.centurylink.pctl.mod.api.domain.product;
 
-import com.centurylink.pctl.mod.api.controllers.rest.ProductRestController;
+import com.centurylink.pctl.mod.api.controllers.rest.PctlApiProductRestController;
 import org.springframework.data.rest.webmvc.RepositoryLinksResource;
 import org.springframework.hateoas.*;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.stereotype.Component;
-
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 /**
  * Created by begin.samuel on 10/5/2016.
@@ -17,7 +15,7 @@ public class ProductRepositoryResource implements ResourceProcessor<RepositoryLi
 
     @Override
     public RepositoryLinksResource process(RepositoryLinksResource resource) {
-        resource.add(ControllerLinkBuilder.linkTo(ProductRestController.class).withRel("Sam"));
+        resource.add(ControllerLinkBuilder.linkTo(PctlApiProductRestController.class).withRel("Sam"));
         addActionLinks(resource,null);
 
         return resource;

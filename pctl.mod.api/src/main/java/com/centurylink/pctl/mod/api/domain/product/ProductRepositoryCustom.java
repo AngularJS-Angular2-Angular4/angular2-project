@@ -6,7 +6,5 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface ProductRepositoryCustom   {
-    Product findProductByFields(String productId, String... fields);
-    Page<Product> findProductsByProductType(String productType, Pageable pageable, String... fields);
-    List<Product> findByVariantId(String id);
+    Page<Product> findProductByFields(String productId, Pageable pageable, String... fields);
 }

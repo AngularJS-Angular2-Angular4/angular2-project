@@ -1,8 +1,8 @@
-package com.centurylink.pctl.mod.api.config;
+package com.centurylink.pctl.mod.api.domain.security.config;
 
 
 
-import com.centurylink.pctl.mod.api.domain.utils.JwtTokenUtil;
+import com.centurylink.pctl.mod.api.domain.security.utils.JwtTokenUtil;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Component;
 

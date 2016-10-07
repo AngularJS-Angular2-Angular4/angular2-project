@@ -1,7 +1,7 @@
 package com.centurylink.pctl.mod.api.domain.user;
 
 import com.centurylink.pctl.mod.api.domain.base.AbstractAuditingEntity;
-import com.centurylink.pctl.mod.api.domain.security.Authority;
+import com.centurylink.pctl.mod.api.domain.security.model.Authority;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -18,7 +18,7 @@ import java.util.Set;
 /**
  * A user.
  */
-@Document(collection = "db_user")
+@Document(collection = "users")
 public class User extends AbstractAuditingEntity implements Serializable {
 
     @Id
@@ -45,7 +45,15 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Size(max = 100)
     private String email;
 
-    private boolean activated = false;
+    public String getActivated() {
+        return activated;
+    }
+
+    public void setActivated(String activated) {
+        this.activated = activated;
+    }
+
+    private String activated;
 
     @Size(min = 2, max = 5)
     @Field("lang_key")
@@ -64,7 +72,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
     private ZonedDateTime resetDate = null;
 
     @JsonIgnore
-    private Set<Authority> authorities = new HashSet<>();
+    private Set<Authority> authorities = new HashSet<Authority>();
 
     public String getId() {
         return id;
@@ -114,13 +122,9 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.email = email;
     }
 
-    public boolean getActivated() {
-        return activated;
-    }
 
-    public void setActivated(boolean activated) {
-        this.activated = activated;
-    }
+
+
 
     public String getActivationKey() {
         return activationKey;

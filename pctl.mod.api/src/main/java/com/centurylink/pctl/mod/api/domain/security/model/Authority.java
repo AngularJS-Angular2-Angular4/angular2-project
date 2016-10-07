@@ -1,4 +1,4 @@
-package com.centurylink.pctl.mod.api.domain.security;
+package com.centurylink.pctl.mod.api.domain.security.model;
 
 
 import org.springframework.data.annotation.Id;
@@ -10,12 +10,8 @@ import java.io.Serializable;
 /**
  * An authority (a security role) used by Spring Security.
  */
-@Document(collection = "db_authority")
 public class Authority implements Serializable {
 
-    @NotNull
-    @Size(min = 0, max = 50)
-    @Id
     private String name;
 
     public String getName() {
@@ -23,6 +19,10 @@ public class Authority implements Serializable {
     }
 
     public void setName(String name) {
+        this.name = name;
+    }
+
+    public Authority(String name){
         this.name = name;
     }
 

@@ -1,19 +1,20 @@
-package com.centurylink.pctl.mod.api.domain.utils;
+package com.centurylink.pctl.mod.api.domain.security.utils;
 
 /**
  * Created by begin.samuel on 10/6/2016.
  */
-import com.centurylink.pctl.mod.api.config.AuthoritiesConstants;
-import com.centurylink.pctl.mod.api.domain.security.CustomUserDetails;
-import com.centurylink.pctl.mod.api.domain.security.Filter.JwtAuthenticationTokenFilter;
-import com.centurylink.pctl.mod.api.domain.security.JwtUser;
+import com.centurylink.pctl.mod.api.domain.security.config.AuthoritiesConstants;
+import com.centurylink.pctl.mod.api.domain.security.model.CustomUserDetails;
+import com.centurylink.pctl.mod.api.domain.user.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwt;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -124,14 +125,22 @@ public class JwtTokenUtil implements Serializable {
     }
 
 
+    public String extract(String token) {
+        if (StringUtils.isBlank(token)) {
+            throw new AuthenticationServiceException("Authorization header cannot be blank!");
+        }
+
+        return token;
+    }
+
 
     public Boolean validateToken(String token, UserDetails userDetails) {
-        JwtUser user = (JwtUser) userDetails;
+        User user = (User) userDetails;
         final String username = getUsernameFromToken(token);
         final Date created = getCreatedDateFromToken(token);
         //final Date expiration = getExpirationDateFromToken(token);
         return (
-            username.equals(user.getUsername())
+            username.equals(user.getLogin())
                 && !isTokenExpired(token));
     }
 

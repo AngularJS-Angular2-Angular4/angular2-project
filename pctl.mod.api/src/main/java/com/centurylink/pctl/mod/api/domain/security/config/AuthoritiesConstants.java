@@ -1,4 +1,4 @@
-package com.centurylink.pctl.mod.api.config;
+package com.centurylink.pctl.mod.api.domain.security.config;
 
 /**
  * Constants for Spring Security authorities.
