@@ -3,6 +3,7 @@ package com.centurylink.pctl.mod.api.domain.product;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -17,23 +18,21 @@ public class Product implements Serializable {
         private String updatedAt;
 
         private String discriptionHtml;
+        private String displayImage;
 
         @Id
         private String _id;
 
-        private String displayImage;
 
         private String createdAt;
 
-        private List<String> terms;
+        private List<Terms> terms;
 
         private String name;
 
-        private List<String> displayScope;
 
         private List<ProductVariants> productVariants;
 
-        private String urnId;
 
         private String productType;
 
@@ -89,12 +88,12 @@ public class Product implements Serializable {
             this.createdAt = createdAt;
         }
 
-        public List<String> getTerms ()
+        public List<Terms> getTerms ()
         {
             return terms;
         }
 
-        public void setTerms (List<String> terms)
+        public void setTerms (List<Terms> terms)
         {
             this.terms = terms;
         }
@@ -109,15 +108,6 @@ public class Product implements Serializable {
             this.name = name;
         }
 
-        public List<String> getDisplayScope ()
-        {
-            return displayScope;
-        }
-
-        public void setDisplayScope (List<String> displayScope)
-        {
-            this.displayScope = displayScope;
-        }
 
         public List<ProductVariants> getProductVariants ()
         {
@@ -129,15 +119,6 @@ public class Product implements Serializable {
             this.productVariants = productVariants;
         }
 
-        public String getUrnId ()
-        {
-            return urnId;
-        }
-
-        public void setUrnId (String urnId)
-        {
-            this.urnId = urnId;
-        }
 
         public String getProductType ()
         {
@@ -170,9 +151,7 @@ public class Product implements Serializable {
                 "createdAt = "+createdAt+", " +
                 "terms = "+terms+"," +
                 "name = "+name+", " +
-                "displayScope = "+displayScope+", " +
                 "variants = "+productVariants+"," +
-                "urnId = "+urnId+", " +
                 "productType = "+productType+"," +
                 "productId = "+productId+"}";
         }

@@ -19,6 +19,9 @@ public class PctlApiProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private PriceRepository priceRepository;
+
 
     public List<Product> findProductByProductId(String productId){
         return productRepository.findProductByProductId(productId);
@@ -32,5 +35,16 @@ public class PctlApiProductService {
         return productRepository.findAll();
     }
 
+    public List<Price> findPriceByProductId(String productId){
+        return priceRepository.findPriceByProductId(productId);
+    }
+
+    public List<Price> findAllPrice(){
+        return priceRepository.findAll();
+    }
+
+    public List<Price> findAllPriceByVariantId(String variantId){
+        return priceRepository.findPriceByVarintId(variantId);
+    }
 
 }
