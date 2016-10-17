@@ -2,6 +2,7 @@ package com.centurylink.pctl.mod.api.controllers.rest;
 
 
 import com.centurylink.pctl.mod.api.domain.product.PctlApiProductService;
+import com.centurylink.pctl.mod.api.domain.product.Price;
 import com.centurylink.pctl.mod.api.domain.product.Product;
 import com.centurylink.pctl.mod.api.domain.security.utils.JwtTokenUtil;
 import com.google.common.collect.Lists;
@@ -10,9 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -44,6 +43,19 @@ public class PctlApiProductRestController {
     }
 
 
+    @RequestMapping(value = "/price/", method = RequestMethod.GET)
+    public List<Price> getAllProductPrice() {
+        log.info("Getting Price");
+        log.info(" Price count {} ",pctlApiProductService.findAllPrice().size());
+        return Lists.newArrayList(pctlApiProductService.findAllPrice());
+    }
+
+    @RequestMapping(value = "/price/{variantId}", method = RequestMethod.GET)
+    public List<Price> getPriceByVariantId(@PathVariable("variantId") String variantId) {
+        log.info("Getting Price");
+        log.info(" Price count {} ",pctlApiProductService.findAllPriceByVariantId(variantId));
+        return Lists.newArrayList(pctlApiProductService.findAllPriceByVariantId(variantId));
+    }
 
 
 }

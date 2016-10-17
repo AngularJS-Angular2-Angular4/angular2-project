@@ -1,20 +1,17 @@
 package com.centurylink.pctl.mod.api;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessRequest;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
-import static org.springframework.restdocs.payload.PayloadDocumentation.requestFields;
 import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.centurylink.pctl.mod.api.domain.product.PctlApiProductService;
-import com.centurylink.pctl.mod.api.domain.product.ProductRepository;
+import com.centurylink.pctl.mod.api.domain.product.*;
 import com.centurylink.pctl.mod.api.domain.security.UserDetailsService;
 import com.centurylink.pctl.mod.api.domain.security.utils.JwtTokenUtil;
 import org.junit.Before;
@@ -34,6 +31,8 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.util.List;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -48,6 +47,10 @@ public class PctlApiTest {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private PriceRepository priceRepository;
+
 
     @Autowired
 	private WebApplicationContext context;
@@ -101,12 +104,26 @@ public class PctlApiTest {
                         fieldWithPath("[].discriptionHtml").description("The Product name"),
                         fieldWithPath("[].createdAt").description("The Product name"),
                         fieldWithPath("[].terms").description("The Product name"),
-                        fieldWithPath("[].displayScope").description("The Product name"),
                         fieldWithPath("[].productVariants").description("The Product name"),
-                        fieldWithPath("[].urnId").description("The Product name"),
                         fieldWithPath("[].productType").description("The Product name")
 
             )));
 	}
+
+    @Test
+    @WithMockUser(username="jbeginsamuel@gmail.com",roles={"USER"})
+    public void getAllProductsPriceTest() throws Exception {
+            List<Price> priceList = priceRepository.findAll();
+            assertThat(priceList.size()).isGreaterThan(0);
+    }
+
+
+    @Test
+    @WithMockUser(username="jbeginsamuel@gmail.com",roles={"USER"})
+    public void getAllProductsTest() throws Exception {
+        List<Product> productList = productRepository.findAll();
+        assertThat(productList.size()).isGreaterThan(0);
+    }
+
 
 }

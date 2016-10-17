@@ -1,7 +1,10 @@
 package com.centurylink.pctl.mod.api.domain.product;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.List;
 
 /**
  * Created by begin.samuel on 10/5/2016.
@@ -47,7 +50,16 @@ public class ProductVariants  {
 
     private String haServiceTransport;
 
-    private String cpe;
+
+    public String getStandardCpe() {
+        return standardCpe;
+    }
+
+    public void setStandardCpe(String standardCpe) {
+        this.standardCpe = standardCpe;
+    }
+
+    private String standardCpe;
 
     public String getHaServiceVendor ()
     {
@@ -239,20 +251,12 @@ public class ProductVariants  {
         this.haServiceTransport = haServiceTransport;
     }
 
-    public String getCpe ()
-    {
-        return cpe;
-    }
-
-    public void setCpe (String cpe)
-    {
-        this.cpe = cpe;
-    }
 
     @Override
     public String toString()
     {
-        return "ProductVariants [haServiceVendor = "+haServiceVendor+", securityPkg = "+securityPkg+", displayImage = "+displayImage+", serviceVendor = "+serviceVendor+", tier1Support = "+tier1Support+", haSecurityPkg = "+haSecurityPkg+", serviceTransport = "+serviceTransport+", variantId = "+variantId+", sku = "+sku+", productId = "+productId+", discriptionHtml = "+discriptionHtml+", updatedAt = "+updatedAt+", displayPosition = "+displayPosition+", haCpe = "+haCpe+", haServicePlan = "+haServicePlan+", createdAt = "+createdAt+", name = "+name+", servicePlan = "+servicePlan+", haServiceTransport = "+haServiceTransport+", cpe = "+cpe+"]";
+        return "ProductVariants [haServiceVendor = "+haServiceVendor+", securityPkg = "+securityPkg+", displayImage = "+displayImage+", serviceVendor = "+serviceVendor+", tier1Support = "+tier1Support+", haSecurityPkg = "+haSecurityPkg+", serviceTransport = "+serviceTransport+", variantId = "+variantId+", sku = "+sku+", productId = "+productId+", discriptionHtml = "+discriptionHtml+", updatedAt = "+updatedAt+", displayPosition = "+displayPosition+", haCpe = "+haCpe+", haServicePlan = "+haServicePlan+", createdAt = "+createdAt+", name = "+name+", servicePlan = "+servicePlan+", haServiceTransport = "+haServiceTransport+", standardCpe = "+
+            standardCpe+"]";
     }
 }
 
