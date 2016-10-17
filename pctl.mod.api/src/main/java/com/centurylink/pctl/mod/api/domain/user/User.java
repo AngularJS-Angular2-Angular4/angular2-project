@@ -24,25 +24,25 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Id
     private String id;
 
-    @NotNull
-    @Pattern(regexp = "^[a-z0-9]*$|(anonymousUser)")
-    @Size(min = 1, max = 50)
+    /*  @NotNull
+      @Pattern(regexp = "^[a-z0-9]*$|(anonymousUser)")*/
+    // @Size(min = 1, max = 50)
     private String login;
-
-    @JsonIgnore
-    @NotNull
-    @Size(min = 60, max = 60)
+    /*
+        @JsonIgnore
+        @NotNull
+        @Size(min = 60, max = 60)*/
     private String password;
 
-    @Size(max = 50)
+    //   @Size(max = 50)
     @Field("first_name")
     private String firstName;
 
-    @Size(max = 50)
+    //    @Size(max = 50)
     @Field("last_name")
     private String lastName;
 
-    @Size(max = 100)
+    //  @Size(max = 100)
     private String email;
 
     public String getActivated() {
@@ -55,23 +55,23 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     private String activated;
 
-    @Size(min = 2, max = 5)
+    //  @Size(min = 2, max = 5)
     @Field("lang_key")
     private String langKey;
 
-    @Size(max = 20)
+    //  @Size(max = 20)
     @Field("activation_key")
-    @JsonIgnore
+    //   @JsonIgnore
     private String activationKey;
 
-    @Size(max = 20)
+    //   @Size(max = 20)
     @Field("reset_key")
     private String resetKey;
 
     @Field("reset_date")
     private ZonedDateTime resetDate = null;
 
-    @JsonIgnore
+    //  @JsonIgnore
     private Set<Authority> authorities = new HashSet<Authority>();
 
     public String getId() {

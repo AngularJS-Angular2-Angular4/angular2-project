@@ -21,6 +21,8 @@ public interface UserRepository extends MongoRepository<User, String> {
 
     Optional<User> findOneByLogin(String login);
 
+    User findOneByFirstName(String name);
+
     @Override
     void delete(User t);
 
