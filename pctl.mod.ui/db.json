@@ -1,0 +1,228 @@
+{
+  "user": {
+    "id": 1,
+    "email": "tsukhu@hcl.com",
+    "loggedIn": true
+  },
+  "cart": {
+    "id": 1,
+    "productName": "SDWAN",
+    "productId": "SDWAN",
+    "productTemplateName": "SDWAN BASIC",
+    "productTemplateId": "SDWANBASIC",
+    "locations": []
+  },
+  "products": [
+    {
+      "id": 1,
+      "urnid": "sd-wan",
+      "name": "SD WAN",
+      "description": "<p>Protect your data across the public Internet with desktop virtual private network (VPN) software via a self-service, persistent network-to-network tunnel</p><br> <p>IPsec offers the ability to create persistent, secure tunnels across a public network. The CenturyLink Cloud supports connections between networks (“gateway to gateway”) as well as connections between users on untrusted networks and their secure applications (“host to gateway”). Users can quickly provision a site to site VPN via the self-service Control Portal.</p>",
+      "product_type": "Network",
+      "created_at": "2016-09-22T14:25:08-03:00",
+      "updated_at": "2016-09-22T14:25:08-03:00",
+      "display_scope": [
+        "web",
+        "mobile"
+      ],
+      "variants": [
+        {
+          "id": "08911238777814",
+          "product_id": 223322117656312,
+          "name": "SD-WAN BASIC",
+          "sku": "SDWANBASIC",
+          "created_at": "2016-09-22T13:34:03-02:00",
+          "updated_at": "2016-09-22T13:34:03-02:00",
+          "display_position": 4,
+          "service_plan": "basic",
+          "service_vendor": "versa",
+          "service_transport": "customer",
+          "security_pkg": "",
+          "standard_cpe": "1",
+          "ha_cpe": "",
+          "tier1_support": "1",
+          "ha_service_plan": "",
+          "ha_service_vendor": "",
+          "ha_service_transport": "",
+          "ha_security_pkg": "",
+          "_links": {
+            "self": {
+              "href": "http://localhost:4444/variants/08911238777814"
+            }
+          }
+        },
+        {
+          "id": "08911238777813",
+          "product_id": 223322117656312,
+          "name": "SD-WAN BASIC HA",
+          "sku": "SDWANBASICHA",
+          "created_at": "2016-09-22T13:34:03-02:00",
+          "updated_at": "2016-09-22T13:34:03-02:00",
+          "display_position": 3,
+          "service_plan": "basic",
+          "service_vendor": "versa",
+          "service_transport": "customer",
+          "security_pkg": "",
+          "standard_cpe": "1",
+          "ha_cpe": "1",
+          "tier1_support": "1",
+          "ha_service_plan": "basic",
+          "ha_service_vendor": "versa",
+          "ha_service_transport": "ctl",
+          "ha_security_pkg": "1",
+          "_links": {
+            "self": {
+              "href": "http://localhost:4444/variants/08911238777813"
+            }
+          }
+        },
+        {
+          "id": "08911238777812",
+          "product_id": 223322117656312,
+          "name": "SD-WAN PREMIUM",
+          "sku": "SDWANPREMIUM",
+          "created_at": "2016-09-22T13:34:03-02:00",
+          "updated_at": "2016-09-22T13:34:03-02:00",
+          "display_position": 2,
+          "service_plan": "premium",
+          "service_vendor": "versa",
+          "service_transport": "customer",
+          "security_pkg": "1",
+          "standard_cpe": "1",
+          "ha_cpe": "",
+          "tier1_support": "1",
+          "ha_service_plan": "",
+          "ha_service_vendor": "",
+          "ha_service_transport": "",
+          "ha_security_pkg": "0",
+          "_links": {
+            "self": {
+              "href": "http://localhost:4444/variants/08911238777812"
+            }
+          }
+        },
+        {
+          "id": "08911238777811",
+          "product_id": 223322117656312,
+          "name": "SD-WAN PREMIUM HA",
+          "sku": "SDWANPREMIUMHA",
+          "created_at": "2016-09-22T13:34:03-02:00",
+          "updated_at": "2016-09-22T13:34:03-02:00",
+          "display_position": 1,
+          "service_plan": "premium",
+          "service_vendor": "versa",
+          "service_transport": "customer",
+          "security_pkg": "1",
+          "standard_cpe": "1",
+          "ha_cpe": "1",
+          "tier1_support": "1",
+          "ha_service_plan": "premium",
+          "ha_service_vendor": "versa",
+          "ha_service_transport": "ctl",
+          "ha_security_pkg": "1",
+          "_links": {
+            "self": {
+              "href": "http://localhost:4444/variants/08911238777811"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": {
+          "href": "http://localhost:4444/products/223322117656312"
+        }
+      }
+    }
+  ],
+  "prices": {
+    "id": 1,
+    "product_id": 223322117656312,
+    "urnId": "sd-wan",
+    "name": "SD WAN",
+    "discriptionHtml": "<p>Software-defined wide area networking (SD-WAN) is the next evolution of private networking.</p>",
+    "productType": "Network",
+    "currency": "USD",
+    "productVariants": [
+      {
+        "variantId": "sdwanbasic",
+        "productId": "sdwan1000",
+        "name": "SD-WAN BASIC",
+        "sku": "SDWANBASIC",
+        "priceInfo": {
+          "term_12": {
+            "own": 200,
+            "ctl": 250
+          },
+          "term_24": {
+            "own": 250,
+            "ctl": 350
+          },
+          "term_36": {
+            "own": 275,
+            "ctl": 375
+          }
+        }
+      },
+      {
+        "variantId": "sdwanbasicha",
+        "productId": "sdwan1000",
+        "name": "SD-WAN BASIC HA",
+        "sku": "SDWANBASICHA",
+        "priceInfo": {
+          "term_12": {
+            "own": 250,
+            "ctl": 300
+          },
+          "term_24": {
+            "own": 275,
+            "ctl": 350
+          },
+          "term_36": {
+            "own": 300,
+            "ctl": 375
+          }
+        }
+      },
+      {
+        "variantId": "sdwanpremium",
+        "productId": "sdwan1000",
+        "name": "SD-WAN PREMIUM",
+        "sku": "SDWANPREMIUM",
+        "priceInfo": {
+          "term_12": {
+            "own": 300,
+            "ctl": 350
+          },
+          "term_24": {
+            "own": 350,
+            "ctl": 375
+          },
+          "term_36": {
+            "own": 375,
+            "ctl": 400
+          }
+        }
+      },
+      {
+        "variantId": "sdwanpremiumha",
+        "productId": "sdwan1000",
+        "name": "SD-WAN PREMIUM HA",
+        "sku": "SDWANPREMIUMHA",
+        "priceInfo": {
+          "term_12": {
+            "own": 400,
+            "ctl": 450
+          },
+          "term_24": {
+            "own": 425,
+            "ctl": 475
+          },
+          "term_36": {
+            "own": 450,
+            "ctl": 500
+          }
+        }
+      }
+    ]
+  }
+}

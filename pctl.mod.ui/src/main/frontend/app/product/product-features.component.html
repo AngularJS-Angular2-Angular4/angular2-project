@@ -1,0 +1,43 @@
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1 id="link-feat" class="text-success text-center" id="features">Features</h1>
+        <div class="new-list-view-responsive new-list-view-responsive-sm">
+            <div class="new-list-view-header text-center">
+                <h3 class="col col-20">Features</h3>
+                <h3 class="col col-20" *ngFor="let variant of variants">{{variant.name}}</h3>
+            </div>
+            <ul class="new-list-view">
+              <li>
+                <div class="list-view-item text-center" *ngFor="let option of options; let i=index">
+                  <div class="col col-20"><span class="col-header">Account</span>{{option}}</div>
+                  <div class="col col-20" *ngFor="let variant of variants"><span class="col-header">{{variant.name}}</span>
+                    <svg *ngIf="(i==0 && variant.standard_cpe=='1') ||
+                                (i==1 && variant.ha_cpe=='1') ||
+                                (i==2 && variant.security_pkg=='1') ||
+                                (i==3 && variant.tier1_support=='1')" class="cyclops-icon md" aria-hidden="true">
+                      <use xlink:href='#icon-check' />
+                    </svg>
+                    <p *ngIf="(i==0 && variant.standard_cpe!='1') ||
+                                (i==1 && variant.ha_cpe!='1') ||
+                                (i==2 && variant.security_pkg!='1') ||
+                                (i==3 && variant.tier1_support!='1')">-</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+        </div>
+			</div>
+			<div class="col-md-12">
+				<div class="card card-block">
+					<a href="#" class="btn btn-primary pull-right">
+						<svg class="cyclops-icon" aria-hidden="true">
+							<use xlink:href='#icon-envelope' />
+						</svg> Contact Us</a>
+					<p class="card-text">Need a Customized SD-WAN Service Offering?</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

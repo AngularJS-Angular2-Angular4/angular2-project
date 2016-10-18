@@ -1,0 +1,21 @@
+<spinner [loading]="loading"></spinner>
+<alert-block *ngIf="!loading && error==true" [message]="errorAlert"></alert-block>
+<div *ngIf="!loading && error==false">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<ul role="navigation" class="nav nav-tabs">
+					<li class="active"><a pageScroll href="#description">Description</a></li>
+					<li><a pageScroll href="#features">Features</a></li>
+					<li><a pageScroll href="#pricing">Pricing</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<product-description [item]="product | async" [title]="title"></product-description>
+	<product-features [variants]="(product | async)?.variants"></product-features>
+	<product-pricing [prices]="prices | async" [term]="term" [status]="status"></product-pricing>
+	<!--  <pagination [directionLinks]="true" [boundaryLinks]="true" [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"
+        previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"
+    ></pagination> -->
+</div>

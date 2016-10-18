@@ -1,0 +1,63 @@
+<nav class="navbar navbar-inverse navbar-static-top">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" aria-expanded="true">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+			<a class="navbar-brand" href="/">
+				<img src="../../assets/img/logo-centurylink.png" alt="CenturyLink">
+			</a>
+		</div>
+
+		<!-- Support and sign out links -->
+		<div class="collapse navbar-collapse" aria-expanded="true">
+			<ul class="nav navbar-nav navbar-right navbar-account">
+				<li *ngIf="(user | async)?.loggedIn === false" (click)="login()">
+					<a href="#" role="button" aria-expanded="false">
+						<svg class="cyclops-icon support">
+							<use xlink:href="#icon-migrate"></use>
+						</svg> Log In</a>
+				</li>
+			<!--	<li *ngIf="(user | async)?.loggedIn === true" (click)="logout()">
+					<a href="#" role="button" aria-expanded="false">
+						<svg class="cyclops-icon support">
+							<use xlink:href="#icon-user"></use>
+						</svg> Log Out</a>
+				</li> -->
+				<li *ngIf="(user | async)?.loggedIn === false">
+					<a href="#" role="button" aria-expanded="false">
+						<svg class="cyclops-icon support">
+							<use xlink:href="#icon-plus-circle"></use>
+						</svg> Sign up</a>
+				</li>
+				<li class="dropdown" [style.display]="(user | async)?.loggedIn === false? 'none':'list-item'">
+  					<a href="#" role="button">{{ (user | async)?.email }} <svg class="cyclops-icon" aria-hidden="true" *ngIf="(user | async)?.loggedIn === true"><use xlink:href='#icon-caret-down' /></svg></a>
+  					<ul class="dropdown-menu dropdown-menu-right">
+  						<li><a href="#">Your Profile</a></li>
+						<li><button (click)="logout()">Sign Out</button></li>
+  					</ul>
+  				</li>
+				<li class="dropdown">
+					<a href="#" role="button" aria-expanded="false"><span *ngIf="(user | async).cartInfo?.cartItemCount > 0">{{(user | async).cartInfo?.cartItemCount}}</span><svg class="cyclops-icon support"><use xlink:href="#icon-shopping-cart"></use></svg> </a>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="#">Open Support Ticket</a></li>
+						<li><a href="#">Chat with Support</a></li>
+						<li><a href="https://www.ctl.io/knowledge-base">Knowledge Base</a></li>
+						<li><a href="https://www.ctl.io/api-docs">API Documentation</a></li>
+						<li>
+							<p class="dropdown-text">1.877.388.4373</p>
+						</li>
+						<li role="separator" class="divider"></li>
+						<li><a href="#">Submit a Feature Idea</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
