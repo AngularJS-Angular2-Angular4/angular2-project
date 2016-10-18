@@ -9,6 +9,10 @@ public enum StatusCode {
 
     E200("200","Success",HttpStatus.OK),
     E400("400","Bad Request",HttpStatus.NOT_FOUND),
+    C401("400","Bad Request - Service Address Empty",HttpStatus.NOT_FOUND),
+    C402("400","Bad Request - Shipping Address Empty",HttpStatus.NOT_FOUND),
+    C403("400","Bad Request - Service and Shipping Address Empty",HttpStatus.NOT_FOUND),
+    C406("502","WSDL - Response is Null",HttpStatus.BAD_GATEWAY),
     E401("101-1","PostalAddressValidationRequest must exist",HttpStatus.NOT_FOUND),
     E402("101-2","PostalAddressValidationRequest clientId must exist",HttpStatus.NOT_FOUND),
     E403("101-3","PostalAddressValidationRequest clientId invalid",HttpStatus.NOT_FOUND),

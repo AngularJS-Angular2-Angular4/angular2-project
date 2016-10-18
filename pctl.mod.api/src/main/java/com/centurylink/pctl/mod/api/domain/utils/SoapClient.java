@@ -1,11 +1,13 @@
 /*
 
-package com.centurylink.pctl.mod.api.domain.address;
+
+package com.centurylink.pctl.mod.api.domain.utils;
 
 
 
 
 
+import com.centurylink.pctl.mod.api.domain.address.Address;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
@@ -73,6 +75,7 @@ public class SoapClient extends WebServiceGatewaySupport {
     }
 
 }
+
 
 
 

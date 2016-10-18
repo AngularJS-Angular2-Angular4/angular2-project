@@ -1,14 +1,12 @@
 package com.centurylink.pctl.mod.api.domain.utils;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.centurylink.pctl.mod.api.domain.utils.StatusCode;
 import org.springframework.http.HttpStatus;
 
-/**
- * Created by haribabu.ka on 14-10-2016.
- */
-public class Response {
+public class Response<T> {
 
+    private T content;
     private String message;
     private String code;
     private HttpStatus httpStatus;
@@ -20,6 +18,20 @@ public class Response {
         this.message = message;
         this.code = code;
         this.httpStatus = httpStatus;
+    }
+
+    public T getContent() {
+        return content;
+    }
+
+    public void setContent(T content) {
+        this.content = content;
+    }
+
+    public void setStatus(StatusCode statusCode) {
+        this.code = statusCode.getCode();
+        this.message =  statusCode.getMessage();
+        this.httpStatus = statusCode.getHttpStatus();
     }
 
     public String getMessage() {

@@ -67,7 +67,7 @@ public class AjaxLoginProcessingFilter extends AbstractAuthenticationProcessingF
        // LoginRequest loginRequest = objectMapper.readValue(request.getReader(), LoginRequest.class);
 
      //   if (loginRequest.getUsername().isEmpty() || loginRequest.getPassword().isEmpty()) {
-        if (loginRequest.getUsername().isEmpty()) {
+        if (loginRequest.getUsername() == null || loginRequest.getUsername().isEmpty()) {
             throw new AuthenticationServiceException("Username or Password not provided");
         }
 

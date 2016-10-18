@@ -6,35 +6,25 @@ import com.centurylink.pctl.mod.api.domain.utils.StatusCode;
 /**
  * Created by haribabu.ka on 17-10-2016.
  */
-public class LocationResponse extends LocationRequest {
+public class LocationResponse {
 
-    private Response response;
+    public Response<Address> serviceAddress;
+    public Response<Address> shippingAddress;
 
-    public void setServiceAddress(Address serviceAddress) {
+    public void setServiceAddress(Response<Address> serviceAddress) {
         this.serviceAddress = serviceAddress;
     }
 
-    public void setShippingAddress(Address shippingAddress) {
+    public void setShippingAddress(Response<Address> shippingAddress) {
         this.shippingAddress = shippingAddress;
     }
 
-    public void setResponse(StatusCode response) {
-        this.response = new Response(response.getCode(), response.getMessage(), response.getHttpStatus());
-    }
-
-    @Override
-    public Address getShippingAddress() {
+    public Response<Address> getShippingAddress() {
         return shippingAddress;
     }
 
-    @Override
-    public Address getServiceAddress() {
+    public Response<Address> getServiceAddress() {
         return serviceAddress;
     }
-
-    public Response getResponse() {
-        return response;
-    }
-
 
 }

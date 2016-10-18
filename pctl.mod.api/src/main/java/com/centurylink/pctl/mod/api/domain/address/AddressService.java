@@ -1,30 +1,18 @@
-/*
 
 package com.centurylink.pctl.mod.api.domain.address;
 
 
+import com.centurylink.pctl.mod.api.domain.utils.Response;
 
+/**
+ * Created by haribabu.ka on 11-10-2016.
+ */
 
+public interface AddressService {
 
-public class AddressService {
-    public SoapClient soapClient;
-
-    public AddressService(SoapClient soapClient) {
-
-        this.soapClient = soapClient;
-    }
-
-    public CivicAddressValidationResponse civicAddressValidation(Address address) {
-
-        return soapClient.civicAddressValidation(address);
-    }
-
-    public PostalAddressValidationResponse postalAddressValidation(Address address) {
-
-        return soapClient.postalAddressValidation(address);
-    }
+    public Response<LocationResponse> validate(LocationRequest locationRequest);
 }
 
 
 
-*/
+

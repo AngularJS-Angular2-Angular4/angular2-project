@@ -5,8 +5,8 @@ package com.centurylink.pctl.mod.api.domain.address;
  */
 public class LocationRequest {
 
-    protected Address serviceAddress;
-    protected Address shippingAddress;
+    public Address serviceAddress;
+    public Address shippingAddress;
 
     public LocationRequest() {
     }
