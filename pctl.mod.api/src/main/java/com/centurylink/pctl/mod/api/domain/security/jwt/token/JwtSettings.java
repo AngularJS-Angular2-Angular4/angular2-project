@@ -15,7 +15,7 @@ public class JwtSettings {
     /**
      * Token issuer.
      */
-    @Value("${jwt.tokenIssuer}")
+   // @Value("${jwt.tokenIssuer}")
     private String tokenIssuer;// = "CTL";
 
     /**

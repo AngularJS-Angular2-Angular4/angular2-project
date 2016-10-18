@@ -21,15 +21,19 @@ spring:
       mongodb.host: localhost
       mongodb.port: 27017
       mongodb.uri: mongodb://localhost/my_database
+jwt:
+    tokenExpirationTime: 15 # Number of minutes
+    refreshTokenExpTime: 60 # Minutes
+    tokenIssuer: Ctl
+    tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
+    header: Authorization
+    secret: qwertyuiopasdfghjklzxcvbnm123456
+    expiration: 604800
+    defaultTestUser: apiTestUser@ctl.com
+    route:
+      authentication:
+        path: auth
 
-    jwt:
-      header: Authorization
-      secret: qwertyuiopasdfghjklzxcvbnm123456
-      expiration: 604800
-      defaultTestUser: apiTestUser@ctl.com
-      route:
-        authentication:
-          path: auth
 
 # EUREKA
 eureka:
@@ -63,8 +67,11 @@ spring:
     mongodb.host: localhost
     mongodb.port: 27017
     mongodb.uri: mongodb://localhost/my_database
-
-  jwt:
+jwt:
+    tokenExpirationTime: 15 # Number of minutes
+    refreshTokenExpTime: 60 # Minutes
+    tokenIssuer: Ctl
+    tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
     header: Authorization
     secret: qwertyuiopasdfghjklzxcvbnm123456
     expiration: 604800
@@ -89,7 +96,11 @@ spring:
     mongodb.port: 27017
     mongodb.uri: mongodb://localhost/my_database
 
-  jwt:
+jwt:
+    tokenExpirationTime: 15 # Number of minutes
+    refreshTokenExpTime: 60 # Minutes
+    tokenIssuer: Ctl
+    tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
     header: Authorization
     secret: qwertyuiopasdfghjklzxcvbnm123456
     expiration: 604800

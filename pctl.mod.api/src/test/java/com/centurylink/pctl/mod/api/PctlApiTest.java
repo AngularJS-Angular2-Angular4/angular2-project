@@ -39,8 +39,8 @@ import java.util.List;
 @WebAppConfiguration
 public class PctlApiTest {
 
-	@Rule
-	public JUnitRestDocumentation  restDocumentation = new JUnitRestDocumentation("target/generated-snippets");
+    @Rule
+    public JUnitRestDocumentation  restDocumentation = new JUnitRestDocumentation("target/generated-snippets");
 
     @Autowired
     private PctlApiProductService pctlApiProductService;
@@ -53,11 +53,11 @@ public class PctlApiTest {
 
 
     @Autowired
-	private WebApplicationContext context;
+    private WebApplicationContext context;
 
-	private MockMvc mockMvc;
+    private MockMvc mockMvc;
 
-	@Autowired
+    @Autowired
     private ObjectMapper objectMapper;
 
     @Autowired
@@ -76,45 +76,45 @@ public class PctlApiTest {
 
 
     @Before
-	public void setup() {
-		this.mockMvc =   MockMvcBuilders
-	            .webAppContextSetup(context)
-	            .apply(documentationConfiguration(this.restDocumentation))
-	            .alwaysDo(print())
-	            .build();
-	}
+    public void setup() {
+        this.mockMvc =   MockMvcBuilders
+            .webAppContextSetup(context)
+            .apply(documentationConfiguration(this.restDocumentation))
+            .alwaysDo(print())
+            .build();
+    }
 
-	@Test
-	@WithMockUser(username="jbeginsamuel@gmail.com",roles={"USER"})
-	public void postsWithUser() throws Exception {
+    @Test
+    @WithMockUser(username="jbeginsamuel@gmail.com",roles={"USER"})
+    public void postsWithUser() throws Exception {
 
         String token = jwtTokenUtil.generateToken("admin");
-		this.mockMvc.perform(
-		    get("/products/"))
-			.andExpect(status().isOk())
-			.andDo(document("list-products",
-					preprocessRequest(
-							prettyPrint()),
-							preprocessResponse(prettyPrint()),
-					responseFields(
+        this.mockMvc.perform(
+            get("/products/"))
+            .andExpect(status().isOk())
+            .andDo(document("list-products",
+                preprocessRequest(
+                    prettyPrint()),
+                preprocessResponse(prettyPrint()),
+                responseFields(
                     fieldWithPath("[]._id").description("The Product Unique ' ID"),
                     fieldWithPath("[].productId").description("The Product Id"),
                     fieldWithPath("[].name").description("The Product name"),
-                        fieldWithPath("[].updatedAt").description("The Product name"),
-                        fieldWithPath("[].discriptionHtml").description("The Product name"),
-                        fieldWithPath("[].createdAt").description("The Product name"),
-                        fieldWithPath("[].terms").description("The Product name"),
-                        fieldWithPath("[].productVariants").description("The Product name"),
-                        fieldWithPath("[].productType").description("The Product name")
+                    fieldWithPath("[].updatedAt").description("The Product name"),
+                    fieldWithPath("[].discriptionHtml").description("The Product name"),
+                    fieldWithPath("[].createdAt").description("The Product name"),
+                    fieldWithPath("[].terms").description("The Product name"),
+                    fieldWithPath("[].productVariants").description("The Product name"),
+                    fieldWithPath("[].productType").description("The Product name")
 
-            )));
-	}
+                )));
+    }
 
     @Test
     @WithMockUser(username="jbeginsamuel@gmail.com",roles={"USER"})
     public void getAllProductsPriceTest() throws Exception {
-            List<Price> priceList = priceRepository.findAll();
-            assertThat(priceList.size()).isGreaterThan(0);
+        List<Price> priceList = priceRepository.findAll();
+        assertThat(priceList.size()).isGreaterThan(0);
     }
 
 

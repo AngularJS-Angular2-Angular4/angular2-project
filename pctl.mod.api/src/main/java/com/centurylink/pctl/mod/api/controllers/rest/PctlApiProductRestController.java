@@ -4,7 +4,7 @@ package com.centurylink.pctl.mod.api.controllers.rest;
 import com.centurylink.pctl.mod.api.domain.product.PctlApiProductService;
 import com.centurylink.pctl.mod.api.domain.product.Price;
 import com.centurylink.pctl.mod.api.domain.product.Product;
-import com.centurylink.pctl.mod.api.domain.security.utils.JwtTokenUtil;
+//import com.centurylink.pctl.mod.api.domain.security.utils.JwtTokenUtil;
 import com.google.common.collect.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,8 +29,8 @@ public class PctlApiProductRestController {
     @Autowired
     private PctlApiProductService pctlApiProductService;
 
-    @Autowired
-    private JwtTokenUtil jwtTokenUtil;
+  //  @Autowired
+  //  private JwtTokenUtil jwtTokenUtil;
 
 
 

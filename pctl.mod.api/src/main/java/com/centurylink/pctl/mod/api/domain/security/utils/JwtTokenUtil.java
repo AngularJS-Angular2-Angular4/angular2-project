@@ -41,10 +41,10 @@ public class JwtTokenUtil implements Serializable {
     private final String  CLAIM_KEY_USERNAME = "claim_key_username";
 
 
-    @Value("${spring.jwt.secret}")
+  //  @Value("${spring.jwt.secret}")
     private String secret;
 
-    @Value("${spring.jwt.expiration}")
+  //  @Value("${spring.jwt.expiration}")
     private Long expiration;
 
 
