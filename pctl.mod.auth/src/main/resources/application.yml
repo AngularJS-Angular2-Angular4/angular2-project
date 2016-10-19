@@ -22,8 +22,8 @@ spring:
       mongodb.port: 27017
       mongodb.uri: mongodb://localhost/my_database
 jwt:
-    tokenExpirationTime: 15 # Number of minutes
-    refreshTokenExpTime: 60 # Minutes
+    tokenExpirationTime: 43200 # Number of minutes
+    refreshTokenExpTime: 43200 # Minutes
     tokenIssuer: Ctl
     tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
     header: Authorization
@@ -68,8 +68,8 @@ spring:
     mongodb.port: 27017
     mongodb.uri: mongodb://localhost/my_database
 jwt:
-    tokenExpirationTime: 15 # Number of minutes
-    refreshTokenExpTime: 60 # Minutes
+    tokenExpirationTime: 43200 # Number of minutes
+    refreshTokenExpTime: 43200 # Minutes
     tokenIssuer: Ctl
     tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
     header: Authorization
@@ -97,8 +97,8 @@ spring:
     mongodb.uri: mongodb://localhost/my_database
 
 jwt:
-    tokenExpirationTime: 15 # Number of minutes
-    refreshTokenExpTime: 60 # Minutes
+    tokenExpirationTime: 43200 # Number of minutes
+    refreshTokenExpTime: 43200 # Minutes
     tokenIssuer: Ctl
     tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
     header: Authorization

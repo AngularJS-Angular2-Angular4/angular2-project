@@ -39,7 +39,7 @@ import java.util.Optional;
 
 @Transactional
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/user")
 public class PctlApiUserRestController {
 
     private static final Logger log = LoggerFactory
@@ -84,7 +84,7 @@ public class PctlApiUserRestController {
     }*/
 
     // @PreAuthorize("hasRole('USER')")
-    @RequestMapping(value = "/user/me", method = RequestMethod.GET)
+    @RequestMapping(value = "/me", method = RequestMethod.GET)
     public User getUserInfo(HttpServletRequest request,
                             HttpServletResponse response) {
 
