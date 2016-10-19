@@ -22,7 +22,7 @@ zuul:
   routes:
      api-service:
           sensitiveHeaders:
-          path: /api/**
+          path: /**
           stripPrefix: false
      gateway-service:
           sensitiveHeaders:
