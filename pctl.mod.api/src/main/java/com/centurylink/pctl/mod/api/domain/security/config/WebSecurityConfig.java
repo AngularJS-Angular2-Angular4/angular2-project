@@ -44,8 +44,8 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements ResourceServerConfigurer {
     public static final String JWT_TOKEN_HEADER_PARAM = "X-Authorization";
-    public static final String JWT_TOKEN_USER_ENTRY_POINT = "/auth/**";
-    public static final String JWT_TOKEN_USER_GET_TOKEN = "/token/generate/";
+    public static final String JWT_TOKEN_USER_ENTRY_POINT = "/api/**" ;    // "/auth/**";
+    public static final String JWT_TOKEN_USER_GET_TOKEN = "/auth/token/generate/";
 
     @Autowired
     @Qualifier("jwtAuthenticationEntryPoint")

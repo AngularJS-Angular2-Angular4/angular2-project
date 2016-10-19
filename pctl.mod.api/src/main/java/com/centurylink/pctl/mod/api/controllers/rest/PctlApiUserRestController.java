@@ -39,7 +39,7 @@ import java.util.Optional;
 
 @Transactional
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api")
 public class PctlApiUserRestController {
 
     private static final Logger log = LoggerFactory
