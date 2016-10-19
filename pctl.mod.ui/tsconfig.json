@@ -24,8 +24,7 @@
       "selenium-webdriver",
       "source-map",
       "uglify-js",
-      "webpack",
-      "jquery"
+      "webpack"
     ]
   },
   "exclude": [

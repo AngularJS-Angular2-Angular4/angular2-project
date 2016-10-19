@@ -208,12 +208,13 @@ module.exports = function (options) {
       }, ]),
 
 
-      /* JQuery */
+      /* JQuery
       new webpack.ProvidePlugin({
         jQuery: 'jquery',
         $: 'jquery',
         jquery: 'jquery'
       }),
+*/
 
       /*
        * Plugin: HtmlWebpackPlugin
