@@ -1,13 +1,13 @@
 <spinner [loading]="loading"></spinner>
 <alert-block *ngIf="!loading && error==true" [message]="errorAlert"></alert-block>
 <div *ngIf="!loading && error==false">
-	<div class="container">
+	<div class="container" data-spy="affix" data-offset-top="60">
 		<div class="row">
 			<div class="col-sm-12">
-				<ul role="navigation" class="nav nav-tabs">
-					<li class="active"><a pageScroll href="#description">Description</a></li>
-					<li><a pageScroll href="#features">Features</a></li>
-					<li><a pageScroll href="#pricing">Pricing</a></li>
+				<ul role="navigation" class="nav nav-tabs" >
+					<li [class.active]="activeNav === 'description'"><a (click)="onClickLinkDesc($event)">Description</a></li>
+					<li [class.active]="activeNav === 'features'"><a (click)="onClickLinkFeat($event)">Features</a></li>
+					<li [class.active]="activeNav === 'pricing'"><a (click)="onClickLinkPricing($event)">Pricing</a></li>
 				</ul>
 			</div>
 		</div>

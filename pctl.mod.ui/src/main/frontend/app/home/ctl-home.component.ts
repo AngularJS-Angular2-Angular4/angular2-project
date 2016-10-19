@@ -20,8 +20,8 @@ export class CtlHomeComponent {
               public store: Store<AppStore>,
               public fingerPrintService: FingerPrintService) {
       this.user = authService.user;
-      authService.init();
-      this.fingerPrintService.getFingerPrint();
+    //  authService.init();
+    //  this.fingerPrintService.getFingerPrint();
 
   }
 

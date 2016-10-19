@@ -56,7 +56,7 @@
 				</div>
 				<p class="text-right"><small>*Above prices does not include Taxes and Non recurring charges</small></p>
 				<div class="text-center">
-					<button type="button" class="btn btn-primary btn-lg" (click)="nextPage()"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-shopping-cart' /></svg> Build Order</button>
+					<button type="button" class="btn btn-primary btn-lg" (click)="nextPage()" [disabled]="!selected"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-shopping-cart' /></svg> Build Order</button>
 				</div>
 			</div>
 		</div>

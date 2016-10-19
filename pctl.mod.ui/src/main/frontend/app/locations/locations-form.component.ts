@@ -10,6 +10,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { Location } from '../common/models/locations.model';
 
 import { FingerPrintService } from '../common/service/fingerprint.service';
+import { Validations } from '../common/validations/validations';
 
 @Component({
   selector: 'locations-form',
@@ -24,32 +25,27 @@ export class LocationsFormComponent implements OnInit {
   //  SDWANLocationInfo
 
   constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({
-      serviceContact: this.fb.group({
-        email: new FormControl('', Validators.required),
-        firstName: new FormControl(''),
-        lastName: new FormControl(''),
-        primaryPhone: new FormControl('')
-      }),
-      serviceAddress: this.fb.group({
-        locationName: new FormControl('', Validators.required),
-        address: new FormControl(''),
-        street: new FormControl(''),
-        country: new FormControl('', Validators.required),
-        city: new FormControl(''),
-        state: new FormControl(''),
-        zipCode: new FormControl('')
-      }),
-      shippingAddress: this.fb.group({
-        checkAddress: new FormControl(),
-        shippingLocationName: new FormControl('', Validators.required),
-        shippingAddress: new FormControl(''),
-        shippingStreet: new FormControl(''),
-        shippingCountry: new FormControl('', Validators.required),
-        shippingCity: new FormControl(''),
-        shippingState: new FormControl(''),
-        shippingZipCode: new FormControl('')
-      })
+     this.form = this.fb.group({
+        'email': ['', [Validators.required, Validations.emailValidator]],
+        'firstName': ['', [Validators.required, Validators.minLength(3)]],
+        'lastName': ['', Validators.required],
+        'primaryPhone': ['', [Validators.required, Validations.phoneValidator]],
+        'locationName': ['', [Validators.required, Validators.minLength(3)]],
+        'address': [''],
+        'street': [''],
+        'country': ['', Validators.required],
+        'city': [''],
+        'state': [''],
+        'zipCode': ['', Validations.zipCodeValidator],
+        'checkAddress': [''],
+        'shippingLocationName': ['', Validators.required],
+        'shippingAddress': [''],
+        'shippingStreet': [''],
+        'shippingCountry': ['', Validators.required],
+        'shippingCity': [''],
+        'shippingState': [''],
+        'shippingZipCode': ['', Validations.zipCodeValidator]
+
     });
   }
 
