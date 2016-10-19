@@ -4,11 +4,12 @@ info:
 
 # PROFILES
 spring:
-    application.name: auth-service
+    application.name: api-service
     profiles.active: @default.spring.profiles@
     cloud:
         config:
             failFast: true
+            enabled : false
 ---
 
 spring:

@@ -22,7 +22,7 @@ zuul:
   routes:
      api-service:
           sensitiveHeaders:
-          path: /orders/**
+          path: /api/**
           stripPrefix: false
      gateway-service:
           sensitiveHeaders:
@@ -95,4 +95,4 @@ zuul:
      auth-service:
           url: http://${eureka.instance.hostname}:8083
      api-service:
-          url: http://${eureka.instance.hostname}:8082          
+          url: http://${eureka.instance.hostname}:8082
