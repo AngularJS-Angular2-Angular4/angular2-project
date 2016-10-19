@@ -18,6 +18,7 @@ import { CartState } from '../models/cart.model';
 */
 
 const BASE_URL = 'http://localhost:3001/user/';
+const GET_USER_URL = "/api/user/me";
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 
@@ -52,7 +53,8 @@ export class AuthService implements OnInit {
                     cartState: CartState.LandingPage,
                     shoppingCartId: '',
                     cartItemCount: 2
-                })
+                });
+                this.getUserDetails();
             });
 
     }
@@ -82,6 +84,24 @@ export class AuthService implements OnInit {
 
     public check() {
    //     return this.user.isLoggedIn;
+    }
+
+    public getUserDetails() {
+        return this.http.get(`${GET_USER_URL}`, this.jwt())
+            .map(res => res.json())
+            .subscribe( user => console.log(user),
+                error => console.log(error));
+    }
+
+    private jwt() {
+        // create authorization header with jwt token
+        let jwtTok = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYmVnaW5zYW11ZWxAZ21haWwuY29tIiwic2NvcGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfVVNFUiJdLCJpc3MiOiJDdGwiLCJpYXQiOjE0NzY4NzYzMTQsImV4cCI6MTQ3OTQ2ODMxNH0.KyWVkQFLvsQr9vlKJUZDy-hEt7EtO5RM1tNu_Scd25poEGhSgUnXq1Dq0IiYh8Suv5NH8EY8L44wX3uNI3YMNw';
+        if (jwtTok) {
+            let headers = new Headers({'X-Authorization':'Bearer ' + jwtTok,'Content-Type': 'application/json'});
+            return new RequestOptions({ headers: headers});
+
+        }
+
     }
 
 

@@ -9,7 +9,7 @@
     "sourceMap": true,
     "noEmitHelpers": true,
     "strictNullChecks": false,
-    "baseUrl": "./src",
+    "baseUrl": "./src/main/frontend",
     "paths": {
     },
     "lib": [
