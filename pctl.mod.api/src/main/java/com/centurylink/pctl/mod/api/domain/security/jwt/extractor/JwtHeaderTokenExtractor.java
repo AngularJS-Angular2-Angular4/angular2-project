@@ -20,7 +20,8 @@ public class JwtHeaderTokenExtractor implements TokenExtractor {
     @Override
     public String extract(String header) {
      //   if (StringUtils.isBlank(header)) {
-    	  if (header.isEmpty()) {
+
+    	  if (header== null ||  header.isEmpty()) {
             throw new AuthenticationServiceException("Authorization header cannot be blank!");
         }
 

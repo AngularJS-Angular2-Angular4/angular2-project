@@ -2,7 +2,9 @@ package com.centurylink.pctl.mod.api.config;
 
 import com.centurylink.pctl.mod.api.domain.utils.JSR310DateConverters;
 import com.mongodb.Mongo;
+import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import org.mongeez.Mongeez;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,10 @@ import org.springframework.boot.autoconfigure.mongo.MongoProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Profile;
+import org.springframework.core.Constants;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.config.EnableMongoAuditing;
@@ -29,7 +34,6 @@ import java.util.List;
 
 
 @Configuration
-//@Profile("!" + )
 @EnableMongoRepositories("com.centurylink.pctl.mod.api")
 @Import(value = MongoAutoConfiguration.class)
 @EnableMongoAuditing(auditorAwareRef = "springSecurityAuditorAware")
@@ -44,6 +48,8 @@ public class DatabaseConfiguration extends AbstractMongoConfiguration {
     private MongoProperties mongoProperties;
 
     private MongoClientURI mongoClientURI;
+
+
 
     @Bean
     public ValidatingMongoEventListener validatingMongoEventListener() {
@@ -91,6 +97,20 @@ public class DatabaseConfiguration extends AbstractMongoConfiguration {
         mongoConverter.setCustomConversions(customConversions());
         return mongoConverter;
     }
+
+
+    @Bean
+    @Profile("test")
+    public Mongeez mongeez() {
+        log.debug("Configuring Mongeez");
+        Mongeez mongeez = new Mongeez();
+        mongeez.setFile(new ClassPathResource("/config/mongeez/master.xml"));
+        mongeez.setMongo(mongo);
+        mongeez.setDbName(getMongoClientURI().getDatabase());
+        mongeez.process();
+        return mongeez;
+    }
+
 
 
     private MongoClientURI getMongoClientURI() {

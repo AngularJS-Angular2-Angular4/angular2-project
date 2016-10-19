@@ -1,4 +1,4 @@
-= Demo REST Docs for Shardis-API
+= Demo REST Docs for PCTL-API
 Initial version by Tarun Kumar Sukhu;
 :doctype: book
 :icons: font
@@ -10,13 +10,13 @@ Initial version by Tarun Kumar Sukhu;
 [introduction]
 = Introduction
 
-Shardis API - service is a RESTful microservice for ...
+PCTL API - service is a RESTful microservice for ...
 [[overview]]
 = Overview
 
 [[overview-http-verbs]]
 == HTTP verbs
-Shardis API service tries to adhere as closely as possible to standard HTTP and REST conventions in its
+PCTL API service tries to adhere as closely as possible to standard HTTP and REST conventions in its
 use of HTTP verbs.
 |===
 | Verb | Usage
@@ -39,7 +39,7 @@ use of HTTP verbs.
 
 [[overview-http-status-codes]]
 == HTTP status codes
-Shardis API -service tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP status codes.
+PCTL API -service tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP status codes.
 
 |===
 | Status code | Usage

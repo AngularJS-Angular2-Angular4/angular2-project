@@ -1,4 +1,5 @@
 package com.centurylink.pctl.mod.api;
+import static io.netty.util.NetUtil.LOCALHOST;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
@@ -10,19 +11,20 @@ import static org.springframework.restdocs.payload.PayloadDocumentation.response
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import com.centurylink.pctl.mod.api.domain.product.*;
 import com.centurylink.pctl.mod.api.domain.security.UserDetailsService;
 import com.centurylink.pctl.mod.api.domain.security.utils.JwtTokenUtil;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import com.mongodb.Mongo;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.IntegrationTest;
+import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.restdocs.JUnitRestDocumentation;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -31,6 +33,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
 import java.util.List;
 
 
@@ -75,6 +78,41 @@ public class PctlApiTest {
     private String tokenHeader;
 
 
+    private static final String LOCALHOST = "127.0.0.1";
+    private static final String DB_NAME = "test";
+    private static final int MONGO_TEST_PORT = 27017;
+
+/*
+    private static MongodProcess mongoProcess;
+    private static Mongo mongo;
+
+    @BeforeClass
+    public static void initializeDB() throws IOException {
+
+        final MongoCmdOptionsBuilder cmdBuilder = new MongoCmdOptionsBuilder();
+        cmdBuilder.useStorageEngine("mmapv1");
+        IMongoCmdOptions cmdOptions = cmdBuilder.build();
+
+        MongodStarter starter = MongodStarter.getDefaultInstance();
+        IMongodConfig mongodConfig = new MongodConfigBuilder()
+            .version(Version.Main.PRODUCTION)
+            .net(new Net(MONGO_TEST_PORT, Network.localhostIsIPv6()))
+            .cmdOptions(cmdOptions)
+            .build();
+        MongodExecutable mongoExecutable = starter.prepare(mongodConfig);
+        mongoProcess = mongoExecutable.start();
+
+    }
+
+    @AfterClass
+    public static void shutdownDB() throws InterruptedException {
+//        mongo.close();
+        mongoProcess.stop();
+    }
+*/
+
+
+
     @Before
     public void setup() {
         this.mockMvc =   MockMvcBuilders
@@ -88,7 +126,6 @@ public class PctlApiTest {
     @WithMockUser(username="jbeginsamuel@gmail.com",roles={"USER"})
     public void postsWithUser() throws Exception {
 
-        String token = jwtTokenUtil.generateToken("admin");
         this.mockMvc.perform(
             get("/products/"))
             .andExpect(status().isOk())

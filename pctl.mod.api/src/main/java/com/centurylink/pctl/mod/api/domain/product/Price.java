@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by begin.samuel on 10/14/2016.
  */
-@Document(collection="product_price")
+@Document(collection="products_price")
 public class Price extends ProductVariants implements Serializable {
 
 
