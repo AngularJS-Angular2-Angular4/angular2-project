@@ -58,11 +58,11 @@ public class PctlAuthTest {
     private UserDetailsService userDetailsService;
 
 
-    @Value("${spring.jwt.defaultTestUser}")
+    @Value("${jwt.defaultTestUser}")
     private String defaultUser;
 
 
-    @Value("${spring.jwt.header}")
+    @Value("${jwt.header}")
     private String tokenHeader;
 
 
