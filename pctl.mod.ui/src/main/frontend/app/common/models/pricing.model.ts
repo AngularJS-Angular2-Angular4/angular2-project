@@ -33,4 +33,5 @@ export interface ActiveStatus {
     term?: string;
     name?: string;
     productVariant?: ProductVariant;
+    transport?: string;
 }

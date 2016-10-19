@@ -1,3 +1,120 @@
-<div>
-  Contact Us code goes here.....
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2 class="text-success"><svg class="cyclops-icon md"><use xlink:href="#icon-phone"></use></svg> Contact Us</h2>
+    </div>
+  </div>
+  <section>
+    <div class="row">
+      <div class="col-md-12 text-right">
+        <small><span class="text-danger">*</span> Indicates Mandatory Field</small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+        <form [formGroup]="form" (ngSubmit)="contactUs()" class="form-horizontal">
+          <div class="form-group">
+            <label for="firstName" class="col-sm-3 control-label">First Name <span class="text-danger">*</span></label>
+            <div class="col-sm-5">
+              <input 
+                type="text" 
+                class="form-control" 
+                id="firstName"
+                formControlName="firstName">
+                <!--<div 
+                  ngIf="!firstName.valid"
+                  class="alert alert-danger">First Name can't be empty.</div>-->
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lastName" class="col-sm-3 control-label">Last Name <span class="text-danger">*</span></label>
+            <div class="col-sm-5">
+              <input 
+                type="text" 
+                class="form-control" 
+                id="lastName"
+                formControlName="lastName">
+                <!--<div 
+                  ngIf="!lastName.valid"
+                  class="alert alert-danger">Last Name can't be empty.</div>-->
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="primaryPhone" class="col-sm-3 control-label">Primary Phone <span class="text-danger">*</span></label>
+            <div class="col-sm-5">
+              <input 
+                type="tel" 
+                class="form-control" 
+                id="primaryPhone"
+                formControlName="primaryPhone">
+                <!--<div 
+                  ngIf="!primaryPhone.valid"
+                  class="alert alert-danger">Primary Phone can't be empty.</div>-->
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">Email <span class="text-danger">*</span></label>
+            <div class="col-sm-9">
+              <input 
+                type="email" 
+                class="form-control" 
+                id="email"
+                formControlName="email">
+                <!--<div 
+                  ngIf="!email.valid"
+                  class="alert alert-danger">Email can't be empty.</div>-->
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="companyName" class="col-sm-3 control-label">Company Name</label>
+            <div class="col-sm-9">
+              <input 
+                type="text" 
+                class="form-control" 
+                id="companyName"
+                formControlName="companyName">
+                <!--<div 
+                  ngIf="!companyName.valid"
+                  class="alert alert-danger">Company Name can't be empty.</div>-->
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="jobTitle" class="col-sm-3 control-label">Job Title</label>
+            <div class="col-sm-9">
+              <input 
+                type="text" 
+                class="form-control" 
+                id="jobTitle"
+                formControlName="jobTitle">
+                <!--<div 
+                  ngIf="!jobTitle.valid"
+                  class="alert alert-danger">Job Title can't be empty.</div>-->
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="comments" class="col-sm-3 control-label">Comments</label>
+            <div class="col-sm-9">
+              <textarea 
+                class="form-control" 
+                rows="5" 
+                id="comments"
+                formControlName="comments">
+              </textarea>
+              <!--<div 
+                  ngIf="!comments.valid"
+                  class="alert alert-danger">Comments can't be empty.</div>-->
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-9 col-sm-push-3">
+              <button 
+                type="submit" 
+                class="btn btn-primary btn-lg"
+                [disabled]="!form.valid">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
 </div>

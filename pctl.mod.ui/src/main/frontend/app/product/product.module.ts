@@ -1,4 +1,5 @@
 import { NgModule }                     from '@angular/core';
+import { Routes, RouterModule }         from '@angular/router';
 import { FormsModule }                  from '@angular/forms';
 import { CommonModule }                 from '@angular/common';
 import { ProductDescriptionComponent }  from './product-desc.component';
@@ -14,7 +15,8 @@ import { PaginationModule }             from 'ng2-bootstrap/ng2-bootstrap';
 @NgModule({
     imports: [ FormsModule,
     CommonModule ,
-    PaginationModule
+    PaginationModule,
+    RouterModule
     ],
     exports: [ ProductDescriptionComponent,
                 ProductPricingComponent,

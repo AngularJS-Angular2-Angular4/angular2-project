@@ -3,6 +3,7 @@ import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { LocationsComponent } from './locations/locations.component';
+import { ContactUsComponent } from './common/contact-us/contact-us.component';
 
 import { DataResolver } from './app.resolver';
 
@@ -12,6 +13,7 @@ export const ROUTES: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'contact-us', component: ContactUsComponent },
   {
     path: 'locations',
     component: LocationsComponent

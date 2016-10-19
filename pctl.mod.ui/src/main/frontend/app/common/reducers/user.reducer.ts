@@ -21,7 +21,9 @@ export const userReducer: ActionReducer<User>
     case 'UPDATE_ENT_DETAILS':
       return Object.assign({}, state, action.payload);
     case 'UPDATE_ACTIVE_SELECTION':
-      return Object.assign({}, state, action.payload);
+      return Object.assign({}, state, { status : action.payload});
+    case 'UPDATE_BREADCRUMB':
+      return Object.assign({}, state, { breadcrumbs : action.payload});
     case 'UPDATE_CART_DETAILS':
       return Object.assign({}, state, action.payload);
     case 'ADD_FINGERPRINT':
