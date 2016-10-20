@@ -15,10 +15,8 @@ export enum CartState {
 }
 
 export interface ShoppingCart {
-    id?: number;
+    id?: string;
     state?: CartState;
-    currentItemName?: string;
-    currentItemId?: string;
     lineItems?: LineItem[];
 }
 
