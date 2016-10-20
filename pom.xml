@@ -13,11 +13,9 @@
 	<modules>
 		<module>pctl.mod.common</module>
 		<module>pctl.mod.discovery</module>
-		<module>pctl.mod.auth</module>
         <module>pctl.mod.address</module>
         <module>pctl.mod.user</module>
 		<module>pctl.mod.ui</module>
-		<module>pctl.mod.api</module>
 		<!--module>pctl.mod.config</module-->
 		<module>pctl.mod.admin</module>
 
