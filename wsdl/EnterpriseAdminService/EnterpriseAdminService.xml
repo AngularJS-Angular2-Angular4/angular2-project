@@ -1,0 +1,1230 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ecaps.ctl.com/service/enterpriseAdmin" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://ecaps.ctl.com/exceptions" name="EnterpriseAdminService" targetNamespace="http://ecaps.ctl.com/service/enterpriseAdmin">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ecaps.ctl.com/serviceObject" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ecaps.ctl.com/serviceObject" version="1.0">
+
+  <xs:element name="FaultDetailSO" type="tns:FaultDetailSO"/>
+
+  <xs:complexType name="FaultDetailSO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+      <xs:element minOccurs="0" name="messageCode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="EnterpriseSO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="createdDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="creditHoldIndicator" type="xs:boolean"/>
+      <xs:element name="deactivated" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="deactivatedDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="deactivatedStatusCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="defaultIndicator" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="desistAniIndicator" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="desistCardIndicator" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="desistDedicated8XXIndicator" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="desistSwitched8XXIndicator" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="enewsIndicator" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="enterpriseChannelId" type="xs:string"/>
+      <xs:element minOccurs="0" name="enterpriseCustomerType" type="xs:string"/>
+      <xs:element minOccurs="0" name="enterpriseEmailAddress" type="xs:string"/>
+      <xs:element minOccurs="0" name="enterpriseId" type="xs:long"/>
+      <xs:element minOccurs="0" name="enterpriseName" type="xs:string"/>
+      <xs:element minOccurs="0" name="noPicIndicator" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="originTypeCode" type="xs:string"/>
+      <xs:element name="parentEnterpriseInd" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="remoteControlId" type="xs:string"/>
+      <xs:element name="selfRegistration" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="userEnterpriseAlias" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UserSO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="address1" type="xs:string"/>
+      <xs:element minOccurs="0" name="address2" type="xs:string"/>
+      <xs:element minOccurs="0" name="city" type="xs:string"/>
+      <xs:element minOccurs="0" name="country" type="xs:string"/>
+      <xs:element minOccurs="0" name="createdDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="emailAddress" type="xs:string"/>
+      <xs:element minOccurs="0" name="emailAddressOnRecord" type="xs:string"/>
+      <xs:element minOccurs="0" name="emailModifiedDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="fax" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="middleName" type="xs:string"/>
+      <xs:element minOccurs="0" name="mobilePhone" type="xs:string"/>
+      <xs:element name="mobilePhoneUS" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="modifiedDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="nightPhone" type="xs:string"/>
+      <xs:element name="nightPhoneUS" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="notificationPref" type="xs:string"/>
+      <xs:element minOccurs="0" name="pager" type="xs:string"/>
+      <xs:element name="pagerUS" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="phone" type="xs:string"/>
+      <xs:element minOccurs="0" name="phoneExt" type="xs:string"/>
+      <xs:element name="phoneUS" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="realm" type="xs:string"/>
+      <xs:element minOccurs="0" name="state" type="xs:string"/>
+      <xs:element name="status" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="timezone" type="xs:long"/>
+      <xs:element minOccurs="0" name="userId" type="xs:long"/>
+      <xs:element minOccurs="0" name="userSetupDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="userType" type="xs:string"/>
+      <xs:element minOccurs="0" name="username" type="xs:string"/>
+      <xs:element minOccurs="0" name="zip" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CardAccessNumberSO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cardAccessNumber" type="xs:string"/>
+      <xs:element minOccurs="0" name="cardCompGroupCode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="EnterpriseProductSO">
+    <xs:sequence>
+      <xs:element name="customerAcctAccess" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="product" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AuthenticationSO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="adminRealm" type="xs:string"/>
+      <xs:element minOccurs="0" name="adminUsername" type="xs:string"/>
+      <xs:element minOccurs="0" name="authenticationMethod" type="xs:string"/>
+      <xs:element minOccurs="0" name="clearTrustToken" type="xs:string"/>
+      <xs:element minOccurs="0" name="origPassword" type="xs:string"/>
+      <xs:element minOccurs="0" name="origRealm" type="xs:string"/>
+      <xs:element minOccurs="0" name="origUsername" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="AccountSystemCodeT">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CABS"/>
+      <xs:enumeration value="CRIS"/>
+      <xs:enumeration value="IABS"/>
+      <xs:enumeration value="ENS"/>
+      <xs:enumeration value="LATIS"/>
+      <xs:enumeration value="NIBS"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="AuthenticationMethodT">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PASSWORD"/>
+      <xs:enumeration value="CLEARTRUST"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="UserRealmT">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PARTNER"/>
+      <xs:enumeration value="EMPLOYEE"/>
+      <xs:enumeration value="LOCAL"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ecaps.ctl.com/service/enterpriseAdmin" xmlns:ns1="http://ecaps.ctl.com/serviceObject" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ecaps.ctl.com/service/enterpriseAdmin">
+  <xs:import namespace="http://ecaps.ctl.com/serviceObject"/>
+  <xs:element name="assignProductsToEnterprise" type="tns:assignProductsToEnterprise"/>
+  <xs:element name="assignProductsToEnterpriseResponse" type="tns:assignProductsToEnterpriseResponse"/>
+  <xs:element name="assignRespOrgIdsByEnterpriseId" type="tns:assignRespOrgIdsByEnterpriseId"/>
+  <xs:element name="assignRespOrgIdsByEnterpriseIdResponse" type="tns:assignRespOrgIdsByEnterpriseIdResponse"/>
+  <xs:element name="assignRespOrgIdsByRmcId" type="tns:assignRespOrgIdsByRmcId"/>
+  <xs:element name="assignRespOrgIdsByRmcIdResponse" type="tns:assignRespOrgIdsByRmcIdResponse"/>
+  <xs:element name="createEnterprise" type="tns:createEnterprise"/>
+  <xs:element name="createEnterpriseResponse" type="tns:createEnterpriseResponse"/>
+  <xs:element name="deactivateEnterprise" type="tns:deactivateEnterprise"/>
+  <xs:element name="deactivateEnterpriseResponse" type="tns:deactivateEnterpriseResponse"/>
+  <xs:element name="deleteProductsFromEnterprise" type="tns:deleteProductsFromEnterprise"/>
+  <xs:element name="deleteProductsFromEnterpriseResponse" type="tns:deleteProductsFromEnterpriseResponse"/>
+  <xs:element name="getActiveEnterprisesByName" type="tns:getActiveEnterprisesByName"/>
+  <xs:element name="getActiveEnterprisesByNameResponse" type="tns:getActiveEnterprisesByNameResponse"/>
+  <xs:element name="getCardAccessNumbers" type="tns:getCardAccessNumbers"/>
+  <xs:element name="getCardAccessNumbersResponse" type="tns:getCardAccessNumbersResponse"/>
+  <xs:element name="getChildEnterprises" type="tns:getChildEnterprises"/>
+  <xs:element name="getChildEnterprisesResponse" type="tns:getChildEnterprisesResponse"/>
+  <xs:element name="getEnterprise" type="tns:getEnterprise"/>
+  <xs:element name="getEnterpriseByAccount" type="tns:getEnterpriseByAccount"/>
+  <xs:element name="getEnterpriseByAccountResponse" type="tns:getEnterpriseByAccountResponse"/>
+  <xs:element name="getEnterpriseGroups" type="tns:getEnterpriseGroups"/>
+  <xs:element name="getEnterpriseGroupsResponse" type="tns:getEnterpriseGroupsResponse"/>
+  <xs:element name="getEnterpriseProducts" type="tns:getEnterpriseProducts"/>
+  <xs:element name="getEnterpriseProductsResponse" type="tns:getEnterpriseProductsResponse"/>
+  <xs:element name="getEnterpriseResponse" type="tns:getEnterpriseResponse"/>
+  <xs:element name="getEnterpriseSummary" type="tns:getEnterpriseSummary"/>
+  <xs:element name="getEnterpriseSummaryResponse" type="tns:getEnterpriseSummaryResponse"/>
+  <xs:element name="getEnterpriseUsers" type="tns:getEnterpriseUsers"/>
+  <xs:element name="getEnterpriseUsersResponse" type="tns:getEnterpriseUsersResponse"/>
+  <xs:element name="getEnterprisesByAccount" type="tns:getEnterprisesByAccount"/>
+  <xs:element name="getEnterprisesByAccountResponse" type="tns:getEnterprisesByAccountResponse"/>
+  <xs:element name="getRespOrgIdsByEnterpriseId" type="tns:getRespOrgIdsByEnterpriseId"/>
+  <xs:element name="getRespOrgIdsByEnterpriseIdResponse" type="tns:getRespOrgIdsByEnterpriseIdResponse"/>
+  <xs:element name="getRespOrgIdsByRmcId" type="tns:getRespOrgIdsByRmcId"/>
+  <xs:element name="getRespOrgIdsByRmcIdResponse" type="tns:getRespOrgIdsByRmcIdResponse"/>
+  <xs:element name="ping" type="tns:ping"/>
+  <xs:element name="pingResponse" type="tns:pingResponse"/>
+  <xs:element name="removeRespOrgsByEnterpriseId" type="tns:removeRespOrgsByEnterpriseId"/>
+  <xs:element name="removeRespOrgsByEnterpriseIdResponse" type="tns:removeRespOrgsByEnterpriseIdResponse"/>
+  <xs:element name="removeRespOrgsByRmcId" type="tns:removeRespOrgsByRmcId"/>
+  <xs:element name="removeRespOrgsByRmcIdResponse" type="tns:removeRespOrgsByRmcIdResponse"/>
+  <xs:element name="updateEnterprise" type="tns:updateEnterprise"/>
+  <xs:element name="updateEnterpriseResponse" type="tns:updateEnterpriseResponse"/>
+  <xs:complexType name="removeRespOrgsByRmcId">
+    <xs:sequence>
+      <xs:element name="rmcId" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="respOrgIdList" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeRespOrgsByRmcIdResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getRespOrgIdsByEnterpriseId">
+    <xs:sequence>
+      <xs:element name="enterpriseId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRespOrgIdsByEnterpriseIdResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deactivateEnterprise">
+    <xs:sequence>
+      <xs:element name="enterpriseId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deactivateEnterpriseResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getEnterpriseByAccount">
+    <xs:sequence>
+      <xs:element name="accountId" type="xs:string"/>
+      <xs:element name="accountSystemCode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEnterpriseByAccountResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:EnterpriseSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEnterpriseUsers">
+    <xs:sequence>
+      <xs:element name="enterpriseId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEnterpriseUsersResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns1:UserSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="assignProductsToEnterprise">
+    <xs:sequence>
+      <xs:element name="enterpriseId" type="xs:long"/>
+      <xs:element maxOccurs="unbounded" name="productArray" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="assignProductsToEnterpriseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEnterprise">
+    <xs:sequence>
+      <xs:element name="enterpriseId" type="xs:long"/>
+      <xs:element minOccurs="0" name="userId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEnterpriseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:EnterpriseSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getActiveEnterprisesByName">
+    <xs:sequence>
+      <xs:element name="enterpriseName" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="enterpriseChannels" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getActiveEnterprisesByNameResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns1:EnterpriseSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCardAccessNumbers">
+    <xs:sequence>
+      <xs:element name="enterpriseId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCardAccessNumbersResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns1:CardAccessNumberSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEnterpriseProducts">
+    <xs:sequence>
+      <xs:element name="enterpriseId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEnterpriseProductsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns1:EnterpriseProductSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateEnterprise">
+    <xs:sequence>
+      <xs:element name="enterprise" type="ns1:EnterpriseSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateEnterpriseResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getRespOrgIdsByRmcId">
+    <xs:sequence>
+      <xs:element name="rmcId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRespOrgIdsByRmcIdResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEnterprisesByAccount">
+    <xs:sequence>
+      <xs:element name="accountId" type="xs:string"/>
+      <xs:element minOccurs="0" name="accountSystemCode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEnterprisesByAccountResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns1:EnterpriseSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ping">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="pingResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="assignRespOrgIdsByEnterpriseId">
+    <xs:sequence>
+      <xs:element name="enterpriseId" type="xs:long"/>
+      <xs:element maxOccurs="unbounded" name="respOrgIdList" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="assignRespOrgIdsByEnterpriseIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeRespOrgsByEnterpriseId">
+    <xs:sequence>
+      <xs:element name="enterpriseId" type="xs:long"/>
+      <xs:element maxOccurs="unbounded" name="respOrgIdList" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeRespOrgsByEnterpriseIdResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getChildEnterprises">
+    <xs:sequence>
+      <xs:element name="parentEnterpriseId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getChildEnterprisesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns1:EnterpriseSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="assignRespOrgIdsByRmcId">
+    <xs:sequence>
+      <xs:element name="rmcId" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="respOrgIdList" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="assignRespOrgIdsByRmcIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEnterpriseSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="statusType" type="xs:string"/>
+      <xs:element minOccurs="0" name="enterpriseType" type="xs:string"/>
+      <xs:element minOccurs="0" name="searchType" type="xs:string"/>
+      <xs:element minOccurs="0" name="searchValue" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEnterpriseSummaryResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns1:EnterpriseSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createEnterprise">
+    <xs:sequence>
+      <xs:element name="enterprise" type="ns1:EnterpriseSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createEnterpriseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deleteProductsFromEnterprise">
+    <xs:sequence>
+      <xs:element name="enterpriseId" type="xs:long"/>
+      <xs:element maxOccurs="unbounded" name="productArray" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deleteProductsFromEnterpriseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEnterpriseGroups">
+    <xs:sequence>
+      <xs:element name="enterpriseId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEnterpriseGroupsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ecaps.ctl.com/exceptions" xmlns:ns0="http://ecaps.ctl.com/serviceObject" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ecaps.ctl.com/exceptions">
+  <xsd:element name="ServiceValidationException" nillable="true" type="ns0:FaultDetailSO"/>
+  <xsd:element name="ServiceAuthorizationException" nillable="true" type="ns0:FaultDetailSO"/>
+  <xsd:element name="ServiceSystemException" nillable="true" type="ns0:FaultDetailSO"/>
+  <xsd:element name="ServiceAuthenticationException" nillable="true" type="ns0:FaultDetailSO"/>
+  <xsd:element name="ServiceDataAccessException" nillable="true" type="ns0:FaultDetailSO"/>
+  <xsd:element name="ServiceRemoteCallException" nillable="true" type="ns0:FaultDetailSO"/>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getRespOrgIdsByRmcId">
+    <wsdl:part element="tns:getRespOrgIdsByRmcId" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getChildEnterprisesResponse">
+    <wsdl:part element="tns:getChildEnterprisesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getActiveEnterprisesByName">
+    <wsdl:part element="tns:getActiveEnterprisesByName" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeRespOrgsByEnterpriseId">
+    <wsdl:part element="tns:removeRespOrgsByEnterpriseId" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteProductsFromEnterprise">
+    <wsdl:part element="tns:deleteProductsFromEnterprise" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pingResponse">
+    <wsdl:part element="tns:pingResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deactivateEnterpriseResponse">
+    <wsdl:part element="tns:deactivateEnterpriseResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnterpriseByAccount">
+    <wsdl:part element="tns:getEnterpriseByAccount" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRespOrgIdsByEnterpriseIdResponse">
+    <wsdl:part element="tns:getRespOrgIdsByEnterpriseIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRespOrgIdsByRmcIdResponse">
+    <wsdl:part element="tns:getRespOrgIdsByRmcIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceRemoteCallException">
+    <wsdl:part element="ns1:ServiceRemoteCallException" name="ServiceRemoteCallException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRespOrgIdsByEnterpriseId">
+    <wsdl:part element="tns:getRespOrgIdsByEnterpriseId" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignRespOrgIdsByEnterpriseId">
+    <wsdl:part element="tns:assignRespOrgIdsByEnterpriseId" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEnterpriseResponse">
+    <wsdl:part element="tns:updateEnterpriseResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnterprisesByAccountResponse">
+    <wsdl:part element="tns:getEnterprisesByAccountResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeRespOrgsByRmcId">
+    <wsdl:part element="tns:removeRespOrgsByRmcId" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceSystemException">
+    <wsdl:part element="ns1:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnterpriseProductsResponse">
+    <wsdl:part element="tns:getEnterpriseProductsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignProductsToEnterprise">
+    <wsdl:part element="tns:assignProductsToEnterprise" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceAuthenticationException">
+    <wsdl:part element="ns1:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignRespOrgIdsByRmcIdResponse">
+    <wsdl:part element="tns:assignRespOrgIdsByRmcIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnterpriseGroups">
+    <wsdl:part element="tns:getEnterpriseGroups" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getActiveEnterprisesByNameResponse">
+    <wsdl:part element="tns:getActiveEnterprisesByNameResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnterprise">
+    <wsdl:part element="tns:getEnterprise" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCardAccessNumbersResponse">
+    <wsdl:part element="tns:getCardAccessNumbersResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceValidationException">
+    <wsdl:part element="ns1:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceAuthorizationException">
+    <wsdl:part element="ns1:ServiceAuthorizationException" name="ServiceAuthorizationException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deactivateEnterprise">
+    <wsdl:part element="tns:deactivateEnterprise" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignRespOrgIdsByRmcId">
+    <wsdl:part element="tns:assignRespOrgIdsByRmcId" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getChildEnterprises">
+    <wsdl:part element="tns:getChildEnterprises" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnterpriseResponse">
+    <wsdl:part element="tns:getEnterpriseResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignRespOrgIdsByEnterpriseIdResponse">
+    <wsdl:part element="tns:assignRespOrgIdsByEnterpriseIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnterpriseSummaryResponse">
+    <wsdl:part element="tns:getEnterpriseSummaryResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteProductsFromEnterpriseResponse">
+    <wsdl:part element="tns:deleteProductsFromEnterpriseResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnterpriseGroupsResponse">
+    <wsdl:part element="tns:getEnterpriseGroupsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnterprisesByAccount">
+    <wsdl:part element="tns:getEnterprisesByAccount" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeRespOrgsByEnterpriseIdResponse">
+    <wsdl:part element="tns:removeRespOrgsByEnterpriseIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignProductsToEnterpriseResponse">
+    <wsdl:part element="tns:assignProductsToEnterpriseResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCardAccessNumbers">
+    <wsdl:part element="tns:getCardAccessNumbers" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnterpriseByAccountResponse">
+    <wsdl:part element="tns:getEnterpriseByAccountResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceDataAccessException">
+    <wsdl:part element="ns1:ServiceDataAccessException" name="ServiceDataAccessException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnterpriseUsers">
+    <wsdl:part element="tns:getEnterpriseUsers" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnterpriseSummary">
+    <wsdl:part element="tns:getEnterpriseSummary" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEnterprise">
+    <wsdl:part element="tns:createEnterprise" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeRespOrgsByRmcIdResponse">
+    <wsdl:part element="tns:removeRespOrgsByRmcIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ping">
+    <wsdl:part element="tns:ping" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnterpriseProducts">
+    <wsdl:part element="tns:getEnterpriseProducts" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEnterpriseResponse">
+    <wsdl:part element="tns:createEnterpriseResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEnterprise">
+    <wsdl:part element="tns:updateEnterprise" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnterpriseUsersResponse">
+    <wsdl:part element="tns:getEnterpriseUsersResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="EnterpriseAdminService">
+    <wsdl:operation name="removeRespOrgsByRmcId">
+      <wsdl:input message="tns:removeRespOrgsByRmcId" name="removeRespOrgsByRmcId">
+    </wsdl:input>
+      <wsdl:output message="tns:removeRespOrgsByRmcIdResponse" name="removeRespOrgsByRmcIdResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceAuthorizationException" name="ServiceAuthorizationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRespOrgIdsByEnterpriseId">
+      <wsdl:input message="tns:getRespOrgIdsByEnterpriseId" name="getRespOrgIdsByEnterpriseId">
+    </wsdl:input>
+      <wsdl:output message="tns:getRespOrgIdsByEnterpriseIdResponse" name="getRespOrgIdsByEnterpriseIdResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deactivateEnterprise">
+      <wsdl:input message="tns:deactivateEnterprise" name="deactivateEnterprise">
+    </wsdl:input>
+      <wsdl:output message="tns:deactivateEnterpriseResponse" name="deactivateEnterpriseResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceAuthorizationException" name="ServiceAuthorizationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceDataAccessException" name="ServiceDataAccessException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterpriseByAccount">
+      <wsdl:input message="tns:getEnterpriseByAccount" name="getEnterpriseByAccount">
+    </wsdl:input>
+      <wsdl:output message="tns:getEnterpriseByAccountResponse" name="getEnterpriseByAccountResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterpriseUsers">
+      <wsdl:input message="tns:getEnterpriseUsers" name="getEnterpriseUsers">
+    </wsdl:input>
+      <wsdl:output message="tns:getEnterpriseUsersResponse" name="getEnterpriseUsersResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="assignProductsToEnterprise">
+      <wsdl:input message="tns:assignProductsToEnterprise" name="assignProductsToEnterprise">
+    </wsdl:input>
+      <wsdl:output message="tns:assignProductsToEnterpriseResponse" name="assignProductsToEnterpriseResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceAuthorizationException" name="ServiceAuthorizationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterprise">
+      <wsdl:input message="tns:getEnterprise" name="getEnterprise">
+    </wsdl:input>
+      <wsdl:output message="tns:getEnterpriseResponse" name="getEnterpriseResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getActiveEnterprisesByName">
+      <wsdl:input message="tns:getActiveEnterprisesByName" name="getActiveEnterprisesByName">
+    </wsdl:input>
+      <wsdl:output message="tns:getActiveEnterprisesByNameResponse" name="getActiveEnterprisesByNameResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCardAccessNumbers">
+      <wsdl:input message="tns:getCardAccessNumbers" name="getCardAccessNumbers">
+    </wsdl:input>
+      <wsdl:output message="tns:getCardAccessNumbersResponse" name="getCardAccessNumbersResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterpriseProducts">
+      <wsdl:input message="tns:getEnterpriseProducts" name="getEnterpriseProducts">
+    </wsdl:input>
+      <wsdl:output message="tns:getEnterpriseProductsResponse" name="getEnterpriseProductsResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateEnterprise">
+      <wsdl:input message="tns:updateEnterprise" name="updateEnterprise">
+    </wsdl:input>
+      <wsdl:output message="tns:updateEnterpriseResponse" name="updateEnterpriseResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceAuthorizationException" name="ServiceAuthorizationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceDataAccessException" name="ServiceDataAccessException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRespOrgIdsByRmcId">
+      <wsdl:input message="tns:getRespOrgIdsByRmcId" name="getRespOrgIdsByRmcId">
+    </wsdl:input>
+      <wsdl:output message="tns:getRespOrgIdsByRmcIdResponse" name="getRespOrgIdsByRmcIdResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterprisesByAccount">
+      <wsdl:input message="tns:getEnterprisesByAccount" name="getEnterprisesByAccount">
+    </wsdl:input>
+      <wsdl:output message="tns:getEnterprisesByAccountResponse" name="getEnterprisesByAccountResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <wsdl:input message="tns:ping" name="ping">
+    </wsdl:input>
+      <wsdl:output message="tns:pingResponse" name="pingResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignRespOrgIdsByEnterpriseId">
+      <wsdl:input message="tns:assignRespOrgIdsByEnterpriseId" name="assignRespOrgIdsByEnterpriseId">
+    </wsdl:input>
+      <wsdl:output message="tns:assignRespOrgIdsByEnterpriseIdResponse" name="assignRespOrgIdsByEnterpriseIdResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceAuthorizationException" name="ServiceAuthorizationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeRespOrgsByEnterpriseId">
+      <wsdl:input message="tns:removeRespOrgsByEnterpriseId" name="removeRespOrgsByEnterpriseId">
+    </wsdl:input>
+      <wsdl:output message="tns:removeRespOrgsByEnterpriseIdResponse" name="removeRespOrgsByEnterpriseIdResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceAuthorizationException" name="ServiceAuthorizationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getChildEnterprises">
+      <wsdl:input message="tns:getChildEnterprises" name="getChildEnterprises">
+    </wsdl:input>
+      <wsdl:output message="tns:getChildEnterprisesResponse" name="getChildEnterprisesResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="assignRespOrgIdsByRmcId">
+      <wsdl:input message="tns:assignRespOrgIdsByRmcId" name="assignRespOrgIdsByRmcId">
+    </wsdl:input>
+      <wsdl:output message="tns:assignRespOrgIdsByRmcIdResponse" name="assignRespOrgIdsByRmcIdResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceAuthorizationException" name="ServiceAuthorizationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterpriseSummary">
+      <wsdl:input message="tns:getEnterpriseSummary" name="getEnterpriseSummary">
+    </wsdl:input>
+      <wsdl:output message="tns:getEnterpriseSummaryResponse" name="getEnterpriseSummaryResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createEnterprise">
+      <wsdl:input message="tns:createEnterprise" name="createEnterprise">
+    </wsdl:input>
+      <wsdl:output message="tns:createEnterpriseResponse" name="createEnterpriseResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceRemoteCallException" name="ServiceRemoteCallException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthorizationException" name="ServiceAuthorizationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceDataAccessException" name="ServiceDataAccessException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteProductsFromEnterprise">
+      <wsdl:input message="tns:deleteProductsFromEnterprise" name="deleteProductsFromEnterprise">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteProductsFromEnterpriseResponse" name="deleteProductsFromEnterpriseResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceAuthorizationException" name="ServiceAuthorizationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterpriseGroups">
+      <wsdl:input message="tns:getEnterpriseGroups" name="getEnterpriseGroups">
+    </wsdl:input>
+      <wsdl:output message="tns:getEnterpriseGroupsResponse" name="getEnterpriseGroupsResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EnterpriseAdminServiceSoapBinding" type="tns:EnterpriseAdminService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="assignRespOrgIdsByRmcId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="assignRespOrgIdsByRmcId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="assignRespOrgIdsByRmcIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceAuthorizationException">
+        <soap:fault name="ServiceAuthorizationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateEnterprise">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateEnterprise">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateEnterpriseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceAuthorizationException">
+        <soap:fault name="ServiceAuthorizationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceDataAccessException">
+        <soap:fault name="ServiceDataAccessException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCardAccessNumbers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCardAccessNumbers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCardAccessNumbersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deactivateEnterprise">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deactivateEnterprise">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deactivateEnterpriseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceAuthorizationException">
+        <soap:fault name="ServiceAuthorizationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceDataAccessException">
+        <soap:fault name="ServiceDataAccessException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="ping">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pingResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterpriseGroups">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEnterpriseGroups">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEnterpriseGroupsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getChildEnterprises">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getChildEnterprises">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getChildEnterprisesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeRespOrgsByRmcId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removeRespOrgsByRmcId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removeRespOrgsByRmcIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceAuthorizationException">
+        <soap:fault name="ServiceAuthorizationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getActiveEnterprisesByName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getActiveEnterprisesByName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getActiveEnterprisesByNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="assignProductsToEnterprise">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="assignProductsToEnterprise">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="assignProductsToEnterpriseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceAuthorizationException">
+        <soap:fault name="ServiceAuthorizationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRespOrgIdsByRmcId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRespOrgIdsByRmcId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRespOrgIdsByRmcIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createEnterprise">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createEnterprise">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createEnterpriseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceRemoteCallException">
+        <soap:fault name="ServiceRemoteCallException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthorizationException">
+        <soap:fault name="ServiceAuthorizationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceDataAccessException">
+        <soap:fault name="ServiceDataAccessException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeRespOrgsByEnterpriseId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removeRespOrgsByEnterpriseId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removeRespOrgsByEnterpriseIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceAuthorizationException">
+        <soap:fault name="ServiceAuthorizationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterpriseSummary">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEnterpriseSummary">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEnterpriseSummaryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRespOrgIdsByEnterpriseId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRespOrgIdsByEnterpriseId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRespOrgIdsByEnterpriseIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterpriseByAccount">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEnterpriseByAccount">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEnterpriseByAccountResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteProductsFromEnterprise">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteProductsFromEnterprise">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteProductsFromEnterpriseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceAuthorizationException">
+        <soap:fault name="ServiceAuthorizationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="assignRespOrgIdsByEnterpriseId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="assignRespOrgIdsByEnterpriseId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="assignRespOrgIdsByEnterpriseIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceAuthorizationException">
+        <soap:fault name="ServiceAuthorizationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterpriseProducts">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEnterpriseProducts">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEnterpriseProductsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterprisesByAccount">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEnterprisesByAccount">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEnterprisesByAccountResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterprise">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEnterprise">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEnterpriseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterpriseUsers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEnterpriseUsers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEnterpriseUsersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EnterpriseAdminService">
+    <wsdl:port binding="tns:EnterpriseAdminServiceSoapBinding" name="EnterpriseAdminServicePort">
+      <soap:address location="https://ecaps-int1.foss.dev.qintra.com:40133/ecaps/service/EnterpriseAdminService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions  xmlns:wsr="http://www.openuri.org/2002/10/soap/reliability/"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap12enc="http://www.w3.org/2003/05/soap-encoding"
+  xmlns:s="http://www.w3.org/2001/XMLSchema"
+  xmlns:tns="http://qcsetup-int.dev.qintra.com:8400/qcsetup"
+  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+  xmlns:conv="http://www.openuri.org/2002/04/wsdl/conversation/"
+  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+  targetNamespace="http://qcsetup-int.dev.qintra.com:8400/qcsetup">
+ <types   xmlns="http://schemas.xmlsoap.org/wsdl/"
+   xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+   xmlns:wsr="http://www.openuri.org/2002/10/soap/reliability/"
+   xmlns:soap12enc="http://www.w3.org/2003/05/soap-encoding"
+   xmlns:s="http://www.w3.org/2001/XMLSchema"
+   xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+   xmlns:tns="http://qcsetup-int.dev.qintra.com:8400/qcsetup"
+   xmlns:conv="http://www.openuri.org/2002/04/wsdl/conversation/"
+   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+   xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+   xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <xsd:schema    xmlns:stns="java:language_builtins.lang"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    attributeFormDefault="qualified"
+    targetNamespace="java:language_builtins.lang"
+    elementFormDefault="qualified">
+   <xsd:complexType     name="ArrayOfString">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="unbounded"
+       nillable="true"
+       name="string"
+       type="xsd:string"
+       minOccurs="0">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+  </xsd:schema>
+  <xsd:schema    xmlns:stns="http://qcsetup-int.dev.qintra.com:8400/qcsetup"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    attributeFormDefault="qualified"
+    targetNamespace="http://qcsetup-int.dev.qintra.com:8400/qcsetup"
+    elementFormDefault="qualified">
+   <xsd:import     namespace="java:com.qwest.qcsetup.webservice.csupOrder.bo">
+   </xsd:import>
+   <xsd:element     xmlns:tp="java:com.qwest.qcsetup.webservice.csupOrder.bo"
+     nillable="true"
+     name="createOrder"
+     type="tp:CreateOrderRequest">
+   </xsd:element>
+   <xsd:element     xmlns:tp="java:com.qwest.qcsetup.webservice.csupOrder.bo"
+     nillable="true"
+     name="createOrderResponse"
+     type="tp:CreateOrderResponse">
+   </xsd:element>
+  </xsd:schema>
+  <xsd:schema    xmlns:stns="java:com.qwest.qcsetup.webservice.csupOrder.bo"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    attributeFormDefault="qualified"
+    targetNamespace="java:com.qwest.qcsetup.webservice.csupOrder.bo"
+    elementFormDefault="qualified">
+   <xsd:import     namespace="java:com.qwest.qcsetup.bo">
+   </xsd:import>
+   <xsd:import     namespace="java:language_builtins.lang">
+   </xsd:import>
+   <xsd:complexType     name="ArrayOfBillingAccount">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="unbounded"
+       nillable="true"
+       name="BillingAccount"
+       type="stns:BillingAccount"
+       minOccurs="0">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType     name="ArrayOfProductAccount">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="unbounded"
+       nillable="true"
+       name="ProductAccount"
+       type="stns:ProductAccount"
+       minOccurs="0">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType     name="ArrayOfResponseMessage">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="unbounded"
+       nillable="true"
+       name="ResponseMessage"
+       type="stns:ResponseMessage"
+       minOccurs="0">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType     name="BaseView">
+   </xsd:complexType>
+   <xsd:complexType     name="BillingAccount">
+    <xsd:complexContent>
+     <xsd:extension       base="stns:BaseView">
+      <xsd:sequence>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="SIC"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         xmlns:tp="java:com.qwest.qcsetup.bo"
+         maxOccurs="1"
+         nillable="true"
+         name="accountAddress"
+         type="tp:Address"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="accountContact"
+         type="stns:Contact"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="accountingMethodCode"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="billingAccountName"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         xmlns:tp="java:com.qwest.qcsetup.bo"
+         maxOccurs="1"
+         nillable="true"
+         name="billingAddress"
+         type="tp:Address"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="billingContact"
+         type="stns:Contact"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="billingCycle"
+         type="xsd:long"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="billingEntityCode"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="calnetAccount"
+         type="xsd:boolean"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="calnetBillingCycleCode"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="calnetCustomerCode"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="calnetCustomerFullName"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="customerAccountEstablishDate"
+         type="xsd:dateTime"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="customerActiveFlag"
+         type="xsd:boolean"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="customerType"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="discountGroup"
+         type="stns:DiscountGroup"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         xmlns:tp="java:com.qwest.qcsetup.bo"
+         maxOccurs="1"
+         nillable="true"
+         name="invoiceOption"
+         type="tp:InvoiceOptions"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="paymentMethodCode"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="productAccounts"
+         type="stns:ArrayOfProductAccount"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="requestedBillingCycle"
+         type="xsd:long"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="welcomeKitFlag"
+         type="xsd:boolean"
+         minOccurs="1">
+       </xsd:element>
+      </xsd:sequence>
+     </xsd:extension>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType     name="Contact">
+    <xsd:complexContent>
+     <xsd:extension       base="stns:BaseView">
+      <xsd:sequence>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="country"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="email"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         xmlns:tp="java:com.qwest.qcsetup.bo"
+         maxOccurs="1"
+         nillable="true"
+         name="fax"
+         type="tp:TN"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="faxIDDCd"
+         type="xsd:int"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="iddFaxNumber"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="iddPagerNumber"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="iddPhoneNumber"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="iddPhoneNumberExtn"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="name"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         xmlns:tp="java:com.qwest.qcsetup.bo"
+         maxOccurs="1"
+         nillable="true"
+         name="pager"
+         type="tp:TN"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="pagerIDDCd"
+         type="xsd:int"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="pagerPin"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         xmlns:tp="java:com.qwest.qcsetup.bo"
+         maxOccurs="1"
+         nillable="true"
+         name="phone"
+         type="tp:TN"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="phoneExtension"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="phoneIDDCd"
+         type="xsd:int"
+         minOccurs="1">
+       </xsd:element>
+      </xsd:sequence>
+     </xsd:extension>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType     name="ContractInformation">
+    <xsd:complexContent>
+     <xsd:extension       base="stns:BaseView">
+      <xsd:sequence>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="brand"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         name="commitment"
+         type="xsd:int"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         name="contractId"
+         type="xsd:long"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="customerSignatoryName"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="customerSignedDate"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         name="iLinkID"
+         type="xsd:long"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="inRegionIndicator"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         name="term"
+         type="xsd:int"
+         minOccurs="1">
+       </xsd:element>
+      </xsd:sequence>
+     </xsd:extension>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType     name="CreateOrderRequest">
+    <xsd:complexContent>
+     <xsd:extension       base="stns:BaseView">
+      <xsd:sequence>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="billingAccounts"
+         type="stns:ArrayOfBillingAccount"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         xmlns:tp="java:com.qwest.qcsetup.bo"
+         maxOccurs="1"
+         nillable="true"
+         name="btn"
+         type="tp:TN"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="businessProcessType"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="contractInfo"
+         type="stns:ContractInformation"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="cuid"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         xmlns:tp="java:com.qwest.qcsetup.bo"
+         maxOccurs="1"
+         nillable="true"
+         name="customerAddress"
+         type="tp:Address"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="customerHubId"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="customerName"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="existingCustomer"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         xmlns:tp="java:com.qwest.qcsetup.bo"
+         maxOccurs="1"
+         nillable="true"
+         name="mainFax"
+         type="tp:TN"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         name="opportunityId"
+         type="xsd:long"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="orderInitiatorName"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="processType"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         name="projectId"
+         type="xsd:long"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         name="qcid"
+         type="xsd:long"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="salesChannelId"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="salesInformation"
+         type="stns:SalesInformation"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         name="taskId"
+         type="xsd:long"
+         minOccurs="1">
+       </xsd:element>
+      </xsd:sequence>
+     </xsd:extension>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType     name="CreateOrderResponse">
+    <xsd:complexContent>
+     <xsd:extension       base="stns:BaseView">
+      <xsd:sequence>
+       <xsd:element         xmlns:tp="java:language_builtins.lang"
+         maxOccurs="1"
+         nillable="true"
+         name="billingAccounts"
+         type="tp:ArrayOfString"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="customerAccountEstablishDate"
+         type="xsd:dateTime"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         name="customerActiveFlag"
+         type="xsd:boolean"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="description"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="orderId"
+         type="xsd:long"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="orionOrderId"
+         type="xsd:long"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="responseMessages"
+         type="stns:ArrayOfResponseMessage"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="statusCode"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="taskId"
+         type="xsd:long"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="userDefinedAccountName"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+      </xsd:sequence>
+     </xsd:extension>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType     name="DiscountGroup">
+    <xsd:complexContent>
+     <xsd:extension       base="stns:BaseView">
+      <xsd:sequence>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="activeDiscountGroupFlag"
+         type="xsd:boolean"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="discountGroupId"
+         type="xsd:long"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="discountGroupName"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="discountGroupOwnerFlag"
+         type="xsd:boolean"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="discountGroupType"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+      </xsd:sequence>
+     </xsd:extension>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType     name="ProductAccount">
+    <xsd:complexContent>
+     <xsd:extension       base="stns:BaseView">
+      <xsd:sequence>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="contractInformation"
+         type="stns:ContractInformation"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         xmlns:tp="java:language_builtins.lang"
+         maxOccurs="1"
+         nillable="true"
+         name="offerManagementRequestIds"
+         type="tp:ArrayOfString"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         xmlns:tp="java:com.qwest.qcsetup.bo"
+         maxOccurs="1"
+         nillable="true"
+         name="productAccountAddress"
+         type="tp:Address"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="productAccountContact"
+         type="stns:Contact"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="productAccountName"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         xmlns:tp="java:language_builtins.lang"
+         maxOccurs="1"
+         nillable="true"
+         name="promoCodes"
+         type="tp:ArrayOfString"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         name="sameAsAccountAddress"
+         type="xsd:boolean"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         name="sameAsBillingAddress"
+         type="xsd:boolean"
+         minOccurs="1">
+       </xsd:element>
+      </xsd:sequence>
+     </xsd:extension>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType     name="ResponseMessage">
+    <xsd:complexContent>
+     <xsd:extension       base="stns:BaseView">
+      <xsd:sequence>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="messageCode"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="messageDescription"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+      </xsd:sequence>
+     </xsd:extension>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType     name="SalesInformation">
+    <xsd:complexContent>
+     <xsd:extension       base="stns:BaseView">
+      <xsd:sequence>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="channelId"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="cie"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="ibuCode"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="meteredOrderRevenue"
+         type="xsd:decimal"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="nonCommissionableRevenue"
+         type="xsd:decimal"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="nonMeteredOrderRevenue"
+         type="xsd:decimal"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="primarySalesRepId"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="primarySalesRepName"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="roleName"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="salesAgentId"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="salesOfficeDesc"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="salesOpportunityId"
+         type="xsd:long"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="salesSupportId"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="salesSupportName"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="salesSupportRVPName"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="shareRepId"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="shareRepName"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="sicCode"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+      </xsd:sequence>
+     </xsd:extension>
+    </xsd:complexContent>
+   </xsd:complexType>
+  </xsd:schema>
+  <xsd:schema    xmlns:stns="java:com.qwest.qcsetup.bo"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    attributeFormDefault="qualified"
+    targetNamespace="java:com.qwest.qcsetup.bo"
+    elementFormDefault="qualified">
+   <xsd:complexType     name="Address">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="city"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="country"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="message"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="oesAddressId"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="stAddr1"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="stAddr2"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="stAddr3"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="state"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="xml"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="zipcode"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType     name="InvoiceOptions">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="GFExclusion"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="LATASummary"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="NPASortOrder"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="PACNameOption"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="PACSummary"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="accessLineCharge"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="areaCodeSummary"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="currency"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="customerAccountId"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="highCallVolume"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="highCallVolumeThreshold"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="invoiceGroupId"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       name="invoiceGroupOwnerFlag"
+       type="xsd:boolean"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="longDuration"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="longDurationCallsThresholds"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="longDurationCallsThresholdsThreshold"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="noOfInvoiceCopies"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="oneCardPerSheet"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="onePACPerSheet"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="orderId"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="printCode"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="printOrientation"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="reportIndex"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="ringToLevel"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="serviceDetail"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="serviceSummary"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="stateSummary"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="topCity"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="topCityThreshold"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="totalUsage"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="twelveMonthReviewOfSpending"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="unansweredCall"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="usageSummary"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="usageSuppression"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="yourAccountBalance"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType     name="TN">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="NPA"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="NXX"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="line"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="originalNum"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       name="valid"
+       type="xsd:boolean"
+       minOccurs="1">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+  </xsd:schema>
+ </types>
+ <message   name="createOrder">
+  <part    xmlns:partns="http://qcsetup-int.dev.qintra.com:8400/qcsetup"
+    element="partns:createOrder"
+    name="createOrderRequest">
+  </part>
+ </message>
+ <message   name="createOrderResponse">
+  <part    xmlns:partns="http://qcsetup-int.dev.qintra.com:8400/qcsetup"
+    element="partns:createOrderResponse"
+    name="result">
+  </part>
+ </message>
+ <portType   name="qcsetupSFAWSPort">
+  <operation    name="createOrder">
+   <input     message="tns:createOrder">
+   </input>
+   <output     message="tns:createOrderResponse">
+   </output>
+  </operation>
+ </portType>
+ <binding   name="qcsetupSFAWSPort"
+   type="tns:qcsetupSFAWSPort">
+   <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+  <operation    name="createOrder">
+    <soap:operation style="document" soapAction="" />
+   <input>
+     <soap:body use="literal" />
+   </input>
+   <output>
+     <soap:body use="literal" />
+   </output>
+  </operation>
+ </binding>
+ <service   name="qcsetupSFAWS">
+  <port    name="qcsetupSFAWSPort"
+    binding="tns:qcsetupSFAWSPort">
+    <soap:address location="http://qcsetup-e2e.dev.qintra.com:80/webservice/qcsetupSFAWS" />
+  </port>
+ </service>
+</definitions>
