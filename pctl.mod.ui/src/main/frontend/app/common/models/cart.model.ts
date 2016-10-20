@@ -21,7 +21,7 @@ export interface ShoppingCart {
 }
 
 export interface LineItem {
-    id?: number;
+    id?: string;
     productName: string;
     productId: string;
     productTemplateName: string;

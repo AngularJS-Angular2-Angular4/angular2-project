@@ -69,11 +69,11 @@ export class CartService implements OnInit {
             .subscribe(action => this.store.dispatch({ type: 'DELETE_LOCATION', payload: item }));
     }
 
-    addItem(item: LineItem) {
-         this.http.post(`${BASE_URL}`, JSON.stringify(item), HEADER)
+    addItem(item: LineItem): Observable<any> {
+       return  this.http.post(`${BASE_URL}`, JSON.stringify(item), HEADER)
             .map(res => res.json())
-            .map(payload => ({ type: 'ADD_ITEM', payload }))
-            .subscribe(action => this.store.dispatch(action));
+            .map(payload => ({ type: 'ADD_ITEM', payload }));
+      //      .subscribe(action => this.store.dispatch(action));
       //      this.store.dispatch({ type: 'ADD_ITEM', payload: item });
     }
 
