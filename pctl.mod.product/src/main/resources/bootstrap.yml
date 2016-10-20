@@ -4,7 +4,7 @@ info:
 
 # PROFILES
 spring:
-    application.name: api-service
+    application.name: product-service
     profiles.active: @default.spring.profiles@
     cloud:
         config:
