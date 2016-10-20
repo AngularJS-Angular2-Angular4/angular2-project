@@ -9,7 +9,7 @@ export interface Pricing {
 }
 
 export interface ProductVariant {
-    variantId: number;
+    variantId: string;
     productId: string;
     name: string;
     sku: string;

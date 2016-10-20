@@ -11,6 +11,7 @@ import { User, EnterpriseInfo } from './common/models/user.model';
 import { AuthService } from './common/service/auth.service';
 import { FingerPrintService } from './common/service/fingerprint.service';
 import { ProductsService } from './common/service/products.service';
+import { CartService } from './common/service/cart.service';
 // declare var $: JQueryStatic;
 
 /*
@@ -35,18 +36,20 @@ export class AppComponent {
     public authService: AuthService,
     public store: Store<AppStore>,
     public fingerPrintService: FingerPrintService,
-    public prodService: ProductsService) {
+    public prodService: ProductsService,
+    private cartService: CartService ) {
 
   }
 
   ngOnInit() {
     console.log('Initial App State', this.appState.state);
     //  $("div").css("border", "3px solid red");
-    this.loadProductAndPrices();
+    this.initState();
   }
 
   initState() {
     this.authService.init();
+    this.cartService.initCart();
     this.fingerPrintService.getFingerPrint();
     this.loadProductAndPrices();
   }

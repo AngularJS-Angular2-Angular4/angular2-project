@@ -11,11 +11,11 @@ export const userReducer: ActionReducer<User>
               = (state: any = [], action: Action) => {
   switch (action.type) {
     case 'CREATE_USER':
-      return action.payload;
+      return Object.assign({}, state, action.payload);
     case 'UPDATE_USER':
-      return action.payload;
+      return Object.assign({}, state, action.payload);
     case 'DELETE_USER':
-      return initialState;
+      return Object.assign({}, state, initialState);
     case 'INIT_USER':
       return initialState;
     case 'UPDATE_ENT_DETAILS':

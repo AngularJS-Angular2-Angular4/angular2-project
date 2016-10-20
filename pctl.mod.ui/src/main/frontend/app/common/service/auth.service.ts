@@ -7,7 +7,8 @@ import { Observer } from 'rxjs/Observer';
 import { Store } from '@ngrx/store';
 import { AppStore } from '../models/appstore.model';
 import { User, EnterpriseInfo , CartInfo} from '../models/user.model';
-import { CartState } from '../models/cart.model';
+import { CartState,ShoppingCart } from '../models/cart.model';
+
 
 
 
@@ -49,11 +50,11 @@ export class AuthService implements OnInit {
             .map(payload => ({ type: 'CREATE_USER', payload }))
             .subscribe(action => {
                 this.store.dispatch(action)
-                this.addCartInfo(<CartInfo>{
+            /*    this.addCartInfo(<CartInfo>{
                     cartState: CartState.LandingPage,
                     shoppingCartId: '',
                     cartItemCount: 2
-                });
+                });*/
                 this.getUserDetails();
             });
 
@@ -64,6 +65,12 @@ export class AuthService implements OnInit {
         //this.http.delete(`${BASE_URL}${user.id}`)
          //   .subscribe(action => this.store.dispatch({ type: 'DELETE_USER', payload: user }));
          this.store.dispatch({ type: 'DELETE_USER', payload: {} });
+         this.addCartInfo(<CartInfo>{
+                    cartState: CartState.LandingPage,
+                    shoppingCartId: '',
+                    cartItemCount: 0
+                });
+        this.getUserDetails();
     }
 
     public init() {
@@ -77,9 +84,18 @@ export class AuthService implements OnInit {
     }
 
     public addCartInfo(cartInfo: CartInfo) {
+        console.log(cartInfo);
         this.store.dispatch({ type: 'UPDATE_CART_DETAILS', payload: {
            cartInfo: cartInfo
         } });
+    }
+
+    public updateCartInfo(shoppingCart: ShoppingCart) {
+        this.addCartInfo( <CartInfo>{
+                    cartState: CartState.LandingPage,
+                    shoppingCartId: shoppingCart.id,
+                    cartItemCount: shoppingCart.lineItems.length
+                });
     }
 
     public check() {

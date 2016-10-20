@@ -1,21 +1,21 @@
 version: '2'
 services:
-  config-service:
-    image: ctl-platform/ctl-config
-    ports:
-     - 8888:8888
-    environment:
-     - CONFIGURATION_REPOSITORY=https://github.com/shardis/spring-angular2-starter-configuration.git
-     - CONFIGURATION_BRANCH=dev
+#  config-service:
+#    image: ctl-platform/ctl-config
+#    ports:
+#     - 8888:8888
+#    environment:
+#     - CONFIGURATION_REPOSITORY=https://github.com/shardis/spring-angular2-starter-configuration.git
+#     - CONFIGURATION_BRANCH=dev
   discovery-service:
     image: ctl-platform/ctl-discovery
     ports:
      - 8081:8081
-    depends_on:
-     - config-service
-    links:
-     - config-service
-    entrypoint: ./wait-for-service.sh http://config-service:8888/health
+#    depends_on:
+#     - config-service
+#    links:
+#     - config-service
+#    entrypoint: ./wait-for-service.sh http://config-service:8888/health
   api-service:
     image: ctl-platform/ctl-api
     ports:
@@ -26,7 +26,7 @@ services:
     links:
      - discovery-service
      - auth-service
-     - config-service
+#    - config-service
     entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
   auth-service:
     image: ctl-platform/ctl-auth
@@ -36,7 +36,7 @@ services:
      - discovery-service
     links:
      - discovery-service
-     - config-service
+#    - config-service
     entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
   ui-service:
     image: ctl-platform/ctl-ui
@@ -46,26 +46,26 @@ services:
      - discovery-service
      - auth-service
      - api-service
-     - gateway-service
+#    - gateway-service
     links:
      - discovery-service
-     - gateway-service
+#    - gateway-service
      - auth-service
      - api-service
-     - config-service
+#    - config-service
     entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
-  gateway-service:
-    image: ctl-platform/ctl-gateway
-    ports:
-      - 8090:8090
-    depends_on:
-      - discovery-service
-    links:
-      - discovery-service
-      - auth-service
-      - api-service
-      - config-service
-    entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
+#  gateway-service:
+#    image: ctl-platform/ctl-gateway
+#    ports:
+#      - 8090:8090
+#    depends_on:
+#      - discovery-service
+#    links:
+#      - discovery-service
+#      - auth-service
+#      - api-service
+#      - config-service
+#    entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
   admin-service:
     image: ctl-platform/ctl-admin
     ports:
@@ -77,5 +77,5 @@ services:
       - auth-service
       - api-service
       - ui-service
-      - config-service
+#      - config-service
     entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
