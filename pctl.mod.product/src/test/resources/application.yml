@@ -1,0 +1,24 @@
+spring:
+    jackson.serialization:
+        write_dates_as_timestamps: false
+    data:
+      mongodb.host: localhost
+      mongodb.port: 27017
+      mongodb.uri: mongodb://localhost/pctl_test
+      mongodb.database: pctl_test
+jwt:
+    tokenExpirationTime: 43200 # Number of minutes
+    refreshTokenExpTime: 43200 # Minutes
+    tokenIssuer: Ctl
+    tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
+    header: Authorization
+    secret: qwertyuiopasdfghjklzxcvbnm123456
+    expiration: 604800
+    defaultTestUser: apiTestUser@ctl.com
+    route:
+      authentication:
+        path: auth
+
+liquibase:
+    contexts: test
+spring.profiles.include: test
