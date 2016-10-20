@@ -42,7 +42,7 @@ export class AppComponent {
   ngOnInit() {
     console.log('Initial App State', this.appState.state);
     //  $("div").css("border", "3px solid red");
-    this.loadProductAndPrices();
+    this.initState();
   }
 
   initState() {

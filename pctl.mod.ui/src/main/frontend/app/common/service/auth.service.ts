@@ -64,6 +64,12 @@ export class AuthService implements OnInit {
         //this.http.delete(`${BASE_URL}${user.id}`)
          //   .subscribe(action => this.store.dispatch({ type: 'DELETE_USER', payload: user }));
          this.store.dispatch({ type: 'DELETE_USER', payload: {} });
+         this.addCartInfo(<CartInfo>{
+                    cartState: CartState.LandingPage,
+                    shoppingCartId: '',
+                    cartItemCount: 0
+                });
+        this.getUserDetails();
     }
 
     public init() {
