@@ -43,7 +43,7 @@ constructor(public cartService: CartService,
         productTemplateId: 'SDWANBASIC',
         locations: []
       };
-     this.cartService.addItem(lineItem);
+   //  this.cartService.addItem(lineItem);
   }
 
   locationSubmit($event) {

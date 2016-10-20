@@ -15,15 +15,13 @@ export enum CartState {
 }
 
 export interface ShoppingCart {
-    id?: number;
+    id?: string;
     state?: CartState;
-    currentItemName?: string;
-    currentItemId?: string;
     lineItems?: LineItem[];
 }
 
 export interface LineItem {
-    id?: number;
+    id?: string;
     productName: string;
     productId: string;
     productTemplateName: string;

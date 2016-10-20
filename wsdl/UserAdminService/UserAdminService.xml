@@ -1,0 +1,1324 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ecaps.ctl.com/service/userAdmin" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://ecaps.ctl.com/exceptions" name="UserAdminService" targetNamespace="http://ecaps.ctl.com/service/userAdmin">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ecaps.ctl.com/serviceObject" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ecaps.ctl.com/serviceObject" version="1.0">
+
+  <xs:element name="FaultDetailSO" type="tns:FaultDetailSO"/>
+
+  <xs:complexType name="UserSO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="address1" type="xs:string"/>
+      <xs:element minOccurs="0" name="address2" type="xs:string"/>
+      <xs:element minOccurs="0" name="city" type="xs:string"/>
+      <xs:element minOccurs="0" name="country" type="xs:string"/>
+      <xs:element minOccurs="0" name="createdDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="emailAddress" type="xs:string"/>
+      <xs:element minOccurs="0" name="emailAddressOnRecord" type="xs:string"/>
+      <xs:element minOccurs="0" name="emailModifiedDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="fax" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="middleName" type="xs:string"/>
+      <xs:element minOccurs="0" name="mobilePhone" type="xs:string"/>
+      <xs:element name="mobilePhoneUS" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="modifiedDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="nightPhone" type="xs:string"/>
+      <xs:element name="nightPhoneUS" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="notificationPref" type="xs:string"/>
+      <xs:element minOccurs="0" name="pager" type="xs:string"/>
+      <xs:element name="pagerUS" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="phone" type="xs:string"/>
+      <xs:element minOccurs="0" name="phoneExt" type="xs:string"/>
+      <xs:element name="phoneUS" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="realm" type="xs:string"/>
+      <xs:element minOccurs="0" name="state" type="xs:string"/>
+      <xs:element name="status" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="timezone" type="xs:long"/>
+      <xs:element minOccurs="0" name="userId" type="xs:long"/>
+      <xs:element minOccurs="0" name="userSetupDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="userType" type="xs:string"/>
+      <xs:element minOccurs="0" name="username" type="xs:string"/>
+      <xs:element minOccurs="0" name="zip" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FaultDetailSO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+      <xs:element minOccurs="0" name="messageCode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UserPictureSO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="userId" type="xs:long"/>
+      <xs:element minOccurs="0" name="userImage" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="EnterpriseSO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="createdDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="creditHoldIndicator" type="xs:boolean"/>
+      <xs:element name="deactivated" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="deactivatedDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="deactivatedStatusCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="defaultIndicator" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="desistAniIndicator" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="desistCardIndicator" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="desistDedicated8XXIndicator" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="desistSwitched8XXIndicator" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="enewsIndicator" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="enterpriseChannelId" type="xs:string"/>
+      <xs:element minOccurs="0" name="enterpriseCustomerType" type="xs:string"/>
+      <xs:element minOccurs="0" name="enterpriseEmailAddress" type="xs:string"/>
+      <xs:element minOccurs="0" name="enterpriseId" type="xs:long"/>
+      <xs:element minOccurs="0" name="enterpriseName" type="xs:string"/>
+      <xs:element minOccurs="0" name="noPicIndicator" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="originTypeCode" type="xs:string"/>
+      <xs:element name="parentEnterpriseInd" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="remoteControlId" type="xs:string"/>
+      <xs:element name="selfRegistration" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="userEnterpriseAlias" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="EnterpriseAliasSO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="aliasName" type="xs:string"/>
+      <xs:element name="enterpriseId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UserFilterCriteriaSO">
+    <xs:sequence>
+      <xs:element name="csaRole" type="xs:boolean"/>
+      <xs:element name="oaRole" type="xs:boolean"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="roleName" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UserDetailSO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="enterprise" type="tns:EnterpriseSO"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="groupNames" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="tns:UserSO"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UserEnterpriseDataSO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="enterprise" type="tns:EnterpriseSO"/>
+      <xs:element name="enterpriseCount" type="xs:int"/>
+      <xs:element minOccurs="0" name="user" type="tns:UserSO"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UserCheckRequestSO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="accountId" type="xs:string"/>
+      <xs:element minOccurs="0" name="accountSystemCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="emailAddress" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="telephoneNumber" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UserInfoSO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="enterprise" type="tns:EnterpriseSO"/>
+      <xs:element minOccurs="0" name="user" type="tns:UserSO"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UsernameCheckResultSO">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="alternativeUsernames" nillable="true" type="xs:string"/>
+      <xs:element name="available" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AuthenticationSO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="adminRealm" type="xs:string"/>
+      <xs:element minOccurs="0" name="adminUsername" type="xs:string"/>
+      <xs:element minOccurs="0" name="authenticationMethod" type="xs:string"/>
+      <xs:element minOccurs="0" name="clearTrustToken" type="xs:string"/>
+      <xs:element minOccurs="0" name="origPassword" type="xs:string"/>
+      <xs:element minOccurs="0" name="origRealm" type="xs:string"/>
+      <xs:element minOccurs="0" name="origUsername" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="AccountSystemCodeT">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CABS"/>
+      <xs:enumeration value="CRIS"/>
+      <xs:enumeration value="IABS"/>
+      <xs:enumeration value="ENS"/>
+      <xs:enumeration value="LATIS"/>
+      <xs:enumeration value="NIBS"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="AuthenticationMethodT">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PASSWORD"/>
+      <xs:enumeration value="CLEARTRUST"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="UserRealmT">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PARTNER"/>
+      <xs:enumeration value="EMPLOYEE"/>
+      <xs:enumeration value="LOCAL"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ecaps.ctl.com/service/userAdmin" xmlns:ns1="http://ecaps.ctl.com/serviceObject" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ecaps.ctl.com/service/userAdmin">
+  <xs:import namespace="http://ecaps.ctl.com/serviceObject"/>
+  <xs:element name="addUserToEnterprise" type="tns:addUserToEnterprise"/>
+  <xs:element name="addUserToEnterpriseResponse" type="tns:addUserToEnterpriseResponse"/>
+  <xs:element name="checkForUser" type="tns:checkForUser"/>
+  <xs:element name="checkForUserResponse" type="tns:checkForUserResponse"/>
+  <xs:element name="checkUsernameAvailability" type="tns:checkUsernameAvailability"/>
+  <xs:element name="checkUsernameAvailabilityResponse" type="tns:checkUsernameAvailabilityResponse"/>
+  <xs:element name="getAllUserProfilePictures" type="tns:getAllUserProfilePictures"/>
+  <xs:element name="getAllUserProfilePicturesResponse" type="tns:getAllUserProfilePicturesResponse"/>
+  <xs:element name="getCSAUsers" type="tns:getCSAUsers"/>
+  <xs:element name="getCSAUsersResponse" type="tns:getCSAUsersResponse"/>
+  <xs:element name="getFilteredUsers" type="tns:getFilteredUsers"/>
+  <xs:element name="getFilteredUsersResponse" type="tns:getFilteredUsersResponse"/>
+  <xs:element name="getUserById" type="tns:getUserById"/>
+  <xs:element name="getUserByIdResponse" type="tns:getUserByIdResponse"/>
+  <xs:element name="getUserByUsername" type="tns:getUserByUsername"/>
+  <xs:element name="getUserByUsernameResponse" type="tns:getUserByUsernameResponse"/>
+  <xs:element name="getUserChannel" type="tns:getUserChannel"/>
+  <xs:element name="getUserChannelResponse" type="tns:getUserChannelResponse"/>
+  <xs:element name="getUserEnterpriseData" type="tns:getUserEnterpriseData"/>
+  <xs:element name="getUserEnterpriseDataResponse" type="tns:getUserEnterpriseDataResponse"/>
+  <xs:element name="getUserEnterprises" type="tns:getUserEnterprises"/>
+  <xs:element name="getUserEnterprisesResponse" type="tns:getUserEnterprisesResponse"/>
+  <xs:element name="getUserProfilePicture" type="tns:getUserProfilePicture"/>
+  <xs:element name="getUserProfilePictureResponse" type="tns:getUserProfilePictureResponse"/>
+  <xs:element name="getUsers" type="tns:getUsers"/>
+  <xs:element name="getUsersByAccount" type="tns:getUsersByAccount"/>
+  <xs:element name="getUsersByAccountAndGroup" type="tns:getUsersByAccountAndGroup"/>
+  <xs:element name="getUsersByAccountAndGroupResponse" type="tns:getUsersByAccountAndGroupResponse"/>
+  <xs:element name="getUsersByAccountResponse" type="tns:getUsersByAccountResponse"/>
+  <xs:element name="getUsersByEmail" type="tns:getUsersByEmail"/>
+  <xs:element name="getUsersByEmailResponse" type="tns:getUsersByEmailResponse"/>
+  <xs:element name="getUsersResponse" type="tns:getUsersResponse"/>
+  <xs:element name="ping" type="tns:ping"/>
+  <xs:element name="pingResponse" type="tns:pingResponse"/>
+  <xs:element name="removeAllUsersFromEnterprise" type="tns:removeAllUsersFromEnterprise"/>
+  <xs:element name="removeAllUsersFromEnterpriseResponse" type="tns:removeAllUsersFromEnterpriseResponse"/>
+  <xs:element name="removeUserFromEnterprise" type="tns:removeUserFromEnterprise"/>
+  <xs:element name="removeUserFromEnterpriseResponse" type="tns:removeUserFromEnterpriseResponse"/>
+  <xs:element name="setDefaultEnterprise" type="tns:setDefaultEnterprise"/>
+  <xs:element name="setDefaultEnterpriseResponse" type="tns:setDefaultEnterpriseResponse"/>
+  <xs:element name="updateEnterpriseAlias" type="tns:updateEnterpriseAlias"/>
+  <xs:element name="updateEnterpriseAliasResponse" type="tns:updateEnterpriseAliasResponse"/>
+  <xs:element name="updateUser" type="tns:updateUser"/>
+  <xs:element name="updateUserPicture" type="tns:updateUserPicture"/>
+  <xs:element name="updateUserPictureResponse" type="tns:updateUserPictureResponse"/>
+  <xs:element name="updateUserResponse" type="tns:updateUserResponse"/>
+  <xs:element name="userEnterpriseSelectionEvent" type="tns:userEnterpriseSelectionEvent"/>
+  <xs:element name="userEnterpriseSelectionEventResponse" type="tns:userEnterpriseSelectionEventResponse"/>
+  <xs:complexType name="getUsersByEmail">
+    <xs:sequence>
+      <xs:element name="emailAddress" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUsersByEmailResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns1:UserSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUsersByAccount">
+    <xs:sequence>
+      <xs:element name="accountId" type="xs:string"/>
+      <xs:element minOccurs="0" name="accountSystemCode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUsersByAccountResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns1:UserSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUserProfilePicture">
+    <xs:sequence>
+      <xs:element name="userId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUserProfilePictureResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:UserPictureSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeAllUsersFromEnterprise">
+    <xs:sequence>
+      <xs:element name="enterpriseId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeAllUsersFromEnterpriseResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateUserPicture">
+    <xs:sequence>
+      <xs:element name="userId" type="xs:long"/>
+      <xs:element name="picture" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateUserPictureResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="addUserToEnterprise">
+    <xs:sequence>
+      <xs:element name="userId" type="xs:long"/>
+      <xs:element name="enterpriseId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addUserToEnterpriseResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="userEnterpriseSelectionEvent">
+    <xs:sequence>
+      <xs:element name="portalSiteId" type="xs:string"/>
+      <xs:element name="origUserId" type="xs:long"/>
+      <xs:element name="userId" type="xs:long"/>
+      <xs:element name="enterpriseId" type="xs:long"/>
+      <xs:element minOccurs="0" name="fromEnterpriseId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="userEnterpriseSelectionEventResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="ping">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="pingResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUserByUsername">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string"/>
+      <xs:element name="realm" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUserByUsernameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:UserSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUserEnterprises">
+    <xs:sequence>
+      <xs:element name="userId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUserEnterprisesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns1:EnterpriseSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateEnterpriseAlias">
+    <xs:sequence>
+      <xs:element name="userId" type="xs:long"/>
+      <xs:element maxOccurs="unbounded" name="enterpriseAlias" type="ns1:EnterpriseAliasSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateEnterpriseAliasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUsersByAccountAndGroup">
+    <xs:sequence>
+      <xs:element name="accountId" type="xs:string"/>
+      <xs:element minOccurs="0" name="accountSystemCode" type="xs:string"/>
+      <xs:element name="groupName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUsersByAccountAndGroupResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns1:UserSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllUserProfilePictures">
+    <xs:sequence>
+      <xs:element name="enterpriseId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllUserProfilePicturesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns1:UserPictureSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getFilteredUsers">
+    <xs:sequence>
+      <xs:element name="enterpriseId" type="xs:long"/>
+      <xs:element name="filterCriteria" type="ns1:UserFilterCriteriaSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getFilteredUsersResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns1:UserDetailSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUsers">
+    <xs:sequence>
+      <xs:element name="enterpriseId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUsersResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns1:UserSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUserEnterpriseData">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string"/>
+      <xs:element name="realm" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUserEnterpriseDataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:UserEnterpriseDataSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="checkForUser">
+    <xs:sequence>
+      <xs:element name="userCheckRequest" type="ns1:UserCheckRequestSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="checkForUserResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns1:UserInfoSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateUser">
+    <xs:sequence>
+      <xs:element name="user" type="ns1:UserSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateUserResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getUserById">
+    <xs:sequence>
+      <xs:element name="userId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUserByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:UserSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="checkUsernameAvailability">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string"/>
+      <xs:element name="alternativeNumber" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="checkUsernameAvailabilityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:UsernameCheckResultSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeUserFromEnterprise">
+    <xs:sequence>
+      <xs:element name="userId" type="xs:long"/>
+      <xs:element name="enterpriseId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeUserFromEnterpriseResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getCSAUsers">
+    <xs:sequence>
+      <xs:element name="enterpriseId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCSAUsersResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns1:UserSO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setDefaultEnterprise">
+    <xs:sequence>
+      <xs:element name="userId" type="xs:long"/>
+      <xs:element minOccurs="0" name="enterpriseId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setDefaultEnterpriseResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getUserChannel">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string"/>
+      <xs:element name="realm" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUserChannelResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ecaps.ctl.com/exceptions" xmlns:ns0="http://ecaps.ctl.com/serviceObject" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ecaps.ctl.com/exceptions">
+  <xsd:element name="ServiceSystemException" nillable="true" type="ns0:FaultDetailSO"/>
+  <xsd:element name="ServiceValidationException" nillable="true" type="ns0:FaultDetailSO"/>
+  <xsd:element name="ServiceAuthenticationException" nillable="true" type="ns0:FaultDetailSO"/>
+  <xsd:element name="ServiceAuthorizationException" nillable="true" type="ns0:FaultDetailSO"/>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="updateEnterpriseAliasResponse">
+    <wsdl:part element="tns:updateEnterpriseAliasResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUsersByAccountAndGroupResponse">
+    <wsdl:part element="tns:getUsersByAccountAndGroupResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserEnterprises">
+    <wsdl:part element="tns:getUserEnterprises" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeAllUsersFromEnterprise">
+    <wsdl:part element="tns:removeAllUsersFromEnterprise" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ping">
+    <wsdl:part element="tns:ping" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUsersByEmailResponse">
+    <wsdl:part element="tns:getUsersByEmailResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUsersByAccount">
+    <wsdl:part element="tns:getUsersByAccount" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkUsernameAvailabilityResponse">
+    <wsdl:part element="tns:checkUsernameAvailabilityResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="userEnterpriseSelectionEvent">
+    <wsdl:part element="tns:userEnterpriseSelectionEvent" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllUserProfilePictures">
+    <wsdl:part element="tns:getAllUserProfilePictures" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkForUser">
+    <wsdl:part element="tns:checkForUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserProfilePicture">
+    <wsdl:part element="tns:getUserProfilePicture" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setDefaultEnterpriseResponse">
+    <wsdl:part element="tns:setDefaultEnterpriseResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserProfilePictureResponse">
+    <wsdl:part element="tns:getUserProfilePictureResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateUser">
+    <wsdl:part element="tns:updateUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addUserToEnterprise">
+    <wsdl:part element="tns:addUserToEnterprise" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserByUsernameResponse">
+    <wsdl:part element="tns:getUserByUsernameResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserByIdResponse">
+    <wsdl:part element="tns:getUserByIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkUsernameAvailability">
+    <wsdl:part element="tns:checkUsernameAvailability" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserByUsername">
+    <wsdl:part element="tns:getUserByUsername" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addUserToEnterpriseResponse">
+    <wsdl:part element="tns:addUserToEnterpriseResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceValidationException">
+    <wsdl:part element="ns1:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceAuthorizationException">
+    <wsdl:part element="ns1:ServiceAuthorizationException" name="ServiceAuthorizationException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUsersByAccountAndGroup">
+    <wsdl:part element="tns:getUsersByAccountAndGroup" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkForUserResponse">
+    <wsdl:part element="tns:checkForUserResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUsersByAccountResponse">
+    <wsdl:part element="tns:getUsersByAccountResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFilteredUsersResponse">
+    <wsdl:part element="tns:getFilteredUsersResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceAuthenticationException">
+    <wsdl:part element="ns1:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateUserPictureResponse">
+    <wsdl:part element="tns:updateUserPictureResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserEnterpriseData">
+    <wsdl:part element="tns:getUserEnterpriseData" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateUserPicture">
+    <wsdl:part element="tns:updateUserPicture" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setDefaultEnterprise">
+    <wsdl:part element="tns:setDefaultEnterprise" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUsersResponse">
+    <wsdl:part element="tns:getUsersResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUsersByEmail">
+    <wsdl:part element="tns:getUsersByEmail" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="userEnterpriseSelectionEventResponse">
+    <wsdl:part element="tns:userEnterpriseSelectionEventResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceSystemException">
+    <wsdl:part element="ns1:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFilteredUsers">
+    <wsdl:part element="tns:getFilteredUsers" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeAllUsersFromEnterpriseResponse">
+    <wsdl:part element="tns:removeAllUsersFromEnterpriseResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCSAUsersResponse">
+    <wsdl:part element="tns:getCSAUsersResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCSAUsers">
+    <wsdl:part element="tns:getCSAUsers" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEnterpriseAlias">
+    <wsdl:part element="tns:updateEnterpriseAlias" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllUserProfilePicturesResponse">
+    <wsdl:part element="tns:getAllUserProfilePicturesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateUserResponse">
+    <wsdl:part element="tns:updateUserResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUsers">
+    <wsdl:part element="tns:getUsers" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserEnterpriseDataResponse">
+    <wsdl:part element="tns:getUserEnterpriseDataResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserChannelResponse">
+    <wsdl:part element="tns:getUserChannelResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserChannel">
+    <wsdl:part element="tns:getUserChannel" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeUserFromEnterpriseResponse">
+    <wsdl:part element="tns:removeUserFromEnterpriseResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pingResponse">
+    <wsdl:part element="tns:pingResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserById">
+    <wsdl:part element="tns:getUserById" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserEnterprisesResponse">
+    <wsdl:part element="tns:getUserEnterprisesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeUserFromEnterprise">
+    <wsdl:part element="tns:removeUserFromEnterprise" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="UserAdminService">
+    <wsdl:operation name="getUsersByEmail">
+      <wsdl:input message="tns:getUsersByEmail" name="getUsersByEmail">
+    </wsdl:input>
+      <wsdl:output message="tns:getUsersByEmailResponse" name="getUsersByEmailResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUsersByAccount">
+      <wsdl:input message="tns:getUsersByAccount" name="getUsersByAccount">
+    </wsdl:input>
+      <wsdl:output message="tns:getUsersByAccountResponse" name="getUsersByAccountResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUserProfilePicture">
+      <wsdl:input message="tns:getUserProfilePicture" name="getUserProfilePicture">
+    </wsdl:input>
+      <wsdl:output message="tns:getUserProfilePictureResponse" name="getUserProfilePictureResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeAllUsersFromEnterprise">
+      <wsdl:input message="tns:removeAllUsersFromEnterprise" name="removeAllUsersFromEnterprise">
+    </wsdl:input>
+      <wsdl:output message="tns:removeAllUsersFromEnterpriseResponse" name="removeAllUsersFromEnterpriseResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceAuthorizationException" name="ServiceAuthorizationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateUserPicture">
+      <wsdl:input message="tns:updateUserPicture" name="updateUserPicture">
+    </wsdl:input>
+      <wsdl:output message="tns:updateUserPictureResponse" name="updateUserPictureResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceAuthorizationException" name="ServiceAuthorizationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addUserToEnterprise">
+      <wsdl:input message="tns:addUserToEnterprise" name="addUserToEnterprise">
+    </wsdl:input>
+      <wsdl:output message="tns:addUserToEnterpriseResponse" name="addUserToEnterpriseResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="userEnterpriseSelectionEvent">
+      <wsdl:input message="tns:userEnterpriseSelectionEvent" name="userEnterpriseSelectionEvent">
+    </wsdl:input>
+      <wsdl:output message="tns:userEnterpriseSelectionEventResponse" name="userEnterpriseSelectionEventResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <wsdl:input message="tns:ping" name="ping">
+    </wsdl:input>
+      <wsdl:output message="tns:pingResponse" name="pingResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserByUsername">
+      <wsdl:input message="tns:getUserByUsername" name="getUserByUsername">
+    </wsdl:input>
+      <wsdl:output message="tns:getUserByUsernameResponse" name="getUserByUsernameResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUserEnterprises">
+      <wsdl:input message="tns:getUserEnterprises" name="getUserEnterprises">
+    </wsdl:input>
+      <wsdl:output message="tns:getUserEnterprisesResponse" name="getUserEnterprisesResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateEnterpriseAlias">
+      <wsdl:input message="tns:updateEnterpriseAlias" name="updateEnterpriseAlias">
+    </wsdl:input>
+      <wsdl:output message="tns:updateEnterpriseAliasResponse" name="updateEnterpriseAliasResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUsersByAccountAndGroup">
+      <wsdl:input message="tns:getUsersByAccountAndGroup" name="getUsersByAccountAndGroup">
+    </wsdl:input>
+      <wsdl:output message="tns:getUsersByAccountAndGroupResponse" name="getUsersByAccountAndGroupResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllUserProfilePictures">
+      <wsdl:input message="tns:getAllUserProfilePictures" name="getAllUserProfilePictures">
+    </wsdl:input>
+      <wsdl:output message="tns:getAllUserProfilePicturesResponse" name="getAllUserProfilePicturesResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFilteredUsers">
+      <wsdl:input message="tns:getFilteredUsers" name="getFilteredUsers">
+    </wsdl:input>
+      <wsdl:output message="tns:getFilteredUsersResponse" name="getFilteredUsersResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUsers">
+      <wsdl:input message="tns:getUsers" name="getUsers">
+    </wsdl:input>
+      <wsdl:output message="tns:getUsersResponse" name="getUsersResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUserEnterpriseData">
+      <wsdl:input message="tns:getUserEnterpriseData" name="getUserEnterpriseData">
+    </wsdl:input>
+      <wsdl:output message="tns:getUserEnterpriseDataResponse" name="getUserEnterpriseDataResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="checkForUser">
+      <wsdl:input message="tns:checkForUser" name="checkForUser">
+    </wsdl:input>
+      <wsdl:output message="tns:checkForUserResponse" name="checkForUserResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <wsdl:input message="tns:updateUser" name="updateUser">
+    </wsdl:input>
+      <wsdl:output message="tns:updateUserResponse" name="updateUserResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceAuthorizationException" name="ServiceAuthorizationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUserById">
+      <wsdl:input message="tns:getUserById" name="getUserById">
+    </wsdl:input>
+      <wsdl:output message="tns:getUserByIdResponse" name="getUserByIdResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="checkUsernameAvailability">
+      <wsdl:input message="tns:checkUsernameAvailability" name="checkUsernameAvailability">
+    </wsdl:input>
+      <wsdl:output message="tns:checkUsernameAvailabilityResponse" name="checkUsernameAvailabilityResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeUserFromEnterprise">
+      <wsdl:input message="tns:removeUserFromEnterprise" name="removeUserFromEnterprise">
+    </wsdl:input>
+      <wsdl:output message="tns:removeUserFromEnterpriseResponse" name="removeUserFromEnterpriseResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceAuthorizationException" name="ServiceAuthorizationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCSAUsers">
+      <wsdl:input message="tns:getCSAUsers" name="getCSAUsers">
+    </wsdl:input>
+      <wsdl:output message="tns:getCSAUsersResponse" name="getCSAUsersResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setDefaultEnterprise">
+      <wsdl:input message="tns:setDefaultEnterprise" name="setDefaultEnterprise">
+    </wsdl:input>
+      <wsdl:output message="tns:setDefaultEnterpriseResponse" name="setDefaultEnterpriseResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceAuthorizationException" name="ServiceAuthorizationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceValidationException" name="ServiceValidationException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:ServiceAuthenticationException" name="ServiceAuthenticationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUserChannel">
+      <wsdl:input message="tns:getUserChannel" name="getUserChannel">
+    </wsdl:input>
+      <wsdl:output message="tns:getUserChannelResponse" name="getUserChannelResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ServiceSystemException" name="ServiceSystemException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserAdminServiceSoapBinding" type="tns:UserAdminService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getUserById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUserById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUsersByEmail">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUsersByEmail">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUsersByEmailResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="userEnterpriseSelectionEvent">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="userEnterpriseSelectionEvent">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="userEnterpriseSelectionEventResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateEnterpriseAlias">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateEnterpriseAlias">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateEnterpriseAliasResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUsersByAccount">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUsersByAccount">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUsersByAccountResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setDefaultEnterprise">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="setDefaultEnterprise">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setDefaultEnterpriseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceAuthorizationException">
+        <soap:fault name="ServiceAuthorizationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUserProfilePicture">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUserProfilePicture">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserProfilePictureResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="ping">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pingResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserByUsername">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUserByUsername">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserByUsernameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUserEnterpriseData">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUserEnterpriseData">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserEnterpriseDataResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUsers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUsers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUsersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeAllUsersFromEnterprise">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removeAllUsersFromEnterprise">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removeAllUsersFromEnterpriseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceAuthorizationException">
+        <soap:fault name="ServiceAuthorizationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUserEnterprises">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUserEnterprises">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserEnterprisesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="checkUsernameAvailability">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="checkUsernameAvailability">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="checkUsernameAvailabilityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceAuthorizationException">
+        <soap:fault name="ServiceAuthorizationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateUserPicture">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateUserPicture">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateUserPictureResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceAuthorizationException">
+        <soap:fault name="ServiceAuthorizationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUsersByAccountAndGroup">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUsersByAccountAndGroup">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUsersByAccountAndGroupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="checkForUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="checkForUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="checkForUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addUserToEnterprise">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addUserToEnterprise">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addUserToEnterpriseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFilteredUsers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getFilteredUsers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getFilteredUsersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCSAUsers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCSAUsers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCSAUsersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllUserProfilePictures">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllUserProfilePictures">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllUserProfilePicturesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUserChannel">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUserChannel">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserChannelResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeUserFromEnterprise">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removeUserFromEnterprise">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removeUserFromEnterpriseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceAuthorizationException">
+        <soap:fault name="ServiceAuthorizationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceValidationException">
+        <soap:fault name="ServiceValidationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSystemException">
+        <soap:fault name="ServiceSystemException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAuthenticationException">
+        <soap:fault name="ServiceAuthenticationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserAdminService">
+    <wsdl:port binding="tns:UserAdminServiceSoapBinding" name="UserAdminServicePort">
+      <soap:address location="https://ecaps-int1.foss.dev.qintra.com:40133/ecaps/service/UserAdminService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

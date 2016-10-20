@@ -1,0 +1,1138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Web Services API : WS_ACQ_Leads
+-->
+<definitions targetNamespace="http://soap.sforce.com/schemas/class/WS_ACQ_Leads" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.sforce.com/schemas/class/WS_ACQ_Leads">
+ <types>
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://soap.sforce.com/schemas/class/WS_ACQ_Leads">
+   <xsd:element name="AllowFieldTruncationHeader">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="allowFieldTruncation" type="xsd:boolean"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="CallOptions">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="client" type="xsd:string"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="DebuggingHeader">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="categories" minOccurs="0" maxOccurs="unbounded" type="tns:LogInfo"/>
+      <xsd:element name="debugLevel" type="tns:LogType"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="LogInfo">
+    <xsd:sequence>
+     <xsd:element name="category" type="tns:LogCategory"/>
+     <xsd:element name="level" type="tns:LogCategoryLevel"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:simpleType name="LogCategory">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="Db"/>
+     <xsd:enumeration value="Workflow"/>
+     <xsd:enumeration value="Validation"/>
+     <xsd:enumeration value="Callout"/>
+     <xsd:enumeration value="Apex_code"/>
+     <xsd:enumeration value="Apex_profiling"/>
+     <xsd:enumeration value="Visualforce"/>
+     <xsd:enumeration value="System"/>
+     <xsd:enumeration value="All"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="LogCategoryLevel">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="None"/>
+     <xsd:enumeration value="Finest"/>
+     <xsd:enumeration value="Finer"/>
+     <xsd:enumeration value="Fine"/>
+     <xsd:enumeration value="Debug"/>
+     <xsd:enumeration value="Info"/>
+     <xsd:enumeration value="Warn"/>
+     <xsd:enumeration value="Error"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="LogType">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="None"/>
+     <xsd:enumeration value="Debugonly"/>
+     <xsd:enumeration value="Db"/>
+     <xsd:enumeration value="Profiling"/>
+     <xsd:enumeration value="Callout"/>
+     <xsd:enumeration value="Detail"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:element name="DebuggingInfo">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="debugLog" type="xsd:string"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="SessionHeader">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="sessionId" type="xsd:string"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:simpleType name="ID">
+    <xsd:restriction base="xsd:string">
+     <xsd:length value="18"/>
+     <xsd:pattern value="[a-zA-Z0-9]{18}"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:complexType name="ACQLead">
+    <xsd:sequence>
+     <xsd:element name="AddrLine1" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="AddrLine2" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="BusPhone" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="City" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Clli" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Comments" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="ContactTN" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="ConvertLeadURL" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Country" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Descr" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Email" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="FName" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="H" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Industry" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Latitude" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="LeadAge" minOccurs="0" type="xsd:decimal" nillable="true"/>
+     <xsd:element name="LeadCreatedDate" minOccurs="0" type="xsd:dateTime" nillable="true"/>
+     <xsd:element name="LeadId" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="LeadStatus" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="LName" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="LocationName" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Longitude" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Name" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Owner" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="PrimaryTN" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Products" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="QualAttrs" minOccurs="0" maxOccurs="unbounded" type="tns:QualificationAttr" nillable="true"/>
+     <xsd:element name="RefeMailAddrs" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="RefFName" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="RefSalesCode" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Src" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="State" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="SwcCLLI" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="SwcNPA" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="SwcNXX" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="TNcheckNPA" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="TNcheckNXX" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="TNcheckQuantity" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="TnInfo" minOccurs="0" maxOccurs="unbounded" type="tns:tnportableinfo" nillable="true"/>
+     <xsd:element name="TNRateCenter" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="V" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Zip" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="ACQLeadMultiSite">
+    <xsd:sequence>
+     <xsd:element name="AddrLine1" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="AddrLine2" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="ApttusIdentifier" minOccurs="0" type="xsd:boolean" nillable="true"/>
+     <xsd:element name="BusPhone" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="City" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Clli" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Comments" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="ContactTN" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="ConvertLeadURL" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Country" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Descr" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Email" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="FName" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Industry" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="LeadAge" minOccurs="0" type="xsd:decimal" nillable="true"/>
+     <xsd:element name="LeadCreatedDate" minOccurs="0" type="xsd:dateTime" nillable="true"/>
+     <xsd:element name="LeadId" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="LeadStatus" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="LName" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="LocationName" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Name" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Owner" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="RefeMailAddrs" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="RefFName" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="RefSalesCode" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="servLocInfo" minOccurs="0" maxOccurs="unbounded" type="tns:ServiceLocation" nillable="true"/>
+     <xsd:element name="Src" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="State" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="TNcheckNPA" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="TNcheckNXX" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="TNcheckQuantity" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="TnInfo" minOccurs="0" maxOccurs="unbounded" type="tns:tnportableinfo" nillable="true"/>
+     <xsd:element name="TNRateCenter" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Zip" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="BillingAccountDetails">
+    <xsd:sequence>
+     <xsd:element name="BillingAccountId" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="BillingAccountName" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="BillingAccountOwner" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="BillingAccountOwnerURL" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="BillingAcctEntity" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="BillingSystem" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="CTLBillingAccountDetails">
+    <xsd:sequence>
+     <xsd:element name="BillingAcctDetails" minOccurs="0" maxOccurs="unbounded" type="tns:BillingAccountDetails" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="CompanyQualifiedLocRequest">
+    <xsd:sequence>
+     <xsd:element name="EndDate" minOccurs="0" type="xsd:dateTime" nillable="true"/>
+     <xsd:element name="StartDate" minOccurs="0" type="xsd:dateTime" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="CompanyQualifiedLocResponse">
+    <xsd:sequence>
+     <xsd:element name="companyQualLocations" minOccurs="0" maxOccurs="unbounded" type="tns:CompanyQualifiedResponse" nillable="true"/>
+     <xsd:element name="ErrorMsg" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="MessageCode" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="TotalNumber" minOccurs="0" type="xsd:int" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="CompanyQualifiedLocTntRequest">
+    <xsd:sequence>
+     <xsd:element name="BuildingId" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="CompanyQualifiedLocTntResponse">
+    <xsd:sequence>
+     <xsd:element name="Comments" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Company_Name" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Company_Qualified_Location" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Est_Competitor_Contract_Expiration_Date" minOccurs="0" type="xsd:date" nillable="true"/>
+     <xsd:element name="Est_Data_Spend" minOccurs="0" type="xsd:decimal" nillable="true"/>
+     <xsd:element name="Est_EmpNo" minOccurs="0" type="xsd:decimal" nillable="true"/>
+     <xsd:element name="Est_ITSpend" minOccurs="0" type="xsd:decimal" nillable="true"/>
+     <xsd:element name="Est_Total_Telco_Spend" minOccurs="0" type="xsd:decimal" nillable="true"/>
+     <xsd:element name="Est_Voice_Spend" minOccurs="0" type="xsd:decimal" nillable="true"/>
+     <xsd:element name="Last_Verification_Date" minOccurs="0" type="xsd:date" nillable="true"/>
+     <xsd:element name="Last_Verified_ByUser" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Related_Customer_Account" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Remaining_Contract_with_Competitor" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="SIC_Division" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="SIC_Major_Group" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Tenant_Status" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="TenantId" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="CompanyQualifiedResponse">
+    <xsd:sequence>
+     <xsd:element name="Address" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Assigned_Sales_Professional" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Assigned_Sales_profile_URL" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Assigned_Sales_UserName" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="BuildingId" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="City" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="CLLI_Information" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Country" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Direct_Indirect" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Installation_Interval" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="isDeleted" minOccurs="0" type="xsd:boolean" nillable="true"/>
+     <xsd:element name="Location_Type" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="MTU_Geolocation_Latitude" minOccurs="0" type="xsd:decimal" nillable="true"/>
+     <xsd:element name="MTU_Geolocation_Longitude" minOccurs="0" type="xsd:decimal" nillable="true"/>
+     <xsd:element name="Seq_Id" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Site_Active_Date" minOccurs="0" type="xsd:date" nillable="true"/>
+     <xsd:element name="State" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Status" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Validation_Status" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Zip" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="CompanyQualifiedtntResponse">
+    <xsd:sequence>
+     <xsd:element name="companyQualLocationTnts" minOccurs="0" maxOccurs="unbounded" type="tns:CompanyQualifiedLocTntResponse" nillable="true"/>
+     <xsd:element name="ErrorMsg" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="MessageCode" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="TotalNumber" minOccurs="0" type="xsd:int" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="ConvertLeadRequest">
+    <xsd:sequence>
+     <xsd:element name="LeadId" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="ConvertLeadResponse">
+    <xsd:sequence>
+     <xsd:element name="MessageCode" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="MessageDesc" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="OpportunityId" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="OpportunityUrl" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Owner" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="CreateLeadRequest">
+    <xsd:sequence>
+     <xsd:element name="ACQLeads" minOccurs="0" maxOccurs="unbounded" type="tns:ACQLead" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="CreateLeadRequestMultiSite">
+    <xsd:sequence>
+     <xsd:element name="ACQMultiSiteLead" minOccurs="0" maxOccurs="unbounded" type="tns:ACQLeadMultiSite" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="CreateLeadResponse">
+    <xsd:sequence>
+     <xsd:element name="LeadID" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="MessageCode" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="MessageDesc" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="CustomerInfo">
+    <xsd:sequence>
+     <xsd:element name="AccUrl" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="name" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Owner" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Segment" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="UUID" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="CustomerSearchRequest">
+    <xsd:sequence>
+     <xsd:element name="customerName" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="CustomerSearchResponse">
+    <xsd:sequence>
+     <xsd:element name="ErrorMsg" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="MessageCode" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="searchResultsData" minOccurs="0" maxOccurs="unbounded" type="tns:SearchResults" nillable="true"/>
+     <xsd:element name="TotalNumber" minOccurs="0" type="xsd:int" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="GetLeadRequest">
+    <xsd:sequence>
+     <xsd:element name="Campaign_Codes" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="leadId" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Offset" minOccurs="0" type="xsd:int" nillable="true"/>
+     <xsd:element name="Owner" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="State_Code" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="status" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="ThresholdLimit" minOccurs="0" type="xsd:int" nillable="true"/>
+     <xsd:element name="Zip_Code" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="GetLeadResponse">
+    <xsd:sequence>
+     <xsd:element name="ACQLeads" minOccurs="0" maxOccurs="unbounded" type="tns:ACQLead" nillable="true"/>
+     <xsd:element name="MessageCode" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="MessageDesc" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="TotalNumber" minOccurs="0" type="xsd:int" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="GetLeadResponseMultiSite">
+    <xsd:sequence>
+     <xsd:element name="ACQLeadMultiSite" minOccurs="0" maxOccurs="unbounded" type="tns:ACQLeadMultiSite" nillable="true"/>
+     <xsd:element name="MessageCode" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="MessageDesc" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="TotalNumber" minOccurs="0" type="xsd:int" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="GetOpportunityResponse">
+    <xsd:sequence>
+     <xsd:element name="MessageCode" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="MessageDesc" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="OpptyList" minOccurs="0" maxOccurs="unbounded" type="tns:OpportunityData" nillable="true"/>
+     <xsd:element name="TotalNumber" minOccurs="0" type="xsd:int" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="GetopportunityRequest">
+    <xsd:sequence>
+     <xsd:element name="Offset" minOccurs="0" type="xsd:int" nillable="true"/>
+     <xsd:element name="opptyId" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="opptyStage" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Owner" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="ThresholdLimit" minOccurs="0" type="xsd:int" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="OpportunityData">
+    <xsd:sequence>
+     <xsd:element name="businessName" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="forecastCategory" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="industry" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="OpportunityUrl" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="opptyCloseDate" minOccurs="0" type="xsd:dateTime" nillable="true"/>
+     <xsd:element name="opptyCreatedDate" minOccurs="0" type="xsd:dateTime" nillable="true"/>
+     <xsd:element name="opptyId" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="opptyName" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="opptyStage" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Owner" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="postalCode" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="products" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="QualAttrs" minOccurs="0" maxOccurs="unbounded" type="tns:QualificationAttr" nillable="true"/>
+     <xsd:element name="serviceLocAddress" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="serviceLocAddressLine2" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="serviceLocCity" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="serviceLocCountry" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="serviceLocLatitude" minOccurs="0" type="xsd:decimal" nillable="true"/>
+     <xsd:element name="serviceLocLongitude" minOccurs="0" type="xsd:decimal" nillable="true"/>
+     <xsd:element name="serviceLocLst" minOccurs="0" maxOccurs="unbounded" type="tns:ServiceLocationData" nillable="true"/>
+     <xsd:element name="serviceLocState" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="totalMRC" minOccurs="0" type="xsd:decimal" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="QCBillingAccountDetails">
+    <xsd:sequence>
+     <xsd:element name="BillingAcctDetails" minOccurs="0" maxOccurs="unbounded" type="tns:BillingAccountDetails" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="QCCBillingAccountDetails">
+    <xsd:sequence>
+     <xsd:element name="BillingAcctDetails" minOccurs="0" maxOccurs="unbounded" type="tns:BillingAccountDetails" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="QualificationAttr">
+    <xsd:sequence>
+     <xsd:element name="key" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="val" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="ReturnCustomersResponse">
+    <xsd:sequence>
+     <xsd:element name="custInfoLst" minOccurs="0" maxOccurs="unbounded" type="tns:CustomerInfo" nillable="true"/>
+     <xsd:element name="MessageCode" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="MessageDesc" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="SearchByAccountIdRequest">
+    <xsd:sequence>
+     <xsd:element name="AccountId" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="SearchByAccountIdResponse">
+    <xsd:sequence>
+     <xsd:element name="AccountName" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="AccountSegmentCode" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="CTLBillingAcctDetails" minOccurs="0" type="tns:CTLBillingAccountDetails" nillable="true"/>
+     <xsd:element name="CustomerTBR" minOccurs="0" type="xsd:decimal" nillable="true"/>
+     <xsd:element name="ErrorMsg" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="isTooManyBAcctsExists" minOccurs="0" type="xsd:boolean" nillable="true"/>
+     <xsd:element name="MessageCode" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="NoOfBillingAccounts" minOccurs="0" type="xsd:decimal" nillable="true"/>
+     <xsd:element name="QCBillingAcctDetails" minOccurs="0" type="tns:QCBillingAccountDetails" nillable="true"/>
+     <xsd:element name="QCCBillingAcctDetails" minOccurs="0" type="tns:QCCBillingAccountDetails" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="SearchResults">
+    <xsd:sequence>
+     <xsd:element name="AccountId" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="AccountName" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="billingAcctEntity" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="CreatedDate" minOccurs="0" type="xsd:dateTime" nillable="true"/>
+     <xsd:element name="isBillingAcctExists" minOccurs="0" type="xsd:boolean" nillable="true"/>
+     <xsd:element name="isTooManyBAcctsExists" minOccurs="0" type="xsd:boolean" nillable="true"/>
+     <xsd:element name="OpportunityId" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="prospectingStatus" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="ServiceLocation">
+    <xsd:sequence>
+     <xsd:element name="AddressID" minOccurs="0" type="xsd:double" nillable="true"/>
+     <xsd:element name="AddrLine1" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="AddrLine2" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="City" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Comments" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="ContactTN" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Country" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Email" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="FName" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="H" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Latitude" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="LName" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Longitude" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="name" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="PrimaryTN" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Products" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="QualAttrs" minOccurs="0" maxOccurs="unbounded" type="tns:QualificationAttr" nillable="true"/>
+     <xsd:element name="ServiceLocationId" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Source" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="State" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="SwcCLLI" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="SwcNPA" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="SwcNXX" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="V" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Zip" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="ServiceLocationData">
+    <xsd:sequence>
+     <xsd:element name="accName" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="primaryTN" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="serviceLocName" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="UpdateLeadsRequest">
+    <xsd:sequence>
+     <xsd:element name="ACQLeads" minOccurs="0" maxOccurs="unbounded" type="tns:ACQLead" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="UpdateLeadsRequestMultiSite">
+    <xsd:sequence>
+     <xsd:element name="ACQMultiSiteLead" minOccurs="0" maxOccurs="unbounded" type="tns:ACQLeadMultiSite" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="UpdateLeadsResponse">
+    <xsd:sequence>
+     <xsd:element name="MessageCode" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="MessageDesc" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="UserResponse">
+    <xsd:sequence>
+     <xsd:element name="statusCode" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="statusMsg" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="userId" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="tnportableinfo">
+    <xsd:sequence>
+     <xsd:element name="BeginningTNRange" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="EndIngTNRange" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="LosingCarrier" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Numberofdaysforportable" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="PortableMessage" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="ConvertLead">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="Request" type="tns:ConvertLeadRequest" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="ConvertLeadResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:ConvertLeadResponse" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="ConvertLeadMultiSite">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="Request" type="tns:ConvertLeadRequest" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="ConvertLeadMultiSiteResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:ConvertLeadResponse" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="CreateLeads">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="Request" type="tns:CreateLeadRequest" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="CreateLeadsResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:CreateLeadResponse" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="CreateLeadsMultiSite">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="Request" type="tns:CreateLeadRequestMultiSite" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="CreateLeadsMultiSiteResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:CreateLeadResponse" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="CUIDStatus">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="cuid" type="xsd:string" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="CUIDStatusResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:UserResponse" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="GetCompanyQualifiedLocations">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="request" type="tns:CompanyQualifiedLocRequest" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="GetCompanyQualifiedLocationsResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:CompanyQualifiedLocResponse" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="GetCQLTenants">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="request" type="tns:CompanyQualifiedLocTntRequest" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="GetCQLTenantsResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:CompanyQualifiedtntResponse" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="GetLeads">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="Request" type="tns:GetLeadRequest" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="GetLeadsResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:GetLeadResponse" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="GetLeadsMultiSite">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="Request" type="tns:GetLeadRequest" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="GetLeadsMultiSiteResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:GetLeadResponseMultiSite" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="GetOpportunities">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="Request" type="tns:GetopportunityRequest" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="GetOpportunitiesResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:GetOpportunityResponse" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="ReturnCustomer">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="SeqId" type="xsd:string" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="ReturnCustomerResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:ReturnCustomersResponse" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="SearchByAccountId">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="request" type="tns:SearchByAccountIdRequest" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="SearchByAccountIdResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:SearchByAccountIdResponse" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="searchByCustomerName">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="request" type="tns:CustomerSearchRequest" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="searchByCustomerNameResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:CustomerSearchResponse" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="UpdateLeads">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="Request" type="tns:UpdateLeadsRequest" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="UpdateLeadsResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:UpdateLeadsResponse" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="UpdateLeadsMultiSite">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="Request" type="tns:UpdateLeadsRequestMultiSite" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="UpdateLeadsMultiSiteResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:UpdateLeadsResponse" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="userStatus">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="userId" type="xsd:string" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="userStatusResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:UserResponse" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+  </xsd:schema>
+ </types>
+ <!-- Message for the header parts -->
+ <message name="Header">
+  <part name="AllowFieldTruncationHeader" element="tns:AllowFieldTruncationHeader"/>
+  <part name="CallOptions" element="tns:CallOptions"/>
+  <part name="DebuggingHeader" element="tns:DebuggingHeader"/>
+  <part name="DebuggingInfo" element="tns:DebuggingInfo"/>
+  <part name="SessionHeader" element="tns:SessionHeader"/>
+ </message>
+ <!-- Operation Messages -->
+ <message name="ConvertLeadRequest">
+  <part element="tns:ConvertLead" name="parameters"/>
+ </message>
+ <message name="ConvertLeadResponse">
+  <part element="tns:ConvertLeadResponse" name="parameters"/>
+ </message>
+ <message name="ConvertLeadMultiSiteRequest">
+  <part element="tns:ConvertLeadMultiSite" name="parameters"/>
+ </message>
+ <message name="ConvertLeadMultiSiteResponse">
+  <part element="tns:ConvertLeadMultiSiteResponse" name="parameters"/>
+ </message>
+ <message name="CreateLeadsRequest">
+  <part element="tns:CreateLeads" name="parameters"/>
+ </message>
+ <message name="CreateLeadsResponse">
+  <part element="tns:CreateLeadsResponse" name="parameters"/>
+ </message>
+ <message name="CreateLeadsMultiSiteRequest">
+  <part element="tns:CreateLeadsMultiSite" name="parameters"/>
+ </message>
+ <message name="CreateLeadsMultiSiteResponse">
+  <part element="tns:CreateLeadsMultiSiteResponse" name="parameters"/>
+ </message>
+ <message name="CUIDStatusRequest">
+  <part element="tns:CUIDStatus" name="parameters"/>
+ </message>
+ <message name="CUIDStatusResponse">
+  <part element="tns:CUIDStatusResponse" name="parameters"/>
+ </message>
+ <message name="GetCompanyQualifiedLocationsRequest">
+  <part element="tns:GetCompanyQualifiedLocations" name="parameters"/>
+ </message>
+ <message name="GetCompanyQualifiedLocationsResponse">
+  <part element="tns:GetCompanyQualifiedLocationsResponse" name="parameters"/>
+ </message>
+ <message name="GetCQLTenantsRequest">
+  <part element="tns:GetCQLTenants" name="parameters"/>
+ </message>
+ <message name="GetCQLTenantsResponse">
+  <part element="tns:GetCQLTenantsResponse" name="parameters"/>
+ </message>
+ <message name="GetLeadsRequest">
+  <part element="tns:GetLeads" name="parameters"/>
+ </message>
+ <message name="GetLeadsResponse">
+  <part element="tns:GetLeadsResponse" name="parameters"/>
+ </message>
+ <message name="GetLeadsMultiSiteRequest">
+  <part element="tns:GetLeadsMultiSite" name="parameters"/>
+ </message>
+ <message name="GetLeadsMultiSiteResponse">
+  <part element="tns:GetLeadsMultiSiteResponse" name="parameters"/>
+ </message>
+ <message name="GetOpportunitiesRequest">
+  <part element="tns:GetOpportunities" name="parameters"/>
+ </message>
+ <message name="GetOpportunitiesResponse">
+  <part element="tns:GetOpportunitiesResponse" name="parameters"/>
+ </message>
+ <message name="ReturnCustomerRequest">
+  <part element="tns:ReturnCustomer" name="parameters"/>
+ </message>
+ <message name="ReturnCustomerResponse">
+  <part element="tns:ReturnCustomerResponse" name="parameters"/>
+ </message>
+ <message name="SearchByAccountIdRequest">
+  <part element="tns:SearchByAccountId" name="parameters"/>
+ </message>
+ <message name="SearchByAccountIdResponse">
+  <part element="tns:SearchByAccountIdResponse" name="parameters"/>
+ </message>
+ <message name="searchByCustomerNameRequest">
+  <part element="tns:searchByCustomerName" name="parameters"/>
+ </message>
+ <message name="searchByCustomerNameResponse">
+  <part element="tns:searchByCustomerNameResponse" name="parameters"/>
+ </message>
+ <message name="UpdateLeadsRequest">
+  <part element="tns:UpdateLeads" name="parameters"/>
+ </message>
+ <message name="UpdateLeadsResponse">
+  <part element="tns:UpdateLeadsResponse" name="parameters"/>
+ </message>
+ <message name="UpdateLeadsMultiSiteRequest">
+  <part element="tns:UpdateLeadsMultiSite" name="parameters"/>
+ </message>
+ <message name="UpdateLeadsMultiSiteResponse">
+  <part element="tns:UpdateLeadsMultiSiteResponse" name="parameters"/>
+ </message>
+ <message name="userStatusRequest">
+  <part element="tns:userStatus" name="parameters"/>
+ </message>
+ <message name="userStatusResponse">
+  <part element="tns:userStatusResponse" name="parameters"/>
+ </message>
+ <portType name="WS_ACQ_LeadsPortType">
+  <operation name="ConvertLead">
+   <input message="tns:ConvertLeadRequest"/>
+   <output message="tns:ConvertLeadResponse"/>
+  </operation>
+  <operation name="ConvertLeadMultiSite">
+   <input message="tns:ConvertLeadMultiSiteRequest"/>
+   <output message="tns:ConvertLeadMultiSiteResponse"/>
+  </operation>
+  <operation name="CreateLeads">
+   <input message="tns:CreateLeadsRequest"/>
+   <output message="tns:CreateLeadsResponse"/>
+  </operation>
+  <operation name="CreateLeadsMultiSite">
+   <input message="tns:CreateLeadsMultiSiteRequest"/>
+   <output message="tns:CreateLeadsMultiSiteResponse"/>
+  </operation>
+  <operation name="CUIDStatus">
+   <input message="tns:CUIDStatusRequest"/>
+   <output message="tns:CUIDStatusResponse"/>
+  </operation>
+  <operation name="GetCompanyQualifiedLocations">
+   <input message="tns:GetCompanyQualifiedLocationsRequest"/>
+   <output message="tns:GetCompanyQualifiedLocationsResponse"/>
+  </operation>
+  <operation name="GetCQLTenants">
+   <input message="tns:GetCQLTenantsRequest"/>
+   <output message="tns:GetCQLTenantsResponse"/>
+  </operation>
+  <operation name="GetLeads">
+   <input message="tns:GetLeadsRequest"/>
+   <output message="tns:GetLeadsResponse"/>
+  </operation>
+  <operation name="GetLeadsMultiSite">
+   <input message="tns:GetLeadsMultiSiteRequest"/>
+   <output message="tns:GetLeadsMultiSiteResponse"/>
+  </operation>
+  <operation name="GetOpportunities">
+   <input message="tns:GetOpportunitiesRequest"/>
+   <output message="tns:GetOpportunitiesResponse"/>
+  </operation>
+  <operation name="ReturnCustomer">
+   <input message="tns:ReturnCustomerRequest"/>
+   <output message="tns:ReturnCustomerResponse"/>
+  </operation>
+  <operation name="SearchByAccountId">
+   <input message="tns:SearchByAccountIdRequest"/>
+   <output message="tns:SearchByAccountIdResponse"/>
+  </operation>
+  <operation name="searchByCustomerName">
+   <input message="tns:searchByCustomerNameRequest"/>
+   <output message="tns:searchByCustomerNameResponse"/>
+  </operation>
+  <operation name="UpdateLeads">
+   <input message="tns:UpdateLeadsRequest"/>
+   <output message="tns:UpdateLeadsResponse"/>
+  </operation>
+  <operation name="UpdateLeadsMultiSite">
+   <input message="tns:UpdateLeadsMultiSiteRequest"/>
+   <output message="tns:UpdateLeadsMultiSiteResponse"/>
+  </operation>
+  <operation name="userStatus">
+   <input message="tns:userStatusRequest"/>
+   <output message="tns:userStatusResponse"/>
+  </operation>
+ </portType>
+ <binding name="WS_ACQ_LeadsBinding" type="tns:WS_ACQ_LeadsPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="ConvertLead">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="ConvertLeadMultiSite">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="CreateLeads">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="CreateLeadsMultiSite">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="CUIDStatus">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="GetCompanyQualifiedLocations">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="GetCQLTenants">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="GetLeads">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="GetLeadsMultiSite">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="GetOpportunities">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="ReturnCustomer">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="SearchByAccountId">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="searchByCustomerName">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="UpdateLeads">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="UpdateLeadsMultiSite">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="userStatus">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+ </binding>
+ <service name="WS_ACQ_LeadsService">
+  <documentation></documentation>
+  <port binding="tns:WS_ACQ_LeadsBinding" name="WS_ACQ_Leads">
+   <soap:address location="https://cs28.salesforce.com/services/Soap/class/WS_ACQ_Leads"/>
+  </port>
+ </service>
+</definitions>

@@ -17,16 +17,19 @@ import { Product } from '../models/product.model';
 */
 
 const BASE_URL = 'http://localhost:3001/products/';
+const BASE_URL_PROD = 'http://prod/location/products/';
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 
 @Injectable()
 export class ProductsService implements OnInit {
     product: Observable<Product>;
+    baseURL: string;
     constructor(
         private http: Http, public store: Store<AppStore>
     ) {
         this.product = <Observable<Product>>store.select('products');
+        console.log('prod url is =' + BASE_URL_PRODUCTS);
     }
 
     ngOnInit() {

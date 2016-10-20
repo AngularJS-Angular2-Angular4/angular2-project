@@ -50,6 +50,10 @@ declare module '*';
 declare var ENV: string;
 declare var HMR: boolean;
 declare var System: SystemJS;
+declare var BASE_URL_PRODUCTS: string;
+declare var BASE_URL_CART: string;
+declare var BASE_URL_USERS: string;
+declare var BASE_URL_PRICES: string;
 
 interface SystemJS {
   import: (path?: string) => Promise<any>;

@@ -5,12 +5,8 @@
     "loggedIn": true
   },
   "cart": {
-    "id": 1,
-    "productName": "SDWAN",
-    "productId": "SDWAN",
-    "productTemplateName": "SDWAN BASIC",
-    "productTemplateId": "SDWANBASIC",
-    "locations": []
+    "id": "4f70aec7-6fc5-dfdb-211c-0d308bee6870",
+    "lineItems": []
   },
   "products": [
     {

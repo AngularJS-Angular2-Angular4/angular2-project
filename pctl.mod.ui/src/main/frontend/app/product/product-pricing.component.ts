@@ -2,6 +2,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Pricing, ActiveStatus , ProductVariant } from '../common/models/pricing.model';
 import { PricingService } from '../common/service/pricing.service';
 import { Router } from '@angular/router';
+import { Store, Action } from '@ngrx/store';
+import { AppStore } from '../common/models/appstore.model';
+import { ShoppingCart, LineItem } from '../common/models/cart.model';
+import { FingerPrintService } from '../common/service/fingerprint.service';
+import { CartService } from '../common/service/cart.service';
 
 @Component({
   selector: 'product-pricing',
@@ -21,8 +26,11 @@ export class ProductPricingComponent {
 
   constructor(
   private router: Router,
-  private pricingService: PricingService) {
+  private pricingService: PricingService,
+  private cartService: CartService,
+  public store: Store<AppStore>) {
     this.selected = false;
+
    }
 
   onTermClick(term: string) {
@@ -60,11 +68,38 @@ export class ProductPricingComponent {
     };
     this.currentPrice = price;
     this.selected = true;
+     console.log(this.getState(this.store));
     // this.pricingService.setActiveSelection(this.status);
   }
 
   nextPage() {
     this.pricingService.setActiveSelection(this.status);
-    this.router.navigate(['/locations']);
+    let currentStore = this.getState(this.store);
+    // currentStore.prices.name;
+    // currentStore.prices.product_id;
+    // this.status.productVariant.name;
+    // this.status.productVariant.sku;
+    let lineItem: LineItem;
+    lineItem = {
+      id: FingerPrintService.UUID(),
+      productName: currentStore.prices.name,
+      productId: (currentStore.prices.product_id).toString(),
+      productTemplateName: this.status.productVariant.name,
+      productTemplateId: this.status.productVariant.sku,
+      locations: []
+    };
+    console.log('next page additem');
+    this.cartService.addItem(lineItem).subscribe(
+      action => {
+          this.store.dispatch(action);
+          this.router.navigate(['/locations']);
+      }
+    );
+  }
+
+  getState(store: Store<AppStore>): AppStore {
+    let state: AppStore;
+    store.take(1).subscribe(s => state = s);
+    return state;
   }
 }
