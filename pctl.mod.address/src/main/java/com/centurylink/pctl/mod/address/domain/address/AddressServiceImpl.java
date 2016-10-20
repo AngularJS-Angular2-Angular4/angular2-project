@@ -1,14 +1,11 @@
 
 package com.centurylink.pctl.mod.address.domain.address;
 
-
-import com.centurylink.pctl.mod.address.domain.utils.Response;
-import com.centurylink.pctl.mod.address.domain.utils.StatusCode;
+import com.centurylink.pctl.mod.common.utils.Response;
+import com.centurylink.pctl.mod.common.utils.StatusCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-//import org.springframework.oxm.jaxb.Jaxb2Marshaller;
-
 
 /**
  * Created by haribabu.ka on 11-10-2016.

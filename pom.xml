@@ -16,6 +16,7 @@
         <module>pctl.mod.user</module>
         <module>pctl.mod.product</module>
         <module>pctl.mod.address</module>
+        <module>pctl.mod.notification</module>
 		<module>pctl.mod.ui</module>
 		<!--module>pctl.mod.config</module-->
 		<module>pctl.mod.admin</module>

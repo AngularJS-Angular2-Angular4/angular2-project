@@ -1,8 +1,10 @@
 
 package com.centurylink.pctl.mod.address.controllers.rest;
 
-import com.centurylink.pctl.mod.address.domain.address.*;
-import com.centurylink.pctl.mod.address.domain.utils.Response;
+import com.centurylink.pctl.mod.address.domain.address.AddressService;
+import com.centurylink.pctl.mod.address.domain.address.LocationRequest;
+import com.centurylink.pctl.mod.address.domain.address.LocationResponse;
+import com.centurylink.pctl.mod.common.utils.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
