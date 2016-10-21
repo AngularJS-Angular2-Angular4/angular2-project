@@ -5,12 +5,8 @@
     "loggedIn": true
   },
   "cart": {
-    "id": "12951323-93df-286c-3baa-c93822fc339c",
-    "productName": "SD WAN",
-    "productId": "223322117656312",
-    "productTemplateName": "SD-WAN BASIC HA",
-    "productTemplateId": "SDWANBASICHA",
-    "locations": []
+    "id": "7b1983cd-3391-da27-a0ba-94452174b7f9",
+    "lineItems": []
   },
   "products": [
     {
