@@ -2,7 +2,16 @@ db.products.insert({
 
             "productId": "sdwan1000",
             "name": "SD WAN",
-            "discriptionHtml": "Protect your data across the public Internet with desktop virtual private network (VPN) software via a self-service, persistent network-to-network tunnel. IPsec offers the ability to create persistent, secure tunnels across a public network. The CenturyLink Cloud supports connections between networks (“gateway to gateway”) as well as connections between users on untrusted networks and their secure applications (“host to gateway”). Users can quickly provision a site to site VPN via the self-service Control Portal",
+            "discriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private
+            networking. SD-WAN uses software to automate the ongoing configuration of edge routers and push traffic over
+            a mix of private, wireless, and broadband network access.
+            SD-WAN offers a real network solution for businesses trying to keep up with the impact a highly dynamic
+            application environment has on their network quality of service. Our SD-WAN combines CenturyLink network
+            design and management expertise with leading software controls and the ubiquity of any connection type or
+            any vendor. The result is improved flexibility through greater bandwidth that delivers increased visibility
+            into network usage and vastly simplified control.
+            CenturyLink offers four popular configurations of SD-WAN as described below -- or a custom configuration can
+            be set up via a sales agent.",
             "displayImage" : "",
             "productType": "Network",
             "createdAt": "2016-09-22T14:25:08-03:00",
