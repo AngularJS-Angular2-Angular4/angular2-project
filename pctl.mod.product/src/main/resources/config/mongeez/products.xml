@@ -5,16 +5,7 @@
 
             "productId": "sdwan1000",
             "name": "SD WAN",
-            "discriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private
-            networking. SD-WAN uses software to automate the ongoing configuration of edge routers and push traffic over
-            a mix of private, wireless, and broadband network access.
-            SD-WAN offers a real network solution for businesses trying to keep up with the impact a highly dynamic
-            application environment has on their network quality of service. Our SD-WAN combines CenturyLink network
-            design and management expertise with leading software controls and the ubiquity of any connection type or
-            any vendor. The result is improved flexibility through greater bandwidth that delivers increased visibility
-            into network usage and vastly simplified control.
-            CenturyLink offers four popular configurations of SD-WAN as described below -- or a custom configuration can
-            be set up via a sales agent.",
+            "discriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private networking. SD-WAN uses software to automate the ongoing configuration of edge routers and push traffic over a mix of private, wireless, and broadband network access.SD-WAN offers a real network solution for businesses trying to keep up with the impact a highly dynamic application environment has on their network quality of service. Our SD-WAN combines CenturyLink network design and management expertise with leading software controls and the ubiquity of any connection type or any vendor. The result is improved flexibility through greater bandwidth that delivers increased visibility into network usage and vastly simplified control. CenturyLink offers four popular configurations of SD-WAN as described below -- or a custom configuration can be set up via a sales agent.",
             "displayImage" : "",
             "productType": "Network",
             "createdAt": "2016-09-22T14:25:08-03:00",
@@ -41,8 +32,7 @@
             "variantId": "sdwanbasic",
             "productId": "sdwan1000",
             "name": "SD-WAN BASIC",
-            "discriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private
-            networking",
+            "discriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private networking",
             "displayImage" : "",
             "sku": "SDWANBASIC",
             "displayPosition": 1,
@@ -61,8 +51,7 @@
             {
             "variantId": "sdwanbasicha",
             "productId": "sdwan1000",
-            "discriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private
-            networking",
+            "discriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private networking",
             "displayImage" : "",
             "name": "SD-WAN BASIC HA",
             "sku": "SDWANBASICHA",
@@ -83,8 +72,7 @@
             "variantId": "sdwanpremium",
             "productId": "sdwan1000",
             "name": "SD-WAN PREMIUM",
-            "discriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private
-            networking",
+            "discriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private networking",
             "displayImage" : "",
             "sku": "SDWANPREMIUM",
             "displayPosition": 3,
@@ -104,8 +92,7 @@
             "variantId": "sdwanpremiumha",
             "productId": "sdwan1000",
             "name": "SD-WAN PREMIUM HA",
-            "discriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private
-            networking",
+            "discriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private networking",
             "displayImage" : "",
             "sku": "SDWANPREMIUMHA",
             "displayPosition": 1,
