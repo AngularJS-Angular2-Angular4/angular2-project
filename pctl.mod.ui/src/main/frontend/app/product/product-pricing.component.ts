@@ -1,12 +1,15 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Pricing, ActiveStatus , ProductVariant } from '../common/models/pricing.model';
+import { Pricing, ActiveStatus, ProductVariant } from '../common/models/pricing.model';
 import { PricingService } from '../common/service/pricing.service';
 import { Router } from '@angular/router';
 import { Store, Action } from '@ngrx/store';
 import { AppStore } from '../common/models/appstore.model';
-import { ShoppingCart, LineItem } from '../common/models/cart.model';
+import { CartState, ShoppingCart, LineItem } from '../common/models/cart.model';
+import { CartInfo } from '../common/models/user.model';
 import { FingerPrintService } from '../common/service/fingerprint.service';
 import { CartService } from '../common/service/cart.service';
+import { AppStateService } from '../common/service/app-state.service';
+import { AuthService } from '../common/service/auth.service';
 
 @Component({
   selector: 'product-pricing',
@@ -25,13 +28,15 @@ export class ProductPricingComponent {
   options = ['Product Option', 'With My Own Transport', 'With CenturyLink Transport'];
 
   constructor(
-  private router: Router,
-  private pricingService: PricingService,
-  private cartService: CartService,
-  public store: Store<AppStore>) {
+    private router: Router,
+    private pricingService: PricingService,
+    private cartService: CartService,
+    private authService: AuthService,
+    private appStateService: AppStateService,
+    public store: Store<AppStore>) {
     this.selected = false;
 
-   }
+  }
 
   onTermClick(term: string) {
     this.term = term;
@@ -68,18 +73,20 @@ export class ProductPricingComponent {
     };
     this.currentPrice = price;
     this.selected = true;
-     console.log(this.getState(this.store));
+    // console.log(AppStateService.getState(this.store));
     // this.pricingService.setActiveSelection(this.status);
   }
 
   nextPage() {
     this.pricingService.setActiveSelection(this.status);
-    let currentStore = this.getState(this.store);
+    let currentStore = this.appStateService.getState();
+    let lineItemCount = currentStore.cart.lineItems.length + 1;
     // currentStore.prices.name;
     // currentStore.prices.product_id;
     // this.status.productVariant.name;
     // this.status.productVariant.sku;
     let lineItem: LineItem;
+
     lineItem = {
       id: FingerPrintService.UUID(),
       productName: currentStore.prices.name,
@@ -91,15 +98,21 @@ export class ProductPricingComponent {
     console.log('next page additem');
     this.cartService.addItem(lineItem).subscribe(
       action => {
-          this.store.dispatch(action);
-          this.router.navigate(['/locations']);
+        this.store.dispatch(action);
+        this.authService.updateUserCartInfo(<CartInfo>{
+          cartState: CartState.LandingPage,
+          shoppingCartId: currentStore.cart.id,
+          cartItemCount: lineItemCount
+        });
+        //     this.authService.updateCartInfo(currentStore.cart);
+        this.router.navigate(['/locations']);
       }
     );
   }
 
-  getState(store: Store<AppStore>): AppStore {
-    let state: AppStore;
-    store.take(1).subscribe(s => state = s);
-    return state;
-  }
+  /*  getState(store: Store<AppStore>): AppStore {
+      let state: AppStore;
+      store.take(1).subscribe(s => state = s);
+      return state;
+    }*/
 }

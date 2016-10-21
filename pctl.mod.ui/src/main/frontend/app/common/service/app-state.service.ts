@@ -1,16 +1,29 @@
 import { Injectable, Inject, OnInit } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
-import { Observer } from 'rxjs/Observer';
-
 import { Store } from '@ngrx/store';
 import { AppStore } from '../models/appstore.model';
-import { User } from '../models/user.model';
+
 
 
 @Injectable()
 export class AppStateService implements OnInit {
+
+    public getState(): AppStore {
+        let state: AppStore;
+        this.store.take(1).subscribe(s => state = s);
+        return state;
+    }
+
+    constructor(
+        public store: Store<AppStore>) {
+
+    }
+
+
     ngOnInit() {
 
     }
+
+
+
+
 }

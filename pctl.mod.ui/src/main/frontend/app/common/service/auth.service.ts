@@ -65,7 +65,7 @@ export class AuthService implements OnInit {
         //this.http.delete(`${BASE_URL}${user.id}`)
          //   .subscribe(action => this.store.dispatch({ type: 'DELETE_USER', payload: user }));
          this.store.dispatch({ type: 'DELETE_USER', payload: {} });
-         this.addCartInfo(<CartInfo>{
+         this.updateUserCartInfo(<CartInfo>{
                     cartState: CartState.LandingPage,
                     shoppingCartId: '',
                     cartItemCount: 0
@@ -83,15 +83,15 @@ export class AuthService implements OnInit {
         this.store.dispatch({ type: 'UPDATE_ENT_DETAILS', payload: entInfo });
     }
 
-    public addCartInfo(cartInfo: CartInfo) {
-        console.log(cartInfo);
+    public updateUserCartInfo(cartInfo: CartInfo) {
+       // console.log(cartInfo);
         this.store.dispatch({ type: 'UPDATE_CART_DETAILS', payload: {
            cartInfo: cartInfo
         } });
     }
 
-    public updateCartInfo(shoppingCart: ShoppingCart) {
-        this.addCartInfo( <CartInfo>{
+    public updateUserCartInfoFromCart(shoppingCart: ShoppingCart) {
+        this.updateUserCartInfo( <CartInfo>{
                     cartState: CartState.LandingPage,
                     shoppingCartId: shoppingCart.id,
                     cartItemCount: shoppingCart.lineItems.length

@@ -5,8 +5,12 @@
     "loggedIn": true
   },
   "cart": {
-    "id": "4f70aec7-6fc5-dfdb-211c-0d308bee6870",
-    "lineItems": []
+    "id": "4af1b78a-1e28-ba3d-25a1-7560539bb132",
+    "productName": "SD WAN",
+    "productId": "223322117656312",
+    "productTemplateName": "SD-WAN PREMIUM",
+    "productTemplateId": "SDWANPREMIUM",
+    "locations": []
   },
   "products": [
     {
