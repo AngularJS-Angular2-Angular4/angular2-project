@@ -1,6 +1,6 @@
 # EMBEDDED SERVER CONFIGURATION
 server:
-    port: ${port:8085}
+    port: ${port:8083}
     context-path: /
     error.whitelabel.enabled: false
     compression:
@@ -20,7 +20,7 @@ spring:
     data:
       mongodb.host: localhost
       mongodb.port: 27017
-      mongodb.uri: mongodb://localhost/my_database
+      mongodb.uri: mongodb://localhost/pctl
 jwt:
     tokenExpirationTime: 43200 # Number of minutes
     refreshTokenExpTime: 43200 # Minutes
@@ -66,7 +66,7 @@ spring:
   data:
     mongodb.host: localhost
     mongodb.port: 27017
-    mongodb.uri: mongodb://localhost/my_database
+    mongodb.uri: mongodb://localhost/pctl
 jwt:
     tokenExpirationTime: 43200 # Number of minutes
     refreshTokenExpTime: 43200 # Minutes
@@ -94,11 +94,11 @@ spring:
   data:
     mongodb.host: localhost
     mongodb.port: 27017
-    mongodb.uri: mongodb://localhost/my_database
+    mongodb.uri: mongodb://localhost/pctl
 
 jwt:
-    tokenExpirationTime: 43200 # Number of minutes
-    refreshTokenExpTime: 43200 # Minutes
+    tokenExpirationTime: 604800 # Number of minutes
+    refreshTokenExpTime: 604800 # Minutes
     tokenIssuer: Ctl
     tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
     header: Authorization
