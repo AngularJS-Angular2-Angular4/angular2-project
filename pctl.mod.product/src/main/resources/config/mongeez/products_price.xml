@@ -1,5 +1,5 @@
 <mongoChangeLog>
-    <changeSet changeId="ChangeSet-1" author="pctl">
+    <changeSet changeId="ChangeSet-2" author="pctl">
         <script>
             db.products_price.insert([{
             "variantId": "sdwanbasic",
