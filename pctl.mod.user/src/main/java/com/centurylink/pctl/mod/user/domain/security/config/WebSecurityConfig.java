@@ -25,11 +25,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import java.util.Arrays;
 import java.util.List;
 
-//import com.svlada.security.RestAuthenticationEntryPoint;
-//import com.svlada.security.auth.ajax.AjaxAuthenticationProvider;
-//import com.svlada.security.auth.jwt.JwtAuthenticationProvider;
-//import com.svlada.security.auth.jwt.extractor.TokenExtractor;
-
 /**
  * Created by begin.samuel on 10/7/2016.
  */
@@ -38,8 +33,12 @@ import java.util.List;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements ResourceServerConfigurer {
     public static final String JWT_TOKEN_HEADER_PARAM = "X-Authorization";
-    public static final String JWT_TOKEN_USER_ENTRY_POINT = "/**" ;    // "/auth/**";
-    public static final String JWT_TOKEN_USER_GET_TOKEN = "/auth/token/generate/";
+    public static final String JWT_TOKEN_USER_ENTRY_POINT = "/api" ;    // "/auth/**";
+    public static final String JWT_TOKEN_USER_GET_TOKEN = "/auth/token/generate";
+    public static final String LOGIN_USER_ENTRY_POINT = "/auth/user/login";
+    public static final String LOGGED_OUT_ENTRY_POINT ="/auth/user/logoutSuccess";
+    public static final String GET_USER_ENTRY_POINT ="/auth/user/me";
+
 
     @Autowired
     @Qualifier("jwtAuthenticationEntryPoint")
@@ -73,17 +72,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements R
     @Autowired
     private UserDetailsService userDetailsService;
 
-/*    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**")
-            .allowedOrigins("http://domain2.com")
-            .allowedMethods("PUT", "DELETE")
-            .allowedHeaders("header1", "header2", "header3")
-            .exposedHeaders("header1", "header2")
-            .allowCredentials(false).maxAge(3600);
-    }
-*/
-
     @Autowired
     public void configureAuthentication(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
         authenticationManagerBuilder
@@ -95,7 +83,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements R
 
     @Bean
     protected JwtTokenAuthenticationProcessingFilter authenticationTokenFilterBean() throws Exception {
-        List<String> pathsToSkip = Arrays.asList(JWT_TOKEN_USER_GET_TOKEN);
+        List<String> pathsToSkip = Arrays.asList(JWT_TOKEN_USER_GET_TOKEN, LOGIN_USER_ENTRY_POINT,LOGGED_OUT_ENTRY_POINT, GET_USER_ENTRY_POINT);
         SkipPathRequestMatcher matcher = new SkipPathRequestMatcher(pathsToSkip,JWT_TOKEN_USER_ENTRY_POINT );
         JwtTokenAuthenticationProcessingFilter filter
             = new JwtTokenAuthenticationProcessingFilter(failureHandler, tokenExtractor, matcher);
@@ -151,6 +139,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements R
             .and()
             .authorizeRequests()
             .antMatchers(JWT_TOKEN_USER_GET_TOKEN).permitAll()
+            .antMatchers(LOGIN_USER_ENTRY_POINT).permitAll()
             .and()
             .authorizeRequests()
             .antMatchers(JWT_TOKEN_USER_ENTRY_POINT ).authenticated()
