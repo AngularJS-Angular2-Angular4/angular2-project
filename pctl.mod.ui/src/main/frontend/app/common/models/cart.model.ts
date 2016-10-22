@@ -35,7 +35,7 @@ export interface LocationInfo {
 }
 
 export interface ContactInfo {
-    id?: number;
+    id?: string;
     email: string;
     firstName: string;
     lastName: string;
@@ -43,7 +43,7 @@ export interface ContactInfo {
 }
 
 export interface EnterpriseAddress {
-    id?: number;
+    id?: string;
     locationName: string;
     addressLine: string;
     street: string;
@@ -54,13 +54,14 @@ export interface EnterpriseAddress {
 }
 
 export interface SDWANLocationInfo {
-    id?: number;
+    id?: string;
     serviceContact: ContactInfo;
     serviceAddress: EnterpriseAddress;
     shippingAddress: EnterpriseAddress;
 }
 
 export interface LocationDisplay {
+    id?: string;
     name: string;
     contact: string;
     address: string;

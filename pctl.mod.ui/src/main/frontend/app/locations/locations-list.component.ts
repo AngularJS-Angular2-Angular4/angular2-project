@@ -19,44 +19,29 @@ import {
 })
 export class LocationsListComponent implements OnInit {
 
- // @Input() cart: ShoppingCart;
- // @Input() activeStatus: ActiveStatus;
   currentStore: AppStore;
   @Input() locations: LocationDisplay[];
+  @Output() deleteEvent = new EventEmitter();
+  @Output() editEvent = new EventEmitter();
+  selected: LocationDisplay;
 
 
   constructor(
     private appStateService: AppStateService) {
     this.currentStore = this.appStateService.getState();
-
-
-  /*  this.lineItems = this.cart.lineItems.filter(location => {
-      return location.productTemplateId !== this.currentStore.user.status.productVariant.sku;
-    });*/
   }
 
-  /*
-    Create dummy data for SDWANLocationInfo[] and assign it to locations
-    Create a new model
-    {
-      location: string; -> {{location.serviceAddress.locationName}}
-      fullName: string; -> {{location.serviceContact.firstName}} {{location.serviceContact.lastName}}
-      address: string; -> {{location.serviceAddress.
-JOIN all of this and place in address
-            addressLine: string;
-    street: string;
-    city: string;
-    country: string;
-    state: string;
-    zipCode: string;
-    }
-
-    Create observable of array
-    map -> create new structure and assig to new array 
-  */
-
   ngOnInit() {
-  //  console.log(this.lineItems);
+    //  console.log(this.lineItems);
+  }
+
+  onDeleteAction() {
+    // selected
+    // this.actionEvent.emit(this.locationInfo);
+  }
+
+  onEditAction() {
+
   }
 
 

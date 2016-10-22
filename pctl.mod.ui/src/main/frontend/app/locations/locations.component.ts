@@ -57,21 +57,21 @@ export class LocationsComponent implements OnInit {
           return lineItem.productTemplateId === self.currentStore.user.status.productVariant.sku;
         });
         self.locations = [];
-        /*   self.lineItem.locations.map(
-             item => {
-               let location: LocationDisplay = {
-                 name: item.serviceAddress.locationName,
-                 contact: item.serviceContact.firstName + ' ' + item.serviceContact.lastName,
-                 address: item.serviceAddress.addressLine + ',' +
-                           item.serviceAddress.city + ',' +
-                           item.serviceAddress.street + ',' +
-                           item.serviceAddress.state + ',' +
-                           item.serviceAddress.country + ',' +
-                           item.serviceAddress.zipCode
-               };
-               self.locations.push(location);
-             }
-           );*/
+        self.lineItem.locations.map(
+          item => {
+            let location: LocationDisplay = {
+              name: item.serviceAddress.locationName,
+              contact: item.serviceContact.firstName + ' ' + item.serviceContact.lastName,
+              address: item.serviceAddress.addressLine + ',' +
+              item.serviceAddress.city + ',' +
+              item.serviceAddress.street + ',' +
+              item.serviceAddress.state + ',' +
+              item.serviceAddress.country + ',' +
+              item.serviceAddress.zipCode
+            };
+            self.locations.push(location);
+          }
+        );
       }
 
     );
@@ -79,6 +79,14 @@ export class LocationsComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  editAction($event) {
+    console.log($event);
+  }
+
+  deleteAction($event) {
+    console.log($event);
   }
 
   locationSubmit($event) {

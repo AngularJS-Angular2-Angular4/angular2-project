@@ -8,28 +8,28 @@
     "productTemplateId": "SDWANBASIC",
     "location": {
       "serviceContact": {
-        "id": "7f1e753a-ee32-a499-7a52-99599f5f200f",
+        "id": "52df8fd2-3c9e-2c9f-1d09-c6a47a5eef04",
         "email": "tsukhu@hcl.com",
-        "firstName": "sdf3",
-        "lastName": "sdf",
+        "firstName": "wtwet",
+        "lastName": "wettwe",
         "phoneNumber": "111-111-1111"
       },
       "serviceAddress": {
         "id": "",
-        "locationName": "sdfsdf",
-        "addressLine": "sdfsdf",
-        "street": "sdfsdf",
-        "city": "",
+        "locationName": "sfsd",
+        "addressLine": "sf",
+        "street": "sdfs",
+        "city": "sdfsdf",
         "country": "United States of America",
         "state": "Alabama",
         "zipCode": "11111"
       },
       "shippingAddress": {
         "id": "",
-        "locationName": "sdfsdf",
-        "addressLine": "sdfsdf",
-        "street": "sdfsdf",
-        "city": "",
+        "locationName": "sfsd",
+        "addressLine": "sf",
+        "street": "sdfs",
+        "city": "sdfsdf",
         "country": "United States of America",
         "state": "Alabama",
         "zipCode": "11111"

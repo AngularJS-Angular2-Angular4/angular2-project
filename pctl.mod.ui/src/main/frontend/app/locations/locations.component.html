@@ -13,4 +13,4 @@
 <hr>
 {{ lineItem | json }}
 <hr>
-<locations-list [locations]="locations"></locations-list>
+<locations-list [locations]="locations" (editEvent)=editAction($event) (deleteEvent)=deleteAction($event)></locations-list>
