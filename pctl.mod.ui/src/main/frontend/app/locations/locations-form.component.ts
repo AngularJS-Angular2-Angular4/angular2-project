@@ -25,7 +25,11 @@ export class LocationsFormComponent implements OnInit {
   //  SDWANLocationInfo
 
   constructor(private fb: FormBuilder) {
-     this.form = this.fb.group({
+    this.createForm();
+  }
+
+  createForm() {
+         this.form = this.fb.group({
         'contactid': [''],
         'email': ['', [Validators.required, Validations.emailValidator]],
         'firstName': ['', [Validators.required, Validators.minLength(3)]],
@@ -51,7 +55,6 @@ export class LocationsFormComponent implements OnInit {
 
     });
   }
-
   ngOnInit() {
     // prepopulate form
   }
@@ -66,7 +69,8 @@ export class LocationsFormComponent implements OnInit {
 
     //this.locations.push(this.form.value);
     //console.info(this.locations);
-    //this.form.reset();
+     //this.form.reset();
+     this.createForm();
      this.locationEvent.emit(this.locationInfo);
   }
 

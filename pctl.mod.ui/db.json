@@ -7,10 +7,10 @@
   "cart": {
     "productTemplateId": "SDWANBASIC",
     "location": {
-      "id": "5c48a2a3-d0dd-4802-bc06-52d99f2fafea",
+      "id": "9fd23eb1-d8e4-b92a-67cb-3438805d349f",
       "serviceContact": {
         "id": "",
-        "email": "tsukhu@hcl.com",
+        "email": "tksukhu@gmail.com",
         "firstName": "sdfsdfsdf",
         "lastName": "sdfsdf",
         "phoneNumber": "111-111-1111"
@@ -22,7 +22,7 @@
         "street": "sdfsdf",
         "city": "",
         "country": "United States of America",
-        "state": "Alabama",
+        "state": "Alaska",
         "zipCode": "11111"
       },
       "shippingAddress": {
@@ -32,7 +32,7 @@
         "street": "sdfsdf",
         "city": "",
         "country": "United States of America",
-        "state": "Alabama",
+        "state": "Alaska",
         "zipCode": "11111"
       }
     }
