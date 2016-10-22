@@ -20,7 +20,7 @@ import {
 export class LocationsListComponent implements OnInit {
 
   currentStore: AppStore;
-  @Input() locations: LocationDisplay[];
+  @Input() locations: LocationDisplay[] = [];
   @Output() deleteEvent = new EventEmitter();
   @Output() editEvent = new EventEmitter();
   selected: LocationDisplay;
@@ -35,13 +35,12 @@ export class LocationsListComponent implements OnInit {
     //  console.log(this.lineItems);
   }
 
-  onDeleteAction() {
-    // selected
-    // this.actionEvent.emit(this.locationInfo);
+  deleteLocation(location) {
+    this.deleteEvent.emit(location);
   }
 
-  onEditAction() {
-
+  editLocation(location) {
+    this.editEvent.emit(location);
   }
 
 

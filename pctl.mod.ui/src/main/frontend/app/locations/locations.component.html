@@ -11,6 +11,4 @@
 </div>
 <locations-form (locationEvent)=locationSubmit($event)></locations-form>
 <hr>
-{{ lineItem | json }}
-<hr>
 <locations-list [locations]="locations" (editEvent)=editAction($event) (deleteEvent)=deleteAction($event)></locations-list>

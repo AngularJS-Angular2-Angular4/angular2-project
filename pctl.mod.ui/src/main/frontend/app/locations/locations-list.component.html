@@ -1,4 +1,3 @@
-{{ locations | json }}
 <div>
 	<div class="row">
 		<div class="col-sm-12">
@@ -10,7 +9,7 @@
 					<h3 class="col col-40">Service Address</h3>
 					<h3 class="col col-10">Action</h3>
 				</div>
-				<ul class="new-list-view">
+				<ul class="new-list-view" *ngFor="let location of locations">
 					<li>
 						<div class="list-view-item">
 							<div class="col col-10"><span class="col-header"></span>
@@ -18,16 +17,19 @@
 									<use xlink:href='#icon-angle-right' />
 								</svg>
 							</div>
-							<div class="col col-10"><span class="col-header">Location</span></div>
-							<div class="col col-20"><span class="col-header">Service Contact</span></div>
-							<div class="col col-40"><span class="col-header">Service Address</span></div>
+							<div class="col col-10"><span class="col-header"></span>{{ location.name }}</div>
+							<div class="col col-20"><span class="col-header"></span>{{ location.contact }}</div>
+							<div class="col col-40"><span class="col-header"></span>{{ location.address}}</div>
 							<div class="col col-10"><span class="col-header">Action</span>
-								<svg class="cyclops-icon md" aria-hidden="true">
-									<use xlink:href='#icon-check' />
-								</svg>
-								<svg class="cyclops-icon md" aria-hidden="true">
-									<use xlink:href='#icon-times' />
-								</svg>
+								<button class="btn btn-primary btn-md btn-icon" (click)="editLocation(location)">
+								<svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-info' /></svg>
+								<span class="sr-only">remove</span>
+								</button>
+
+								<button class="btn btn-primary btn-md btn-icon" (click)="deleteLocation(location)">
+								<svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-trash' /></svg>
+								<span class="sr-only">remove</span>
+								</button>
 							</div>
 						</div>
 					</li>

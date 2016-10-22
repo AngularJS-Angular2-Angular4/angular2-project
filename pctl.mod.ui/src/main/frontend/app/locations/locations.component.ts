@@ -60,6 +60,7 @@ export class LocationsComponent implements OnInit {
         self.lineItem.locations.map(
           item => {
             let location: LocationDisplay = {
+              id: item.id,
               name: item.serviceAddress.locationName,
               contact: item.serviceContact.firstName + ' ' + item.serviceContact.lastName,
               address: item.serviceAddress.addressLine + ',' +
@@ -125,8 +126,9 @@ export class LocationsComponent implements OnInit {
         zipCode: string;
     */
     sdwanLocation = {
+      id: $event.id,
       serviceContact: {
-        id: $event.id,
+        id: $event.contactid,
         email: $event.email,
         firstName: $event.firstName,
         lastName: $event.lastName,
@@ -164,5 +166,7 @@ export class LocationsComponent implements OnInit {
   ngOnDestroy() {
     this.cartSubscription.unsubscribe();
   }
+
+
 
 }
