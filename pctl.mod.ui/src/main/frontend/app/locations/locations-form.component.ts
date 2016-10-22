@@ -26,10 +26,12 @@ export class LocationsFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
      this.form = this.fb.group({
+        'contactid': [''],
         'email': ['', [Validators.required, Validations.emailValidator]],
         'firstName': ['', [Validators.required, Validators.minLength(3)]],
         'lastName': ['', Validators.required],
         'primaryPhone': ['', [Validators.required, Validations.phoneValidator]],
+        'contactAddressid': [''],
         'locationName': ['', [Validators.required, Validators.minLength(3)]],
         'address': [''],
         'street': [''],
@@ -38,6 +40,7 @@ export class LocationsFormComponent implements OnInit {
         'state': [''],
         'zipCode': ['', Validations.zipCodeValidator],
         'checkAddress': [''],
+        'shippingAddressid': [''],
         'shippingLocationName': ['', Validators.required],
         'shippingAddress': [''],
         'shippingStreet': [''],

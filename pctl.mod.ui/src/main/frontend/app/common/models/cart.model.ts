@@ -59,3 +59,9 @@ export interface SDWANLocationInfo {
     serviceAddress: EnterpriseAddress;
     shippingAddress: EnterpriseAddress;
 }
+
+export interface LocationDisplay {
+    name: string;
+    contact: string;
+    address: string;
+}

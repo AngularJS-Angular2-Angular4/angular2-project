@@ -5,8 +5,36 @@
     "loggedIn": true
   },
   "cart": {
-    "id": "7b1983cd-3391-da27-a0ba-94452174b7f9",
-    "lineItems": []
+    "productTemplateId": "SDWANBASIC",
+    "location": {
+      "serviceContact": {
+        "id": "7f1e753a-ee32-a499-7a52-99599f5f200f",
+        "email": "tsukhu@hcl.com",
+        "firstName": "sdf3",
+        "lastName": "sdf",
+        "phoneNumber": "111-111-1111"
+      },
+      "serviceAddress": {
+        "id": "",
+        "locationName": "sdfsdf",
+        "addressLine": "sdfsdf",
+        "street": "sdfsdf",
+        "city": "",
+        "country": "United States of America",
+        "state": "Alabama",
+        "zipCode": "11111"
+      },
+      "shippingAddress": {
+        "id": "",
+        "locationName": "sdfsdf",
+        "addressLine": "sdfsdf",
+        "street": "sdfsdf",
+        "city": "",
+        "country": "United States of America",
+        "state": "Alabama",
+        "zipCode": "11111"
+      }
+    }
   },
   "products": [
     {
