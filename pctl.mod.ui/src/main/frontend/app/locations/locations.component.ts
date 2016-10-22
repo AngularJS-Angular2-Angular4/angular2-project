@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
@@ -9,7 +9,8 @@ import {
   ContactInfo,
   EnterpriseAddress,
   LocationInfo,
-  LocationDisplay
+  LocationDisplay,
+  LocationsFormModel
 } from '../common/models/cart.model';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -36,6 +37,7 @@ export class LocationsComponent implements OnInit {
   // Subscribe to ActiveStatus from user Store
   user: Observable<User>;
   currentStore: AppStore;
+  formData: LocationsFormModel;
 
 
   constructor(
@@ -78,6 +80,67 @@ export class LocationsComponent implements OnInit {
     );
   }
 
+  resetFormDataModel() {
+    this.formData = {
+      id: '',
+      contactid: '',
+      email: '',
+      firstName: '',
+      lastName: '',
+      primaryPhone: '',
+      contactAddressid: '',
+      locationName: '',
+      address: '',
+      street: '',
+      country: '',
+      city: '',
+      state: '',
+      zipCode: '',
+      checkAddress: '',
+      shippingAddressid: '',
+      shippingLocationName: '',
+      shippingAddress: '',
+      shippingStreet: '',
+      shippingCountry: '',
+      shippingCity: '',
+      shippingState: '',
+      shippingZipCode: ''
+    };
+  }
+
+  getLocationById(id: string): SDWANLocationInfo {
+    return this.lineItem.locations.find(location =>
+      location.id === id);
+  }
+
+  convertLocationToForm(location: SDWANLocationInfo): LocationsFormModel {
+    return {
+      id: location.id,
+      contactid: location.serviceContact.id,
+      email: location.serviceContact.email,
+      firstName: location.serviceContact.firstName,
+      lastName: location.serviceContact.lastName,
+      primaryPhone: location.serviceContact.phoneNumber,
+      contactAddressid: location.serviceAddress.id,
+      locationName: location.serviceAddress.locationName,
+      address: location.serviceAddress.addressLine,
+      street: location.serviceAddress.street,
+      country: location.serviceAddress.country,
+      city: location.serviceAddress.city,
+      state: location.serviceAddress.state,
+      zipCode: location.serviceAddress.zipCode,
+      checkAddress: '',
+      shippingAddressid: location.shippingAddress.id,
+      shippingLocationName: location.shippingAddress.locationName,
+      shippingAddress: location.shippingAddress.addressLine,
+      shippingStreet: location.shippingAddress.street,
+      shippingCountry: location.shippingAddress.country,
+      shippingCity: location.shippingAddress.city,
+      shippingState: location.shippingAddress.state,
+      shippingZipCode: location.shippingAddress.zipCode
+    };
+  }
+
   ngOnInit() {
 
   }
@@ -94,36 +157,28 @@ export class LocationsComponent implements OnInit {
     console.log($event);
     let sdwanLocation: SDWANLocationInfo;
     /*
-            'email': ['', [Validators.required, Validations.emailValidator]],
-            'firstName': ['', [Validators.required, Validators.minLength(3)]],
-            'lastName': ['', Validators.required],
-            'primaryPhone': ['', [Validators.required, Validations.phoneValidator]],
-            'locationName': ['', [Validators.required, Validators.minLength(3)]],
-            'address': [''],
-            'street': [''],
-            'country': ['', Validators.required],
-            'city': [''],
-            'state': [''],
-            'zipCode': ['', Validations.zipCodeValidator],
-            'checkAddress': [''],
-            'shippingLocationName': ['', Validators.required],
-            'shippingAddress': [''],
-            'shippingStreet': [''],
-            'shippingCountry': ['', Validators.required],
-            'shippingCity': [''],
-            'shippingState': [''],
-            'shippingZipCode': ['', Validations.zipCodeValidator]
-    
-    
-    
-                id?: number;
-        locationName: string;
-        addressLine: string;
-        street: string;
-        city: string;
-        country: string;
-        state: string;
-        zipCode: string;
+                'contactid': [''],
+        'email': ['', [Validators.required, Validations.emailValidator]],
+        'firstName': ['', [Validators.required, Validators.minLength(3)]],
+        'lastName': ['', Validators.required],
+        'primaryPhone': ['', [Validators.required, Validations.phoneValidator]],
+        'contactAddressid': [''],
+        'locationName': ['', [Validators.required, Validators.minLength(3)]],
+        'address': [''],
+        'street': [''],
+        'country': ['', Validators.required],
+        'city': [''],
+        'state': [''],
+        'zipCode': ['', Validations.zipCodeValidator],
+        'checkAddress': [''],
+        'shippingAddressid': [''],
+        'shippingLocationName': ['', Validators.required],
+        'shippingAddress': [''],
+        'shippingStreet': [''],
+        'shippingCountry': ['', Validators.required],
+        'shippingCity': [''],
+        'shippingState': [''],
+        'shippingZipCode': ['', Validations.zipCodeValidator]
     */
     sdwanLocation = {
       id: $event.id,

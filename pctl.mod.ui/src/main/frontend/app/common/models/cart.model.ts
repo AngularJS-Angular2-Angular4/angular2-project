@@ -66,3 +66,29 @@ export interface LocationDisplay {
     contact: string;
     address: string;
 }
+
+export interface LocationsFormModel {
+    id: string;
+    contactid: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+    primaryPhone: string;
+    contactAddressid: string;
+    locationName: string;
+    address: string;
+    street: string;
+    country: string;
+    city: string;
+    state: string;
+    zipCode: string;
+    checkAddress: string;
+    shippingAddressid: string;
+    shippingLocationName: string;
+    shippingAddress: string;
+    shippingStreet: string;
+    shippingCountry: string;
+    shippingCity: string;
+    shippingState: string;
+    shippingZipCode: string;
+}

@@ -5,37 +5,12 @@
     "loggedIn": true
   },
   "cart": {
+    "id": "c3266dec-3201-f241-24ed-36d449d3d6ee",
+    "productName": "SD WAN",
+    "productId": "223322117656312",
+    "productTemplateName": "SD-WAN BASIC",
     "productTemplateId": "SDWANBASIC",
-    "location": {
-      "id": "9fd23eb1-d8e4-b92a-67cb-3438805d349f",
-      "serviceContact": {
-        "id": "",
-        "email": "tksukhu@gmail.com",
-        "firstName": "sdfsdfsdf",
-        "lastName": "sdfsdf",
-        "phoneNumber": "111-111-1111"
-      },
-      "serviceAddress": {
-        "id": "",
-        "locationName": "sdfsdf",
-        "addressLine": "sdfsdf",
-        "street": "sdfsdf",
-        "city": "",
-        "country": "United States of America",
-        "state": "Alaska",
-        "zipCode": "11111"
-      },
-      "shippingAddress": {
-        "id": "",
-        "locationName": "sdfsdf",
-        "addressLine": "sdfsdf",
-        "street": "sdfsdf",
-        "city": "",
-        "country": "United States of America",
-        "state": "Alaska",
-        "zipCode": "11111"
-      }
-    }
+    "locations": []
   },
   "products": [
     {
