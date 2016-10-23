@@ -33,14 +33,11 @@ export class LocationsFormComponent implements OnInit {
   }
 
   constructor(private fb: FormBuilder) {
-    this.resetDataModel();
-    this.createForm();
+
   }
 
   resetDataModel() {
     this.data = {
-      id: '',
-      contactid: '',
       email: '',
       firstName: '',
       lastName: '',
@@ -66,7 +63,6 @@ export class LocationsFormComponent implements OnInit {
   }
   createForm() {
     this.form = this.fb.group({
-      'contactid': [''],
       'email': ['', [Validators.required, Validations.emailValidator]],
       'firstName': ['', [Validators.required, Validators.minLength(3)]],
       'lastName': ['', Validators.required],
@@ -94,10 +90,18 @@ export class LocationsFormComponent implements OnInit {
 //this.form.controls['contactid'].setValue = this.data.contactid;
 
    // this.form.setValue()
+   
+ //   (<FormGroup>this.form)
+   //         .setValue(this.data, { onlySelf: true });
+
+ //   this.form.value(this.data);
   }
 
   ngOnInit() {
     // prepopulate form
+    this.resetDataModel();
+    this.createForm();
+
   }
 
   onSubmit() {

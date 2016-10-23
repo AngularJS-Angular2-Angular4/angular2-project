@@ -150,7 +150,16 @@ export class LocationsComponent implements OnInit {
   }
 
   deleteAction($event) {
-    console.log($event);
+    let locationDisplay: LocationDisplay;
+    locationDisplay = $event;
+    console.log(locationDisplay);
+    let delLocationInfo: LocationInfo;
+    let sdwanLocationInfo = this.getLocationById(locationDisplay.id);
+    delLocationInfo = {
+      productTemplateId: this.currentStore.user.status.productVariant.sku,
+      location: sdwanLocationInfo
+    };
+    this.cartService.deleteLocation(delLocationInfo);
   }
 
   locationSubmit($event) {

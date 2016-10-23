@@ -5,12 +5,36 @@
     "loggedIn": true
   },
   "cart": {
-    "id": "c3266dec-3201-f241-24ed-36d449d3d6ee",
-    "productName": "SD WAN",
-    "productId": "223322117656312",
-    "productTemplateName": "SD-WAN BASIC",
     "productTemplateId": "SDWANBASIC",
-    "locations": []
+    "location": {
+      "id": "5087d579-a048-d109-60f2-cd22b380f7c3",
+      "serviceContact": {
+        "email": "sdfsdf@hcl.com",
+        "firstName": "ssds",
+        "lastName": "sdfsdf",
+        "phoneNumber": "111-111-1111"
+      },
+      "serviceAddress": {
+        "id": "",
+        "locationName": "sdfsdf",
+        "addressLine": "sdfsdf",
+        "street": "ssdfs",
+        "city": "sdfdsf",
+        "country": "United States of America",
+        "state": "Alabama",
+        "zipCode": "11111"
+      },
+      "shippingAddress": {
+        "id": "",
+        "locationName": "sdfsdf",
+        "addressLine": "sdfsdf",
+        "street": "ssdfs",
+        "city": "sdfdsf",
+        "country": "United States of America",
+        "state": "Alabama",
+        "zipCode": "11111"
+      }
+    }
   },
   "products": [
     {

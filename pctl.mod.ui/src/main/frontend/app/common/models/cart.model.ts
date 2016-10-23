@@ -68,8 +68,8 @@ export interface LocationDisplay {
 }
 
 export interface LocationsFormModel {
-    id: string;
-    contactid: string;
+    id?: string;
+    contactid?: string;
     email: string;
     firstName: string;
     lastName: string;
