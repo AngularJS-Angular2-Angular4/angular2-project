@@ -1,42 +1,12 @@
 {
   "user": {
     "id": 1,
-    "email": "tsukhu@hcl.com",
+    "email": "testtt@hcl.com",
     "loggedIn": true
   },
   "cart": {
-    "productTemplateId": "SDWANBASIC",
-    "location": {
-      "id": "f17c0d9d-6c60-cb03-58bc-7307c77db2c8",
-      "serviceContact": {
-        "id": "",
-        "email": "tsukhu71@gmail.com",
-        "firstName": "Tarun",
-        "lastName": "sss",
-        "phoneNumber": "111-111-1111"
-      },
-      "serviceAddress": {
-        "id": "",
-        "locationName": "sdfsfd",
-        "addressLine": "ss",
-        "street": "ss",
-        "city": "sdf",
-        "country": "United States of America",
-        "state": "Alabama",
-        "zipCode": "22222"
-      },
-      "shippingAddress": {
-        "id": "",
-        "checkAddress": true,
-        "locationName": "sdfsfd",
-        "addressLine": "ss",
-        "street": "ss",
-        "city": "sdf",
-        "country": "United States of America",
-        "state": "Alabama",
-        "zipCode": "22222"
-      }
-    }
+    "id": "ba04f51d-21c8-6fd8-ee81-4815ed2f9bf1",
+    "lineItems": []
   },
   "products": [
     {

@@ -16,8 +16,8 @@
 		<!-- Support and sign out links -->
 		<div class="collapse navbar-collapse" aria-expanded="true">
 			<ul class="nav navbar-nav navbar-right navbar-account">
-				<li *ngIf="(user | async)?.loggedIn === false" (click)="login()">
-					<a href="#" role="button" aria-expanded="false">
+				<li *ngIf="(user | async)?.loggedIn === false" >
+					<a [routerLink]="['/login']" role="button" aria-expanded="false">
 						<svg class="cyclops-icon support">
 							<use xlink:href="#icon-migrate"></use>
 						</svg> Log In</a>

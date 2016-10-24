@@ -3,7 +3,7 @@ import { Injectable, Inject, OnInit } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { Observer } from 'rxjs/Observer';
-
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppStore } from '../models/appstore.model';
 import { User, EnterpriseInfo , CartInfo} from '../models/user.model';
@@ -27,7 +27,9 @@ const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 export class AuthService implements OnInit {
     user: Observable<User>;
     constructor(
-        private http: Http,public store: Store<AppStore>
+        private http: Http,
+        private router: Router,
+        public store: Store<AppStore>
     ) {
        this.user = <Observable<User>> store.select('user');
     }
@@ -56,6 +58,7 @@ export class AuthService implements OnInit {
                     cartItemCount: 2
                 });*/
                 this.getUserDetails();
+                this.router.navigate(['/home']);
             });
 
     }
