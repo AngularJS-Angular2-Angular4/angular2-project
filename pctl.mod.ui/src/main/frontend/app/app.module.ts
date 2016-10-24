@@ -43,7 +43,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './effects/user-effects.component';
 import { User } from './common/models/user.model';
 import { ShoppingCart } from './common/models/cart.model';
-
+import { AuthGuard } from './auth.guard';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -118,7 +118,8 @@ const initialUserState: User = {
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    AuthGuard
   ]
 })
 export class AppModule {
