@@ -41,29 +41,21 @@
 		<div class="col-sm-6">
 		<!--	<ctl-pagination [items]="locations" [page-size]="pageSize" (page-changed)="onPageChanged($event)">
 			</ctl-pagination> -->
-			<pagination class="pagination-md" [totalItems]="totalItems" [(ngModel)]="currentPage" [maxSize]="maxSize" [boundaryLinks]="true"
-				[rotate]="false" [itemsPerPage]="itemsPerPage" (pageChanged)="pageChanged($event)"></pagination>
-				<!--		<nav>
-				<ul class="pagination">
-					<li class="disabled">
-						<a href="#" aria-label="Previous">
-							<span aria-hidden="true">&laquo;</span>
-							<span class="sr-only">Previous</span>
-						</a>
-					</li>
-					<li class="active"><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li>
-						<a href="#" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-							<span class="sr-only">Next</span>
-						</a>
-					</li>
-				</ul>
-			</nav> -->
+			<pagination class="pagination-md" 
+				[directionLinks]="true" 
+				[boundaryLinks]="true" 
+				[totalItems]="totalItems" 
+				[(ngModel)]="currentPage" 
+				[maxSize]="maxSize" 
+				[boundaryLinks]="true"
+				[rotate]="false" 
+				[itemsPerPage]="itemsPerPage" 
+				(pageChanged)="pageChanged($event)"
+				previousText="&lsaquo;" 
+				nextText="&rsaquo;" 
+				firstText="&laquo;" 
+				lastText="&raquo;"
+				></pagination>
 		</div>
 		<div class="col-sm-6 text-right">
 			<p>Total Locations: <span>{{locations.length}}</span></p>

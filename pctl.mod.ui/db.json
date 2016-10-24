@@ -7,34 +7,34 @@
   "cart": {
     "productTemplateId": "SDWANBASIC",
     "location": {
-      "id": "31502919-552c-007a-4b66-40776712ba05",
+      "id": "f17c0d9d-6c60-cb03-58bc-7307c77db2c8",
       "serviceContact": {
         "id": "",
-        "email": "tksukhu@gmail.com",
-        "firstName": "dfg",
-        "lastName": "dfg",
-        "phoneNumber": "222-222-2222"
+        "email": "tsukhu71@gmail.com",
+        "firstName": "Tarun",
+        "lastName": "sss",
+        "phoneNumber": "111-111-1111"
       },
       "serviceAddress": {
         "id": "",
-        "locationName": "dfddffd",
-        "addressLine": "ddd",
-        "street": "dd",
-        "city": "dd",
+        "locationName": "sdfsfd",
+        "addressLine": "ss",
+        "street": "ss",
+        "city": "sdf",
         "country": "United States of America",
         "state": "Alabama",
-        "zipCode": "44444"
+        "zipCode": "22222"
       },
       "shippingAddress": {
         "id": "",
         "checkAddress": true,
-        "locationName": "dfddffd",
-        "addressLine": "ddd",
-        "street": "dd",
-        "city": "dd",
+        "locationName": "sdfsfd",
+        "addressLine": "ss",
+        "street": "ss",
+        "city": "sdf",
         "country": "United States of America",
         "state": "Alabama",
-        "zipCode": "44444"
+        "zipCode": "22222"
       }
     }
   },
