@@ -22,7 +22,7 @@ public class SecurityConfig implements ResourceServerConfigurer {
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-        resources.resourceId("shardis-ui");
+        resources.resourceId("pctl.mod.ui");
     }
 
     @Override
@@ -35,7 +35,7 @@ public class SecurityConfig implements ResourceServerConfigurer {
             .anonymous()
             .and()
             .authorizeRequests()
-            .antMatchers("/orders/**").permitAll()
+            .antMatchers("/auth/**").permitAll()
             .antMatchers("/api/**").permitAll()
             .antMatchers("/test").authenticated()
 
