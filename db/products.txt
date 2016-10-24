@@ -1,4 +1,4 @@
-db.products.insert({
+{
 
                                "productId": "sdwan1000",
                                "name": "SD WAN",
@@ -106,4 +106,4 @@ db.products.insert({
                                "tier1Support": "1"
                                }
                                ]
-                               });
+                               }

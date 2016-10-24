@@ -1,4 +1,4 @@
-db.products_price.insert([{
+[{
             "variantId": "sdwanbasic",
             "productId": "sdwan1000",
             "name": "SD-WAN BASIC",
@@ -130,4 +130,4 @@ db.products_price.insert([{
             "own": 300,
             "ctl": 350
             }]
-            }]);
+            }]
