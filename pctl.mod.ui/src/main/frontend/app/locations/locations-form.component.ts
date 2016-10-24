@@ -1,5 +1,7 @@
-import { Component, Input, EventEmitter, OnInit, Output,
-  AfterViewInit } from '@angular/core';
+import {
+  Component, Input, EventEmitter, OnInit, Output,
+  AfterViewInit
+} from '@angular/core';
 import {
   EnterpriseAddress,
   ContactInfo,
@@ -19,17 +21,20 @@ import { Validations } from '../common/validations/validations';
   templateUrl: './locations-form.component.html'
 })
 export class LocationsFormComponent implements OnInit {
-  form: FormGroup;
+  public myForm: FormGroup;
   locationInfo: SDWANLocationInfo;
-  @Input() data: LocationsFormModel;
+  @Input() data: SDWANLocationInfo;
   @Output() locationEvent = new EventEmitter();
-  //  EnterpriseAddress
-  //  ContactInfo
-  //  SDWANLocationInfo
+  submitted: boolean;
 
-  @Input() set formData(formData: LocationsFormModel) {
+  @Input() set formData(formData: SDWANLocationInfo) {
+    //console.log(formData);
     this.data = formData;
-    this.createForm();
+    if (formData !== undefined) {
+      console.log(formData);
+      this.populateForm();
+    }
+
   }
 
   constructor(private fb: FormBuilder) {
@@ -38,88 +43,103 @@ export class LocationsFormComponent implements OnInit {
 
   resetDataModel() {
     this.data = {
-      email: '',
-      firstName: '',
-      lastName: '',
-      primaryPhone: '',
-      contactAddressid: '',
-      locationName: '',
-      address: '',
-      street: '',
-      country: '',
-      city: '',
-      state: '',
-      zipCode: '',
-      checkAddress: '',
-      shippingAddressid: '',
-      shippingLocationName: '',
-      shippingAddress: '',
-      shippingStreet: '',
-      shippingCountry: '',
-      shippingCity: '',
-      shippingState: '',
-      shippingZipCode: ''
+      id: '',
+      serviceContact: {
+        id: '',
+        email: '',
+        firstName: '',
+        lastName: '',
+        phoneNumber: '',
+      },
+      serviceAddress: {
+        id: '',
+        locationName: '',
+        addressLine: '',
+        street: '',
+        city: '',
+        country: '',
+        state: '',
+        zipCode: ''
+      },
+      shippingAddress: {
+        id: '',
+        locationName: '',
+        addressLine: '',
+        street: '',
+        city: '',
+        country: '',
+        state: '',
+        zipCode: '',
+        checkAddress: ''
+      }
     };
   }
-  createForm() {
-    this.form = this.fb.group({
-      'email': ['', [Validators.required, Validations.emailValidator]],
-      'firstName': ['', [Validators.required, Validators.minLength(3)]],
-      'lastName': ['', Validators.required],
-      'primaryPhone': ['', [Validators.required, Validations.phoneValidator]],
-      'contactAddressid': [''],
-      'locationName': ['', [Validators.required, Validators.minLength(3)]],
-      'address': [''],
-      'street': [''],
-      'country': ['', Validators.required],
-      'city': [''],
-      'state': [''],
-      'zipCode': ['', Validations.zipCodeValidator],
-      'checkAddress': [''],
-      'shippingAddressid': [''],
-      'shippingLocationName': ['', Validators.required],
-      'shippingAddress': [''],
-      'shippingStreet': [''],
-      'shippingCountry': ['', Validators.required],
-      'shippingCity': [''],
-      'shippingState': [''],
-      'shippingZipCode': ['', Validations.zipCodeValidator]
-
-    });
-  
-//this.form.controls['contactid'].setValue = this.data.contactid;
-
-   // this.form.setValue()
-   
- //   (<FormGroup>this.form)
-   //         .setValue(this.data, { onlySelf: true });
-
- //   this.form.value(this.data);
+  populateForm() {
+    (<FormGroup>this.myForm)
+      .setValue(this.data, { onlySelf: true });
   }
 
   ngOnInit() {
+    this.submitted = false;
     // prepopulate form
     this.resetDataModel();
-    this.createForm();
+
+
+    this.myForm = this.fb.group({
+      id: [''],
+      serviceContact: this.fb.group({
+        id: [''],
+        email: ['', [<any>Validators.required, <any>Validations.emailValidator]],
+        firstName: ['', [<any>Validators.required, <any>Validators.minLength(3)]],
+        lastName: ['', <any>Validators.required],
+        phoneNumber: ['', [<any>Validators.required, <any>Validations.phoneValidator]],
+      }),
+      serviceAddress: this.fb.group({
+        id: [''],
+        locationName: ['', [<any>Validators.required, <any>Validators.minLength(3)]],
+        addressLine: [''],
+        street: [''],
+        city: [''],
+        country: ['', <any>Validators.required],
+        state: [''],
+        zipCode: ['', <any>Validations.zipCodeValidator],
+      }),
+      shippingAddress: this.fb.group({
+        id: [''],
+        checkAddress: [''],
+        locationName: ['', [<any>Validators.required, <any>Validators.minLength(3)]],
+        addressLine: [''],
+        street: [''],
+        city: [''],
+        country: ['', <any>Validators.required],
+        state: [''],
+        zipCode: ['', <any>Validations.zipCodeValidator],
+      })
+    });
+    (<FormGroup>this.myForm)
+      .setValue(this.data, { onlySelf: true });
+    this.populateForm();
 
   }
 
   onSubmit() {
-    this.locationInfo = this.form.value;
-    this.locationInfo = Object.assign({},
-      this.locationInfo,
-      { id: FingerPrintService.UUID() }
-    );
+    this.submitted = true;
+    this.locationInfo = this.myForm.value;
+    if (this.locationInfo.id === '') {
+      this.locationInfo = Object.assign({},
+        this.locationInfo,
+        { id: FingerPrintService.UUID() }
+      );
+    }
     console.log(this.locationInfo);
 
-    //this.locations.push(this.form.value);
-    //console.info(this.locations);
-    //this.form.reset();
-
     this.resetDataModel();
-    this.createForm();
+    this.populateForm();
+    //this.myForm.markAsPristine
+    // this.myForm.reset();
     this.locationEvent.emit(this.locationInfo);
   }
+
 
 
 }
