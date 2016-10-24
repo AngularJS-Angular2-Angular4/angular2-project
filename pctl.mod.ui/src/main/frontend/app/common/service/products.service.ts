@@ -17,7 +17,7 @@ import { Product } from '../models/product.model';
 */
 
 const BASE_URL = 'http://localhost:3001/products/';
-const BASE_URL_PROD = 'http://prod/location/products/';
+const BASE_URL_PRODUCTS = 'http://prod/location/products/';
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 
