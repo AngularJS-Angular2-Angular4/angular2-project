@@ -1,3 +1,5 @@
+{{ items.length }}
+{{ pageSize }}
 <nav *ngIf="items.length > pageSize">
 	<ul class="pagination">
 		<li [class.disabled]="currentPage == 1">

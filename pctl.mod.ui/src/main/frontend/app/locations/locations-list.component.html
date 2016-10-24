@@ -39,12 +39,11 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-6">
-			<ctl-pagination 
-				[items]="pagedLocations" 
-				[page-size]="pageSize"
-				(page-changed)="onPageChanged($event)" >
-			</ctl-pagination>
-	<!--		<nav>
+		<!--	<ctl-pagination [items]="locations" [page-size]="pageSize" (page-changed)="onPageChanged($event)">
+			</ctl-pagination> -->
+			<pagination class="pagination-md" [totalItems]="totalItems" [(ngModel)]="currentPage" [maxSize]="maxSize" [boundaryLinks]="true"
+				[rotate]="false" [itemsPerPage]="itemsPerPage" (pageChanged)="pageChanged($event)"></pagination>
+				<!--		<nav>
 				<ul class="pagination">
 					<li class="disabled">
 						<a href="#" aria-label="Previous">

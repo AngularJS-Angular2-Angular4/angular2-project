@@ -5,12 +5,38 @@
     "loggedIn": true
   },
   "cart": {
-    "id": "013ed047-bfd0-4e4b-5948-5aa13cb6654c",
-    "productName": "SD WAN",
-    "productId": "223322117656312",
-    "productTemplateName": "SD-WAN BASIC HA",
-    "productTemplateId": "SDWANBASICHA",
-    "locations": []
+    "productTemplateId": "SDWANBASIC",
+    "location": {
+      "id": "31502919-552c-007a-4b66-40776712ba05",
+      "serviceContact": {
+        "id": "",
+        "email": "tksukhu@gmail.com",
+        "firstName": "dfg",
+        "lastName": "dfg",
+        "phoneNumber": "222-222-2222"
+      },
+      "serviceAddress": {
+        "id": "",
+        "locationName": "dfddffd",
+        "addressLine": "ddd",
+        "street": "dd",
+        "city": "dd",
+        "country": "United States of America",
+        "state": "Alabama",
+        "zipCode": "44444"
+      },
+      "shippingAddress": {
+        "id": "",
+        "checkAddress": true,
+        "locationName": "dfddffd",
+        "addressLine": "ddd",
+        "street": "dd",
+        "city": "dd",
+        "country": "United States of America",
+        "state": "Alabama",
+        "zipCode": "44444"
+      }
+    }
   },
   "products": [
     {

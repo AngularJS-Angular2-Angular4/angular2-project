@@ -28,6 +28,11 @@ export class LocationsListComponent implements OnInit {
   selected: LocationDisplay;
   pagedLocations: LocationDisplay[] = [];
 
+
+  public totalItems: number = 100;
+  public currentPage: number = 1;
+  public maxSize: number = 200;
+  public itemsPerPage: number = 2;
   //pagination counters
   pageSize = 2;
 
@@ -35,7 +40,9 @@ export class LocationsListComponent implements OnInit {
     //console.log(locationsDisplay);
     if (locationsDisplay !== undefined || locationsDisplay.length > 0) {
       this.locations = locationsDisplay;
-      this.pagedLocations = _.take(this.locations, this.pageSize);
+      // this.pagedLocations = _.take(this.locations, this.pageSize);
+      this.totalItems = _.size(this.locations);
+      this.pagedLocations = _.take(this.locations, this.itemsPerPage);
     }
   }
 
@@ -56,10 +63,14 @@ export class LocationsListComponent implements OnInit {
   editLocation(location) {
     this.editEvent.emit(location);
   }
-
-  onPageChanged(page) {
-    let startIndex = (page - 1) * this.pageSize;
-    this.pagedLocations = _.take(_.drop(this.locations, startIndex), this.pageSize);
+  /*
+    onPageChanged(page) {
+      let startIndex = (page - 1) * this.pageSize;
+      this.pagedLocations = _.take(_.drop(this.locations, startIndex), this.pageSize);
+    }
+  */
+  public pageChanged(event: any): void {
+    let startIndex = (event.page - 1) * this.itemsPerPage;
+    this.pagedLocations = _.take(_.drop(this.locations, startIndex), this.itemsPerPage);
   }
-
 }
