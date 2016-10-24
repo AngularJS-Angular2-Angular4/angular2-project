@@ -51,6 +51,7 @@ export interface EnterpriseAddress {
     country: string;
     state: string;
     zipCode: string;
+    checkAddress?: string;
 }
 
 export interface SDWANLocationInfo {

@@ -37,7 +37,7 @@ export class LocationsComponent implements OnInit {
   // Subscribe to ActiveStatus from user Store
   user: Observable<User>;
   currentStore: AppStore;
-  formData: LocationsFormModel;
+  formData: SDWANLocationInfo;
 
 
   constructor(
@@ -80,34 +80,6 @@ export class LocationsComponent implements OnInit {
     );
   }
 
-  resetFormDataModel() {
-    this.formData = {
-      id: '',
-      contactid: '',
-      email: '',
-      firstName: '',
-      lastName: '',
-      primaryPhone: '',
-      contactAddressid: '',
-      locationName: '',
-      address: '',
-      street: '',
-      country: '',
-      city: '',
-      state: '',
-      zipCode: '',
-      checkAddress: '',
-      shippingAddressid: '',
-      shippingLocationName: '',
-      shippingAddress: '',
-      shippingStreet: '',
-      shippingCountry: '',
-      shippingCity: '',
-      shippingState: '',
-      shippingZipCode: ''
-    };
-  }
-
   getLocationById(id: string): SDWANLocationInfo {
     return this.lineItem.locations.find(location =>
       location.id === id);
@@ -145,8 +117,48 @@ export class LocationsComponent implements OnInit {
 
   }
 
+resetDataModel() {
+    this.formData = {
+      id: '',
+      serviceContact: {
+        id: '',
+        email: '',
+        firstName: '',
+        lastName: '',
+        phoneNumber: '',
+      },
+      serviceAddress: {
+        id: '',
+        locationName: '',
+        addressLine: '',
+        street: '',
+        city: '',
+        country: '',
+        state: '',
+        zipCode: ''
+      },
+      shippingAddress: {
+        id: '',
+        locationName: '',
+        addressLine: '',
+        street: '',
+        city: '',
+        country: '',
+        state: '',
+        zipCode: '',
+        checkAddress: ''
+      }
+    };
+  }
+
   editAction($event) {
     console.log($event);
+    this.resetDataModel();
+    let locationDisplay: LocationDisplay;
+    locationDisplay = $event;
+   // console.log(locationDisplay);
+    this.formData = this.getLocationById(locationDisplay.id);
+  //  this.cartService.deleteLocation(delLocationInfo);
   }
 
   deleteAction($event) {
@@ -165,63 +177,9 @@ export class LocationsComponent implements OnInit {
   locationSubmit($event) {
     console.log($event);
     let sdwanLocation: SDWANLocationInfo;
-    /*
-                'contactid': [''],
-        'email': ['', [Validators.required, Validations.emailValidator]],
-        'firstName': ['', [Validators.required, Validators.minLength(3)]],
-        'lastName': ['', Validators.required],
-        'primaryPhone': ['', [Validators.required, Validations.phoneValidator]],
-        'contactAddressid': [''],
-        'locationName': ['', [Validators.required, Validators.minLength(3)]],
-        'address': [''],
-        'street': [''],
-        'country': ['', Validators.required],
-        'city': [''],
-        'state': [''],
-        'zipCode': ['', Validations.zipCodeValidator],
-        'checkAddress': [''],
-        'shippingAddressid': [''],
-        'shippingLocationName': ['', Validators.required],
-        'shippingAddress': [''],
-        'shippingStreet': [''],
-        'shippingCountry': ['', Validators.required],
-        'shippingCity': [''],
-        'shippingState': [''],
-        'shippingZipCode': ['', Validations.zipCodeValidator]
-    */
-    sdwanLocation = {
-      id: $event.id,
-      serviceContact: {
-        id: $event.contactid,
-        email: $event.email,
-        firstName: $event.firstName,
-        lastName: $event.lastName,
-        phoneNumber: $event.primaryPhone
-      },
-      serviceAddress: {
-        id: $event.contactAddressid,
-        locationName: $event.locationName,
-        addressLine: $event.address,
-        street: $event.street,
-        city: $event.city,
-        country: $event.country,
-        state: $event.state,
-        zipCode: $event.zipCode
-      },
-      shippingAddress: {
-        id: $event.shippingAddressid,
-        locationName: $event.locationName,
-        addressLine: $event.address,
-        street: $event.street,
-        city: $event.city,
-        country: $event.country,
-        state: $event.state,
-        zipCode: $event.zipCode
-      }
-    }
     let newLocation = {
       productTemplateId: this.currentStore.user.status.productVariant.sku,
-      location: <SDWANLocationInfo>sdwanLocation
+      location: <SDWANLocationInfo> $event
     };
     //  console.log(newLocation);
     this.cartService.updateLocation(<LocationInfo>newLocation);

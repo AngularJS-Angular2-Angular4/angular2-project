@@ -1,20 +1,217 @@
 <div class="row">
-	<div class="col-md-12">
-		<div class="row">
+	<div class="col-md-12 text-right">
+		<!--		<div class="row">
 			<div class="col-sm-6">
 				<h5>Service Contact</h5>
 			</div>
-			<div class="col-sm-6 text-right">
-				<button class="btn btn-primary btn-lg">Batch Upload</button>
-			</div>
-		</div>
+			<div class="col-sm-6 text-right"> -->
+		<button class="btn btn-primary btn-lg">Batch Upload</button>
+		<!--			</div>
+		</div>-->
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-8">
+		<form class="form-horizontal" [formGroup]="myForm" novalidate (ngSubmit)="onSubmit()">
+			<div>
+				<h5 class="section-heading">Service Address</h5>
+
+				<div formGroupName="serviceContact" class="form-group">
+
+					<label for="email" class="col-sm-3 control-label">Email</label>
+					<div class="col-sm-9">
+						<input type="email" class="form-control" id="email" formControlName="email"> {{ myForm.controls.serviceContact.email
+						| json }}
+						<control-messages [control]="myForm.controls.serviceContact.controls['email']"></control-messages>
+					</div>
+				</div>
+				<div formGroupName="serviceContact" class="form-group">
+					<label for="firstName" class="col-sm-3 control-label">First Name</label>
+					<div class="col-sm-5">
+						<input type="text" class="form-control" id="firstName" formControlName="firstName">
+						<control-messages [control]="myForm.controls.serviceContact.controls['firstName']"></control-messages>
+					</div>
+				</div>
+				<div formGroupName="serviceContact" class="form-group">
+					<label for="lastName" class="col-sm-3 control-label">Last Name</label>
+					<div class="col-sm-5">
+						<input type="text" class="form-control" id="lastName" formControlName="lastName">
+						<control-messages [control]="myForm.controls.serviceContact.controls['lastName']"></control-messages>
+					</div>
+				</div>
+				<div formGroupName="serviceContact" class="form-group">
+					<label for="phoneNumber" class="col-sm-3 control-label">Primary Phone</label>
+					<div class="col-sm-5">
+						<input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber"  
+						placeholder="(123) 123-1234" >
+						<control-messages [control]="myForm.controls.serviceContact.controls['phoneNumber']"></control-messages>
+					</div>
+				</div>
+			</div>
+			<!-- Service Address Section -->
+			<div>
+				<h5 class="section-heading">Service Address</h5>
+				<div formGroupName="serviceAddress" class="form-group">
+					<label for="locationName" class="col-sm-3 control-label">Location Name</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" id="locationName" formControlName="locationName">
+						<control-messages [control]="myForm.controls.serviceAddress.controls['locationName']"></control-messages>
+					</div>
+				</div>
+				<div formGroupName="serviceAddress" class="form-group">
+					<label for="addressLine" class="col-sm-3 control-label">Address</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" id="addressLine" formControlName="addressLine">
+						<control-messages [control]="myForm.controls.serviceAddress.controls['addressLine']"></control-messages>
+					</div>
+				</div>
+				<div formGroupName="serviceAddress" class="form-group">
+					<label for="street" class="col-sm-3 control-label">Street</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" id="street" formControlName="street">
+						<control-messages [control]="myForm.controls.serviceAddress.controls['street']"></control-messages>
+					</div>
+				</div>
+				<div formGroupName="serviceAddress" class="form-group">
+					<label for="country" class="col-sm-3 control-label">Country</label>
+					<div class="col-sm-9">
+						<select class="form-control" id="country" formControlName="country">
+                            <option selected="" value="United States of America">United States of America</option>
+                            <option value="Canada">Canada</option>
+                        </select>
+						<control-messages [control]="myForm.controls.serviceAddress.controls['country']"></control-messages>
+					</div>
+				</div>
+				<div formGroupName="serviceAddress" class="form-group">
+					<label for="city" class="col-sm-3 control-label">City</label>
+					<div class="col-sm-9">
+						<div class="row">
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="city" formControlName="city">
+								<control-messages [control]="myForm.controls.serviceAddress.controls['city']"></control-messages>
+							</div>
+							<div class="col-sm-7">
+								<label for="horizontalFormPassword" class="col-sm-3 control-label">State</label>
+								<div class="col-sm-9">
+									<div class="row">
+										<select class="form-control" id="state" formControlName="state">
+                                            <option selected="" value=" - Select -">&nbsp;- Select -</option>
+                                            <option value="Alabama">Alabama</option>
+                                            <option value="Alaska">Alaska</option>
+                                            <option value="Arizona">Arizona</option>
+                                            <option value="Arkansas">Arkansas</option>
+                                            <option value="California">California</option>
+                                        </select>
+										<control-messages [control]="myForm.controls.serviceAddress.controls['state']"></control-messages>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div formGroupName="serviceAddress" class="form-group">
+					<label for="zipCode" class="col-sm-3 control-label">Zip Code</label>
+					<div class="col-sm-2">
+						<input type="text" class="form-control" id="zipCode" formControlName="zipCode">
+						<control-messages [control]="myForm.controls.serviceAddress.controls['zipCode']"></control-messages>
+					</div>
+				</div>
+			</div>
+			<!-- Shipping Address Section -->
+			<div>
+				<h5 class="section-heading">Shipping Address</h5>
+				<div formGroupName="shippingAddress" class="form-group">
+					<label for="checkAddress" class="col-sm-3 control-label sr-only">Select Address</label>
+					<div class="col-sm-9 col-sm-push-3">
+						<div class="checkbox">
+							<label>
+                                    <input type="checkbox" value="" formControlName="checkAddress" /> Same as Service Address <!--  (change)="onCheckSameServiceAddress($event)"  -->
+
+                                </label>
+						</div>
+					</div>
+				</div>
+				<div formGroupName="shippingAddress" class="form-group">
+					<label for="locationNameS" class="col-sm-3 control-label">Location Name</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" id="locationNameS" formControlName="locationName">
+						<control-messages [control]="myForm.controls.shippingAddress.controls['locationName']"></control-messages>
+					</div>
+				</div>
+				<div formGroupName="shippingAddress" class="form-group">
+					<label for="addressLineS" class="col-sm-3 control-label">Address</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" id="addressLineS" formControlName="addressLine">
+						<control-messages [control]="myForm.controls.shippingAddress.controls['addressLine']"></control-messages>
+					</div>
+				</div>
+				<div formGroupName="shippingAddress" class="form-group">
+					<label for="streetS" class="col-sm-3 control-label">Street</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" id="streetS" formControlName="street">
+						<control-messages [control]="myForm.controls.shippingAddress.controls['street']"></control-messages>
+					</div>
+				</div>
+				<div formGroupName="shippingAddress" class="form-group">
+					<label for="countryS" class="col-sm-3 control-label">Country</label>
+					<div class="col-sm-9">
+						<select class="form-control" id="countryS" formControlName="country">
+                            <option selected="" value="United States of America">United States of America</option>
+                            <option value="Canada">Canada</option>
+                        </select>
+						<control-messages [control]="myForm.controls.shippingAddress.controls['country']"></control-messages>
+					</div>
+				</div>
+				<div formGroupName="shippingAddress" class="form-group">
+					<label for="city" class="col-sm-3 control-label">City</label>
+					<div class="col-sm-9">
+						<div class="row">
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="city" formControlName="city">
+								<control-messages [control]="myForm.controls.shippingAddress.controls['city']"></control-messages>
+							</div>
+							<div class="col-sm-7">
+								<label for="stateS" class="col-sm-3 control-label">State</label>
+								<div class="col-sm-9">
+									<div class="row">
+										<select class="form-control" id="stateS" formControlName="state">
+                                            <option selected="" value=" - Select -">&nbsp;- Select -</option>
+                                            <option value="Alabama">Alabama</option>
+                                            <option value="Alaska">Alaska</option>
+                                            <option value="Arizona">Arizona</option>
+                                            <option value="Arkansas">Arkansas</option>
+                                            <option value="California">California</option>
+                                        </select>
+										<control-messages [control]="myForm.controls.shippingAddress.controls['state']"></control-messages>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div formGroupName="shippingAddress" class="form-group">
+					<label for="zipCodeS" class="col-sm-3 control-label">Zip Code</label>
+					<div class="col-sm-2">
+						<input type="text" class="form-control" id="zipCodeS" formControlName="zipCode">
+						<control-messages [control]="myForm.controls.shippingAddress.controls['zipCode']"></control-messages>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-3 col-sm-9">
+					<button type="submit" class="btn btn-primary btn-lg" [disabled]="!myForm.valid">Add Location</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<!--
+<div class="row">
+	<div class="col-md-8">
 		<form class="form-horizontal" [formGroup]="form" (ngSubmit)="onSubmit()">
-			<!-- Service Contact Section -->
-			<div>		
+			
+			<div>
 				<div class="form-group">
 					<label for="email" class="col-sm-3 control-label">Email</label>
 					<div class="col-sm-9">
@@ -45,7 +242,7 @@
 				</div>
 			</div>
 
-			<!-- Service Address Section -->
+			
 			<div>
 				<h5 class="section-heading">Service Address</h5>
 				<div class="form-group">
@@ -115,7 +312,6 @@
 				</div>
 			</div>
 
-			<!-- Shipping Address Section -->
 			<div>
 				<div>
 					<h5>Shipping Address</h5>
@@ -124,7 +320,7 @@
 						<div class="col-sm-9 col-sm-push-3">
 							<div class="checkbox">
 								<label>
-                                    <input type="checkbox" value="" formControlName="checkAddress"/> Same as Service Address <!--  (change)="onCheckSameServiceAddress($event)"  -->
+                                    <input type="checkbox" value="" formControlName="checkAddress"/> Same as Service Address 
 
                                 </label>
 							</div>
@@ -196,16 +392,16 @@
 						</div>
 					</div>
 
-					<!-- Add Location -->
+				
 					<div class="form-group">
 						<div class="col-sm-offset-3 col-sm-9">
 							<button type="submit" class="btn btn-primary btn-lg" [disabled]="!form.valid">Add Location</button>
 						</div>
 					</div>
 				</div>
-			</div>
-
+			</div> 
 
 		</form>
 	</div>
 </div>
+ -->
