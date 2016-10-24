@@ -48,8 +48,8 @@ export class LocationsComponent implements OnInit {
     this.cart = <Observable<ShoppingCart>>store.select('cart');
     let self = this;
     this.currentStore = this.appStateService.getState();
-    console.log(this.currentStore.cart.lineItems);
-    console.log(this.currentStore.user.status.productVariant.sku);
+    //  console.log(this.currentStore.cart.lineItems);
+    //   console.log(this.currentStore.user.status.productVariant.sku);
     /*   this.lineItems = this.currentStore.cart.lineItems.filter(location => {
              return location.productTemplateId === self.currentStore.user.status.productVariant.sku;
            });*/
@@ -117,7 +117,7 @@ export class LocationsComponent implements OnInit {
 
   }
 
-resetDataModel() {
+  resetDataModel() {
     this.formData = {
       id: '',
       serviceContact: {
@@ -156,15 +156,15 @@ resetDataModel() {
     this.resetDataModel();
     let locationDisplay: LocationDisplay;
     locationDisplay = $event;
-   // console.log(locationDisplay);
+    // console.log(locationDisplay);
     this.formData = this.getLocationById(locationDisplay.id);
-  //  this.cartService.deleteLocation(delLocationInfo);
+    //  this.cartService.deleteLocation(delLocationInfo);
   }
 
   deleteAction($event) {
     let locationDisplay: LocationDisplay;
     locationDisplay = $event;
-    console.log(locationDisplay);
+    //  console.log(locationDisplay);
     let delLocationInfo: LocationInfo;
     let sdwanLocationInfo = this.getLocationById(locationDisplay.id);
     delLocationInfo = {
@@ -175,11 +175,11 @@ resetDataModel() {
   }
 
   locationSubmit($event) {
-    console.log($event);
+    //   console.log($event);
     let sdwanLocation: SDWANLocationInfo;
     let newLocation = {
       productTemplateId: this.currentStore.user.status.productVariant.sku,
-      location: <SDWANLocationInfo> $event
+      location: <SDWANLocationInfo>$event
     };
     //  console.log(newLocation);
     this.cartService.updateLocation(<LocationInfo>newLocation);

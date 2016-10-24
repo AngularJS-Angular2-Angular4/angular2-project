@@ -18,6 +18,7 @@ import { Validations } from '../common/validations/validations';
 
 @Component({
   selector: 'locations-form',
+  styleUrls: [ './locations-form.component.css' ],
   templateUrl: './locations-form.component.html'
 })
 export class LocationsFormComponent implements OnInit {
@@ -136,8 +137,43 @@ export class LocationsFormComponent implements OnInit {
     this.resetDataModel();
     this.populateForm();
     //this.myForm.markAsPristine
+    this.myForm.markAsUntouched();
     // this.myForm.reset();
     this.locationEvent.emit(this.locationInfo);
+  }
+
+  
+  onClickCheckAddress(checked){
+        if(checked){
+         this.myForm.value.shippingAddress.locationName=this.myForm.value.serviceAddress.locationName;
+         this.myForm.value.shippingAddress.addressLine=this.myForm.value.serviceAddress.addressLine;
+         this.myForm.value.shippingAddress.street=this.myForm.value.serviceAddress.street;
+         this.myForm.value.shippingAddress.city=this.myForm.value.serviceAddress.city;
+         this.myForm.value.shippingAddress.country=this.myForm.value.serviceAddress.country;
+         this.myForm.value.shippingAddress.state=this.myForm.value.serviceAddress.state;
+         this.myForm.value.shippingAddress.zipCode=this.myForm.value.serviceAddress.zipCode;
+
+         this.myForm.patchValue({shippingAddress:{locationName: this.myForm.value.shippingAddress.locationName,
+           addressLine:this.myForm.value.shippingAddress.addressLine,
+           street:this.myForm.value.shippingAddress.street,
+           city:this.myForm.value.shippingAddress.city,
+           country:this.myForm.value.shippingAddress.country,
+           state:this.myForm.value.shippingAddress.state,
+           zipCode:this.myForm.value.shippingAddress.zipCode,
+          }});
+        }else{
+
+          this.myForm.patchValue({shippingAddress:{
+           locationName: '',
+           addressLine:'',
+           street:'',
+           city:'',
+           country:'',
+           state:'',
+           zipCode:'',
+          }});
+
+        }
   }
 
 
