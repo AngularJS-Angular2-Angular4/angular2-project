@@ -4,6 +4,7 @@ import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { LocationsComponent } from './locations/locations.component';
 import { ContactUsComponent } from './common/contact-us/contact-us.component';
+import { BillingComponent } from './billing/billing.component';
 
 import { DataResolver } from './app.resolver';
 
@@ -14,6 +15,7 @@ export const ROUTES: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact-us', component: ContactUsComponent },
+  { path: 'billing', component: BillingComponent },
   {
     path: 'locations',
     component: LocationsComponent
