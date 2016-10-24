@@ -13,6 +13,8 @@ import {
   LocationDisplay
 } from '../common/models/cart.model';
 
+import * as _ from 'lodash';
+
 @Component({
   selector: 'locations-list',
   templateUrl: './locations-list.component.html'
@@ -20,10 +22,22 @@ import {
 export class LocationsListComponent implements OnInit {
 
   currentStore: AppStore;
-  @Input() locations: LocationDisplay[] = [];
+  locations: LocationDisplay[] = [];
   @Output() deleteEvent = new EventEmitter();
   @Output() editEvent = new EventEmitter();
   selected: LocationDisplay;
+  pagedLocations: LocationDisplay[] = [];
+
+  //pagination counters
+  pageSize = 2;
+
+  @Input() set items(locationsDisplay: LocationDisplay[]) {
+    //console.log(locationsDisplay);
+    if (locationsDisplay !== undefined || locationsDisplay.length > 0) {
+      this.locations = locationsDisplay;
+      this.pagedLocations = _.take(this.locations, this.pageSize);
+    }
+  }
 
 
   constructor(
@@ -43,5 +57,9 @@ export class LocationsListComponent implements OnInit {
     this.editEvent.emit(location);
   }
 
+  onPageChanged(page) {
+    let startIndex = (page - 1) * this.pageSize;
+    this.pagedLocations = _.take(_.drop(this.locations, startIndex), this.pageSize);
+  }
 
 }

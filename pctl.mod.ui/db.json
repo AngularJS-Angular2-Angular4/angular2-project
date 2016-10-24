@@ -7,34 +7,34 @@
   "cart": {
     "productTemplateId": "SDWANBASIC",
     "location": {
-      "id": "0fedfc54-fafb-c16f-c018-7bfe6469bac6",
+      "id": "ab7632d5-e626-f140-a664-7653f4284824",
       "serviceContact": {
         "id": "",
-        "email": "tsukhu@hcl.com",
-        "firstName": "sdfsdf",
-        "lastName": "sdf",
+        "email": "dffd@hc.com",
+        "firstName": "sdfsdfsdf",
+        "lastName": "sdf1",
         "phoneNumber": "111-111-1111"
       },
       "serviceAddress": {
         "id": "",
-        "locationName": "Proper location name",
-        "addressLine": "sdfsd",
-        "street": "sdfsdf",
-        "city": "csdcds",
-        "country": "United States of America",
-        "state": "Alabama",
-        "zipCode": "11111"
+        "locationName": "sdf",
+        "addressLine": "sdf",
+        "street": "sdf",
+        "city": "",
+        "country": "Canada",
+        "state": "Alaska",
+        "zipCode": "12312"
       },
       "shippingAddress": {
         "id": "",
         "checkAddress": "",
-        "locationName": "sdfsdf",
+        "locationName": "sdfdsf",
         "addressLine": "sdfsdfsdf",
-        "street": "sdfsdf",
-        "city": "",
+        "street": "dsf",
+        "city": "wwqe",
         "country": "United States of America",
-        "state": "Alaska",
-        "zipCode": "22222"
+        "state": "Arizona",
+        "zipCode": "44444"
       }
     }
   },

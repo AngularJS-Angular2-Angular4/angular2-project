@@ -84,6 +84,7 @@
     "fingerprintjs2": "^1.4.1",
     "http-server": "^0.9.0",
     "ie-shim": "^0.1.0",
+    "lodash": "^4.16.4",
     "ng2-bootstrap": "^1.1.14",
     "ngrx-store-localstorage": "^0.1.5",
     "rxjs": "^5.0.0-rc.1",
@@ -92,12 +93,13 @@
   "devDependencies": {
     "@types/hammerjs": "^2.0.33",
     "@types/jasmine": "^2.2.34",
+    "@types/jquery": "^1.10.31",
+    "@types/lodash": "^4.14.37",
     "@types/node": "^6.0.38",
     "@types/protractor": "^1.5.20",
     "@types/selenium-webdriver": "2.44.29",
     "@types/source-map": "^0.1.27",
     "@types/uglify-js": "^2.0.27",
-    "@types/jquery": "^1.10.31",
     "@types/webpack": "^1.12.34",
     "angular2-template-loader": "^0.5.0",
     "awesome-typescript-loader": "^2.2.1",
@@ -111,6 +113,7 @@
     "html-webpack-plugin": "^2.21.0",
     "imports-loader": "^0.6.5",
     "istanbul-instrumenter-loader": "^1.0.0",
+    "jquery": "3.1.0",
     "json-loader": "^0.5.4",
     "karma": "^1.2.0",
     "karma-chrome-launcher": "^2.0.0",
@@ -140,8 +143,7 @@
     "webpack-dev-middleware": "^1.6.1",
     "webpack-dev-server": "^2.1.0-beta.9",
     "webpack-md5-hash": "^0.0.5",
-    "webpack-merge": "^0.14.1",
-    "jquery": "3.1.0"
+    "webpack-merge": "^0.14.1"
   },
   "repository": {
     "type": "git",

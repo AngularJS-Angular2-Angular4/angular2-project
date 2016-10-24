@@ -33,7 +33,7 @@ export class LocationsComponent implements OnInit {
   cart: Observable<ShoppingCart>;
   cartSubscription: Subscription;
   lineItem: LineItem;
-  locations: LocationDisplay[];
+  locations: LocationDisplay[] = [];
   // Subscribe to ActiveStatus from user Store
   user: Observable<User>;
   currentStore: AppStore;

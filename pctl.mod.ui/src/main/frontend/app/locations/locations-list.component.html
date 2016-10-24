@@ -9,7 +9,7 @@
 					<h3 class="col col-40">Service Address</h3>
 					<h3 class="col col-10">Action</h3>
 				</div>
-				<ul class="new-list-view" *ngFor="let location of locations">
+				<ul class="new-list-view" *ngFor="let location of pagedLocations">
 					<li>
 						<div class="list-view-item">
 							<div class="col col-10"><span class="col-header"></span>
@@ -39,7 +39,12 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-6">
-			<nav>
+			<ctl-pagination 
+				[items]="pagedLocations" 
+				[page-size]="pageSize"
+				(page-changed)="onPageChanged($event)" >
+			</ctl-pagination>
+	<!--		<nav>
 				<ul class="pagination">
 					<li class="disabled">
 						<a href="#" aria-label="Previous">
@@ -59,7 +64,7 @@
 						</a>
 					</li>
 				</ul>
-			</nav>
+			</nav> -->
 		</div>
 		<div class="col-sm-6 text-right">
 			<p>Total Locations: <span>{{locations.length}}</span></p>

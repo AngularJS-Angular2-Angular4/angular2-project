@@ -11,4 +11,4 @@
 </div>
 <locations-form (locationEvent)=locationSubmit($event) [formData]="formData"></locations-form>
 <hr>
-<locations-list [locations]="locations" (editEvent)=editAction($event) (deleteEvent)=deleteAction($event)></locations-list>
+<locations-list [items]="locations" (editEvent)=editAction($event) (deleteEvent)=deleteAction($event)></locations-list>
