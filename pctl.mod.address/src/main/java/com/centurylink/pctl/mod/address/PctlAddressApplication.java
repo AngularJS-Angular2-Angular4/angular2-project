@@ -1,4 +1,4 @@
-package com.centurylink.pctl.mod.user;
+package com.centurylink.pctl.mod.address;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,10 +13,10 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EnableDiscoveryClient
 //@EnableAutoConfiguration(exclude = HibernateJpaAutoConfiguration.class)
 //@EnableCaching
-public class PctlApiApplication {
+public class PctlAddressApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PctlApiApplication.class, args);
+        SpringApplication.run(PctlAddressApplication.class, args);
     }
 
 
