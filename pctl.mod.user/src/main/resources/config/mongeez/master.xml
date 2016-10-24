@@ -1,5 +1,3 @@
 <changeFiles>
     <file path="users.xml"/>
-    <file path="products.xml"/>
-    <file path="products_price.xml"/>
 </changeFiles>
