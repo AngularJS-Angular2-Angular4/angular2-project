@@ -33,7 +33,7 @@ import java.util.List;
 
 
 @Configuration
-@EnableMongoRepositories("com.centurylink.pctl.mod.address")
+@EnableMongoRepositories("com.centurylink.pctl.mod.cart")
 @Import(value = MongoAutoConfiguration.class)
 @EnableMongoAuditing(auditorAwareRef = "springSecurityAuditorAware")
 public class DatabaseConfiguration extends AbstractMongoConfiguration {

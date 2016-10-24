@@ -2,6 +2,7 @@ package com.centurylink.pctl.mod.cart.controllers.rest;
 
 
 
+import com.centurylink.pctl.mod.cart.domain.cart.CartEvent;
 import com.centurylink.pctl.mod.cart.domain.cart.ShoppingCart;
 import com.centurylink.pctl.mod.cart.domain.cart.ShoppingCartService;
 import org.slf4j.Logger;
@@ -15,6 +16,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
 
 /**
  * Created by nagavenkatakirang on 17-10-2016.
@@ -22,33 +26,40 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @RequestMapping("/cart")
-@Controller
+@RestController
 public class PctlApiCartRestController {
 
     private static final Logger log = LoggerFactory.getLogger(PctlApiCartRestController.class);
 
     @Autowired
-   public ShoppingCartService shoppingCartService;
+    public ShoppingCartService shoppingCartService;
 
 
-    @RequestMapping(method = RequestMethod.POST, value = "/", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public ResponseEntity<ShoppingCart> addcart(@RequestBody ShoppingCart shoppingCart) {
 
+    @Autowired
+    public PctlApiCartRestController(ShoppingCartService shoppingCartService){
+        this.shoppingCartService=shoppingCartService;
 
-        ShoppingCart response = shoppingCartService.initCart();
-
-        return new ResponseEntity<ShoppingCart>(response, HttpStatus.ACCEPTED);
     }
 
 
-    @RequestMapping(method = RequestMethod.POST, value = "/location", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public ResponseEntity<ShoppingCart> addLineItem(@RequestBody ShoppingCart shoppingCart) {
 
-         String id ="";
-        ShoppingCart response = shoppingCartService.getShoppingCart();
-        shoppingCartService.addLocation(response.get_id(),shoppingCart.getLocations());
-        return new ResponseEntity<ShoppingCart>(response, HttpStatus.ACCEPTED);
+
+    @RequestMapping(path = "/events", method = RequestMethod.POST)
+    public ResponseEntity addCartEvent(@RequestBody CartEvent cartEvent) throws Exception {
+
+        return Optional.ofNullable(shoppingCartService.addCartEvent(cartEvent))
+            .map(event -> new ResponseEntity(HttpStatus.NO_CONTENT))
+            .orElseThrow(() -> new Exception("Could not find shopping cart"));
     }
+
+
+   /* @RequestMapping(path = "/cart", method = RequestMethod.GET)
+    public ResponseEntity getCart() throws Exception {
+        return Optional.ofNullable(shoppingCartService.getShoppingCart())
+            .map(cart -> new ResponseEntity<>(cart, HttpStatus.OK))
+            .orElseThrow(() -> new Exception("Could not find shopping cart"));
+    }*/
 
 }
 

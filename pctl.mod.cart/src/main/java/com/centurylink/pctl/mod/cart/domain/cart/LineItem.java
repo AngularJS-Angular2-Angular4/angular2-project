@@ -1,20 +1,41 @@
 package com.centurylink.pctl.mod.cart.domain.cart;
 
+
+
 /**
  * Created by nagavenkatakirang on 21-10-2016.
  */
 public class LineItem
 {
-    private String quantity;
+    public LineItem(){
+
+    }
+
+    Product product;
+    private Integer quantity;
 
     private String productId;
 
-    public String getQuantity ()
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+    public LineItem(String productId, Product product, Integer quantity) {
+        this.productId = productId;
+        this.product = product;
+        this.quantity = quantity;
+    }
+
+
+    public Integer getQuantity ()
     {
         return quantity;
     }
 
-    public void setQuantity (String quantity)
+    public void setQuantity (Integer quantity)
     {
         this.quantity = quantity;
     }
