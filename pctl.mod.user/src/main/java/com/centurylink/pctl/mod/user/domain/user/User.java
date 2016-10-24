@@ -1,6 +1,7 @@
 package com.centurylink.pctl.mod.user.domain.user;
 
 import com.centurylink.pctl.mod.user.domain.base.AbstractAuditingEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -27,6 +28,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
         @JsonIgnore
         @NotNull
         @Size(min = 60, max = 60)*/
+    @JsonIgnore
     private String password;
 
     //   @Size(max = 50)
