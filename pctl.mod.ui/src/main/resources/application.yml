@@ -12,6 +12,12 @@ spring:
     aop:
         proxyTargetClass: true
 
+
+
+security:
+  basic:
+    enabled: false
+
 # EUREKA
 eureka:
   client:
