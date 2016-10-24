@@ -5,38 +5,12 @@
     "loggedIn": true
   },
   "cart": {
+    "id": "fb8c0a5c-df48-2330-af01-bf1168820bd7",
+    "productName": "SD WAN",
+    "productId": "223322117656312",
+    "productTemplateName": "SD-WAN BASIC",
     "productTemplateId": "SDWANBASIC",
-    "location": {
-      "id": "ab7632d5-e626-f140-a664-7653f4284824",
-      "serviceContact": {
-        "id": "",
-        "email": "dffd@hc.com",
-        "firstName": "sdfsdfsdf",
-        "lastName": "sdf1",
-        "phoneNumber": "111-111-1111"
-      },
-      "serviceAddress": {
-        "id": "",
-        "locationName": "sdf",
-        "addressLine": "sdf",
-        "street": "sdf",
-        "city": "",
-        "country": "Canada",
-        "state": "Alaska",
-        "zipCode": "12312"
-      },
-      "shippingAddress": {
-        "id": "",
-        "checkAddress": "",
-        "locationName": "sdfdsf",
-        "addressLine": "sdfsdfsdf",
-        "street": "dsf",
-        "city": "wwqe",
-        "country": "United States of America",
-        "state": "Arizona",
-        "zipCode": "44444"
-      }
-    }
+    "locations": []
   },
   "products": [
     {
