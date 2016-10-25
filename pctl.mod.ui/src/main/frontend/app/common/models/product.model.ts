@@ -1,32 +1,35 @@
 export interface Product {
-    id: number;
-    urnid: string;
+    productId: string;
     name: string;
-    description: string;
-    product_type: string;
-    created_at: string;
-    updated_at: string;
-    display_scope: string[];
-    variants: Variant[];
+    descriptionHtml: string;
+    productType: string;
+    createdAt: string;
+    updatedAt: string;
+    productVariants: Variant[];
 }
 
 export interface Variant {
-    id: number;
-    product_id: number;
+    variantId: string;
+    productId: number;
     name: string;
+    descriptionHtml: string;
     sku: string;
-    created_at: string;
-    updated_at: string;
-    display_position: number;
-    service_plan: string;
-    service_vendor: string;
-    service_transport: string;
-    security_pkg: string;
-    standard_cpe: string;
-    ha_service_plan: string;
-    ha_service_vendor: string;
-    ha_service_transport: string;
-    ha_security_pkg: string;
-    ha_cpe: string;
-    tier1_support: string;
+    displayPosition: number;
+    servicePlan: string;
+    serviceVendor: string;
+    serviceTransport: string;
+    securityPkg: string;
+    standardCpe: string;
+    haServicePlan: string;
+    haServiceVendor: string;
+    haServiceTransport: string;
+    haSecurityPkg: string;
+    haCpe: string;
+    tier1Support: string;
+}
+
+export interface Terms {
+    name: string;
+    frequency: string;
+    shortCode: string;
 }
