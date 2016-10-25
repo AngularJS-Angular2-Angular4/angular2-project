@@ -1,3 +1,4 @@
+
 package com.centurylink.pctl.mod.address.domain.utils;
 
 import com.fasterxml.jackson.core.JsonGenerator;
@@ -23,3 +24,4 @@ public final class JSR310DateTimeSerializer extends JsonSerializer<TemporalAcces
         generator.writeString(ISOFormatter.format(value));
     }
 }
+

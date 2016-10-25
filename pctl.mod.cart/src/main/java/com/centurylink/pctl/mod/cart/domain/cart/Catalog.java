@@ -5,6 +5,8 @@ package com.centurylink.pctl.mod.cart.domain.cart;
  */
 
 
+import com.centurylink.pctl.mod.core.model.product.Product;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;

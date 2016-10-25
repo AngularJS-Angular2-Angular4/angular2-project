@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 /**
  * Implementation of AuditorAware based on Spring Security.
  */
-@Component
+//@Component
 public class SpringSecurityAuditorAware implements AuditorAware<String> {
 
     @Override

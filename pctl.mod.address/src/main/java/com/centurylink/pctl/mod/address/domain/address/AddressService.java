@@ -2,7 +2,8 @@
 package com.centurylink.pctl.mod.address.domain.address;
 
 
-import com.centurylink.pctl.mod.common.utils.Response;
+import com.centurylink.pctl.mod.core.utils.Response;
+
 /**
  * Created by haribabu.ka on 11-10-2016.
  */

@@ -1,8 +1,8 @@
-package com.centurylink.pctl.mod.address.domain.security.config;
+package com.centurylink.pctl.mod.cart.config;
 
-import com.centurylink.pctl.mod.address.domain.security.Filter.*;
-import com.centurylink.pctl.mod.address.domain.security.endpoint.JwtAuthenticationEntryPoint;
-import com.centurylink.pctl.mod.address.domain.security.jwt.extractor.TokenExtractor;
+import com.centurylink.pctl.mod.core.security.endpoint.JwtAuthenticationEntryPoint;
+import com.centurylink.pctl.mod.core.security.filter.*;
+import com.centurylink.pctl.mod.core.security.jwt.extractor.TokenExtractor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -14,7 +14,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
@@ -25,6 +24,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import java.util.Arrays;
 import java.util.List;
 
+//import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  * Created by begin.samuel on 10/7/2016.
@@ -35,7 +35,11 @@ import java.util.List;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements ResourceServerConfigurer {
     public static final String JWT_TOKEN_HEADER_PARAM = "X-Authorization";
     public static final String JWT_TOKEN_USER_ENTRY_POINT = "/**" ;    // "/auth/**";
-    public static final String JWT_TOKEN_USER_GET_TOKEN = "/auth/token/generate/";
+    public static final String JWT_TOKEN_USER_GET_TOKEN = "/auth/token/generate";
+    public static final String LOGIN_USER_ENTRY_POINT = "/auth/user/login";
+    public static final String LOGGED_OUT_ENTRY_POINT ="/auth/user/logoutSuccess";
+    public static final String GET_USER_ENTRY_POINT ="/auth/user/me";
+
 
     @Autowired
     @Qualifier("jwtAuthenticationEntryPoint")
@@ -66,19 +70,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements R
     @Autowired
     private JwtAuthenticationEntryPoint unauthorizedHandler;
 
-    @Autowired
+ /*   @Autowired
     private UserDetailsService userDetailsService;
-
-/*    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**")
-            .allowedOrigins("http://domain2.com")
-            .allowedMethods("PUT", "DELETE")
-            .allowedHeaders("header1", "header2", "header3")
-            .exposedHeaders("header1", "header2")
-            .allowCredentials(false).maxAge(3600);
-    }
-*/
 
     @Autowired
     public void configureAuthentication(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
@@ -86,12 +79,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements R
             .userDetailsService(this.userDetailsService)
             .passwordEncoder(passwordEncoder());
     }
-
+*/
 
 
     @Bean
     protected JwtTokenAuthenticationProcessingFilter authenticationTokenFilterBean() throws Exception {
-        List<String> pathsToSkip = Arrays.asList(JWT_TOKEN_USER_GET_TOKEN);
+        List<String> pathsToSkip = Arrays.asList(JWT_TOKEN_USER_GET_TOKEN, LOGIN_USER_ENTRY_POINT,LOGGED_OUT_ENTRY_POINT, GET_USER_ENTRY_POINT);
         SkipPathRequestMatcher matcher = new SkipPathRequestMatcher(pathsToSkip,JWT_TOKEN_USER_ENTRY_POINT );
         JwtTokenAuthenticationProcessingFilter filter
             = new JwtTokenAuthenticationProcessingFilter(failureHandler, tokenExtractor, matcher);
@@ -128,7 +121,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements R
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-        resources.resourceId("pctl.mod.address");
+        resources.resourceId("pctl.mod.cart");
     }
 
     @Override
@@ -147,6 +140,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements R
             .and()
             .authorizeRequests()
             .antMatchers(JWT_TOKEN_USER_GET_TOKEN).permitAll()
+            .antMatchers(LOGIN_USER_ENTRY_POINT).permitAll()
+            .antMatchers(LOGGED_OUT_ENTRY_POINT).permitAll()
+            .antMatchers(GET_USER_ENTRY_POINT).permitAll()
             .and()
             .authorizeRequests()
             .antMatchers(JWT_TOKEN_USER_ENTRY_POINT ).authenticated()

@@ -11,7 +11,6 @@
 	<description>pctl</description>
 
 	<modules>
-		<module>pctl.mod.common</module>
         <module>pctl.mod.core</module>
 		<module>pctl.mod.discovery</module>
         <module>pctl.mod.user</module>

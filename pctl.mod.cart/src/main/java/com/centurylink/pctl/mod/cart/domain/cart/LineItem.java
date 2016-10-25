@@ -1,6 +1,7 @@
 package com.centurylink.pctl.mod.cart.domain.cart;
 
 
+import com.centurylink.pctl.mod.core.model.product.Product;
 
 /**
  * Created by nagavenkatakirang on 21-10-2016.

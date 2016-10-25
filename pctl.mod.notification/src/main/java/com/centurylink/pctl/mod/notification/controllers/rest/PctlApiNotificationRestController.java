@@ -1,8 +1,8 @@
 package com.centurylink.pctl.mod.notification.controllers.rest;
 
 
-import com.centurylink.pctl.mod.common.utils.Response;
-import com.centurylink.pctl.mod.common.utils.StatusCode;
+import com.centurylink.pctl.mod.core.utils.Response;
+import com.centurylink.pctl.mod.core.utils.StatusCode;
 import com.centurylink.pctl.mod.notification.domain.Notification;
 import com.centurylink.pctl.mod.notification.domain.NotificationResponse;
 import com.centurylink.pctl.mod.notification.domain.PctlApiNotificationService;

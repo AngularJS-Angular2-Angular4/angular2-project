@@ -1,3 +1,4 @@
+
 package com.centurylink.pctl.mod.user.domain.utils;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -46,3 +47,4 @@ public class Response<T> {
         return httpStatus;
     }
 }
+

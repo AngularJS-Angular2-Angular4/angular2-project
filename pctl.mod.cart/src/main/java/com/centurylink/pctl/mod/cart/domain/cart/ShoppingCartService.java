@@ -1,15 +1,11 @@
 package com.centurylink.pctl.mod.cart.domain.cart;
 
 
-import com.centurylink.pctl.mod.cart.domain.user.User;
 import com.centurylink.pctl.mod.cart.domain.user.UserRepository;
+import com.centurylink.pctl.mod.core.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.xml.ws.ServiceMode;
-import java.util.ArrayList;
-import java.util.List;
-import com.centurylink.pctl.mod.cart.domain.cart.ShoppingCart;
 /**
  * Created by nagavenkatakirang on 21-10-2016.
  */

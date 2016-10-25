@@ -18,8 +18,12 @@
     <dependencies>
         <dependency>
             <groupId>com.centurylink.pctl</groupId>
-            <artifactId>pctl.mod.common</artifactId>
+            <artifactId>pctl.mod.core</artifactId>
         </dependency>
+   <!--     <dependency>
+            <groupId>com.centurylink.pctl</groupId>
+            <artifactId>pctl.mod.common</artifactId>
+        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>

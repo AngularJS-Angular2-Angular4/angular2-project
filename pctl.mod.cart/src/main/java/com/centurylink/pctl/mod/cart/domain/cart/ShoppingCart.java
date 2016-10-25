@@ -1,18 +1,15 @@
 package com.centurylink.pctl.mod.cart.domain.cart;
 
-import com.centurylink.pctl.mod.cart.domain.user.User;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.centurylink.pctl.mod.core.model.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 //import reactor.core.publisher.Flux;
 /**
  * Created by nagavenkatakirang on 21-10-2016.
@@ -132,7 +129,8 @@ public class ShoppingCart implements Serializable
      * @throws Exception if a product in the cart could not be found in the catalog
      */
     public List<LineItem> getLineItems() throws Exception {
-       lineItems=productMap.entrySet().stream().map(item -> new LineItem(item.getKey(), catalog.getProducts().stream()
+       lineItems=productMap.entrySet().stream().map(item ->
+           new LineItem(item.getKey(), catalog.getProducts().stream()
             .filter(prd -> Objects.equals(prd.getProductId(), item.getKey()))
             .findFirst()
             .orElse(null),item.getValue()))

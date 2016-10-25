@@ -1,6 +1,8 @@
 package com.centurylink.pctl.mod.notification.domain;
 
-import com.centurylink.pctl.mod.common.utils.Response;
+
+
+import com.centurylink.pctl.mod.core.utils.Response;
 
 import java.util.List;
 

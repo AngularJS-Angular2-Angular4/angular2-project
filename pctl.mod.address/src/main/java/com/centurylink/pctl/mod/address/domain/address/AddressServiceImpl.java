@@ -1,8 +1,9 @@
 
 package com.centurylink.pctl.mod.address.domain.address;
 
-import com.centurylink.pctl.mod.common.utils.Response;
-import com.centurylink.pctl.mod.common.utils.StatusCode;
+
+import com.centurylink.pctl.mod.core.utils.Response;
+import com.centurylink.pctl.mod.core.utils.StatusCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

@@ -1,10 +1,13 @@
+
 package com.centurylink.pctl.mod.user.domain.utils;
 
 import org.springframework.http.HttpStatus;
 
+
 /**
  * Created by haribabu.ka on 14-10-2016.
  */
+
 public enum StatusCode {
 
     E200("200","Success",HttpStatus.OK),
@@ -52,3 +55,4 @@ public enum StatusCode {
         return httpStatus;
     }
 }
+

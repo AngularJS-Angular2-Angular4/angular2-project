@@ -5,8 +5,8 @@ import com.centurylink.pctl.mod.address.domain.address.Address;
 import com.centurylink.pctl.mod.address.domain.address.AddressService;
 import com.centurylink.pctl.mod.address.domain.address.LocationRequest;
 import com.centurylink.pctl.mod.address.domain.address.LocationResponse;
-import com.centurylink.pctl.mod.common.utils.Response;
-import com.centurylink.pctl.mod.common.utils.StatusCode;
+import com.centurylink.pctl.mod.core.utils.Response;
+import com.centurylink.pctl.mod.core.utils.StatusCode;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,6 +23,7 @@ public class PctlApiAddressTest {
 
     @Autowired
     private AddressService addressService;
+
 
     @Test
     public void validateNull() {

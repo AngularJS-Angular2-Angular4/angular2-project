@@ -22,14 +22,12 @@ spring:
       mongodb.port: 27017
       mongodb.uri: mongodb://localhost/pctl
 jwt:
-    tokenExpirationTime: 43200 # Number of minutes
-    refreshTokenExpTime: 43200 # Minutes
+    tokenExpirationTime: 2592000 # Number of minutes
+    refreshTokenExpTime: 2592000 # Minutes
     tokenIssuer: Ctl
     tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
+    publicKey: apiclient@ctl.com
     header: Authorization
-    secret: qwertyuiopasdfghjklzxcvbnm123456
-    expiration: 604800
-    defaultTestUser: apiTestUser@ctl.com
     route:
       authentication:
         path: auth
@@ -53,14 +51,12 @@ spring:
     mongodb.port: 27017
     mongodb.uri: mongodb://localhost/pctl
 jwt:
-    tokenExpirationTime: 43200 # Number of minutes
-    refreshTokenExpTime: 43200 # Minutes
+    tokenExpirationTime: 2592000 # Number of minutes
+    refreshTokenExpTime: 2592000 # Minutes
     tokenIssuer: Ctl
     tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
+    publicKey: apiclient@ctl.com
     header: Authorization
-    secret: qwertyuiopasdfghjklzxcvbnm123456
-    expiration: 604800
-    defaultTestUser: apiTestUser@ctl.com
     route:
       authentication:
         path: auth
@@ -82,14 +78,12 @@ spring:
     mongodb.uri: mongodb://localhost/pctl
 
 jwt:
-    tokenExpirationTime: 43200 # Number of minutes
-    refreshTokenExpTime: 43200 # Minutes
+    tokenExpirationTime: 2592000 # Number of minutes
+    refreshTokenExpTime: 2592000 # Minutes
     tokenIssuer: Ctl
     tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
+    publicKey: apiclient@ctl.com
     header: Authorization
-    secret: qwertyuiopasdfghjklzxcvbnm123456
-    expiration: 604800
-    defaultTestUser: apiTestUser@ctl.com
     route:
       authentication:
         path: auth

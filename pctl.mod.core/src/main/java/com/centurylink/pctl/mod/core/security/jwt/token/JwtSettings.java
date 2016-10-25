@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "jwt")
 public class JwtSettings {
     /**
-     * {@link com.centurylink.pctl.mod.user.domain.security.jwt.token.JwtToken} will expire after this time.
+     * {@link com.centurylink.pctl.mod.core.security.jwt.token.JwtToken} will expire after this time.
      */
     private Integer tokenExpirationTime;// = 15;
 
@@ -17,7 +17,7 @@ public class JwtSettings {
     private String tokenIssuer;// = "CTL";
 
     /**
-     * Key is used to sign {@link com.centurylink.pctl.mod.user.domain.security.jwt.token.JwtToken}.
+     * Key is used to sign {@link com.centurylink.pctl.mod.core.security.jwt.token.JwtToken}.
      */
     //@Value("spring.jwt.tokenSigningKey")
     private String tokenSigningKey;// = "xm8EV6Hy5RMFK4EEACIDAwQus";

@@ -1,3 +1,4 @@
+
 package com.centurylink.pctl.mod.address.domain.utils;
 
 import com.fasterxml.jackson.core.JsonGenerator;
@@ -9,9 +10,11 @@ import org.joda.time.format.ISODateTimeFormat;
 
 import java.io.IOException;
 
+
 /**
  * Custom Jackson serializer for transforming a Joda DateTime object to JSON.
  */
+
 public class CustomDateTimeSerializer extends JsonSerializer<DateTime> {
 
     public static final CustomDateTimeSerializer INSTANCE = new CustomDateTimeSerializer();
@@ -32,3 +35,4 @@ public class CustomDateTimeSerializer extends JsonSerializer<DateTime> {
     }
 
 }
+

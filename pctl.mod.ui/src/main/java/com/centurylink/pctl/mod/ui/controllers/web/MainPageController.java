@@ -1,6 +1,6 @@
 package com.centurylink.pctl.mod.ui.controllers.web;
 
-import com.centurylink.pctl.mod.common.utils.EnvironmentProvider;
+import com.centurylink.pctl.mod.core.utils.EnvironmentProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;

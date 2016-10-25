@@ -1,9 +1,8 @@
 package com.centurylink.pctl.mod.cart.domain.cart;
-import com.centurylink.pctl.mod.cart.domain.user.User;
+import com.centurylink.pctl.mod.core.model.user.User;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 import java.util.List;
 
 /**

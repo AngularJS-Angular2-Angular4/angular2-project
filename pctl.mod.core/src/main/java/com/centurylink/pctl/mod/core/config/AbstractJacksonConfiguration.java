@@ -15,7 +15,7 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import java.time.*;
 
 @Configuration
-public  abstract class AbstractJacksonConfiguration {
+public abstract class AbstractJacksonConfiguration {
 
     @Bean
     Jackson2ObjectMapperBuilder jackson2ObjectMapperBuilder() {

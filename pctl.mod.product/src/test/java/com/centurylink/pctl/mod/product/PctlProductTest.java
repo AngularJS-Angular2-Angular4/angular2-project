@@ -89,7 +89,6 @@ public class PctlProductTest {
     }
 
     @Test
-    @WithMockUser(username="jbeginsamuel@gmail.com",roles={"USER"})
     public void postsWithUser() throws Exception {
 
         this.mockMvc.perform(
@@ -114,7 +113,6 @@ public class PctlProductTest {
     }
 
     @Test
-    @WithMockUser(username="jbeginsamuel@gmail.com",roles={"USER"})
     public void getAllProductsPriceTest() throws Exception {
         List<Price> priceList = priceRepository.findAll();
         assertThat(priceList.size()).isGreaterThan(0);
@@ -124,7 +122,6 @@ public class PctlProductTest {
 
 
     @Test
-    @WithMockUser(username="jbeginsamuel@gmail.com",roles={"USER"})
     public void getAllProductsTest() throws Exception {
         List<Product> productList = productRepository.findAll();
         assertThat(productList.size()).isGreaterThan(0);

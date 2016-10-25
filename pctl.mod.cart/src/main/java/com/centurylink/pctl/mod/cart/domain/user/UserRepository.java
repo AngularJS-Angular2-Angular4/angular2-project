@@ -1,5 +1,6 @@
 package com.centurylink.pctl.mod.cart.domain.user;
 
+import com.centurylink.pctl.mod.core.model.user.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.time.ZonedDateTime;

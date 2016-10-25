@@ -1,3 +1,0 @@
-<getAirportInformationByAirportCode xmlns="http://www.webserviceX.NET">
-<airportCode>${body}</airportCode>
-</getAirportInformationByAirportCode>
