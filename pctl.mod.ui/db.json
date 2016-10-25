@@ -5,12 +5,8 @@
     "loggedIn": true
   },
   "cart": {
-    "id": "fdb49144-450a-2d76-d102-b96133203c02",
-    "productName": "SD WAN",
-    "productId": "sdwan1000",
-    "productTemplateName": "SD-WAN PREMIUM HA",
-    "productTemplateId": "SDWANPREMIUMHA",
-    "locations": []
+    "id": "f1d57955-9938-12c9-bb3f-94e1df622e19",
+    "lineItems": []
   },
   "products": [
     {
