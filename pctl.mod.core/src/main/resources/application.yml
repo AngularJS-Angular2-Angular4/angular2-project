@@ -1,0 +1,8 @@
+jwt:
+    tokenExpirationTime: 843200 # Number of minutes
+    refreshTokenExpTime: 843200 # Minutes
+    tokenIssuer: PCtl
+    tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
+    publicKey: tokentest@ctl.com
+    header: Authorization
+

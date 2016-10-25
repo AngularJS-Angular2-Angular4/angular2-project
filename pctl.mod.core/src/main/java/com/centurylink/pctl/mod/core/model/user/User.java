@@ -50,21 +50,6 @@ public class User  implements Serializable {
 
     private String activated;
 
-    //  @Size(min = 2, max = 5)
-    @Field("lang_key")
-    private String langKey;
-
-    //  @Size(max = 20)
-    @Field("activation_key")
-    //   @JsonIgnore
-    private String activationKey;
-
-    //   @Size(max = 20)
-    @Field("reset_key")
-    private String resetKey;
-
-    @Field("reset_date")
-    private ZonedDateTime resetDate = null;
 
     //  @JsonIgnore
     private Set<Authority> authorities = new HashSet<Authority>();
@@ -121,37 +106,7 @@ public class User  implements Serializable {
 
 
 
-    public String getActivationKey() {
-        return activationKey;
-    }
 
-    public void setActivationKey(String activationKey) {
-        this.activationKey = activationKey;
-    }
-
-    public String getResetKey() {
-        return resetKey;
-    }
-
-    public void setResetKey(String resetKey) {
-        this.resetKey = resetKey;
-    }
-
-    public ZonedDateTime getResetDate() {
-        return resetDate;
-    }
-
-    public void setResetDate(ZonedDateTime resetDate) {
-        this.resetDate = resetDate;
-    }
-
-    public String getLangKey() {
-        return langKey;
-    }
-
-    public void setLangKey(String langKey) {
-        this.langKey = langKey;
-    }
 
     public Set<Authority> getAuthorities() {
         return authorities;
@@ -192,8 +147,6 @@ public class User  implements Serializable {
             ", lastName='" + lastName + '\'' +
             ", email='" + email + '\'' +
             ", activated='" + activated + '\'' +
-            ", langKey='" + langKey + '\'' +
-            ", activationKey='" + activationKey + '\'' +
             "}";
     }
 }

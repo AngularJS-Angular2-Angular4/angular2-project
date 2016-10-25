@@ -5,9 +5,9 @@ package com.centurylink.pctl.mod.user.controllers.rest;
 import com.centurylink.pctl.mod.core.dto.commons.ValueObject;
 import com.centurylink.pctl.mod.core.security.jwt.extractor.TokenExtractor;
 import com.centurylink.pctl.mod.core.security.jwt.token.JwtSettings;
+import com.centurylink.pctl.mod.core.utils.Response;
+import com.centurylink.pctl.mod.core.utils.StatusCode;
 import com.centurylink.pctl.mod.user.domain.user.UserRepository;
-import com.centurylink.pctl.mod.user.domain.utils.Response;
-import com.centurylink.pctl.mod.user.domain.utils.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -32,7 +32,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/authtest/")
 public class TestRestController {
 
     @Autowired

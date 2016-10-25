@@ -3,24 +3,20 @@
         <script>
             db.users.insert(
             {
-                "_class" : "com.centurylink.pctl.mod.auth.domain.user.User",
-                "login" : "jbeginsamuel@gmail.com",
-                "password" : "qwertyqwertyuiopasdfghjklzxcvbnml",
-                "first_name" : "jbeginsamuel@gmail.com",
-                "last_name" : "User",
-                "email" : "jbeginsamuel@gmail.com",
-                "activated" : "1",
-                "authorities" : [{
-                        "name" : "ROLE_USER"
-                   },
-                   {
-                        "name" : "ROLE_ADMIN"
-                   }
-                 ],
-            "created_by" : "",
-            "created_date" : ISODate("2016-10-19T11:55:03.337Z"),
-            "last_modified_by" : "",
-            "last_modified_date  " : ISODate("2016-10-19T11:55:03.337Z")
+            "_class" : "com.centurylink.pctl.mod.auth.domain.user.User",
+            "login" : "jbeginsamuel@gmail.com",
+            "password" : "qwertyqwertyuiopasdfghjklzxcvbnml",
+            "first_name" : "jbeginsamuel@gmail.com",
+            "last_name" : "User",
+            "email" : "jbeginsamuel@gmail.com",
+            "activated" : "1",
+            "authorities" : [{
+            "name" : "ROLE_USER"
+            },
+            {
+            "name" : "ROLE_ADMIN"
+            }
+            ]
             });
         </script>
     </changeSet>

@@ -1,15 +1,10 @@
 package com.centurylink.pctl.mod.user.controllers.rest;
 
-import com.centurylink.pctl.mod.user.config.WebSecurityConfig;
 import com.centurylink.pctl.mod.core.security.jwt.extractor.TokenExtractor;
 import com.centurylink.pctl.mod.core.security.jwt.token.JwtSettings;
-import com.centurylink.pctl.mod.core.security.jwt.token.RawAccessJwtToken;
-import com.centurylink.pctl.mod.user.domain.user.User;
+import com.centurylink.pctl.mod.core.utils.Response;
+import com.centurylink.pctl.mod.core.utils.StatusCode;
 import com.centurylink.pctl.mod.user.domain.user.UserRepository;
-import com.centurylink.pctl.mod.user.domain.utils.Response;
-import com.centurylink.pctl.mod.user.domain.utils.StatusCode;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,16 +62,6 @@ public class PctlApiUserRestController {
         if(context== null) {
 
             msg.setStatus(StatusCode.C401);
-           /* String tokenPayload = request
-                .getHeader(WebSecurityConfig.JWT_TOKEN_HEADER_PARAM);
-            RawAccessJwtToken token = new RawAccessJwtToken(
-                tokenExtractor.extract(tokenPayload));
-            Jws<Claims> jwsClaims = token.parseClaims(jwtSettings
-                .getTokenSigningKey());
-            String subject = jwsClaims.getBody().getSubject();
-            return userRepository.findOneByFirstName(subject);*/
-
-
         }
         else{
             String name;
@@ -118,7 +103,7 @@ public class PctlApiUserRestController {
 
     }
 
-    @RequestMapping(value = "/user/logoutSuccess", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/logout", method = RequestMethod.GET)
     public Response logoutPage(HttpServletRequest request, HttpServletResponse response) {
         Response msg = new Response();
         String name = "no user found";
