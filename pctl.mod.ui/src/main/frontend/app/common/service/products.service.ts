@@ -16,8 +16,7 @@ import { Product } from '../models/product.model';
       2) Handle login and logout methods
 */
 
-const BASE_URL = 'http://localhost:3001/products/';
-const BASE_URL_PROD = 'http://prod/location/products/';
+//const BASE_URL = 'http://localhost:3001/productMS/';
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 
@@ -29,7 +28,6 @@ export class ProductsService implements OnInit {
         private http: Http, public store: Store<AppStore>
     ) {
         this.product = <Observable<Product>>store.select('products');
-        console.log('prod url is =' + BASE_URL_PRODUCTS);
     }
 
     ngOnInit() {
@@ -37,7 +35,7 @@ export class ProductsService implements OnInit {
     }
 
     loadProduct(): Observable<Product> {
-        return this.http.get(BASE_URL + '/1')
+        return this.http.get(BASE_URL_PRODUCTS)
             .map(res => res.json())
             .catch(this.handleError);
 //            .map(payload => ({ type: 'ADD_PRODUCTS', payload }))

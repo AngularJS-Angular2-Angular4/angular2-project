@@ -13,7 +13,7 @@ import { FingerPrintService } from './service/fingerprint.service';
 import { ProductsService } from './service/products.service';
 import { PricingService } from './service/pricing.service';
 import { CartService } from './service/cart.service';
-
+import { AppStateService } from './service/app-state.service';
 
 
 @NgModule({
@@ -30,7 +30,9 @@ import { CartService } from './service/cart.service';
                     LiveChatComponent,
                     FooterComponent,
                     NavBarComponent ],
-    providers: [ AuthService,
+    providers: [ 
+                 AppStateService,
+                 AuthService,
                  ProductsService,
                  PricingService,
                  FingerPrintService,

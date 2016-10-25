@@ -104,8 +104,8 @@ module.exports = function (options) {
           'NODE_ENV': JSON.stringify(METADATA.ENV),
           'HMR': METADATA.HMR,
         },
-        'BASE_URL_PRODUCTS': JSON.stringify('http://localhost:3001/products/'),
-        'BASE_URL_PRICES': JSON.stringify('http://localhost:3001/prices/'),
+        'BASE_URL_PRODUCTS': JSON.stringify('http://localhost:3001/productMS/'),
+        'BASE_URL_PRICES': JSON.stringify('http://localhost:3001/pricesMS/'),
         'BASE_URL_USERS': JSON.stringify('http://localhost:3001/user/'),
         'BASE_URL_CART': JSON.stringify('http://localhost:3001/cart/')
       }),
