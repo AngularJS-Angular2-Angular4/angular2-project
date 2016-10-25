@@ -13,7 +13,7 @@
 		</div>
 	</div>
 	<product-description [item]="product | async" [title]="title"></product-description>
-	<product-features [variants]="(product | async)?.variants"></product-features>
+	<product-features [variants]="(product | async)?.productVariants"></product-features>
 	<product-pricing [prices]="prices | async" [term]="term" [status]="status"></product-pricing>
 	<!--  <pagination [directionLinks]="true" [boundaryLinks]="true" [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"
         previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"

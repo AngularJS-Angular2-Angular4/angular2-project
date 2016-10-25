@@ -1,0 +1,111 @@
+   /** Login page styling **/
+
+    html.cyclops body .site-wrapper{
+      display: table;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+      box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+      background-color: #282828;
+    }
+    html.cyclops body .site-wrapper-inner{
+      vertical-align: middle;
+      display: table-cell;
+    }
+    html.cyclops body .site-wrapper-inner h2{
+      color:#fff;
+    }
+    html.cyclops .large-type-feature{
+      margin: 20px 0px;
+      padding: 20px;
+      background-color: #efefef;
+      border-radius: 5px;
+    }
+    html.cyclops body .site-wrapper-inner .control-label{
+      text-align: left;
+    }
+    html.cyclops body .site-wrapper-inner button .cyclops-icon{
+      width: 20px;
+      height: 20px;
+    }
+
+    /** login page styling **/
+
+.login.large-type-feature{
+      position: relative;
+      margin-top:60px;
+      padding-top:70px;
+    }
+
+.login.large-type-feature .profile{
+      width: 80px;
+      height: 80px;
+      padding: 19px;
+      background: #fff;
+      box-shadow: 0px 1px 3px #888;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -40px;
+      margin-top: -40px;
+      z-index: 1;
+      text-align: center;
+    }
+
+.site-wrapper{
+      display: table;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+      box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+      background-color: #282828;
+    }
+.site-wrapper-inner{
+      vertical-align: middle;
+      display: table-cell;
+    }
+.site-wrapper-inner h2{
+      color:#fff;
+    }
+.large-type-feature{
+      margin: 20px 0px;
+      padding: 20px;
+      background-color: #efefef;
+      border-radius: 5px;
+    }
+.site-wrapper-inner .control-label{
+      text-align: left;
+    }
+.site-wrapper-inner button .cyclops-icon{
+      width: 20px;
+      height: 20px;
+    }
+
+    /** login page styling **/
+
+.login.large-type-feature{
+      position: relative;
+      margin-top:60px;
+      padding-top:70px;
+    }
+
+.login.large-type-feature .profile{
+      width: 80px;
+      height: 80px;
+      padding: 19px;
+      background: #fff;
+      box-shadow: 0px 1px 3px #888;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -40px;
+      margin-top: -40px;
+      z-index: 1;
+      text-align: center;
+    }
+
+

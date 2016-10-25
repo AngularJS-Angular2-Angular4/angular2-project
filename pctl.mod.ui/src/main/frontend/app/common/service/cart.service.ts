@@ -43,7 +43,7 @@ export class CartService implements OnInit {
             .map(payload => ({ type: 'CREATE_CART', payload }))
             .subscribe(action => {
                 this.store.dispatch(action);
-                this.authService.updateCartInfo(action.payload);
+                this.authService.updateUserCartInfoFromCart(action.payload);
             }   
                 );
       //  this.store.dispatch({ type: 'CREATE_CART', payload: item });            

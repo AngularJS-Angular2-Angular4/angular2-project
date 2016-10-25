@@ -8,9 +8,6 @@ import * as Fingerprint from 'fingerprintjs2';
 
 @Injectable()
 export class FingerPrintService implements OnInit {
-    constructor(public store: Store<AppStore>) {
-
-    }
 
     public static UUID(): string {
         if (typeof (window.crypto) !== 'undefined' &&
@@ -31,10 +28,6 @@ export class FingerPrintService implements OnInit {
         }
     }
 
-    ngOnInit() {
-
-    }
-
     private static pad4(num: number): string {
         let ret: string = num.toString(16);
         while (ret.length < 4) {
@@ -47,6 +40,16 @@ export class FingerPrintService implements OnInit {
         return Math.floor((1 + Math.random()) * 0x10000)
             .toString(16)
             .substring(1);
+    }
+
+    constructor(public store: Store<AppStore>) {
+
+    }
+
+
+
+    ngOnInit() {
+
     }
 
     public getFingerPrint() {

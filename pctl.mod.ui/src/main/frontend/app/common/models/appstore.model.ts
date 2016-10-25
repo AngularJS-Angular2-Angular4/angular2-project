@@ -8,6 +8,6 @@ export interface AppStore {
   user: User;
   cart: ShoppingCart;
   product: Product;
-  prices: Pricing;
+  prices: Pricing[];
   status?: ActiveStatus;
 };
