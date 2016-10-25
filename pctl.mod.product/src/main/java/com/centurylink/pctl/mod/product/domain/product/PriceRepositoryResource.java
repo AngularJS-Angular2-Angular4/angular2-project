@@ -1,5 +1,6 @@
 package com.centurylink.pctl.mod.product.domain.product;
 
+import com.centurylink.pctl.mod.core.model.product.Price;
 import com.centurylink.pctl.mod.product.controllers.rest.PctlProductRestController;
 import org.springframework.data.rest.webmvc.RepositoryLinksResource;
 import org.springframework.hateoas.ResourceProcessor;

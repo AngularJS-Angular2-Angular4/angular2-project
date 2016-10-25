@@ -1,6 +1,7 @@
 package com.centurylink.pctl.mod.product.domain.product;
 
 
+import com.centurylink.pctl.mod.core.model.product.Product;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceProcessor;

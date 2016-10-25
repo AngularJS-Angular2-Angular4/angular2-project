@@ -1,5 +1,6 @@
 package com.centurylink.pctl.mod.product.domain.product;
 
+import com.centurylink.pctl.mod.core.model.product.Price;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

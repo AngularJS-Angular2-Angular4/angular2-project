@@ -1,14 +1,13 @@
 package com.centurylink.pctl.mod.product.controllers.rest;
 
 
+import com.centurylink.pctl.mod.core.model.product.Price;
+import com.centurylink.pctl.mod.core.model.product.Product;
 import com.centurylink.pctl.mod.product.domain.product.PctlApiProductService;
-import com.centurylink.pctl.mod.product.domain.product.Price;
-import com.centurylink.pctl.mod.product.domain.product.Product;
 import com.google.common.collect.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,8 +27,6 @@ public class PctlProductRestController {
     @Autowired
     private PctlApiProductService pctlApiProductService;
 
-  //  @Autowired
-  //  private JwtTokenUtil jwtTokenUtil;
 
 
 

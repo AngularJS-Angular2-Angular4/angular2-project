@@ -1,5 +1,6 @@
 package com.centurylink.pctl.mod.product.domain.product;
 
+import com.centurylink.pctl.mod.core.model.product.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class ProductRepositoryImpl implements ProductRepositoryCustom {
     private MongoTemplate mongoTemplate;
 
     @Override
-    public Page<Product> findProductByFields(String productId,Pageable pageable, String... fields) {
+    public Page<Product> findProductByFields(String productId, Pageable pageable, String... fields) {
         Query query = new Query().with(pageable);
         query.addCriteria(Criteria.where("productId").is(productId));
 

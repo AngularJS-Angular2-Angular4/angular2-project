@@ -12,9 +12,10 @@ import static org.springframework.restdocs.payload.PayloadDocumentation.response
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import com.centurylink.pctl.mod.core.model.product.Price;
+import com.centurylink.pctl.mod.core.model.product.Product;
 import com.centurylink.pctl.mod.product.domain.product.*;
-import com.centurylink.pctl.mod.product.domain.security.UserDetailsService;
-import com.centurylink.pctl.mod.product.domain.security.utils.JwtTokenUtil;
 import com.mongodb.Mongo;
 import org.junit.*;
 import org.junit.runner.RunWith;
@@ -29,6 +30,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -64,11 +66,6 @@ public class PctlProductTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Autowired
-    private JwtTokenUtil jwtTokenUtil;
-
-    @Autowired
-    private UserDetailsService userDetailsService;
 
 
     @Value("${jwt.defaultTestUser}")
@@ -79,38 +76,6 @@ public class PctlProductTest {
     private String tokenHeader;
 
 
-    private static final String LOCALHOST = "127.0.0.1";
-    private static final String DB_NAME = "test";
-    private static final int MONGO_TEST_PORT = 27017;
-
-/*
-    private static MongodProcess mongoProcess;
-    private static Mongo mongo;
-
-    @BeforeClass
-    public static void initializeDB() throws IOException {
-
-        final MongoCmdOptionsBuilder cmdBuilder = new MongoCmdOptionsBuilder();
-        cmdBuilder.useStorageEngine("mmapv1");
-        IMongoCmdOptions cmdOptions = cmdBuilder.build();
-
-        MongodStarter starter = MongodStarter.getDefaultInstance();
-        IMongodConfig mongodConfig = new MongodConfigBuilder()
-            .version(Version.Main.PRODUCTION)
-            .net(new Net(MONGO_TEST_PORT, Network.localhostIsIPv6()))
-            .cmdOptions(cmdOptions)
-            .build();
-        MongodExecutable mongoExecutable = starter.prepare(mongodConfig);
-        mongoProcess = mongoExecutable.start();
-
-    }
-
-    @AfterClass
-    public static void shutdownDB() throws InterruptedException {
-//        mongo.close();
-        mongoProcess.stop();
-    }
-*/
 
 
 
@@ -153,6 +118,8 @@ public class PctlProductTest {
     public void getAllProductsPriceTest() throws Exception {
         List<Price> priceList = priceRepository.findAll();
         assertThat(priceList.size()).isGreaterThan(0);
+
+
     }
 
 

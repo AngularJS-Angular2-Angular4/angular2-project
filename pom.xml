@@ -12,6 +12,7 @@
 
 	<modules>
 		<module>pctl.mod.common</module>
+        <module>pctl.mod.core</module>
 		<module>pctl.mod.discovery</module>
         <module>pctl.mod.user</module>
         <module>pctl.mod.product</module>
@@ -149,6 +150,11 @@
 				<artifactId>pctl.mod.common</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+            <dependency>
+                <groupId>com.centurylink.pctl</groupId>
+                <artifactId>pctl.mod.core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 		</dependencies>
 	</dependencyManagement>
 

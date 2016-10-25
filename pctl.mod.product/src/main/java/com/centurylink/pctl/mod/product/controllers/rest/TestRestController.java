@@ -1,7 +1,7 @@
 package com.centurylink.pctl.mod.product.controllers.rest;
 
 
-import com.centurylink.pctl.mod.common.dto.commons.ValueObject;
+import com.centurylink.pctl.mod.core.dto.commons.ValueObject;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
