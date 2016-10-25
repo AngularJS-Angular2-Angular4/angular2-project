@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Store, Action } from '@ngrx/store';
 import { AppStore } from '../common/models/appstore.model';
-import { ProductVariant, ActiveStatus } from '../common/models/pricing.model';
+import { ActiveStatus } from '../common/models/pricing.model';
 import { AppStateService } from '../common/service/app-state.service';
 import {
   ShoppingCart,
