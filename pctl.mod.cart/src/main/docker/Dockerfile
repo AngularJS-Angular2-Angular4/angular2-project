@@ -1,6 +1,6 @@
 FROM anapsix/alpine-java:8
 VOLUME /tmp
-ADD pctl.mod.api-1.0.0.jar app.jar
+ADD pctl.mod.cart-1.0.0.jar app.jar
 ADD wait-for-service.sh wait-for-service.sh
 RUN bash -c 'touch /app.jar'
 RUN bash -c 'touch /wait-for-service.sh'
