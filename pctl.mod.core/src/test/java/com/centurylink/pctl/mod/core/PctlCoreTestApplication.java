@@ -10,10 +10,10 @@ import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
 @EnableCaching
-public class PctlCommonTestApplication {
+public class PctlCoreTestApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PctlCommonTestApplication.class, args);
+        SpringApplication.run(PctlCoreTestApplication.class, args);
     }
 
 }

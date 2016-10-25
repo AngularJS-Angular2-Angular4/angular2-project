@@ -31,13 +31,13 @@ import java.util.stream.Collectors;
 @Component
 @Qualifier("ajaxAuthenticationProvider")
 public class AjaxAuthenticationProvider implements AuthenticationProvider {
-    private final BCryptPasswordEncoder encoder;
+  //  private final BCryptPasswordEncoder encoder;
   //  private final UserRepository userService;
 
     @Autowired
-    public AjaxAuthenticationProvider(final BCryptPasswordEncoder encoder) {
+    public AjaxAuthenticationProvider() {
     //    this.userService = userService;
-        this.encoder = encoder;
+    //    this.encoder = encoder;
     }
 
     @Override
