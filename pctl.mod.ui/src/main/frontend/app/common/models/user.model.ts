@@ -1,5 +1,5 @@
 import { CartState, ShoppingCart } from './cart.model';
-import { ProductVariant, ActiveStatus } from './pricing.model';
+import { ActiveStatus } from './pricing.model';
 import { Breadcrumb } from './breadcrumb.model';
 
 export interface User {

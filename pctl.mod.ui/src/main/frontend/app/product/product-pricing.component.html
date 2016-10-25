@@ -30,8 +30,8 @@
 						<h3 class="col col-30">With CenturyLink Transport</h3>
 					</div>
 					<ul class="new-list-view">
-						<!--{{prices | json}} -->
-						<li *ngFor="let variant of prices.productVariants;let i of index">
+						<!-- {{prices | json}} -->
+						<li *ngFor="let variant of prices;let i of index">
 							<div class="list-view-item text-center">
 								<div class="col col-40"><span class="col-header">Account</span>{{variant.name}}
 									<svg class="cyclops-icon md pull-right" aria-hidden="true">
@@ -40,17 +40,30 @@
 								</div>
 								<div class="col col-30" [class.active]="variant.sku === status.sku && 
 									status.mode ==='own'"><span class="col-header">With My Own Transport</span>
-									<p *ngIf="term === '12'" (click)="onPriceSelection('own',variant.sku, variant.priceInfo.term_12.own, variant)">$ {{variant.priceInfo.term_12.own}}</p>
-									<p *ngIf="term === '24'" (click)="onPriceSelection('own',variant.sku, variant.priceInfo.term_24.own, variant)">$ {{variant.priceInfo.term_24.own}}</p>
-									<p *ngIf="term === '36'" (click)="onPriceSelection('own',variant.sku, variant.priceInfo.term_36.own, variant)">$ {{variant.priceInfo.term_36.own}}</p>
+									<p (click)="onPriceSelection('own',variant.sku,term, variant)">
+										{{getCurrentPrice(term,variant.sku,'own')}}</p>
 								</div>
 								<div class="col col-30" [class.active]="variant.sku === status.sku && 
 									status.mode ==='ctl'"><span class="col-header">With CenturyLink Transport</span>
-									<p *ngIf="term === '12'" (click)="onPriceSelection('ctl',variant.sku, variant.priceInfo.term_12.ctl, variant)">$ {{variant.priceInfo.term_12.ctl}}</p>
-									<p *ngIf="term === '24'" (click)="onPriceSelection('ctl',variant.sku, variant.priceInfo.term_24.ctl, variant)">$ {{variant.priceInfo.term_24.ctl}}</p>
-									<p *ngIf="term === '36'" (click)="onPriceSelection('ctl',variant.sku, variant.priceInfo.term_36.ctl, variant)">$ {{variant.priceInfo.term_36.ctl}}</p>
+									<p (click)="onPriceSelection('ctl',variant.sku,term, variant)">
+										{{getCurrentPrice(term,variant.sku,'ctl')}}</p>
 								</div>
 							</div>
+						<!--	<div class="list-view-item text-center">
+								<div class="col col-40"><span class="col-header">Account</span>{{variant.name}}
+									<svg class="cyclops-icon md pull-right" aria-hidden="true">
+										<use xlink:href='#icon-question-circle' />
+									</svg>
+								</div>
+								<div class="col col-30" [class.active]="variant.sku === status.sku && 
+									status.mode ==='own'"><span class="col-header">With My Own Transport</span>
+									<p  (click)="onPriceSelection('own',variant.sku, priceList.own, variant)" *ngIf="priceList.term === term">{{ getPrice(variant.sku)}}</p>
+								</div>
+								<div class="col col-30" [class.active]="variant.sku === status.sku && 
+									status.mode ==='ctl'" *ngFor="let priceList of variant.priceList"><span class="col-header">With CenturyLink Transport</span>
+									<p (click)="onPriceSelection('own',variant.sku, priceList.ctl, variant)" *ngIf="priceList.term === term">$ {{priceList.ctl}}</p>
+								</div> 
+							</div>-->
 						</li>
 					</ul>
 				</div>

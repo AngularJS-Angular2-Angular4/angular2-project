@@ -10,12 +10,15 @@ import { LocationsRoutingModule }       from './locations-routing.module';
 import { BreadcrumbComponent }          from '../common/breadcrumb/breadcrumb.component';
 import { ControlMessagesComponent }     from '../common/validations/control-messages.component';
 import { Validations }                  from '../common/validations/validations';
+import { PaginationModule }             from 'ng2-bootstrap/ng2-bootstrap';
+import { CtlPaginationComponent }       from '../common/pagination/pagination.component';
 
 @NgModule({
     imports: [ FormsModule,
                 CommonModule,
                 ReactiveFormsModule,
-                RouterModule],
+                RouterModule,
+                PaginationModule],
     exports: [ LocationsComponent,
                 LocationsBatchUploadComponent,
                 LocationsListComponent,
@@ -25,7 +28,8 @@ import { Validations }                  from '../common/validations/validations'
                     LocationsListComponent,
                     LocationsFormComponent,
                     BreadcrumbComponent,
-                    ControlMessagesComponent ],
+                    ControlMessagesComponent,
+                    CtlPaginationComponent ],
     providers: [ Validations ]
 })
 export class LocationsModule { }

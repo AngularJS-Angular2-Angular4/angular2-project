@@ -1,3 +1,72 @@
-<div>
-  Login Page code goes here.....
-</div>
+<div class="site-wrapper">
+        <div class="site-wrapper-inner">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3 col-sm-12">
+                <div class="text-center">
+                  <img src="../../assets/img/logo-centurylink.png">
+                </div>
+                <div class="large-type-feature login">
+                  <div class="profile"><svg class="cyclops-icon lg" aria-hidden="true"><use xlink:href='#icon-user' /></svg></div>
+                  <!--form class="form-horizontal" -->
+                  <form id="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="form-group" [ngClass]="{'has-error': loginForm.controls['username'].touched && !loginForm.controls['username'].valid }">
+                      <label for="username" class="col-sm-2 control-label sr-only">Username</label>
+                      <div class="col-sm-8 col-sm-offset-2">
+                        <input type="email" class="form-control" id="username" placeholder="Username" [formControl]="loginForm.controls['username']">
+                      </div>
+                      <div *ngIf="loginForm.controls['username'].touched && !loginForm.controls['username'].valid">
+                                        <span *ngIf="loginForm.controls['username'].hasError('invalidLogin')" class="help-block">Username or password is invalid.</span>
+                                        <span *ngIf="loginForm.controls['username'].hasError('required')" class="help-block">Username is required.</span>
+                                        <span *ngIf="loginForm.controls['username'].hasError('cannotContainSpace')" class="help-block">Username cannot contain space.</span>
+                    </div>
+                    <div class="form-group" [ngClass]="{'has-error': loginForm.controls['password'].touched && !loginForm.controls['password'].valid }">
+                      <label for="password" class="col-sm-2 control-label sr-only">Password</label>
+                      <div class="col-sm-8 col-sm-offset-2">
+                        <input type="password" class="form-control" id="password" placeholder="*********" [formControl]="loginForm.controls['password']">
+                        <div>
+                        <span *ngIf="loginForm.controls['password'].touched && !loginForm.controls['password'].valid" class="help-block">Password is required.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-8">
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox">Remember me on this computer
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-8">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="!loginForm.valid || isLoading">Sign In <svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-migrate' /></svg></button>
+                      </div>
+                    </div>
+                
+                  <!--/form-->
+                  <div class="row">
+                    <div class="col-sm-offset-2 col-sm-8">
+                      <div class="row">
+                        <div class="col-sm-6"><a href="#">Forgot Password?</a></div>
+                        <div class="col-sm-6 text-right"><a href="#">Need Help?</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="large-type-feature">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="row">
+                        <div class="col-sm-6"><a href="#">Don't Have an Account?</a></div>
+                        <div class="col-sm-6 text-right"><a class="btn btn-primary" href="#"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-centurylink' /></svg> Create Account</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

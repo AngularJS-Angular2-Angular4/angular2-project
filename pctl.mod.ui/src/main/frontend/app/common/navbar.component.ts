@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
@@ -15,7 +16,9 @@ export class NavBarComponent {
 
    user: Observable<User>;
 
-   constructor(public authService: AuthService,
+   constructor(
+              private router: Router,
+              public authService: AuthService,
               public store: Store<AppStore>) {
       this.user = authService.user;
       authService.init();
@@ -23,7 +26,8 @@ export class NavBarComponent {
   }
 
   login() {
-    this.authService.login('tsukhu@hcl.com', 'xxx');
+    // this.authService.login('tsukhu@hcl.com', 'xxx');
+    //this.router.navigate(['/login']);
   }
 
   logout() {

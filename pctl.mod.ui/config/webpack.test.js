@@ -195,7 +195,11 @@ module.exports = function (options) {
           'ENV': JSON.stringify(ENV),
           'NODE_ENV': JSON.stringify(ENV),
           'HMR': false,
-        }
+        },
+        'BASE_URL_PRODUCTS': JSON.stringify('http://localhost:3001/productMS/'),
+        'BASE_URL_PRICES': JSON.stringify('http://localhost:3001/pricesMS/'),
+        'BASE_URL_USERS': JSON.stringify('http://localhost:3001/user/'),
+        'BASE_URL_CART': JSON.stringify('http://localhost:3001/cart/')
       }),
 
       /**

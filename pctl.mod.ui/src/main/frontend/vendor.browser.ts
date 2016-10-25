@@ -24,6 +24,8 @@ import 'rxjs/add/operator/mergeMap';
 //JQuery
 import 'jquery';
 
+import 'lodash';
+
 if ('production' === ENV) {
   // Production
 
