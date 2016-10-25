@@ -13,6 +13,7 @@ export interface Variant {
     productId: number;
     name: string;
     descriptionHtml: string;
+    displayImage?: string;
     sku: string;
     displayPosition: number;
     servicePlan: string;

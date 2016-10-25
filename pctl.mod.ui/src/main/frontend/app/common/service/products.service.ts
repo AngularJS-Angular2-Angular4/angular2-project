@@ -16,7 +16,7 @@ import { Product } from '../models/product.model';
       2) Handle login and logout methods
 */
 
-const BASE_URL = 'http://localhost:3001/productMS/';
+//const BASE_URL = 'http://localhost:3001/productMS/';
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 
@@ -35,7 +35,7 @@ export class ProductsService implements OnInit {
     }
 
     loadProduct(): Observable<Product> {
-        return this.http.get(BASE_URL)
+        return this.http.get(BASE_URL_PRODUCTS)
             .map(res => res.json())
             .catch(this.handleError);
 //            .map(payload => ({ type: 'ADD_PRODUCTS', payload }))

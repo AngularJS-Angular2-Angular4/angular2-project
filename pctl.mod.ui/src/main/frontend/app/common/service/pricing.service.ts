@@ -16,17 +16,17 @@ import { Breadcrumb } from '../models/breadcrumb.model';
       2) Handle login and logout methods
 */
 
-const BASE_URL = 'http://localhost:3001/prices/';
+//const BASE_URL = 'http://localhost:3001/pricesMS/';
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 
 @Injectable()
 export class PricingService implements OnInit {
-    pricing: Observable<Pricing>;
+    pricing: Observable<Array<Pricing>>;
     constructor(
         private http: Http, public store: Store<AppStore>
     ) {
-        this.pricing = <Observable<Pricing>>store.select('prices');
+        this.pricing = <Observable<Array<Pricing>>>store.select('prices');
     }
 
     ngOnInit() {
@@ -34,7 +34,7 @@ export class PricingService implements OnInit {
     }
 
     loadPrices(): Observable<Pricing> {
-        return this.http.get(BASE_URL)
+        return this.http.get(BASE_URL_PRICES)
             .map(res => res.json())
             .catch(this.handleError);
     }

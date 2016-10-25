@@ -28,7 +28,7 @@ import { CartService } from '../common/service/cart.service';
 })
 export class ProductDetailsComponent {
   product: Observable<Product>;
-  prices: Observable<Pricing>;
+  prices: Observable<Array<Pricing>>;
   cart: Observable<ShoppingCart>;
   title: String;
   loading: boolean;
