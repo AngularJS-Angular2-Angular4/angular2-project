@@ -17,7 +17,7 @@ import { Breadcrumb } from '../models/breadcrumb.model';
 */
 
 //const BASE_URL = 'http://localhost:3001/pricesMS/';
-const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
+const HEADER = { headers: new Headers({ 'Content-Type': 'application/json'}) };
 
 
 @Injectable()
@@ -34,7 +34,7 @@ export class PricingService implements OnInit {
     }
 
     loadPrices(): Observable<Pricing> {
-        return this.http.get(BASE_URL_PRICES)
+        return this.http.get(BASE_URL_PRICES,this.jwt())
             .map(res => res.json())
             .catch(this.handleError);
     }
@@ -45,7 +45,7 @@ export class PricingService implements OnInit {
         // could be something more sofisticated
         let errMsg = (error.message) ? error.message :
             error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-        
+
         // throw an application level error
         return Observable.throw(errMsg);
     }
@@ -65,5 +65,16 @@ export class PricingService implements OnInit {
         ];
         this.store.dispatch({ type: 'UPDATE_BREADCRUMB', payload: breadcrumbs });
     }
+    private jwt() {
+            // create authorization header with jwt token
+            let jwtTok = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhcGljbGllbnRAY3RsLmNvbSIsImlzcyI6IkN0bCIsImlhdCI6MTQ3NzQyMzA3NSwiZXhwIjoxNjMyOTQzMDc1fQ.x459-spv6AqdsZE-M9uXFoX183Og0VuTba5aGhakugmZULa9ntaRWWm_757ybLuey8amxbUx8Kp6o_JDnn4Fxg';
+            if (jwtTok) {
+                let headers = new Headers({'X-Authorization':'Bearer ' + jwtTok,'Content-Type': 'application/json'});
+                return new RequestOptions({ headers: headers});
+
+            }
+
+    }
+
 
 }
