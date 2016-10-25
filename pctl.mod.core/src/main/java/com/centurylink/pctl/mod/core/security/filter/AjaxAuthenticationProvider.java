@@ -34,7 +34,7 @@ public class AjaxAuthenticationProvider implements AuthenticationProvider {
   //  private final BCryptPasswordEncoder encoder;
   //  private final UserRepository userService;
 
-    @Autowired
+    //@Autowired
     public AjaxAuthenticationProvider() {
     //    this.userService = userService;
     //    this.encoder = encoder;
