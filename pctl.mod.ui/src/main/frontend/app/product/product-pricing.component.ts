@@ -52,9 +52,13 @@ export class ProductPricingComponent {
 
   onTermClick(term: string) {
     this.term = term;
+    this.selected = true;
     this.status = {
       mode: 'own',
-      sku: this.prices[0].sku
+      sku: this.prices[0].sku,
+      term: this.term,
+      productVariant: this.prices[0],
+      transport:this.options[1]
     };
     this.getCurrentSelection();
   }
@@ -98,6 +102,10 @@ export class ProductPricingComponent {
 
   nextPage() {
     this.pricingService.setActiveSelection(this.status);
+    if(this.status.mode === 'ctl'){
+      this.router.navigate(['/contact-us']);
+      return;
+    }
     let currentStore = this.appStateService.getState();
     let lineItemCount = currentStore.cart.lineItems.length + 1;
     // currentStore.prices.name;

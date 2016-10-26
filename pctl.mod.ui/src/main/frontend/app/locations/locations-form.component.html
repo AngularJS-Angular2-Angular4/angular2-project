@@ -42,8 +42,7 @@
 				<div formGroupName="serviceContact" class="form-group">
 					<label for="phoneNumber" class="col-sm-3 control-label">Primary Phone <span class="required-ast">*</span></label>
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber"  
-						placeholder="(123) 123-1234" >
+						<input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
 						<control-messages [control]="myForm.controls.serviceContact.controls['phoneNumber']"></control-messages>
 					</div>
 				</div>
@@ -59,14 +58,14 @@
 					</div>
 				</div>
 				<div formGroupName="serviceAddress" class="form-group">
-					<label for="addressLine" class="col-sm-3 control-label">Address</label>
+					<label for="addressLine" class="col-sm-3 control-label">Address Line 1 <span class="required-ast">*</span></label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control" id="addressLine" formControlName="addressLine">
 						<control-messages [control]="myForm.controls.serviceAddress.controls['addressLine']"></control-messages>
 					</div>
 				</div>
 				<div formGroupName="serviceAddress" class="form-group">
-					<label for="street" class="col-sm-3 control-label">Street</label>
+					<label for="street" class="col-sm-3 control-label">Address Line 2</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control" id="street" formControlName="street">
 						<control-messages [control]="myForm.controls.serviceAddress.controls['street']"></control-messages>
@@ -83,7 +82,7 @@
 					</div>
 				</div>
 				<div formGroupName="serviceAddress" class="form-group">
-					<label for="city" class="col-sm-3 control-label">City</label>
+					<label for="city" class="col-sm-3 control-label">City <span class="required-ast">*</span></label>
 					<div class="col-sm-9">
 						<div class="row">
 							<div class="col-sm-5">
@@ -91,7 +90,7 @@
 								<control-messages [control]="myForm.controls.serviceAddress.controls['city']"></control-messages>
 							</div>
 							<div class="col-sm-7">
-								<label for="horizontalFormPassword" class="col-sm-3 control-label">State</label>
+								<label for="horizontalFormPassword" class="col-sm-3 control-label">State <span class="required-ast">*</span></label>
 								<div class="col-sm-9">
 									<div class="row">
 										<select class="form-control" id="state" formControlName="state">
@@ -138,14 +137,14 @@
 					</div>
 				</div>
 				<div formGroupName="shippingAddress" class="form-group">
-					<label for="addressLineS" class="col-sm-3 control-label">Address</label>
+					<label for="addressLineS" class="col-sm-3 control-label">Address Line 1 <span class="required-ast">*</span></label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control" id="addressLineS" formControlName="addressLine" [value]="myForm.value.shippingAddress.addressLine">
 						<control-messages [control]="myForm.controls.shippingAddress.controls['addressLine']"></control-messages>
 					</div>
 				</div>
 				<div formGroupName="shippingAddress" class="form-group">
-					<label for="streetS" class="col-sm-3 control-label">Street</label>
+					<label for="streetS" class="col-sm-3 control-label">Address Line 2</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control" id="streetS" formControlName="street" [value]="myForm.value.shippingAddress.street">
 						<control-messages [control]="myForm.controls.shippingAddress.controls['street']"></control-messages>
@@ -162,7 +161,7 @@
 					</div>
 				</div>
 				<div formGroupName="shippingAddress" class="form-group">
-					<label for="city" class="col-sm-3 control-label">City</label>
+					<label for="city" class="col-sm-3 control-label">City <span class="required-ast">*</span></label>
 					<div class="col-sm-9">
 						<div class="row">
 							<div class="col-sm-5">
@@ -170,7 +169,7 @@
 								<control-messages [control]="myForm.controls.shippingAddress.controls['city']"></control-messages>
 							</div>
 							<div class="col-sm-7">
-								<label for="stateS" class="col-sm-3 control-label">State</label>
+								<label for="stateS" class="col-sm-3 control-label">State <span class="required-ast">*</span></label>
 								<div class="col-sm-9">
 									<div class="row">
 										<select class="form-control" id="stateS" formControlName="state" [value]="myForm.value.shippingAddress.state">

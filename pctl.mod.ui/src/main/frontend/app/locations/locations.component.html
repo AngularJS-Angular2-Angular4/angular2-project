@@ -4,7 +4,7 @@
 		<h2>Locations</h2>
 		<div class="card">
 			<div class="card-block">
-				<h5>{{(user | async)?.status.productVariant.name}}<span> ({{(user | async)?.status.term}}m, {{(user | async)?.status.transport}})</span><span class="pull-right"><a [routerLink]="['/home']"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-angle-left' /></svg> Back</a></span></h5>
+				<h5>{{(user | async)?.status.productVariant.name}}<span> ({{(user | async)?.status.term}} months, {{(user | async)?.status.transport}})</span><span class="pull-right"><a [routerLink]="['/home']"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-angle-left' /></svg> Back</a></span></h5>
 			</div>
 		</div>
 	</div>
