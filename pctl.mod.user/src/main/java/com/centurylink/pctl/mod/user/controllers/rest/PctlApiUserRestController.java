@@ -1,5 +1,6 @@
 package com.centurylink.pctl.mod.user.controllers.rest;
 
+import com.centurylink.pctl.mod.core.model.user.User;
 import com.centurylink.pctl.mod.core.security.jwt.extractor.TokenExtractor;
 import com.centurylink.pctl.mod.core.security.jwt.token.JwtSettings;
 import com.centurylink.pctl.mod.core.utils.Response;
@@ -54,9 +55,32 @@ public class PctlApiUserRestController {
     // SecurityContextHolder sh = new SecurityContextHolder();
 
     @RequestMapping(value = "/user/me", method = RequestMethod.GET)
-    public Response getUserInfo(HttpServletRequest request,
+    public User getUserInfo(HttpServletRequest request,
                                 HttpServletResponse response) {
-        Response msg = new Response();
+
+        List<User> users = userRepository.findAll();
+        User user = null;
+
+        if(users != null && users.size() >0 ) {
+
+
+            user = userRepository.findAll().get(0);
+            SecurityContext context = SecurityContextHolder.createEmptyContext();
+            HttpSession session = request.getSession();
+            List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+            SimpleGrantedAuthority sg = new SimpleGrantedAuthority("ROLE_ADMIN");
+            SimpleGrantedAuthority sg1 = new SimpleGrantedAuthority("USERS");
+            authorities.add(sg);
+            authorities.add(sg1);
+            Authentication authentication = new UsernamePasswordAuthenticationToken(user.getLogin(),
+                null, authorities);
+            context.setAuthentication(authentication);
+            session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, context);
+            SecurityContextHolder.setContext(context);
+        }
+        return user;
+
+        /*Response msg = new Response();
         HttpSession session =request.getSession();
         context = (SecurityContext) session.getAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY);
         if(context== null) {
@@ -72,7 +96,37 @@ public class PctlApiUserRestController {
             return msg;
         }
         return msg;
+        */
     }
+
+    @RequestMapping(value = "/user/", method = RequestMethod.GET)
+    public User getUserStateInfo(HttpServletRequest request,
+                                 HttpServletResponse response) {
+
+        List<User> users = userRepository.findAll();
+        User user = null;
+
+        if(users != null && users.size() >0 ) {
+
+
+            user = userRepository.findAll().get(0);
+            SecurityContext context = SecurityContextHolder.createEmptyContext();
+            HttpSession session = request.getSession();
+            List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+            SimpleGrantedAuthority sg = new SimpleGrantedAuthority("ROLE_ADMIN");
+            SimpleGrantedAuthority sg1 = new SimpleGrantedAuthority("USERS");
+            authorities.add(sg);
+            authorities.add(sg1);
+            Authentication authentication = new UsernamePasswordAuthenticationToken(user.getLogin(),
+                null, authorities);
+            context.setAuthentication(authentication);
+            session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, context);
+            SecurityContextHolder.setContext(context);
+        }
+        return user;
+
+    }
+
 
     @RequestMapping(value = "/user/login", method = RequestMethod.GET)
     public Response getloggedUser(HttpServletRequest request,
