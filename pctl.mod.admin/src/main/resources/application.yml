@@ -11,6 +11,9 @@ eureka:
 # LOGGING
 #logging.level.org.springframework.security: DEBUG
 
+
+
+
 security:
   basic:
     enabled: false

@@ -23,6 +23,7 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -84,7 +85,28 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements R
 
     @Bean
     protected JwtTokenAuthenticationProcessingFilter authenticationTokenFilterBean() throws Exception {
-        List<String> pathsToSkip = Arrays.asList(JWT_TOKEN_USER_GET_TOKEN, LOGIN_USER_ENTRY_POINT,LOGGED_OUT_ENTRY_POINT, GET_USER_ENTRY_POINT);
+        List<String> pathsToSkip = new ArrayList<String>();
+        pathsToSkip.add(JWT_TOKEN_USER_GET_TOKEN);
+        pathsToSkip.add(LOGIN_USER_ENTRY_POINT);
+        pathsToSkip.add(LOGGED_OUT_ENTRY_POINT);
+        pathsToSkip.add(GET_USER_ENTRY_POINT);
+        pathsToSkip.add("/actuator");
+        pathsToSkip.add("/autoconfig");
+        pathsToSkip.add("/beans");
+        pathsToSkip.add("/configprops");
+        pathsToSkip.add("/dump");
+        pathsToSkip.add("/env");
+        pathsToSkip.add("/flyway");
+        pathsToSkip.add("/health");
+        pathsToSkip.add("/info");
+        pathsToSkip.add("/liquibase");
+        pathsToSkip.add("/metrics");
+        pathsToSkip.add("/mappings");
+        pathsToSkip.add("/trace");
+        pathsToSkip.add("/docs");
+        pathsToSkip.add("/heapdump");
+        pathsToSkip.add("/jolokia");
+        pathsToSkip.add("/logfile");
         SkipPathRequestMatcher matcher = new SkipPathRequestMatcher(pathsToSkip,JWT_TOKEN_USER_ENTRY_POINT );
         JwtTokenAuthenticationProcessingFilter filter
             = new JwtTokenAuthenticationProcessingFilter(failureHandler, tokenExtractor, matcher);
