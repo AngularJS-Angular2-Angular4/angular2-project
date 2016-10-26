@@ -3,49 +3,25 @@ include::intro.adoc[]
 [[resources]]
 = Resources
 
-[[resources-Posts]]
-== Posts
-The Post resource is used to create, modify and posts.
+[[resources-Products]]
+== Products
+The Product resource is used to list.
 
 
 =======
 
-[[resource-post-list]]
-=== Listing posts
-A `GET` request lists all of the service's posts.
+[[resource-product-list]]
+=== Listing products
+A `GET` request lists all of the service's products.
 
-include::{snippets}/list-posts/response-fields.adoc[]
-
-==== Example request
-
-include::{snippets}/list-posts/curl-request.adoc[]
-
-==== Example response
-
-include::{snippets}/list-posts/http-response.adoc[]
-
-[[resource-post-create]]
-=== Creating posts
-A `POST` request creates a new post.
-
-include::{snippets}/list-posts/response-fields.adoc[]
+include::{snippets}/list-products/response-fields.adoc[]
 
 ==== Example request
 
-include::{snippets}/add-post/curl-request.adoc[]
+include::{snippets}/list-products/curl-request.adoc[]
 
 ==== Example response
 
-include::{snippets}/add-post/http-response.adoc[]
+include::{snippets}/list-products/http-response.adoc[]
 
-[[resource-post-delete]]
-=== Deleting posts
-A `DELETE` request deletes an existing post based on ID passed.
-
-==== Example request
-
-include::{snippets}/delete-post/curl-request.adoc[]
-
-==== Example response
-
-include::{snippets}/delete-post/http-response.adoc[]
+[[resource-product-create]]
