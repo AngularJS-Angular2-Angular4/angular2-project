@@ -19,7 +19,7 @@ import { CartState,ShoppingCart } from '../models/cart.model';
 */
 
 const BASE_URL = 'http://localhost:3001/user/';
-const GET_USER_URL = "/api/user/me";
+const GET_USER_URL = "/auth/user/me";
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 
@@ -57,7 +57,7 @@ export class AuthService implements OnInit {
                     shoppingCartId: '',
                     cartItemCount: 2
                 });*/
-                this.getUserDetails();
+             //   this.getUserDetails();
                 this.router.navigate(['/home']);
             });
 
