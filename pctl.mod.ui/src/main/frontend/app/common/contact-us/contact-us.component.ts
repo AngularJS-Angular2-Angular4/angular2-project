@@ -4,10 +4,12 @@ import { FormGroup, FormControl, Validators, FormBuilder, ReactiveFormsModule } 
 
 import { ContactUs } from './../models/contact-us.model';
 import { ContactService } from '../service/contact.service';
+import { Validations } from './common/validations/validations';
 
 @Component({
   selector: 'contact-us',
-  templateUrl: './contact-us.component.html'
+  templateUrl: './contact-us.component.html',
+  styles: ['.contactus-alert { color: #E82C0C; margin: 6px 0; }']
 })
 export class ContactUsComponent implements OnInit{
   form: FormGroup;
@@ -20,14 +22,14 @@ export class ContactUsComponent implements OnInit{
     jobTitle: new Control('', Validators.required),
     comments: new Control('', Validators.required)
   });*/
-
-          firstName = new FormControl("", Validators.required);
-          lastName = new FormControl("", Validators.required);
-          primaryPhone = new FormControl("", Validators.required);
-          email = new FormControl("", Validators.required);
-          companyName = new FormControl("", Validators.maxLength(55));
-          jobTitle = new FormControl("", Validators.maxLength(55));
-          comments = new FormControl("", Validators.minLength(25));
+  
+          firstName = new FormControl("", [Validators.required, Validators.minLength(3), Validators.pattern('[A-Za-z ]{3,30}')]);
+          lastName = new FormControl("", [Validators.required, Validators.pattern('[A-Za-z ]{1,30}')]);
+          primaryPhone = new FormControl("", [Validators.required, Validators.pattern("[0-9]{10}")]);
+          email = new FormControl("", [Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]);
+          companyName = new FormControl("");
+          jobTitle = new FormControl("");
+          comments = new FormControl("");
 
   constructor(public contactService: ContactService,_form: FormBuilder){
         this.form = _form.group({
@@ -40,6 +42,8 @@ export class ContactUsComponent implements OnInit{
           "comments": this.comments
         });
   }
+
+
 
   ngOnInit() {
     // this.form = this._form.group({

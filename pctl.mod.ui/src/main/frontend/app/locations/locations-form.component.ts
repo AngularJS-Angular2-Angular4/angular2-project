@@ -33,6 +33,7 @@ export class LocationsFormComponent implements OnInit {
     this.data = formData;
     if (formData !== undefined) {
       console.log(formData);
+      document.getElementById('email').focus();
       this.populateForm();
     }
 
