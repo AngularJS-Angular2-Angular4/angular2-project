@@ -102,12 +102,12 @@ public class PctlProductTest {
                     fieldWithPath("_id").description("The Product Unique ' ID"),
                     fieldWithPath("productId").description("The Product Id"),
                     fieldWithPath("name").description("The Product name"),
-                    fieldWithPath("updatedAt").description("The Product name"),
-                    fieldWithPath("descriptionHtml").description("The Product name"),
-                    fieldWithPath("createdAt").description("The Product name"),
-                    fieldWithPath("terms").description("The Product name"),
-                    fieldWithPath("productVariants").description("The Product name"),
-                    fieldWithPath("productType").description("The Product name")
+                    fieldWithPath("updatedAt").description("The Product updated dateTime"),
+                    fieldWithPath("descriptionHtml").description("The Product description in HTML"),
+                    fieldWithPath("createdAt").description("The Product created datetime"),
+                    fieldWithPath("terms").description("The Product terms frequency"),
+                    fieldWithPath("productVariants").description("The Product variants details"),
+                    fieldWithPath("productType").description("The Product type")
 
                 )));
     }
