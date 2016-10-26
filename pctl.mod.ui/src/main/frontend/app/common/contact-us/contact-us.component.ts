@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 import { ContactUs } from './../models/contact-us.model';
+import { ContactService } from '../service/contact.service';
 
 @Component({
   selector: 'contact-us',
@@ -28,7 +29,7 @@ export class ContactUsComponent implements OnInit{
           jobTitle = new FormControl("", Validators.maxLength(55));
           comments = new FormControl("", Validators.minLength(25));
 
-  constructor(_form: FormBuilder){
+  constructor(public contactService: ContactService,_form: FormBuilder){
         this.form = _form.group({
           "firstName": this.firstName,
           "lastName": this.lastName,
@@ -54,5 +55,16 @@ export class ContactUsComponent implements OnInit{
 
   contactUs(){
     console.log("FORM VALUES: " + this.form.value);
+    let contact:ContactUs;
+    contact = {
+      firstName:this.form.value.firstName,
+      lastName:this.form.value.lastName,
+      primaryPhone:this.form.value.primaryPhone,
+      email:this.form.value.email,
+      companyName:this.form.value.companyName,
+      jobTitle:this.form.value.jobTitle,
+      comments:this.form.value.comments
+    };
+    this.contactService.persist(contact);
   }
 }

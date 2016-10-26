@@ -7,18 +7,19 @@ export class Validations {
             'invalidPassword': 'Invalid password. Password must be at least 6 characters long, and contain a number.',
             'minlength': `Minimum length ${validatorValue.requiredLength}`,
             'invalidZipCode': 'Invalid zipcode',
-            'invalidPhoneNumber': 'Invalid phone number'
+            'invalidPhoneNumber': 'Invalid phone number',
+            'invalidName': 'Invalid Name'
         };
 
         return config[validatorName];
     }
 
-    static creditCardValidator(control) {
-        // Visa, MasterCard, American Express, Diners Club, Discover, JCB
-        if (control.value.match(/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/)) {
+    static nameValidator(control) {
+        // Name validation with whitespace
+        if(control.value.match(/^[A-Za-z ]{1,30}$/)) {
             return null;
         } else {
-            return { 'invalidCreditCard': true };
+            return { 'invalidName': true };
         }
     }
 
@@ -32,8 +33,8 @@ export class Validations {
     }
 
     static phoneValidator(control) {
-        // regex eg. (123) 123-1234
-        if (control.value.match(/^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/)) {
+        // regex 1234567890 or (123) 123 1234 or any US format
+        if (control.value.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)){
             return null;
         } else {
             return { 'invalidPhoneNumber': true };
@@ -46,6 +47,15 @@ export class Validations {
             return null;
         } else {
             return { 'invalidZipCode': true };
+        }
+    }
+
+    static creditCardValidator(control) {
+        // Visa, MasterCard, American Express, Diners Club, Discover, JCB
+        if (control.value.match(/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/)) {
+            return null;
+        } else {
+            return { 'invalidCreditCard': true };
         }
     }
 
