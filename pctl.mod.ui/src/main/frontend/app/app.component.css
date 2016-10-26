@@ -59,3 +59,33 @@ html.cyclops .navbar-local .navbar-nav li a {
 html.cyclops .breadcrumb{
 	margin-bottom: 0;
 }
+
+.nav-tabs.navbar-fixed li a{
+      color:#999;
+    }
+    .nav-tabs.navbar-fixed li.active a{
+      color:black;
+    }
+  
+  html.cyclops .navbar-local .navbar-nav>li.active>a{
+    background: #3cac30;
+    color: #fff;
+  }
+
+    /** Tooltip styling **/
+    html.cyclops body .new-list-view .list-view-item .col{
+      position: relative;
+    }
+    html.cyclops .navbar-fixed {
+      top: 0;
+      left:0;
+      z-index: 100;
+      position: fixed;
+      width: 100%;
+      background:white;
+      transition: .3s ease;
+    }
+
+    .pointer-mouse{
+      cursor: pointer;
+    }

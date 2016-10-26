@@ -57,7 +57,7 @@ export class AuthService implements OnInit {
                     shoppingCartId: '',
                     cartItemCount: 2
                 });*/
-             //   this.getUserDetails();
+                this.getUserDetails();
                 this.router.navigate(['/home']);
             });
 
@@ -73,7 +73,7 @@ export class AuthService implements OnInit {
                     shoppingCartId: '',
                     cartItemCount: 0
                 });
-        this.getUserDetails();
+       // this.getUserDetails();
     }
 
     public init() {

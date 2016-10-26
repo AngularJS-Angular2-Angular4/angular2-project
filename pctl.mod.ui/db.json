@@ -1,16 +1,12 @@
 {
   "user": {
     "id": 1,
-    "email": "tsukhu@inbox.com",
+    "email": "test@hcl.com",
     "loggedIn": true
   },
   "cart": {
-    "id": "1c211bc0-9dd3-4053-942c-cc7470bd60e6",
-    "productName": "SD WAN",
-    "productId": "sdwan1000",
-    "productTemplateName": "SD-WAN BASIC",
-    "productTemplateId": "SDWANBASIC",
-    "locations": []
+    "id": "85f14fa8-c094-7ec4-5ab7-4e4153e47087",
+    "lineItems": []
   },
   "products": [
     {

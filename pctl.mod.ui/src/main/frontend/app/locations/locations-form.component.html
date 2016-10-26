@@ -20,7 +20,7 @@
 
 					<label for="email" class="col-sm-3 control-label">Email <span class="required-ast">*</span></label>
 					<div class="col-sm-9">
-						<input type="email" class="form-control" id="email" formControlName="email"> {{ myForm.controls.serviceContact.email
+						<input type="email" class="form-control" id="email" formControlName="email" autofocus> {{ myForm.controls.serviceContact.email
 						| json }}
 						<control-messages [control]="myForm.controls.serviceContact.controls['email']"></control-messages>
 					</div>

@@ -21,9 +21,9 @@
                 class="form-control" 
                 id="firstName"
                 formControlName="firstName">
-                <!--<div 
-                  ngIf="!firstName.valid"
-                  class="alert alert-danger">First Name can't be empty.</div>-->
+                <div 
+                  *ngIf="firstName.touched && !firstName.valid"
+                  class="contactus-alert">First Name is invalid.</div>
             </div>
           </div>
           <div class="form-group">
@@ -34,9 +34,9 @@
                 class="form-control" 
                 id="lastName"
                 formControlName="lastName">
-                <!--<div 
-                  ngIf="!lastName.valid"
-                  class="alert alert-danger">Last Name can't be empty.</div>-->
+                <div 
+                  *ngIf="lastName.touched && !lastName.valid"
+                  class="contactus-alert">Last Name is invalid.</div>
             </div>
           </div>
           <div class="form-group">
@@ -47,9 +47,10 @@
                 class="form-control" 
                 id="primaryPhone"
                 formControlName="primaryPhone">
-                <!--<div 
-                  ngIf="!primaryPhone.valid"
-                  class="alert alert-danger">Primary Phone can't be empty.</div>-->
+                <div 
+                *ngIf="primaryPhone.touched && !primaryPhone.valid"
+                class="contactus-alert">Primary Phone is invalid.</div>
+                  
             </div>
           </div>
           <div class="form-group">
@@ -60,9 +61,9 @@
                 class="form-control" 
                 id="email"
                 formControlName="email">
-                <!--<div 
-                  ngIf="!email.valid"
-                  class="alert alert-danger">Email can't be empty.</div>-->
+                <div 
+                  *ngIf="email.touched && !email.valid"
+                  class="contactus-alert">Email is invalid.</div>
             </div>
           </div>
           <div class="form-group">
