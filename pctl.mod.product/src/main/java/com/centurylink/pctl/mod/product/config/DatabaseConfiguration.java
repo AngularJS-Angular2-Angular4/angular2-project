@@ -55,4 +55,17 @@ public class DatabaseConfiguration extends AbstractDatabaseConfiguration {
         return mongeez;
     }
 
+    @Bean
+    @Profile("dev")
+    public Mongeez loadProductsMasterData() {
+        log.debug("Load Products and Price data");
+        Mongeez mongeez = new Mongeez();
+        mongeez.setFile(new ClassPathResource("/config/mongeez/master.xml"));
+        mongeez.setMongo(mongo);
+        mongeez.setDbName(getMongoClientURI().getDatabase());
+        mongeez.process();
+        return mongeez;
+    }
+
+
 }

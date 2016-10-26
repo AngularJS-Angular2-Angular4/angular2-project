@@ -99,15 +99,15 @@ public class PctlProductTest {
                     prettyPrint()),
                 preprocessResponse(prettyPrint()),
                 responseFields(
-                    fieldWithPath("[]._id").description("The Product Unique ' ID"),
-                    fieldWithPath("[].productId").description("The Product Id"),
-                    fieldWithPath("[].name").description("The Product name"),
-                    fieldWithPath("[].updatedAt").description("The Product name"),
-                    fieldWithPath("[].discriptionHtml").description("The Product name"),
-                    fieldWithPath("[].createdAt").description("The Product name"),
-                    fieldWithPath("[].terms").description("The Product name"),
-                    fieldWithPath("[].productVariants").description("The Product name"),
-                    fieldWithPath("[].productType").description("The Product name")
+                    fieldWithPath("_id").description("The Product Unique ' ID"),
+                    fieldWithPath("productId").description("The Product Id"),
+                    fieldWithPath("name").description("The Product name"),
+                    fieldWithPath("updatedAt").description("The Product name"),
+                    fieldWithPath("descriptionHtml").description("The Product name"),
+                    fieldWithPath("createdAt").description("The Product name"),
+                    fieldWithPath("terms").description("The Product name"),
+                    fieldWithPath("productVariants").description("The Product name"),
+                    fieldWithPath("productType").description("The Product name")
 
                 )));
     }
@@ -116,8 +116,6 @@ public class PctlProductTest {
     public void getAllProductsPriceTest() throws Exception {
         List<Price> priceList = priceRepository.findAll();
         assertThat(priceList.size()).isGreaterThan(0);
-
-
     }
 
 

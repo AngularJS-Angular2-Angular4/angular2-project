@@ -136,4 +136,164 @@
             }]);
         </script>
     </changeSet>
+    <changeSet changeId="ChangeSet-5" author="pctl">
+        <script>
+            db.products_price.drop();
+            db.products_price.insert([
+            {
+            "variantId": "sdwanbasic",
+            "productId": "sdwan1000",
+            "name": "SD-WAN BASIC",
+            "descriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private networking",
+            "displayImage": "",
+            "sku": "SDWANBASIC",
+            "displayPosition": 1,
+            "servicePlan": "basic",
+            "serviceVendor": "versa",
+            "serviceTransport": "customer",
+            "securityPkg": "1",
+            "standardCpe": "1",
+            "haServicePlan": "",
+            "haServiceVendor": "",
+            "haServiceTransport": "",
+            "haSecurityPkg": "",
+            "haCpe": "0",
+            "tier1Support": "1",
+            "currency": "USD",
+            "priceList": [
+            {
+            "term": "12",
+            "own": 150,
+            "ctl": 100
+            },
+            {
+            "term": "24",
+            "own": 250,
+            "ctl": 200
+            },
+            {
+            "term": "36",
+            "own": 350,
+            "ctl": 300
+            }
+            ]
+            },
+            {
+            "variantId": "sdwanbasicha",
+            "productId": "sdwan1000",
+            "descriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private networking",
+            "displayImage": "",
+            "name": "SD-WAN BASIC HA",
+            "sku": "SDWANBASICHA",
+            "displayPosition": 1,
+            "servicePlan": "basic",
+            "serviceVendor": "versa",
+            "serviceTransport": "customer",
+            "securityPkg": "1",
+            "standardCpe": "1",
+            "haServicePlan": "basic",
+            "haServiceVendor": "versa",
+            "haServiceTransport": "ctl",
+            "haSecurityPkg": "1",
+            "haCpe": "1",
+            "tier1Support": "1",
+            "currency": "USD",
+            "priceList": [
+            {
+            "term": "12",
+            "own": 250,
+            "ctl": 200
+            },
+            {
+            "term": "24",
+            "own": 350,
+            "ctl": 300
+            },
+            {
+            "term": "36",
+            "own": 450,
+            "ctl": 400
+            }
+            ]
+            },
+            {
+            "variantId": "sdwanpremium",
+            "productId": "sdwan1000",
+            "name": "SD-WAN PREMIUM",
+            "descriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private networking",
+            "displayImage": "",
+            "sku": "SDWANPREMIUM",
+            "displayPosition": 3,
+            "servicePlan": "premium",
+            "serviceVendor": "versa",
+            "serviceTransport": "customer",
+            "securityPkg": "1",
+            "standardCpe": "1",
+            "haServicePlan": "",
+            "haServiceVendor": "",
+            "haServiceTransport": "",
+            "haSecurityPkg": "0",
+            "haCpe": "0",
+            "tier1Support": "1",
+            "currency": "USD",
+            "priceList": [
+            {
+            "term": "12",
+            "own": 350,
+            "ctl": 300
+            },
+            {
+            "term": "24",
+            "own": 450,
+            "ctl": 400
+            },
+            {
+            "term": "36",
+            "own": 550,
+            "ctl": 500
+            }
+            ]
+            },
+            {
+            "variantId": "sdwanpremiumha",
+            "productId": "sdwan1000",
+            "name": "SD-WAN PREMIUM HA",
+            "descriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private networking",
+            "displayImage": "",
+            "sku": "SDWANPREMIUMHA",
+            "displayPosition": 1,
+            "servicePlan": "premium",
+            "serviceVendor": "versa",
+            "serviceTransport": "customer",
+            "securityPkg": "1",
+            "standardCpe": "1",
+            "haServicePlan": "premium",
+            "haServiceVendor": "versa",
+            "haServiceTransport": "ctl",
+            "haSecurityPkg": "1",
+            "haCpe": "1",
+            "tier1Support": "1",
+            "currency": "USD",
+            "priceList": [
+            {
+            "term": "12",
+            "own": 450,
+            "ctl": 400
+            },
+            {
+            "term": "24",
+            "own": 550,
+            "ctl": 500
+            },
+            {
+            "term": "36",
+            "own": 650,
+            "ctl": 600
+            }
+            ]
+            }
+            ]);
+        </script>
+    </changeSet>
+
 </mongoChangeLog>

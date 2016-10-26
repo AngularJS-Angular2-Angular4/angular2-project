@@ -150,7 +150,7 @@ public class Product implements Serializable {
                 "createdAt = "+createdAt+", " +
                 "terms = "+terms+"," +
                 "name = "+name+", " +
-                "variants = "+productVariants+"," +
+                "productVariants = "+productVariants+"," +
                 "productType = "+productType+"," +
                 "productId = "+productId+"}";
         }
