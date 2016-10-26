@@ -26,7 +26,7 @@ public class ProductVariants  {
 
     private String productId;
 
-    private String discriptionHtml;
+    private String descriptionHtml;
 
     private String updatedAt;
 
@@ -155,14 +155,14 @@ public class ProductVariants  {
         this.productId = productId;
     }
 
-    public String getDiscriptionHtml ()
+    public String getDescriptionHtml ()
     {
-        return discriptionHtml;
+        return descriptionHtml;
     }
 
-    public void setDiscriptionHtml (String discriptionHtml)
+    public void setDescriptionHtml (String descriptionHtml)
     {
-        this.discriptionHtml = discriptionHtml;
+        this.descriptionHtml = descriptionHtml;
     }
 
     public String getUpdatedAt ()
@@ -249,7 +249,7 @@ public class ProductVariants  {
     @Override
     public String toString()
     {
-        return "ProductVariants [haServiceVendor = "+haServiceVendor+", securityPkg = "+securityPkg+", displayImage = "+displayImage+", serviceVendor = "+serviceVendor+", tier1Support = "+tier1Support+", haSecurityPkg = "+haSecurityPkg+", serviceTransport = "+serviceTransport+", variantId = "+variantId+", sku = "+sku+", productId = "+productId+", discriptionHtml = "+discriptionHtml+", updatedAt = "+updatedAt+", displayPosition = "+displayPosition+", haCpe = "+haCpe+", haServicePlan = "+haServicePlan+", createdAt = "+createdAt+", name = "+name+", servicePlan = "+servicePlan+", haServiceTransport = "+haServiceTransport+", standardCpe = "+
+        return "ProductVariants [haServiceVendor = "+haServiceVendor+", securityPkg = "+securityPkg+", displayImage = "+displayImage+", serviceVendor = "+serviceVendor+", tier1Support = "+tier1Support+", haSecurityPkg = "+haSecurityPkg+", serviceTransport = "+serviceTransport+", variantId = "+variantId+", sku = "+sku+", productId = "+productId+", descriptionHtml = "+descriptionHtml+", updatedAt = "+updatedAt+", displayPosition = "+displayPosition+", haCpe = "+haCpe+", haServicePlan = "+haServicePlan+", createdAt = "+createdAt+", name = "+name+", servicePlan = "+servicePlan+", haServiceTransport = "+haServiceTransport+", standardCpe = "+
             standardCpe+"]";
     }
 }

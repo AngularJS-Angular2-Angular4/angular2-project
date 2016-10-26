@@ -32,10 +32,10 @@ public class PctlProductRestController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
    // @PreAuthorize("hasRole('ADMIN')")
-    public List<Product> getProducts() {
+    public Product getProducts() {
         log.info("Getting Products");
-        log.info(" Products count {} ",pctlApiProductService.findProductByProductId("sdwan1000").size());
-        return Lists.newArrayList(pctlApiProductService.findAll());
+     //   log.info(" Products count {} ",pctlApiProductService.findProductByProductId("sdwan1000").size());
+        return pctlApiProductService.findProductByProductId("sdwan1000");
     }
 
 

@@ -16,7 +16,7 @@ public class Product implements Serializable {
 
         private String updatedAt;
 
-        private String discriptionHtml;
+        private String descriptionHtml;
         private String displayImage;
 
         @Id
@@ -47,14 +47,14 @@ public class Product implements Serializable {
             this.updatedAt = updatedAt;
         }
 
-        public String getDiscriptionHtml ()
+        public String getDescriptionHtml ()
         {
-            return discriptionHtml;
+            return descriptionHtml;
         }
 
-        public void setDiscriptionHtml (String discriptionHtml)
+        public void setDescriptionHtml (String descriptionHtml)
         {
-            this.discriptionHtml = discriptionHtml;
+            this.descriptionHtml = descriptionHtml;
         }
 
         public String get_id ()
@@ -144,7 +144,7 @@ public class Product implements Serializable {
         {
             return "Product {" +
                 "updatedAt = "+updatedAt+", " +
-                "discriptionHtml = "+discriptionHtml+"," +
+                "descriptionHtml = "+descriptionHtml+"," +
                 " _id = "+_id+", " +
                 "displayImage = "+displayImage+", " +
                 "createdAt = "+createdAt+", " +

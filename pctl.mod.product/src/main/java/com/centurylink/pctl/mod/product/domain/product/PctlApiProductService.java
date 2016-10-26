@@ -25,8 +25,8 @@ public class PctlApiProductService {
     private PriceRepository priceRepository;
 
 
-    public List<Product> findProductByProductId(String productId){
-        return productRepository.findProductByProductId(productId);
+    public Product findProductByProductId(String productId){
+        return productRepository.findProductByProductId(productId).get(0);
     }
 
     public List<Product> findProductsByUrnId(String urnId){
