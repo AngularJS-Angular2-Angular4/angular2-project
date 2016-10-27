@@ -18,6 +18,12 @@ security:
   basic:
     enabled: false
 
+
+
+management:
+  security:
+    enabled: false
+
 # EUREKA
 eureka:
   client:
