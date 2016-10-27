@@ -28,7 +28,7 @@ import { CartService } from './common/service/cart.service';
 })
 export class AppComponent {
   angularclassLogo = 'assets/img/angularclass-avatar.png';
-  name = 'Angular 2 Webpack Starter';
+  name = 'SDWAN Portal';
 
 
   constructor(

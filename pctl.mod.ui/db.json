@@ -1,11 +1,11 @@
 {
   "user": {
     "id": 1,
-    "email": "test@hcl.com",
+    "email": "tsukhu@inbox.com",
     "loggedIn": true
   },
   "cart": {
-    "id": "85f14fa8-c094-7ec4-5ab7-4e4153e47087",
+    "id": "8bb21220-6458-a317-c60d-bae8a5f35d3e",
     "lineItems": []
   },
   "products": [
