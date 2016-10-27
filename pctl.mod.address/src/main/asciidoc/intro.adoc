@@ -1,5 +1,5 @@
-= Demo REST Docs for Shardis-API
-Initial version by Tarun Kumar Sukhu;
+= Demo REST Docs for Address Service API
+
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs
@@ -10,31 +10,20 @@ Initial version by Tarun Kumar Sukhu;
 [introduction]
 = Introduction
 
-Shardis API - service is a RESTful microservice for ...
+Address Service API - service is a RESTful microservice for get the Address validated.
 [[overview]]
 = Overview
 
 [[overview-http-verbs]]
 == HTTP verbs
-Shardis API service tries to adhere as closely as possible to standard HTTP and REST conventions in its
+Address Service API service tries to adhere as closely as possible to standard HTTP and REST conventions in its
 use of HTTP verbs.
 |===
 | Verb | Usage
 
-| `GET`
-| Used to retrieve a resource
-
 | `POST`
-| Used to create a new resource
+| Used to get the Address validated.
 
-| `PATCH`
-| Used to update an existing resource, including partial updates
-
-| `PUT`
-| Used to update an existing resource, full updates only
-
-| `DELETE`
-| Used to delete an existing resource
 |===
 
 [[overview-http-status-codes]]
