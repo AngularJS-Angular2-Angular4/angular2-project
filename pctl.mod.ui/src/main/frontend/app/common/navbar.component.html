@@ -42,7 +42,7 @@
   					</ul>
   				</li>
 				<li class="dropdown">
-					<a href="#" role="button" aria-expanded="false"><span *ngIf="(user | async).cartInfo?.cartItemCount > 0">{{(user | async).cartInfo?.cartItemCount}}</span><svg class="cyclops-icon support"><use xlink:href="#icon-shopping-cart"></use></svg> </a>
+					<a href="#" role="button" aria-expanded="false"><span *ngIf="(cart | async)?.lineItems.length > 0">{{(cart | async)?.lineItems.length}}</span><svg class="cyclops-icon support"><use xlink:href="#icon-shopping-cart"></use></svg> </a>
 					<ul class="dropdown-menu dropdown-menu-right">
 						<li><a href="#">Open Support Ticket</a></li>
 						<li><a href="#">Chat with Support</a></li>
