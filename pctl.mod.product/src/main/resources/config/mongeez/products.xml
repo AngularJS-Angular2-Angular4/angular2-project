@@ -225,4 +225,117 @@
             });
         </script>
     </changeSet>
+    <changeSet changeId="ChangeSet-5" author="pctl">
+        <script>
+            db.products.drop();
+            db.products.insert({
+            "productId": "sdwan1000",
+            "name": "SD WAN",
+            "descriptionHtml": "&lt;p&rt;Software-defined wide area networking (SD-WAN) is the next evolution of private networking. SD-WAN uses software to automate the ongoing configuration of edge routers and push traffic over a mix of private, wireless, and broadband network access.SD-WAN offers a real network solution for businesses trying to keep up with the impact a highly dynamic application environment has on their network quality of service.&lt;/p&rt; &lt;p&rt;Our SD-WAN combines CenturyLink network design and management expertise with leading software controls and the ubiquity of any connection type or any vendor.&lt;/p&rt;&lt;p&rt; The result is improved flexibility through greater bandwidth that delivers increased visibility into network usage and vastly simplified control. CenturyLink offers four popular configurations of SD-WAN as described below -- or a custom configuration can be set up via a sales agent.&lt;/p&rt;",
+            "displayImage": "",
+            "productType": "Network",
+            "createdAt": "2016-09-22T14:25:08-03:00",
+            "updatedAt": "2016-09-22T14:25:08-03:00",
+            "terms": [
+            {
+            "name": "12",
+            "frequency": "monthly",
+            "shortCode": "12m"
+            },
+            {
+            "name": "24",
+            "frequency": "monthly",
+            "shortCode": "24m"
+            },
+            {
+            "name": "36",
+            "frequency": "monthly",
+            "shortCode": "36m"
+            }
+            ],
+            "productVariants": [
+            {
+            "variantId": "sdwanbasic",
+            "productId": "sdwan1000",
+            "name": "SD-WAN BASIC",
+            "descriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private networking",
+            "displayImage": "",
+            "sku": "SDWANBASIC",
+            "displayPosition": 1,
+            "servicePlan": "basic",
+            "serviceVendor": "versa",
+            "serviceTransport": "customer",
+            "securityPkg": "1",
+            "standardCpe": "1",
+            "haServicePlan": "",
+            "haServiceVendor": "",
+            "haServiceTransport": "",
+            "haSecurityPkg": "",
+            "haCpe": "0",
+            "tier1Support": "1"
+            },
+            {
+            "variantId": "sdwanbasicha",
+            "productId": "sdwan1000",
+            "descriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private networking",
+            "displayImage": "",
+            "name": "SD-WAN BASIC HA",
+            "sku": "SDWANBASICHA",
+            "displayPosition": 1,
+            "servicePlan": "basic",
+            "serviceVendor": "versa",
+            "serviceTransport": "customer",
+            "securityPkg": "1",
+            "standardCpe": "1",
+            "haServicePlan": "basic",
+            "haServiceVendor": "versa",
+            "haServiceTransport": "ctl",
+            "haSecurityPkg": "0",
+            "haCpe": "1",
+            "tier1Support": "1"
+            },
+            {
+            "variantId": "sdwanpremium",
+            "productId": "sdwan1000",
+            "name": "SD-WAN PREMIUM",
+            "descriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private networking",
+            "displayImage": "",
+            "sku": "SDWANPREMIUM",
+            "displayPosition": 3,
+            "servicePlan": "premium",
+            "serviceVendor": "versa",
+            "serviceTransport": "customer",
+            "securityPkg": "1",
+            "standardCpe": "1",
+            "haServicePlan": "",
+            "haServiceVendor": "",
+            "haServiceTransport": "",
+            "haSecurityPkg": "1",
+            "haCpe": "0",
+            "tier1Support": "1"
+            },
+            {
+            "variantId": "sdwanpremiumha",
+            "productId": "sdwan1000",
+            "name": "SD-WAN PREMIUM HA",
+            "descriptionHtml": "Software-defined wide area networking (SD-WAN) is the next evolution of private networking",
+            "displayImage": "",
+            "sku": "SDWANPREMIUMHA",
+            "displayPosition": 1,
+            "servicePlan": "premium",
+            "serviceVendor": "versa",
+            "serviceTransport": "customer",
+            "securityPkg": "1",
+            "standardCpe": "1",
+            "haServicePlan": "premium",
+            "haServiceVendor": "versa",
+            "haServiceTransport": "ctl",
+            "haSecurityPkg": "1",
+            "haCpe": "1",
+            "tier1Support": "1"
+            }
+            ]
+            });
+        </script>
+    </changeSet>
 </mongoChangeLog>
