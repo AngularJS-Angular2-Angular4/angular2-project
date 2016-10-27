@@ -1,3 +1,4 @@
+/* tslint:disable */
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Injectable, Inject, OnInit } from '@angular/core';
 
