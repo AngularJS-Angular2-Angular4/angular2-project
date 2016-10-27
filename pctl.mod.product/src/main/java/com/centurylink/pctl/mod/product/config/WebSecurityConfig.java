@@ -35,7 +35,7 @@ import java.util.List;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements ResourceServerConfigurer {
     public static final String JWT_TOKEN_HEADER_PARAM = "X-Authorization";
-    public static final String JWT_TOKEN_USER_ENTRY_POINT = "/**" ;    // "/auth/**";
+    public static final String JWT_TOKEN_USER_ENTRY_POINT = "/products/**" ;    // "/auth/**";
     public static final String JWT_TOKEN_USER_GET_TOKEN = "/auth/token/generate";
     public static final String LOGIN_USER_ENTRY_POINT = "/auth/user/login";
     public static final String LOGGED_OUT_ENTRY_POINT ="/auth/user/logoutSuccess";
@@ -90,6 +90,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements R
         pathsToSkip.add(LOGIN_USER_ENTRY_POINT);
         pathsToSkip.add(LOGGED_OUT_ENTRY_POINT);
         pathsToSkip.add(GET_USER_ENTRY_POINT);
+        pathsToSkip.add("/api/**");
+        pathsToSkip.add("/applications/**");
         pathsToSkip.add("/actuator");
         pathsToSkip.add("/autoconfig");
         pathsToSkip.add("/beans");
@@ -165,6 +167,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements R
             .antMatchers(LOGIN_USER_ENTRY_POINT).permitAll()
             .antMatchers(LOGGED_OUT_ENTRY_POINT).permitAll()
             .antMatchers(GET_USER_ENTRY_POINT).permitAll()
+            .antMatchers("/api/**").permitAll()
+            .antMatchers("/applications/**").permitAll()
             .antMatchers("/actuator").permitAll()
             .antMatchers("/autoconfig").permitAll()
             .antMatchers("/beans").permitAll()
