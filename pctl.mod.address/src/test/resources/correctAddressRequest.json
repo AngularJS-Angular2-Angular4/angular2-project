@@ -1,0 +1,20 @@
+{
+  "serviceAddress":{
+    "locationName":"Chicago",
+    "address":"Brooklyn",
+    "street":"Snyder Avenue street",
+    "country":"US",
+    "city":"Charlotte",
+    "state":"South Carolina",
+    "zipCode":"12045"
+  },
+  "shippingAddress":{
+    "locationName":"New York",
+    "address":"Brooklyn",
+    "street":"Snyder Avenue street",
+    "country":"America",
+    "city":"Charlotte",
+    "state":"North America",
+    "zipCode":"123054"
+  }
+}
