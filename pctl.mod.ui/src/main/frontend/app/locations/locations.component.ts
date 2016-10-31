@@ -174,7 +174,7 @@ export class LocationsComponent implements OnInit {
     this.cartService.deleteLocation(delLocationInfo);
   }
 
-  locationSubmit($event) {
+  onLocationUpdate($event) {
     //   console.log($event);
     let sdwanLocation: SDWANLocationInfo;
     let newLocation = {
@@ -183,6 +183,18 @@ export class LocationsComponent implements OnInit {
     };
     //  console.log(newLocation);
     this.cartService.updateLocation(<LocationInfo>newLocation);
+  }
+
+
+   onLocationAdd($event) {
+    //   console.log($event);
+    let sdwanLocation: SDWANLocationInfo;
+    let newLocation = {
+      productTemplateId: this.currentStore.user.status.productVariant.sku,
+      location: <SDWANLocationInfo>$event
+    };
+    //  console.log(newLocation);
+    this.cartService.addLocation(<LocationInfo>newLocation);
   }
 
   ngOnDestroy() {

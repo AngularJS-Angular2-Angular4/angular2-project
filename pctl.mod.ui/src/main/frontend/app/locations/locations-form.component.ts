@@ -25,7 +25,8 @@ export class LocationsFormComponent implements OnInit {
   public myForm: FormGroup;
   locationInfo: SDWANLocationInfo;
   @Input() data: SDWANLocationInfo;
-  @Output() locationEvent = new EventEmitter();
+  @Output() locationUpdateEvent = new EventEmitter();
+  @Output() locationAddEvent = new EventEmitter();
   submitted: boolean;
 
   @Input() set formData(formData: SDWANLocationInfo) {
@@ -128,27 +129,34 @@ export class LocationsFormComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.locationInfo = this.myForm.value;
+    let addEvent: boolean = false;
     if (this.locationInfo.id === '') {
+      addEvent = true;
       this.locationInfo = Object.assign({},
         this.locationInfo,
         { id: FingerPrintService.UUID() }
       );
     }
-    console.log(this.locationInfo);
+    //  console.log(this.locationInfo);
 
     this.resetDataModel();
     this.populateForm();
     // this.myForm.markAsPristine
     this.myForm.markAsUntouched();
     // this.myForm.reset();
-    this.locationEvent.emit(this.locationInfo);
+    // Add Event
+    if (addEvent) {
+      this.locationAddEvent.emit(this.locationInfo);
+    } else { // Update Event
+      this.locationUpdateEvent.emit(this.locationInfo);
+    }
   }
 
 
   onClickCheckAddress(checked) {
     if (checked) {
       this.myForm.value.shippingAddress.locationName =
-                                  this.myForm.value.serviceAddress.locationName;
+        this.myForm.value.serviceAddress.locationName;
       this.myForm.value.shippingAddress.addressLine = this.myForm.value.serviceAddress.addressLine;
       this.myForm.value.shippingAddress.street = this.myForm.value.serviceAddress.street;
       this.myForm.value.shippingAddress.city = this.myForm.value.serviceAddress.city;

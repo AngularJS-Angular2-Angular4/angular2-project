@@ -9,6 +9,6 @@
 		</div>
 	</div>
 </div>
-<locations-form (locationEvent)=locationSubmit($event) [formData]="formData"></locations-form>
+<locations-form (locationUpdateEvent)=onLocationUpdate($event) (locationAddEvent)=onLocationAdd($event) [formData]="formData"></locations-form>
 <hr>
 <locations-list [items]="locations" (editEvent)=editAction($event) (deleteEvent)=deleteAction($event)></locations-list>

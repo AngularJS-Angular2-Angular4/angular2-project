@@ -59,6 +59,11 @@ export class CartService implements OnInit {
             .subscribe(action => this.store.dispatch({ type: 'UPDATE_LOCATION', payload: item }));
     }
 
+    addLocation(item: LocationInfo) {
+        this.http.post(`${BASE_URL}`, JSON.stringify(item), HEADER)
+            .subscribe(action => this.store.dispatch({ type: 'UPDATE_LOCATION', payload: item }));
+    }
+
     deleteItem(item: LineItem) {
         this.http.delete(`${BASE_URL}${item.id}`)
             .subscribe(action => this.store.dispatch({ type: 'DELETE_ITEM', payload: item }));
