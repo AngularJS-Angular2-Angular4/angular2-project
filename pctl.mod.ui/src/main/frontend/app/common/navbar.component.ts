@@ -39,7 +39,7 @@ export class NavBarComponent {
 
   login() {
     // this.authService.login('tsukhu@hcl.com', 'xxx');
-    //this.router.navigate(['/login']);
+    // this.router.navigate(['/login']);
   }
 
   logout() {

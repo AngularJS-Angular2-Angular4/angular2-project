@@ -16,7 +16,7 @@ export class Validations {
 
     static nameValidator(control) {
         // Name validation with whitespace
-        if(control.value.match(/^[A-Za-z ]{1,30}$/)) {
+        if (control.value.match(/^[A-Za-z ]{1,30}$/)) {
             return null;
         } else {
             return { 'invalidName': true };
@@ -34,7 +34,7 @@ export class Validations {
 
     static phoneValidator(control) {
         // regex 1234567890 or (123) 123 1234 or any US format
-        if (control.value.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)){
+        if (control.value.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)) {
             return null;
         } else {
             return { 'invalidPhoneNumber': true };

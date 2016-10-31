@@ -34,8 +34,7 @@ import { ContactService } from './service/contact.service';
                     FooterComponent,
                     NavBarComponent,
                     ThankComponent ],
-    providers: [ 
-                 AppStateService,
+    providers: [ AppStateService,
                  AuthService,
                  ProductsService,
                  PricingService,

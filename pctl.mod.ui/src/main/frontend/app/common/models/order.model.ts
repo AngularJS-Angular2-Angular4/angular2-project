@@ -5,4 +5,4 @@ export interface Order {
     orderDate: string;
     orderValue: number;
     shoppingCart: Cart;
-} 
+}
