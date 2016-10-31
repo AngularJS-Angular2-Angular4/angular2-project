@@ -48,8 +48,8 @@ export class AppComponent {
   }
 
   initState() {
-    this.authService.init();
-    this.cartService.initCart();
+  //  this.authService.init();
+  //  this.cartService.initCart();
     this.fingerPrintService.getFingerPrint();
     this.loadProductAndPrices();
   }

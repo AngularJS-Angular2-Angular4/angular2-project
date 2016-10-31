@@ -5,7 +5,7 @@ import {
   FormControl,
   Validators,
   AbstractControl,
-	ReactiveFormsModule
+  ReactiveFormsModule
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../common/service/auth.service';
@@ -25,20 +25,20 @@ error: boolean = false;
 
   constructor(private fb: FormBuilder, public authService: AuthService, private router: Router) {
 
-			this.loginForm = fb.group ({
-				username: ['', Validators.compose(
-					[Validators.required, (control: FormControl): { [s: string]: boolean } => {
-			if (control.value.indexOf(' ') >= 0) {
-				return { cannotContainSpace: true};
-			}
-			return undefined;
-	}]
-					)],
-				password: ['', Validators.required],
-				remember: ['']
-			});
+        this.loginForm = fb.group ({
+        username: ['', Validators.compose(
+        [Validators.required, (control: FormControl): { [s: string]: boolean } => {
+        if (control.value.indexOf(' ') >= 0) {
+        return { cannotContainSpace: true};
+        }
+        return undefined;
+        }]
+        )],
+        password: ['', Validators.required],
+        remember: ['']
+        });
 
-		}
+    }
 
         login() {
             console.log(this.loginForm.value.username);
@@ -48,7 +48,7 @@ error: boolean = false;
         ngOnInit() {
             let userDet = localStorage.getItem('user');
             this.user = JSON.parse(localStorage.getItem('user'));
-            if (this.user && this.user.email.trim().length != 0) {
+            if (this.user && this.user.email.trim().length !== 0) {
                 this.router.navigate(['/home']);
             }
         }

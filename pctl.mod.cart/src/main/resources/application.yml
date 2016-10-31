@@ -32,6 +32,9 @@ jwt:
       authentication:
         path: auth
 
+security:
+  basic:
+    enabled: false
 
 # EUREKA
 eureka:

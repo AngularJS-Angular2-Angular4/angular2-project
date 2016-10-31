@@ -93,7 +93,6 @@
   "devDependencies": {
     "@types/hammerjs": "^2.0.33",
     "@types/jasmine": "^2.2.34",
-    "@types/jquery": "^1.10.31",
     "@types/lodash": "^4.14.37",
     "@types/node": "^6.0.38",
     "@types/protractor": "^1.5.20",
@@ -113,7 +112,6 @@
     "html-webpack-plugin": "^2.21.0",
     "imports-loader": "^0.6.5",
     "istanbul-instrumenter-loader": "^1.0.0",
-    "jquery": "3.1.0",
     "json-loader": "^0.5.4",
     "karma": "^1.2.0",
     "karma-chrome-launcher": "^2.0.0",

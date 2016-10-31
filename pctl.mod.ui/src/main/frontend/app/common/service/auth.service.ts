@@ -54,8 +54,7 @@ export class AuthService implements OnInit {
                 this.store.dispatch(action)
             /*    this.addCartInfo(<CartInfo>{
                     cartState: CartState.LandingPage,
-                    shoppingCartId: '',
-                    cartItemCount: 2
+                    shoppingCartId: ''
                 });*/
                 this.getUserDetails();
                 this.router.navigate(['/home']);
@@ -70,15 +69,14 @@ export class AuthService implements OnInit {
          this.store.dispatch({ type: 'DELETE_USER', payload: {} });
          this.updateUserCartInfo(<CartInfo>{
                     cartState: CartState.LandingPage,
-                    shoppingCartId: '',
-                    cartItemCount: 0
+                    shoppingCartId: ''
                 });
        // this.getUserDetails();
     }
 
     public init() {
-
-       this.store.dispatch({ type: 'INIT_USER'});
+  
+    //   this.store.dispatch({ type: 'INIT_USER'});
 
     }
 

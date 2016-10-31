@@ -6,5 +6,4 @@ import { OrderComponent } from '../order/order.component';
   templateUrl: './billing.component.html'
 })
 export class BillingComponent {
-
 }

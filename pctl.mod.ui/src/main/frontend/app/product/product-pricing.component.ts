@@ -32,10 +32,11 @@ export class ProductPricingComponent {
               mode: string): number {
     // get current selected price variant
     let currentPricing = this.prices.find( price => price.sku === sku);
-    if (mode === 'own')
-     return currentPricing.priceList.find( priceList => priceList.term === term).own;
-    else
+    if (mode === 'own') {
+      return currentPricing.priceList.find( priceList => priceList.term === term).own;
+    }else {
       return currentPricing.priceList.find( priceList => priceList.term === term).ctl;
+    }
   }
 
 
@@ -58,12 +59,11 @@ export class ProductPricingComponent {
       sku: this.prices[0].sku,
       term: this.term,
       productVariant: this.prices[0],
-      transport:this.options[1]
+      transport: this.options[1]
     };
     this.getCurrentSelection();
   }
 
-  
   getCurrentSelection() {
     switch (this.term) {
       case '12':
@@ -102,12 +102,12 @@ export class ProductPricingComponent {
 
   nextPage() {
     this.pricingService.setActiveSelection(this.status);
-    if(this.status.mode === 'ctl'){
+    if (this.status.mode === 'ctl') {
       this.router.navigate(['/contact-us']);
       return;
     }
     let currentStore = this.appStateService.getState();
-    let lineItemCount = currentStore.cart.lineItems.length + 1;
+    // let lineItemCount = currentStore.cart.lineItems.length + 1;
     // currentStore.prices.name;
     // currentStore.prices.product_id;
     // this.status.productVariant.name;
@@ -126,11 +126,12 @@ export class ProductPricingComponent {
     this.cartService.addItem(lineItem).subscribe(
       action => {
         this.store.dispatch(action);
-        this.authService.updateUserCartInfo(<CartInfo>{
+      /*  this.authService.updateUserCartInfo(<CartInfo>{
           cartState: CartState.LandingPage,
           shoppingCartId: currentStore.cart.id,
           cartItemCount: lineItemCount
         });
+        */
         //     this.authService.updateCartInfo(currentStore.cart);
         this.router.navigate(['/locations']);
       }

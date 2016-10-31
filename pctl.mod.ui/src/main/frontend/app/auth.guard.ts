@@ -7,7 +7,8 @@ export class AuthGuard implements CanActivate {
 
     constructor(
         private router: Router,
-        private appStateService: AppStateService) { }
+        private appStateService: AppStateService) {
+        }
 
     canActivate() {
         let currentStore = this.appStateService.getState();

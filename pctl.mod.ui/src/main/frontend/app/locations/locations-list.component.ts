@@ -33,11 +33,11 @@ export class LocationsListComponent implements OnInit {
   public currentPage: number = 1;
   public maxSize: number = 200;
   public itemsPerPage: number = 2;
-  //pagination counters
+  // pagination counters
   pageSize = 2;
 
   @Input() set items(locationsDisplay: LocationDisplay[]) {
-    //console.log(locationsDisplay);
+    // console.log(locationsDisplay);
     if (locationsDisplay !== undefined || locationsDisplay.length > 0) {
       this.locations = locationsDisplay;
       // this.pagedLocations = _.take(this.locations, this.pageSize);

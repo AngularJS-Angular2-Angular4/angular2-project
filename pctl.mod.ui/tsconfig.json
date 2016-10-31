@@ -25,7 +25,6 @@
       "source-map",
       "uglify-js",
       "webpack",
-      "jquery",
       "lodash"
     ]
   },
