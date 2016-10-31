@@ -204,7 +204,7 @@ module.exports = function (options) {
         from: 'src/main/frontend/assets',
         to: 'assets',
       }, {
-        from: 'src/meta',
+        from: 'src/main/frontend/meta',
       }, ]),
 
 
@@ -244,7 +244,7 @@ module.exports = function (options) {
       }),
 
       /*
-       * Plugin: HtmlHeadConfigPlugin
+       * Plugin: HtmlElementsPlugin
        * Description: Generate html tags based on javascript maps.
        *
        * If a publicPath is set in the webpack output configuration, it will be automatically added to

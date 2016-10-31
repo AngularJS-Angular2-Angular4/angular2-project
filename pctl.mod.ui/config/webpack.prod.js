@@ -218,7 +218,7 @@ module.exports = function (env) {
           tslint: {
             emitErrors: true,
             failOnHint: true,
-            resourcePath: 'src'
+            resourcePath: 'src/main/frontend'
           },
 
 

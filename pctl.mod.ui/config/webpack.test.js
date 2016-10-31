@@ -233,7 +233,7 @@ module.exports = function (options) {
           tslint: {
             emitErrors: false,
             failOnHint: false,
-            resourcePath: 'src'
+            resourcePath: 'src/main/frontend'
           },
 
         }
