@@ -1,8 +1,4 @@
-package com.centurylink.pctl.mod.cart.domain.cart;
-//import com.centurylink.pctl.mod.cart.domain.cart.Product;
-/**
- * Created by nagavenkatakirang on 24-10-2016.
- */
+package com.centurylink.pctl.mod.cart.domain.ShoppingCart;
 
 
 import com.centurylink.pctl.mod.core.model.product.Product;
@@ -10,6 +6,10 @@ import com.centurylink.pctl.mod.core.model.product.Product;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+/**
+ * Created by nagavenkatakirang on 21-10-2016.
+ */
+
 
 public class Catalog implements Serializable {
 
@@ -53,9 +53,9 @@ public class Catalog implements Serializable {
     @Override
     public String toString() {
         return "Catalog{" +
-            "id=" + id +
-            ", products=" + products +
-            ", name='" + name + '\'' +
-            '}';
+                "id=" + id +
+                ", products=" + products +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

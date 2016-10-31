@@ -12,7 +12,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @SpringBootApplication
 @EnableResourceServer
 @EnableDiscoveryClient
-@ComponentScan("com.centurylink.pctl.mod.cart")
+@ComponentScan("com.centurylink.pctl.mod")
 public class PctlCartApplication {
 
     public static void main(String[] args) {
