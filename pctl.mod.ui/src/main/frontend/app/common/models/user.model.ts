@@ -24,6 +24,5 @@ export interface EnterpriseInfo {
 export interface CartInfo {
     cartState: CartState;
     shoppingCartId: string;
-    cartItemCount: number;
 }
 

@@ -107,7 +107,7 @@ export class ProductPricingComponent {
       return;
     }
     let currentStore = this.appStateService.getState();
-    let lineItemCount = currentStore.cart.lineItems.length + 1;
+    // let lineItemCount = currentStore.cart.lineItems.length + 1;
     // currentStore.prices.name;
     // currentStore.prices.product_id;
     // this.status.productVariant.name;
@@ -126,11 +126,12 @@ export class ProductPricingComponent {
     this.cartService.addItem(lineItem).subscribe(
       action => {
         this.store.dispatch(action);
-        this.authService.updateUserCartInfo(<CartInfo>{
+      /*  this.authService.updateUserCartInfo(<CartInfo>{
           cartState: CartState.LandingPage,
           shoppingCartId: currentStore.cart.id,
           cartItemCount: lineItemCount
         });
+        */
         //     this.authService.updateCartInfo(currentStore.cart);
         this.router.navigate(['/locations']);
       }
