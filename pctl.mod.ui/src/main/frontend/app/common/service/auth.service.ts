@@ -75,8 +75,8 @@ export class AuthService implements OnInit {
     }
 
     public init() {
-
-       this.store.dispatch({ type: 'INIT_USER'});
+  
+    //   this.store.dispatch({ type: 'INIT_USER'});
 
     }
 
