@@ -8,29 +8,31 @@ services:
 #     - CONFIGURATION_REPOSITORY=https://github.com/shardis/spring-angular2-starter-configuration.git
 #     - CONFIGURATION_BRANCH=dev
   discovery-service:
-    image: com-centurylink-pctl/pctl-mod-discovery
+    image: com.centurylink.pctl/pctl.mod.discovery 
     ports:
      - 8081:8081
   product-service:
-    image: com-centurylink-pctl/pctl-mod-product
+    image: com.centurylink.pctl/pctl.mod.product
     ports:
      - 8082:8082
     depends_on:
      - discovery-service
     links:
+     - mongo
      - discovery-service
     entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
   user-service:
-    image: com-centurylink-pctl/pctl-mod-user
+    image: com.centurylink.pctl/pctl.mod.user
     ports:
      - 8083:8083
     depends_on:
      - discovery-service
     links:
+     - mongo
      - discovery-service
     entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
   ui-service:
-    image: com-centurylink-pctl/pctl-mod-ui
+    image: com.centurylink.pctl/pctl.mod.ui
     ports:
      - 8080:8080
     depends_on:
@@ -43,7 +45,7 @@ services:
      - product-service
     entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
   admin-service:
-    image: com-centurylink-pctl/pctl-mod-admin
+    image: com.centurylink.pctl/pctl.mod.admin
     ports:
       - 8084:8084
     depends_on:
@@ -54,34 +56,38 @@ services:
       - product-service
       - ui-service
     entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
-  cart-service:
-    image: com-centurylink-pctl/pctl-mod-cart
+#  cart-service:
+#    image: com.centurylink.pctl/pctl.mod-cart
+#    ports:
+#     - 8087:8087
+#    depends_on:
+#     - discovery-service
+#     - user-service
+#     - product-service
+#    links:
+#     - discovery-service
+#     - user-service
+#     - product-service
+#    entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
+#  address-service:
+#    image: com.centurylink.pctl/pctl.mod.address
+#    ports:
+#     - 8085:8085
+#    depends_on:
+#     - discovery-service
+#    links:
+#     - discovery-service
+#    entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
+#  notification-service:
+#    image: com.centurylink.pctl/pctl.mod.notification
+#    ports:
+#     - 8086:8086
+#    depends_on:
+#     - discovery-service
+#    links:
+#     - discovery-service
+#    entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
+  mongo:
+    image: mongo:3.3
     ports:
-     - 8087:8087
-    depends_on:
-     - discovery-service
-     - user-service
-     - product-service
-    links:
-     - discovery-service
-     - user-service
-     - product-service
-    entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
-  address-service:
-    image: com-centurylink-pctl/pctl-mod-address
-    ports:
-     - 8085:8085
-    depends_on:
-     - discovery-service
-    links:
-     - discovery-service
-    entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
-  notification-service:
-    image: com-centurylink-pctl/pctl-mod-notification
-    ports:
-     - 8086:8086
-    depends_on:
-     - discovery-service
-    links:
-     - discovery-service
-    entrypoint: ./wait-for-service.sh http://discovery-service:8081/health
+    - 27017:27017
