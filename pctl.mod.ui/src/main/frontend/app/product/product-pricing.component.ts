@@ -120,9 +120,10 @@ export class ProductPricingComponent {
       productId:  this.status.productVariant.productId,
       productTemplateName: this.status.productVariant.name,
       productTemplateId: this.status.productVariant.sku,
+      unitPrice: this.currentPrice,
       locations: []
     };
-    console.log('next page additem');
+    //console.log('next page additem');
     this.cartService.addItem(lineItem).subscribe(
       action => {
         this.store.dispatch(action);

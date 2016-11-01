@@ -5,38 +5,13 @@
     "loggedIn": true
   },
   "cart": {
-    "productTemplateId": "SDWANBASIC",
-    "location": {
-      "id": "a232eb63-0930-50c4-0a89-1b075493f5ad",
-      "serviceContact": {
-        "id": "",
-        "email": "tsukhu@hcl.com",
-        "firstName": "Taruns",
-        "lastName": "Kumar",
-        "phoneNumber": "111-111-1111"
-      },
-      "serviceAddress": {
-        "id": "",
-        "locationName": "LOC1",
-        "addressLine": "SDsdf",
-        "street": "sdf",
-        "city": "sdf",
-        "country": "Canada",
-        "state": "Alabama",
-        "zipCode": "22222"
-      },
-      "shippingAddress": {
-        "id": "",
-        "checkAddress": true,
-        "locationName": "LOC1",
-        "addressLine": "SDsdf",
-        "street": "sdf",
-        "city": "sdf",
-        "country": "Canada",
-        "state": "Alabama",
-        "zipCode": "11111"
-      }
-    }
+    "id": "6a274b08-535a-cc3a-fe37-50720bee8d7b",
+    "productName": "SD WAN",
+    "productId": "sdwan1000",
+    "productTemplateName": "SD-WAN PREMIUM HA",
+    "productTemplateId": "SDWANPREMIUMHA",
+    "unitPrice": 450,
+    "locations": []
   },
   "products": [
     {
